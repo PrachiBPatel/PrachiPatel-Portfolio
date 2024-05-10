@@ -8,10 +8,7 @@ editor_options:
     wrap: sentence
 # layout options: single or single-sidebar
 layout: single
-categories:
-  - Theme Features
-  - R
-  - package
+
 ---
 
 This section is for the basic set up.

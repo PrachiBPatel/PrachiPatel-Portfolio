@@ -1,9 +1,9 @@
 ---
 ## Configure header of page
-text_align_right: false
-show_title_as_headline: false
+text_align_justify: true
+show_title_as_headline: true
 headline: |
-  Hi, my name is Prachi Patel
+
 ---
 
 <!-- this is a subheadline -->

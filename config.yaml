@@ -55,7 +55,7 @@ params:
   socialInFooter: yes
   socialInHeader: no
   textFontFamily: sans-serif
-  theme: sky
+  theme: water
   twitter: prachipatel2503
   utterances:
     issue_term: pathname
