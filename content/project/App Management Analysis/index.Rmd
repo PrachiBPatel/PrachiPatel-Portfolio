@@ -3,11 +3,6 @@ title: "App Management Analysis"
 author: "Prachi Patel"
 date: "2022-09-28"
 output: pdf_document
-editor_options: 
-  markdown: 
-    wrap: sentence
-# layout options: single or single-sidebar
-layout: single
 
 ---
 

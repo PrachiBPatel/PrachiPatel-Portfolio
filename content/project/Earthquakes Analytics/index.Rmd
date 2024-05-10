@@ -3,15 +3,6 @@ title: "Earthquake Analysis"
 author: "Prachi Patel"
 date: "2022-09-28"
 output: pdf_document
-editor_options: 
-  markdown: 
-    wrap: sentence
-# layout options: single or single-sidebar
-layout: single
-categories:
-  - Theme Features
-  - R
-  - package
 ---
 
 ```{r}
