@@ -1,0 +1,325 @@
+---
+title: "Cancer Diagnosis Prediction"
+author: "Prachi Patel"
+date: "2022-12-13"
+output: pdf_document
+---
+
+This section is for the basic set up.
+It will clear all the plots, the console and the workspace.
+It also sets the overall format for numbers.
+
+```{r}
+if(!is.null(dev.list())) dev.off()
+cat("\014") 
+rm(list=ls())
+options(scipen=9)
+```
+
+This section loads and attaches all the necessary packages.
+
+```{r}
+if(!require(readxl)){install.packages("readxl")}
+library("readxl")
+
+if(!require(pastecs)){install.packages("pastecs")}
+library("pastecs")
+
+if(!require(lattice)){install.packages("lattice")}
+library("lattice")
+
+if(!require(ggplot2)){install.packages("ggplot2")}
+library("ggplot2")
+
+if(!require(tinytex)){install.packages("tinytex")}
+library("tinytex")
+
+if(!require(corrgram)){install.packages("corrgram")}
+library("corrgram")
+
+if(!require(psych)){install.packages("psych")}
+library("psych")
+
+if(!require(partykit)){install.packages("partykit")}
+library("partykit")
+
+if(!require(klaR)){install.packages("klaR")}
+  library("klaR")
+
+```
+
+
+```{r setup, include=FALSE}
+getwd()  # for verifying working directory
+ExcelFile <- read_excel("PROG8430_Final_22F_train.xlsx")
+ExcelFile <- as.data.frame(ExcelFile)
+head(ExcelFile)
+```
+
+
+## Append initials in the data frame we can use paste function to concatenate value and added _ as a separator.
+
+```{r}
+colnames(ExcelFile) <- paste(colnames(ExcelFile), "", sep = "")
+head(ExcelFile)
+```
+
+# Convert Character variable into Factor.
+
+```{r}
+# convert all the char variables to factor.
+as.data.frame(unclass(ExcelFile),stringsAsFactors = TRUE) 
+```
+
+
+# Checking Correlation
+
+```{r}
+# Checking Correlation
+
+ExcelFile$Cancer <- as.numeric(ExcelFile$Cancer)
+ExcelFile$Hst <- as.numeric(ExcelFile$Hst)
+ExcelFile$Smk <- as.numeric(ExcelFile$Smk)
+ExcelFile$Drk <- as.numeric(ExcelFile$Drk)
+ExcelFile1 <- ExcelFile[c(1:7)]
+cor(ExcelFile1[,unlist(lapply(ExcelFile1,is.numeric))], method="spearman")
+
+# Based on the correlation, we can say that there is strong correlation between Smoke and Drink in the model.
+
+ExcelFile1 <- ExcelFile1[-c(7)]
+ExcelFile <- ExcelFile[-c(7)]
+summary(ExcelFile)
+head(ExcelFile1)
+```
+# Check Dimensionality reduction
+
+```{r}
+# Using summary function, we can summarize all data in the data source.
+## Based on summary, we can say that no null data is available.
+summary(ExcelFile)
+
+# Checking coef.var values for numeric field.
+stat.desc(ExcelFile)
+```
+
+
+# Check Outliners
+
+```{r}
+
+Cancer <- table(ExcelFile$Cancer)
+Cancer <- Cancer[order(Cancer,decreasing=TRUE)]
+barplot(Cancer,density = 30, angle = 45, main="The patient was diagnosed with cancer (0=no, 1=yes)", xlab="The patient was diagnosed with cancer", ylab = "Frequency", col=c("#6bc9c2"))
+
+# Created boxplot for Age (i.e. numeric, non-binary) to determine outliers.
+boxplot(ExcelFile$Age, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "Age in years")
+densityplot( ~ ExcelFile$Age, pch=6,col=c("#6bc9c2"), xlab = "Age")
+
+# Created boxplot for Height to Weight (i.e. numeric, non-binary) to determine outliers.
+boxplot(ExcelFile$HW, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "A ratio of Height to Weight")
+densityplot( ~ ExcelFile$HW, pch=6,col=c("#6bc9c2"), xlab = "Height to Weight")
+
+#Code to delete outliner data where Height to Weight value is more than 2.
+nr <- which(ExcelFile$HW > 2)
+ExcelFile <- ExcelFile[-c(nr),]
+boxplot(ExcelFile$HW, horizontal=TRUE, col=c("#e8bbfa"), pch=20, main = "A ratio of Height to Weight")
+densityplot( ~ ExcelFile$HW, pch=6,col=c("#e8bbfa"), xlab = "Height to Weight")
+
+Hst <- table(ExcelFile$Hst)
+Hst <- Hst[order(Hst,decreasing=TRUE)]
+barplot(Hst,density = 30, angle = 45, main="History of Cancer in Family (0=No, 1=Yes)", xlab="History of Cancer", ylab = "Frequency", col=c("#6bc9c2"))
+
+# Created boxplot for Exercise (i.e. numeric, non-binary) to determine outliers.
+boxplot(ExcelFile$Exe, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "Time spent exercising each week (in minutes) - Box Plot")
+densityplot( ~ ExcelFile$Exe, pch=6,col=c("#6bc9c2"), xlab = "Exercise")
+
+Smk <- table(ExcelFile$Smk)
+Smk <- Smk[order(Smk,decreasing=TRUE)]
+barplot(Smk,density = 30, angle = 45, main="Patient is smoker (0=No, 1=Yes) - Bar Plot", xlab="Smoker", ylab = "Frequency", col=c("#6bc9c2"))
+
+Hlth <- table(ExcelFile$Hlth)
+Hlth <- Hlth[order(Hlth,decreasing=TRUE)]
+barplot(Hlth,density = 30, angle = 45, main="General health of patient. Five point scale: (VP) very poor health, (P) poor 
+health, (A) average health, (G) good, (VG) very good health - Bar Plot", xlab="Health", ylab = "Frequency", col=c("#6bc9c2"))
+
+```
+
+# Creating Full Model
+
+```{r}
+#Creating a full model for all the variable with the Cancer variable as a dependent variable.
+full.model = glm(Cancer ~ . ,data=ExcelFile, na.action=na.omit, family="binomial")
+summary(full.model)
+pred <- predict(full.model, newdata=ExcelFile)
+```
+
+# Creating Backward Model
+
+```{r}
+# Creating another model using backward selection.
+back.model = step(full.model, direction="backward", details=TRUE)
+summary(back.model)
+pred <- predict(back.model, newdata=ExcelFile)
+```
+# *****************************************************************************************************************
+## AIC
+### Backward model has lowset AIC value.
+## Deviance
+### Backward model has higher deviance difference.
+## Residual symmetry
+### Residual symmetry value is near by zero for backward model.
+## z-values - all Pr(>z) values less than 0.05 is consider as the better model.
+### For Backward model, Pr(>z) value is less than 0.05 for one and another varibale Pr(>z) value is near by 0.05.
+
+### Based on these observations, we can say that backward model is the better model than backward model. 
+
+# *****************************************************************************************************************
+
+# Logistic Regression – Backward
+
+```{r}
+
+ExcelFile$Cancer <- as.factor(ExcelFile$Cancer)
+ExcelFile$Hst <- as.factor(ExcelFile$Hst)
+ExcelFile$Smk <- as.factor(ExcelFile$Smk)
+
+# In regression, the dependent variable is marked as Y and the independent variable is marked as X. 
+# So, here adding the Cancer as dependent variable and other variables as the independent variables.
+
+glm.mod <- glm(Cancer ~ .,family="binomial", data=ExcelFile, na.action=na.omit)
+stp.glm <- step(glm.mod)
+
+
+# Classifies
+resp <- predict(back.model, type="response")
+head(resp,10)
+# more than 50% chance then 1 else 0.
+class <- ifelse(resp > 0.5,1,0)
+head(class)
+
+```
+
+#Confusion Matrix for Logistic Regression – Backward
+
+```{r}
+# creating the confusion matrix.
+LR_CF <-table(ExcelFile$Cancer, class, dnn = list("Actual","Predicted"))
+LR_CF
+
+LR_TP <-LR_CF[2,2]
+LR_TN <-LR_CF[1,1]
+LR_FP <-LR_CF[1,2]
+LR_FN <-LR_CF[2,1]
+```
+
+# Naive-Bayes Classification
+
+```{r}
+
+# In regression, the dependent variable is marked as Y and the independent variable is marked as X. 
+# So, here adding the OT as dependent variable and other variables as the independent variables.
+Naive <- NaiveBayes(Cancer ~ .,family="binomial", data=ExcelFile, na.action=na.omit)
+
+```
+
+# Confusion Matrix for Naive-Bayes Classification
+
+```{r warning=FALSE}
+# Classifies
+pred_bay <- predict(Naive,ExcelFile)
+ 
+# Creates Confusion Matrix
+Naive_CF <- table(Actual=ExcelFile$Cancer, Predicted=pred_bay$class)
+Naive_CF
+
+Naive_TP <-Naive_CF[2,2]
+Naive_TN <-Naive_CF[1,1]
+Naive_FP <-Naive_CF[1,2]
+Naive_FN <-Naive_CF[2,1]
+```
+
+# Linear Discriminant Analysis
+
+```{r}
+LDA <- lda(Cancer ~ .,data = ExcelFile, na.action=na.omit)
+
+```
+
+# Confusion Matrix for Linear Discriminant Analysis
+
+```{r}
+#Classifies
+pred_dis <- predict(LDA, data=ExcelFile)
+#Confusion Matrix
+LDA_CF <- table(Actual=ExcelFile$Cancer, Predicted=pred_dis$class)
+LDA_CF
+
+#Defined
+LDA_TP <-LDA_CF[2,2]
+LDA_TN <-LDA_CF[1,1]
+LDA_FP <-LDA_CF[1,2]
+LDA_FN <-LDA_CF[2,1]
+```
+
+# Checking which classifier is most accurate.
+
+```{r}
+# Accuracy: The proportion of cases correctly classified: (TP+TN)/Total
+
+# Accuracy for LR classifier.
+LR_ACC <-(LR_TP+LR_TN)/sum(LR_CF)
+cat("Logistic Regression: ")
+LR_ACC
+#Accuracy for Naive classifier.
+Naive_ACC <-(Naive_TP+Naive_TN)/sum(Naive_CF)
+cat("Naive Bayes Classification: ")
+Naive_ACC
+#Accuracy for LDA Classifier.
+LDA_ACC <-(LDA_TP+LDA_TN)/sum(LDA_CF)
+cat("Linear Discriminant Analysis: ")
+LDA_ACC
+
+## Based on the accuracy values for all three defined classifiers, 
+## Linear Discriminant Analysis classifier is the most accurate 
+## because it's value is slightly higher than other two classifier's accuracy value.
+```
+
+
+# Checking which classifier minimizes false positives.
+
+```{r}
+
+# False Positive value for Logistic Regression Classifier 
+cat("Logistic Regression: ")
+LR_FP
+
+# False Positive value for Naive Bayes Classification
+cat("Naive Bayes Classification: ")
+Naive_FP
+
+# False Positive value for Linear Discriminant Analysis Classifier
+cat("Linear Discriminant Analysis: ")
+LDA_FP
+
+## Based on the FP values for all three classifiers, 
+## Linear Discriminant Analysis Classifier has the lowest value for false positives.
+```
+
+# Add Prediction
+
+```{r}
+
+Test <- read_excel("PROG8430_Final_22F_test.xlsx")
+head(Test,10)
+
+Test1 <-as.data.frame(unclass(Test),stringsAsFactors=TRUE)
+
+pred <- predict(back.model, newdata=Test1)
+head(pred)
+
+Test1 <- cbind(Test,pred)
+
+write_xlsx(Test1,"PROG8430_Final_22F_Pred.xlsx")
+
+```
+

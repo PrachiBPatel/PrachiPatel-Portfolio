@@ -1,0 +1,160 @@
+---
+title: "PROG8430-22F-Assignment4-8833879"
+author: "Prachi Patel"
+date: "2022-11-13"
+output: pdf_document
+---
+
+This section is for the basic set up.
+It will clear all the plots, the console and the workspace.
+It also sets the overall format for numbers.
+
+
+```r
+if(!is.null(dev.list())) dev.off()
+```
+
+```
+## null device 
+##           1
+```
+
+```r
+cat("\014") 
+```
+
+
+
+```r
+rm(list=ls())
+options(scipen=9)
+```
+
+This section loads and attaches all the necessary packages.
+
+
+```r
+if(!require(readxl)){install.packages("readxl")}
+```
+
+```
+## Loading required package: readxl
+```
+
+```r
+library("readxl")
+
+if(!require(pastecs)){install.packages("pastecs")}
+```
+
+```
+## Loading required package: pastecs
+```
+
+```r
+library("pastecs")
+
+if(!require(lattice)){install.packages("lattice")}
+```
+
+```
+## Loading required package: lattice
+```
+
+```r
+library("lattice")
+
+if(!require(ggplot2)){install.packages("ggplot2")}
+```
+
+```
+## Loading required package: ggplot2
+```
+
+```r
+library("ggplot2")
+
+if(!require(tinytex)){install.packages("tinytex")}
+```
+
+```
+## Loading required package: tinytex
+```
+
+```r
+library("tinytex")
+
+if(!require(corrgram)){install.packages("corrgram")}
+```
+
+```
+## Loading required package: corrgram
+```
+
+```
+## Warning: package 'corrgram' was built under R version 4.2.2
+```
+
+```
+## 
+## Attaching package: 'corrgram'
+```
+
+```
+## The following object is masked from 'package:lattice':
+## 
+##     panel.fill
+```
+
+```r
+library("corrgram")
+
+if(!require(psych)){install.packages("psych")}
+```
+
+```
+## Loading required package: psych
+```
+
+```
+## Warning: package 'psych' was built under R version 4.2.2
+```
+
+```
+## 
+## Attaching package: 'psych'
+```
+
+```
+## The following objects are masked from 'package:ggplot2':
+## 
+##     %+%, alpha
+```
+
+```r
+library("psych")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

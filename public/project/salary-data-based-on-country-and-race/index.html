@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=7142&amp;path=livereload" data-no-instant defer></script>
+  
+                           
+     
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.125.7">
+<title>Salary data based on country and race Analysis | Prachi Patel</title>
+
+
+<meta property="twitter:site" content="@prachipatel2503">
+<meta property="twitter:creator" content="@prachipatel2503">
+
+
+
+
+
+
+
+  
+    
+  
+<meta name="description" content="Prachi Patel Portfolio">
+
+
+<meta property="og:site_name" content="Prachi Patel">
+<meta property="og:title" content="Salary data based on country and race Analysis | Prachi Patel">
+<meta property="og:description" content="Prachi Patel Portfolio" />
+<meta property="og:type" content="page" />
+<meta property="og:url" content="//localhost:7142/project/salary-data-based-on-country-and-race/" />
+<meta property="og:locale" content="en">
+
+
+
+
+    
+        <meta property="og:image" content="//localhost:7142/project/sidebar-listing.jpg" >
+        <meta property="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="//localhost:7142/project/sidebar-listing.jpg" >
+    
+    
+  
+  <meta itemprop="name" content="Salary data based on country and race Analysis">
+  <meta itemprop="description" content="DataSet Reference: https://www.kaggle.com/datasets/sudheerp2147234/salary-dataset-based-on-country-and-race?resource=download Importing library
+import pandas as pd import seaborn as sns import numpy as np import matplotlib.pyplot as plt import warnings sns.set_theme(color_codes=True) warnings.filterwarnings(&#39;ignore&#39;) Import Dataset
+df = pd.read_csv(&#39;Salary_Data_Based_country_and_race.csv&#39;) Read Dataset
+df.head() ## Unnamed: 0 Age Gender ... Salary Country Race## 0 0 32.0 Male ... 90000.0 UK White## 1 1 28.0 Female ... 65000.0 USA Hispanic## 2 2 45.0 Male ... 150000.0 Canada White## 3 3 36.">
+  <meta itemprop="datePublished" content="2024-03-28T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-03-28T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1932">
+  <meta itemprop="keywords" content="Theme Features,R,Package">
+  
+  
+
+
+  <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="shortcut icon" href="/img/Logo.png" type="image/x-icon">
+  <link rel="icon" href="/img/Logo.png" type="image/x-icon">
+  
+  
+  <link rel="stylesheet" href="/style.main.min.e5bc2ab02aa5415259a0324101e74cc435a9757b2ef00918dd1d6f36906c0505.css" integrity="sha256-5bwqsCqlQVJZoDJBAedMxDWpdXsu8AkY3R1vNpBsBQU=" media="screen">
+  
+  
+  <script src="/panelset.min.ed1ac24b6e16f4e2481e3d1d098ae66f5bc77438aef619e6e266d8ac5b00dc72.js" type="text/javascript"></script>
+  
+  
+  <script src="/main.min.290cc02c3c32c4a038f8668db865e670276d944944eeedcbc37a6374dce4312f.js" type="text/javascript"></script>
+</head>
+<body>
+      <div class="grid-container single">
+<header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
+  <nav class="site-nav db dt-l w-100" role="navigation">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="//localhost:7142/" title="Home">
+      <img src="/img/Logo.png" class="dib db-l h2 w-auto" alt="Prachi Patel">
+    </a>
+    <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/about/" title="About Blogophonic">About</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 active" href="/project/" title="Project Portfolio">Projects</a>
+      
+      
+    </div>
+  </nav>
+</header>
+
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 ph4-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Salary data based on country and race Analysis</h1>
+        
+        <p class="f6 measure lh-copy mv1">By Prachi Patel in <a href="//localhost:7142/categories/theme-features">Theme Features</a>  <a href="//localhost:7142/categories/r">R</a>  <a href="//localhost:7142/categories/package">package</a> </p>
+        <p class="f7 db mv0 ttu">March 28, 2024</p>
+
+      
+
+      </header>
+      <section class="post-body pt5 pb4">
+        <p>DataSet Reference: 
+<a href="https://www.kaggle.com/datasets/sudheerp2147234/salary-dataset-based-on-country-and-race?resource=download" target="_blank" rel="noopener">https://www.kaggle.com/datasets/sudheerp2147234/salary-dataset-based-on-country-and-race?resource=download</a>
+Importing library</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">pandas</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">pd</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">seaborn</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">sns</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">numpy</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">np</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">matplotlib.pyplot</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">plt</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">warnings</span>
+</span></span><span style="display:flex;"><span>sns<span style="color:#000;font-weight:bold">.</span>set_theme(color_codes<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">True</span>)
+</span></span><span style="display:flex;"><span>warnings<span style="color:#000;font-weight:bold">.</span>filterwarnings(<span style="color:#d14">&#39;ignore&#39;</span>)
+</span></span></code></pre></div><p>Import Dataset</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df <span style="color:#000;font-weight:bold">=</span> pd<span style="color:#000;font-weight:bold">.</span>read_csv(<span style="color:#d14">&#39;Salary_Data_Based_country_and_race.csv&#39;</span>)
+</span></span></code></pre></div><p>Read Dataset</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>head()
+</span></span></code></pre></div><pre tabindex="0"><code>##    Unnamed: 0   Age  Gender  ...    Salary Country      Race
+## 0           0  32.0    Male  ...   90000.0      UK     White
+## 1           1  28.0  Female  ...   65000.0     USA  Hispanic
+## 2           2  45.0    Male  ...  150000.0  Canada     White
+## 3           3  36.0  Female  ...   60000.0     USA  Hispanic
+## 4           4  52.0    Male  ...  200000.0     USA     Asian
+## 
+## [5 rows x 9 columns]
+</code></pre><p>Database Information</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">28</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m****************************
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m</span><span style="color:#d14">\033</span><span style="color:#d14">[1m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;.: Imported Dataset Info :.&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Imported Dataset Info :.[0m
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">28</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m****************************
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;Total Rows:&#39;</span>, df<span style="color:#000;font-weight:bold">.</span>shape[<span style="color:#099">0</span>])
+</span></span></code></pre></div><pre tabindex="0"><code>## Total Rows: 6704
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;Total Columns:&#39;</span>, df<span style="color:#000;font-weight:bold">.</span>shape[<span style="color:#099">1</span>])
+</span></span></code></pre></div><pre tabindex="0"><code>## Total Columns: 9
+</code></pre><p>Dataset Details</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">30</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [0m[92m******************************[0m
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m</span><span style="color:#d14">\033</span><span style="color:#d14">[1m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;.: Dataset Details :.&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Dataset Details :.[0m
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">30</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [0m[92m******************************[0m
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>info()
+</span></span></code></pre></div><pre tabindex="0"><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+## RangeIndex: 6704 entries, 0 to 6703
+## Data columns (total 9 columns):
+##  #   Column               Non-Null Count  Dtype  
+## ---  ------               --------------  -----  
+##  0   Unnamed: 0           6704 non-null   int64  
+##  1   Age                  6702 non-null   float64
+##  2   Gender               6702 non-null   object 
+##  3   Education Level      6701 non-null   object 
+##  4   Job Title            6702 non-null   object 
+##  5   Years of Experience  6701 non-null   float64
+##  6   Salary               6699 non-null   float64
+##  7   Country              6704 non-null   object 
+##  8   Race                 6704 non-null   object 
+## dtypes: float64(3), int64(1), object(5)
+## memory usage: 471.5+ KB
+</code></pre><p>As per the details mentioned above we can say that thre are 9 columns and 6704 records.
+Also, there are couple of null values available in the dataset.</p>
+<p>Drop the unnamed column from the dataset.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>drop(columns<span style="color:#000;font-weight:bold">=</span>df<span style="color:#000;font-weight:bold">.</span>columns[<span style="color:#099">0</span>], axis<span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>,  inplace<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">True</span>)
+</span></span><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>head()
+</span></span></code></pre></div><pre tabindex="0"><code>##     Age  Gender Education Level  ...    Salary  Country      Race
+## 0  32.0    Male      Bachelor&#39;s  ...   90000.0       UK     White
+## 1  28.0  Female        Master&#39;s  ...   65000.0      USA  Hispanic
+## 2  45.0    Male             PhD  ...  150000.0   Canada     White
+## 3  36.0  Female      Bachelor&#39;s  ...   60000.0      USA  Hispanic
+## 4  52.0    Male        Master&#39;s  ...  200000.0      USA     Asian
+## 
+## [5 rows x 8 columns]
+</code></pre><p>Check unique values available for each column.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">42</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m******************************************
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m</span><span style="color:#d14">\033</span><span style="color:#d14">[1m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;.: Unique value count for each columns :.&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Unique value count for each columns :.[0m
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">42</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m******************************************
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>select_dtypes(include<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;object&#39;</span>)<span style="color:#000;font-weight:bold">.</span>nunique()
+</span></span></code></pre></div><pre tabindex="0"><code>## Gender               3
+## Education Level      7
+## Job Title          193
+## Country              5
+## Race                10
+## dtype: int64
+</code></pre><p>Unique Job Title List</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df[<span style="color:#d14">&#39;Job Title&#39;</span>]<span style="color:#000;font-weight:bold">.</span>unique()
+</span></span></code></pre></div><pre tabindex="0"><code>## array([&#39;Software Engineer&#39;, &#39;Data Analyst&#39;, &#39;Senior Manager&#39;,
+##        &#39;Sales Associate&#39;, &#39;Director&#39;, &#39;Marketing Analyst&#39;,
+##        &#39;Product Manager&#39;, &#39;Sales Manager&#39;, &#39;Marketing Coordinator&#39;,
+##        &#39;Senior Scientist&#39;, &#39;Software Developer&#39;, &#39;HR Manager&#39;,
+##        &#39;Financial Analyst&#39;, &#39;Project Manager&#39;, &#39;Customer Service Rep&#39;,
+##        &#39;Operations Manager&#39;, &#39;Marketing Manager&#39;, &#39;Senior Engineer&#39;,
+##        &#39;Data Entry Clerk&#39;, &#39;Sales Director&#39;, &#39;Business Analyst&#39;,
+##        &#39;VP of Operations&#39;, &#39;IT Support&#39;, &#39;Recruiter&#39;, &#39;Financial Manager&#39;,
+##        &#39;Social Media Specialist&#39;, &#39;Software Manager&#39;, &#39;Junior Developer&#39;,
+##        &#39;Senior Consultant&#39;, &#39;Product Designer&#39;, &#39;CEO&#39;, &#39;Accountant&#39;,
+##        &#39;Data Scientist&#39;, &#39;Marketing Specialist&#39;, &#39;Technical Writer&#39;,
+##        &#39;HR Generalist&#39;, &#39;Project Engineer&#39;, &#39;Customer Success Rep&#39;,
+##        &#39;Sales Executive&#39;, &#39;UX Designer&#39;, &#39;Operations Director&#39;,
+##        &#39;Network Engineer&#39;, &#39;Administrative Assistant&#39;,
+##        &#39;Strategy Consultant&#39;, &#39;Copywriter&#39;, &#39;Account Manager&#39;,
+##        &#39;Director of Marketing&#39;, &#39;Help Desk Analyst&#39;,
+##        &#39;Customer Service Manager&#39;, &#39;Business Intelligence Analyst&#39;,
+##        &#39;Event Coordinator&#39;, &#39;VP of Finance&#39;, &#39;Graphic Designer&#39;,
+##        &#39;UX Researcher&#39;, &#39;Social Media Manager&#39;, &#39;Director of Operations&#39;,
+##        &#39;Senior Data Scientist&#39;, &#39;Junior Accountant&#39;,
+##        &#39;Digital Marketing Manager&#39;, &#39;IT Manager&#39;,
+##        &#39;Customer Service Representative&#39;, &#39;Business Development Manager&#39;,
+##        &#39;Senior Financial Analyst&#39;, &#39;Web Developer&#39;, &#39;Research Director&#39;,
+##        &#39;Technical Support Specialist&#39;, &#39;Creative Director&#39;,
+##        &#39;Senior Software Engineer&#39;, &#39;Human Resources Director&#39;,
+##        &#39;Content Marketing Manager&#39;, &#39;Technical Recruiter&#39;,
+##        &#39;Sales Representative&#39;, &#39;Chief Technology Officer&#39;,
+##        &#39;Junior Designer&#39;, &#39;Financial Advisor&#39;, &#39;Junior Account Manager&#39;,
+##        &#39;Senior Project Manager&#39;, &#39;Principal Scientist&#39;,
+##        &#39;Supply Chain Manager&#39;, &#39;Senior Marketing Manager&#39;,
+##        &#39;Training Specialist&#39;, &#39;Research Scientist&#39;,
+##        &#39;Junior Software Developer&#39;, &#39;Public Relations Manager&#39;,
+##        &#39;Operations Analyst&#39;, &#39;Product Marketing Manager&#39;,
+##        &#39;Senior HR Manager&#39;, &#39;Junior Web Developer&#39;,
+##        &#39;Senior Project Coordinator&#39;, &#39;Chief Data Officer&#39;,
+##        &#39;Digital Content Producer&#39;, &#39;IT Support Specialist&#39;,
+##        &#39;Senior Marketing Analyst&#39;, &#39;Customer Success Manager&#39;,
+##        &#39;Senior Graphic Designer&#39;, &#39;Software Project Manager&#39;,
+##        &#39;Supply Chain Analyst&#39;, &#39;Senior Business Analyst&#39;,
+##        &#39;Junior Marketing Analyst&#39;, &#39;Office Manager&#39;, &#39;Principal Engineer&#39;,
+##        &#39;Junior HR Generalist&#39;, &#39;Senior Product Manager&#39;,
+##        &#39;Junior Operations Analyst&#39;, &#39;Senior HR Generalist&#39;,
+##        &#39;Sales Operations Manager&#39;, &#39;Senior Software Developer&#39;,
+##        &#39;Junior Web Designer&#39;, &#39;Senior Training Specialist&#39;,
+##        &#39;Senior Research Scientist&#39;, &#39;Junior Sales Representative&#39;,
+##        &#39;Junior Marketing Manager&#39;, &#39;Junior Data Analyst&#39;,
+##        &#39;Senior Product Marketing Manager&#39;, &#39;Junior Business Analyst&#39;,
+##        &#39;Senior Sales Manager&#39;, &#39;Junior Marketing Specialist&#39;,
+##        &#39;Junior Project Manager&#39;, &#39;Senior Accountant&#39;, &#39;Director of Sales&#39;,
+##        &#39;Junior Recruiter&#39;, &#39;Senior Business Development Manager&#39;,
+##        &#39;Senior Product Designer&#39;, &#39;Junior Customer Support Specialist&#39;,
+##        &#39;Senior IT Support Specialist&#39;, &#39;Junior Financial Analyst&#39;,
+##        &#39;Senior Operations Manager&#39;, &#39;Director of Human Resources&#39;,
+##        &#39;Junior Software Engineer&#39;, &#39;Senior Sales Representative&#39;,
+##        &#39;Director of Product Management&#39;, &#39;Junior Copywriter&#39;,
+##        &#39;Senior Marketing Coordinator&#39;, &#39;Senior Human Resources Manager&#39;,
+##        &#39;Junior Business Development Associate&#39;, &#39;Senior Account Manager&#39;,
+##        &#39;Senior Researcher&#39;, &#39;Junior HR Coordinator&#39;,
+##        &#39;Director of Finance&#39;, &#39;Junior Marketing Coordinator&#39;, nan,
+##        &#39;Junior Data Scientist&#39;, &#39;Senior Operations Analyst&#39;,
+##        &#39;Senior Human Resources Coordinator&#39;, &#39;Senior UX Designer&#39;,
+##        &#39;Junior Product Manager&#39;, &#39;Senior Marketing Specialist&#39;,
+##        &#39;Senior IT Project Manager&#39;, &#39;Senior Quality Assurance Analyst&#39;,
+##        &#39;Director of Sales and Marketing&#39;, &#39;Senior Account Executive&#39;,
+##        &#39;Director of Business Development&#39;, &#39;Junior Social Media Manager&#39;,
+##        &#39;Senior Human Resources Specialist&#39;, &#39;Senior Data Analyst&#39;,
+##        &#39;Director of Human Capital&#39;, &#39;Junior Advertising Coordinator&#39;,
+##        &#39;Junior UX Designer&#39;, &#39;Senior Marketing Director&#39;,
+##        &#39;Senior IT Consultant&#39;, &#39;Senior Financial Advisor&#39;,
+##        &#39;Junior Business Operations Analyst&#39;,
+##        &#39;Junior Social Media Specialist&#39;,
+##        &#39;Senior Product Development Manager&#39;, &#39;Junior Operations Manager&#39;,
+##        &#39;Senior Software Architect&#39;, &#39;Junior Research Scientist&#39;,
+##        &#39;Senior Financial Manager&#39;, &#39;Senior HR Specialist&#39;,
+##        &#39;Senior Data Engineer&#39;, &#39;Junior Operations Coordinator&#39;,
+##        &#39;Director of HR&#39;, &#39;Senior Operations Coordinator&#39;,
+##        &#39;Junior Financial Advisor&#39;, &#39;Director of Engineering&#39;,
+##        &#39;Software Engineer Manager&#39;, &#39;Back end Developer&#39;,
+##        &#39;Senior Project Engineer&#39;, &#39;Full Stack Engineer&#39;,
+##        &#39;Front end Developer&#39;, &#39;Developer&#39;, &#39;Front End Developer&#39;,
+##        &#39;Director of Data Science&#39;, &#39;Human Resources Coordinator&#39;,
+##        &#39;Junior Sales Associate&#39;, &#39;Human Resources Manager&#39;,
+##        &#39;Juniour HR Generalist&#39;, &#39;Juniour HR Coordinator&#39;,
+##        &#39;Digital Marketing Specialist&#39;, &#39;Receptionist&#39;,
+##        &#39;Marketing Director&#39;, &#39;Social M&#39;, &#39;Social Media Man&#39;,
+##        &#39;Delivery Driver&#39;], dtype=object)
+</code></pre><p>Changing Job Title value from large segment to smaller unique values.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">categorize_job_title</span>(job_title):
+</span></span><span style="display:flex;"><span>    job_title <span style="color:#000;font-weight:bold">=</span> <span style="color:#0086b3">str</span>(job_title)<span style="color:#000;font-weight:bold">.</span>lower()  <span style="color:#998;font-style:italic"># Convert to lowercase for case-insensitivity</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">if</span> <span style="color:#d14">&#39;software&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title <span style="color:#000;font-weight:bold">or</span> <span style="color:#d14">&#39;developer&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title:
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#d14">&#39;Software/Developer&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">elif</span> <span style="color:#d14">&#39;data&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title <span style="color:#000;font-weight:bold">or</span> <span style="color:#d14">&#39;analyst&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title <span style="color:#000;font-weight:bold">or</span> <span style="color:#d14">&#39;scientist&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title:
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#d14">&#39;Data/Analyst/Scientist&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">elif</span> <span style="color:#d14">&#39;manager&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title <span style="color:#000;font-weight:bold">or</span> <span style="color:#d14">&#39;director&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title <span style="color:#000;font-weight:bold">or</span> <span style="color:#d14">&#39;vp&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title:
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#d14">&#39;Manager/Director/VP&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">elif</span> <span style="color:#d14">&#39;sales&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title <span style="color:#000;font-weight:bold">or</span> <span style="color:#d14">&#39;representative&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title:
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#d14">&#39;Sales&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">elif</span> <span style="color:#d14">&#39;marketing&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title <span style="color:#000;font-weight:bold">or</span> <span style="color:#d14">&#39;social media&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title:
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#d14">&#39;Marketing/ Social Media&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">elif</span> <span style="color:#d14">&#39;product&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title <span style="color:#000;font-weight:bold">or</span> <span style="color:#d14">&#39;designer&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title:
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#d14">&#39;Product/Designer&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">elif</span> <span style="color:#d14">&#39;hr&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title <span style="color:#000;font-weight:bold">or</span> <span style="color:#d14">&#39;human resources&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title:
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#d14">&#39;HR/Human Resources&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">elif</span> <span style="color:#d14">&#39;financial&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title <span style="color:#000;font-weight:bold">or</span> <span style="color:#d14">&#39;accountant&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title:
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#d14">&#39;Financial/Accountant&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">elif</span> <span style="color:#d14">&#39;project manager&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title:
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#d14">&#39;Project Manager&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">elif</span> <span style="color:#d14">&#39;it&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title <span style="color:#000;font-weight:bold">or</span> <span style="color:#d14">&#39;support&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title:
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#d14">&#39;IT/Technical Support&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">elif</span> <span style="color:#d14">&#39;operations&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title <span style="color:#000;font-weight:bold">or</span> <span style="color:#d14">&#39;supply chain&#39;</span><span style="color:#000;font-weight:bold">in</span> job_title:
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#d14">&#39;Operations/Supply Chain&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">elif</span> <span style="color:#d14">&#39;cusotmer service&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title <span style="color:#000;font-weight:bold">or</span> <span style="color:#d14">&#39;receptionist&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title:
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#d14">&#39;Customer Service/Receptionist&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#d14">&#39;Other&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df[<span style="color:#d14">&#39;Job Title&#39;</span>] <span style="color:#000;font-weight:bold">=</span> df[<span style="color:#d14">&#39;Job Title&#39;</span>]<span style="color:#000;font-weight:bold">.</span>apply(categorize_job_title)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>head()
+</span></span></code></pre></div><pre tabindex="0"><code>##     Age  Gender Education Level  ...    Salary  Country      Race
+## 0  32.0    Male      Bachelor&#39;s  ...   90000.0       UK     White
+## 1  28.0  Female        Master&#39;s  ...   65000.0      USA  Hispanic
+## 2  45.0    Male             PhD  ...  150000.0   Canada     White
+## 3  36.0  Female      Bachelor&#39;s  ...   60000.0      USA  Hispanic
+## 4  52.0    Male        Master&#39;s  ...  200000.0      USA     Asian
+## 
+## [5 rows x 8 columns]
+</code></pre><p>Check the unique values doe Race field.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">35</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m***********************************
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m</span><span style="color:#d14">\033</span><span style="color:#d14">[1m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;.: Race field unique value list :.&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Race field unique value list :.[0m
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">35</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m***********************************
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df[<span style="color:#d14">&#39;Race&#39;</span>]<span style="color:#000;font-weight:bold">.</span>unique()
+</span></span></code></pre></div><pre tabindex="0"><code>## array([&#39;White&#39;, &#39;Hispanic&#39;, &#39;Asian&#39;, &#39;Korean&#39;, &#39;Chinese&#39;, &#39;Australian&#39;,
+##        &#39;Welsh&#39;, &#39;African American&#39;, &#39;Mixed&#39;, &#39;Black&#39;], dtype=object)
+</code></pre><p>Number of data for each Race value.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">42</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m******************************************
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m</span><span style="color:#d14">\033</span><span style="color:#d14">[1m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;.: Number of data for each Race value :.&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Number of data for each Race value :.[0m
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">42</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m******************************************
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df[<span style="color:#d14">&#39;Race&#39;</span>]<span style="color:#000;font-weight:bold">.</span>value_counts()
+</span></span></code></pre></div><pre tabindex="0"><code>## Race
+## White               1968
+## Asian               1603
+## Korean               457
+## Australian           452
+## Chinese              444
+## Black                437
+## African American     354
+## Mixed                334
+## Welsh                333
+## Hispanic             322
+## Name: count, dtype: int64
+</code></pre><p>Creating a new dataframe to see the persentage of each race data in out database.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>race <span style="color:#000;font-weight:bold">=</span> df[<span style="color:#d14">&#39;Race&#39;</span>]<span style="color:#000;font-weight:bold">.</span>value_counts()<span style="color:#000;font-weight:bold">.</span>to_frame()
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#race[&#39;Percentage&#39;] = round((race[&#39;Race&#39;]/df.shape[0])*100,2)</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">38</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m**************************************
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m</span><span style="color:#d14">\033</span><span style="color:#d14">[1m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;.: Race value count with percentage :.&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Race value count with percentage :.[0m
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">38</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m**************************************
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>race
+</span></span></code></pre></div><pre tabindex="0"><code>##                   count
+## Race                   
+## White              1968
+## Asian              1603
+## Korean              457
+## Australian          452
+## Chinese             444
+## Black               437
+## African American    354
+## Mixed               334
+## Welsh               333
+## Hispanic            322
+</code></pre><p>Now, we will add the percentage(%) symbol into the percentage field.
+First converted numeric datatype into the string.
+After that, I have added the percentage(%) symbol into the percentage field.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#race[&#39;Percentage&#39;] = race[&#39;Percentage&#39;].astype(str)</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#race[&#39;Percentage&#39;] = race[&#39;Percentage&#39;]+&#39;%&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">38</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m**************************************
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m</span><span style="color:#d14">\033</span><span style="color:#d14">[1m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;.: Race value count with percentage :.&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Race value count with percentage :.[0m
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">38</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m**************************************
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>race
+</span></span></code></pre></div><pre tabindex="0"><code>##                   count
+## Race                   
+## White              1968
+## Asian              1603
+## Korean              457
+## Australian          452
+## Chinese             444
+## Black               437
+## African American    354
+## Mixed               334
+## Welsh               333
+## Hispanic            322
+</code></pre><p>Making the Pie Plot for the race percentage data.
+autopct=&rsquo;%.2f&rsquo; is used to add the two decimal value in the field and add the percentage symbol into the Percentage Field.
+y=0.94 is used to adjust the fine-tune the vertical alignment of the title.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df[<span style="color:#d14">&#39;Race&#39;</span>]<span style="color:#000;font-weight:bold">.</span>value_counts()<span style="color:#000;font-weight:bold">.</span>plot(kind <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;pie&#39;</span>,figsize <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">12</span>,<span style="color:#099">6</span>), autopct <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;</span><span style="color:#d14">%.2f</span><span style="color:#d14">&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Percentage of each Race&#39;</span>, fontweight <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;bold&#39;</span>, y <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0.94</span>)
+</span></span></code></pre></div><img src="/project/salary-data-based-on-country-and-race/index_files/figure-html/unnamed-chunk-17-1.png" width="1152" />
+<p>Salary distribution based on the Race.
+Based on the box plot we can see that there is not much difference with the distribution of all race.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>salary_by_race <span style="color:#000;font-weight:bold">=</span> df[[<span style="color:#d14">&#39;Salary&#39;</span>,<span style="color:#d14">&#39;Race&#39;</span>]]<span style="color:#000;font-weight:bold">.</span>boxplot(by<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Race&#39;</span>,vert<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">False</span>, figsize <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">12</span>,<span style="color:#099">7</span>))
+</span></span><span style="display:flex;"><span>salary_by_race<span style="color:#000;font-weight:bold">.</span>axvline(df[<span style="color:#d14">&#39;Salary&#39;</span>][df[<span style="color:#d14">&#39;Race&#39;</span>] <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;White&#39;</span>]<span style="color:#000;font-weight:bold">.</span>median(), color <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;red&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>grid(axis <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;y&#39;</span>)
+</span></span></code></pre></div><img src="/project/salary-data-based-on-country-and-race/index_files/figure-html/unnamed-chunk-18-3.png" width="1152" />
+<p>Mean of Salary based on Country.
+Based on the graph we can say that there is not much difference in the salary based on each Country.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>groupby(<span style="color:#d14">&#39;Country&#39;</span>)[<span style="color:#d14">&#39;Salary&#39;</span>]<span style="color:#000;font-weight:bold">.</span>mean()<span style="color:#000;font-weight:bold">.</span>plot(kind<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;bar&#39;</span>, figsize <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">12</span>,<span style="color:#099">6</span>))
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Salary amount by Country&#39;</span>, fontweight <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;bold&#39;</span>, y <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0.94</span>)
+</span></span></code></pre></div><img src="/project/salary-data-based-on-country-and-race/index_files/figure-html/unnamed-chunk-19-5.png" width="1152" />
+<p>Mean of Salary based on Race field.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">38</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m**************************************
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m</span><span style="color:#d14">\033</span><span style="color:#d14">[1m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;.: Mean value of Salary by Race field :.&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Mean value of Salary by Race field :.[0m
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">38</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m**************************************
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>groupby(<span style="color:#d14">&#39;Race&#39;</span>)[<span style="color:#d14">&#39;Salary&#39;</span>]<span style="color:#000;font-weight:bold">.</span>mean()
+</span></span></code></pre></div><pre tabindex="0"><code>## Race
+## African American    112209.658192
+## Asian               115302.068621
+## Australian          114236.676991
+## Black               118601.212815
+## Chinese             111139.315315
+## Hispanic            110410.139752
+## Korean              117099.757112
+## Mixed               116330.859281
+## Welsh               112560.645646
+## White               117071.055527
+## Name: Salary, dtype: float64
+</code></pre><p>Bar Plot based on Race and Salary mean value.
+plt.grid(axis=&lsquo;y&rsquo;) - this line is used to add the vertical line. We must have to write this line after df.groupby.
+Otherwise, this will not help to add the grid in the graph.</p>
+<p>We can see that there is not much difference in the Salary based on Race.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>groupby(<span style="color:#d14">&#39;Race&#39;</span>)[<span style="color:#d14">&#39;Salary&#39;</span>]<span style="color:#000;font-weight:bold">.</span>mean()<span style="color:#000;font-weight:bold">.</span>plot(kind<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;bar&#39;</span>,figsize <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">12</span>,<span style="color:#099">6</span>))
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>grid(axis<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;y&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Salary amount by Race&#39;</span>, fontweight <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;bold&#39;</span>, y <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0.94</span>)
+</span></span></code></pre></div><img src="/project/salary-data-based-on-country-and-race/index_files/figure-html/unnamed-chunk-21-7.png" width="1152" />
+<p>Salary distribution based on Gender.
+Here, vert=False is used to specify the boxes in horizontally
+figsize(12,7) is used to set the size of the figure.</p>
+<p>Based on the box plot we can see that male gender have highest salary amount with the comparision of other gender.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df[[<span style="color:#d14">&#39;Salary&#39;</span>,<span style="color:#d14">&#39;Gender&#39;</span>]]<span style="color:#000;font-weight:bold">.</span>boxplot(by<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Gender&#39;</span>, vert<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">False</span>, figsize <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">12</span>,<span style="color:#099">7</span>))
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>grid(axis <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;y&#39;</span>)
+</span></span></code></pre></div><img src="/project/salary-data-based-on-country-and-race/index_files/figure-html/unnamed-chunk-22-9.png" width="1152" />
+<p>Mean of Salary based on Gender field.
+Male gender salary amount is higher than other but there is not much difference between one another.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>groupby(<span style="color:#d14">&#39;Gender&#39;</span>)[<span style="color:#d14">&#39;Salary&#39;</span>]<span style="color:#000;font-weight:bold">.</span>mean()<span style="color:#000;font-weight:bold">.</span>plot(kind<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;bar&#39;</span>,figsize <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">12</span>,<span style="color:#099">6</span>))
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#34;Salary Amount&#39;s Mean Value by Gender&#34;</span> , fontweight <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;bold&#39;</span>, y <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0.94</span>)
+</span></span></code></pre></div><img src="/project/salary-data-based-on-country-and-race/index_files/figure-html/unnamed-chunk-23-11.png" width="1152" />
+
+        
+        <details closed class="f6 fw7 input-reset">
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Posted on:</dt>
+    <dd class="fw5 ml0">March 28, 2024</dd>
+  </dl>
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Length:</dt>
+    <dd class="fw5 ml0">10 minute read, 1932 words</dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Categories:</dt>
+    <dd class="fw5 ml0"> <a href="//localhost:7142/categories/theme-features">Theme Features</a>  <a href="//localhost:7142/categories/r">R</a>  <a href="//localhost:7142/categories/package">package</a> </dd>
+  </dl>
+  
+  
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">See Also:</dt>
+    
+  </dl>
+</details>
+
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+  
+  
+  
+    <a class="next dtc pl2 tr v-top fw6"
+    href="//localhost:7142/project/order-fulfillment-analysis/">Order Fulfillment Analysis &rarr;</a>
+  
+</div>
+
+      </footer>
+    </article>
+    
+  </section>
+</main>
+<footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
+  <nav class="db dt-l w-100">
+    <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
+      &copy; 2024 RStudio, Anywhere
+      <span class="middot-divider"></span>
+      Made with <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/hugo-apero/" rel="dct:source">Hugo Apéro</a></span>.
+      <br />
+      
+Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/formspree/blogophonic-hugo" rel="dct:source">Blogophonic</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://formspree.io" property="cc:attributionName" rel="cc:attributionURL">Formspree</a>.
+    </p>
+    
+    <div class="site-social-links db dtc-l v-mid w-100 w-33-l tc pv2 pv0-l mv0">
+      <div class="social-icon-links" aria-hidden="true">
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://github.com/PrachiBPatel" title="github" target="_blank" rel="me noopener">
+      <i class="fab fa-github fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://www.linkedin.com/in/prachi-b-patel/" title="linkedin" target="_blank" rel="me noopener">
+      <i class="fab fa-linkedin fa-lg fa-fw"></i>
+    </a>
+  
+</div>
+
+    </div>
+    
+    <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+      <a class="dib pv1 ph2 link" href="/contact/" title="Contact form">Contact</a>
+      
+    </div>
+  </nav>
+  
+    <script>
+
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (let i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) ||
+            /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+</script>
+
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+
+
+    
+  
+  
+</footer>
+
+      </div>
+    </body>
+</html>

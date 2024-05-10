@@ -1,0 +1,338 @@
+---
+title: "App Management Analysis"
+author: "Prachi Patel"
+date: "2022-09-28"
+output: pdf_document
+editor_options: 
+  markdown: 
+    wrap: sentence
+# layout options: single or single-sidebar
+layout: single
+categories:
+  - Theme Features
+  - R
+  - package
+---
+
+This section is for the basic set up.
+It will clear all the plots, the console and the workspace.
+It also sets the overall format for numbers.
+
+
+```{r}
+if(!is.null(dev.list())) dev.off()
+cat("\014") 
+rm(list=ls())
+options(scipen=9)
+```
+
+
+```{r}
+#Load packages
+#For Excel
+if(!require(readxl)){install.packages("readxl")}
+library("readxl")
+```
+
+PART 1
+
+1.  The following statement is made by your manager. Based on the examples and discussion in Lecture 1, transform it in to a question that can be answered with data analytics. Make sure you discuss the logic and reasoning you use to transform it.
+
+People are downloading our app more and more but our current users are using the app less and less frequently.
+
+Answer:
+
+There are many reasons for the provided statement.
+Such as, 1.
+It will occurs because of poor management for the application.
+2.
+Application functionality is not convenient for the long term or to use in a timely manner.
+3.
+There is a chance of sudden drop-off of the application while using.
+4.
+The application functionality is useful for must users but there is a chance of not having user friendly user functionality or UI/UX.
+
+To solve mentioned points, company can do a proper management and enhancement for the current application.
+Company can do a survey for to identify the issues.
+Company can improve UI/UX as well as security for their application and make it more convenient for the users to use on a timely manner.
+They can create additional features to the application for current users to use their application more frequent.
+
+2.  Consider the following three arrays of data. Each array is data for one customer of a streaming service. The numbers in the array represent the number of videos the customer streamed in a day (for example, customer A streamed 21 videos on the first day, 20 on the second and so on). Customer A: (21 20 19 18 21 20 18 22 20 18) Customer B: (22 19 18 21 27 21 22 19 21 24) Customer C: (9 10 8 11 8 7 10 11 7 10) Based on the data provided, answer the following questions. Make sure to provide evidence for your answers.
+
+<!-- -->
+
+a)  Which customer streams the least on a typical day?
+
+-\>To define the least value for the provided data we can use the min function for the provided multiple vectors.
+min(vector)
+
+```{r}
+Customer_A<- c(21,20,19,18,21,20,18,22,20,18)
+Customer_B<- c(22,19,18,21,27,21,22,19,21,24)
+Customer_C<- c(9,10,8,11,8,7,10,11,7,10)
+
+min(c(Customer_A,Customer_B,Customer_C))
+```
+
+b)  Which customer is the most inconsistent in the usage of the streaming service?
+
+-\>To find the inconsistency, mean function will provide the value.
+mean(vector)
+
+```{r}
+Customer_A<- c(21,20,19,18,21,20,18,22,20,18)
+Customer_B<- c(22,19,18,21,27,21,22,19,21,24)
+Customer_C<- c(9,10,8,11,8,7,10,11,7,10)
+
+mean(c(Customer_A,Customer_B,Customer_C))
+```
+
+PART 2 :
+
+[1].
+Basic Manipulation
+
+1.  Read in the excel file and change to a data frame.
+
+```{r}
+getwd()  # for verifying working directory
+Excel_PP <- read_excel("2014 and 2015 CSM 22F.xlsx")
+Excel_PP <- as.data.frame(Excel_PP)
+head(Excel_PP)
+```
+
+2.  Append your initials to all variables in the data frame (Note -- you will need to do this in all your subsequent assignments).
+
+-\>To append initials in the data frame we can use paste function to concatenate value and added \_ as a separater.
+
+```{r}
+#Append BDSA initials to column names
+colnames(Excel_PP) <- paste(colnames(Excel_PP), "PP", sep = "_")
+```
+
+3.  What are the dimensions of the data set (rows and columns)?
+
+-\>To get all the dimensions from the data set we have to use dim() function.
+First element provides number of rows and the second element provides number of columns.
+
+```{r}
+dim(Excel_PP)
+```
+
+[2].
+
+Summarizing Data 1.
+Means and Standard Deviations
+
+a.  Calculate the mean and standard deviation for Gross.
+
+To calculate mean, we have to use mean() function.
+To calculate standard deviation, we have to use sd() function.
+
+```{r}
+mean(Excel_PP$Gross_PP)
+sd(Excel_PP$Gross_PP)
+```
+
+b.  Use the results above to calculate the coefficient of variation (rounded to 2 decimal places).
+
+-\> To calculate the coefficient of variation we can divide the standard deviation with the mean value.
+After that, we can round the value with 2 decimal points will round() function.
+
+```{r}
+mg<- mean(Excel_PP$Gross_PP)
+sg<- sd(Excel_PP$Gross_PP)
+
+cv<- sg/mg
+round(cv,2)
+```
+
+c.  Calculate the mean and standard deviation for Budget. Also calculate the coefficient of variation (rounded to 2 decimal places).
+
+```{r}
+mean(Excel_PP$Budget_PP)
+sd(Excel_PP$Budget_PP)
+
+mb<- mean(Excel_PP$Budget_PP)
+sb<- sd(Excel_PP$Budget_PP)
+
+cv <- sb / mb
+round(cv,2)
+```
+
+d.  Does the budget or the gross sales of a movie have more variation?
+
+-\> Based on data received using var() function.
+Budget and Gross values have more variation.
+
+```{r}
+var(Excel_PP)
+```
+
+2.  Calculate the 32nd percentile of the number of Likes given. This calculation should be rounded to the nearest whole number (no decimal places).
+
+-\> For this, we can use quantile function to calculate percentile function with the provided ratio.
+quantile(table_name\$column_name,provided ratio value)
+
+```{r}
+PercentileOfLikes <- quantile(Excel_PP$Likes_PP, c(.32))
+round(PercentileOfLikes)
+```
+
+[3].
+
+Organizing Data
+
+1.  Summary Table
+
+<!-- -->
+
+a.  Create a table showing average rating by year. This should be rounded to two decimal places.
+
+```{r}
+AvgRateY_PP <- aggregate(Excel_PP$Ratings_PP, by=list(Excel_PP$Year_PP), FUN=mean, na.rm=TRUE)
+AvgRateY_PP
+round(AvgRateY_PP,2)
+```
+
+b.  Which year's movies have the highest rating? What is it?
+
+Based on data received from the aggregate function, we can say that 2014 has highest rating as 6.44.
+
+2.  Cross Tabulation
+
+<!-- -->
+
+a.  Create a table counting all genres of movies and which sequel number it is.
+
+```{r}
+table(Excel_PP$Genre_PP,Excel_PP$Sequel_PP)
+```
+
+b.  Change the table to show the percentage of each genre that is the 1st, 2nd, etc. movie in the series. These should be rounded to two decimal places.
+
+```{r}
+A <- with(Excel_PP, table(Genre_PP,Sequel_PP))
+round(prop.table(A,1)*100,2)
+```
+
+c.  What percentage of movies in genre number 8 are not sequel?
+
+-\> Approx, 77% of number 8 genre are not sequel.
+
+```{r}
+A <- with(Excel_PP, table(Genre_PP,Sequel_PP))
+round(prop.table(A)*100,2)
+```
+
+3.  Bar Plot
+
+<!-- -->
+
+a.  Create a bar plot of genre of movies.
+b.  The plot should be:
+c.  Rank ordered by highest count of genre.\
+
+<!-- -->
+
+ii. Properly labeled (title, x-axis, etc)
+iii. The bars should have a different colour than the one shown in class.
+
+-\> To show BarPlot, we can use barplot function.
+To add the value in the descending order we have to add the decreasing = FALSE in the order() function.
+
+```{r}
+genreBar_PP <- table(Excel_PP$Genre_PP)
+Genre_PP <- genreBar_PP[order(genreBar_PP,decreasing=TRUE)]
+barplot(Genre_PP,
+        col = c("#eb8060", "#b9e38d", "#a1e9f0", "#d9b1f0","#A8FF33","#FFFC33","#9B9A8F","#B82759","#27B8A6","#4827B8"),
+        density = 25, angle = 45,
+        main="Bar Plot - Number of Genres",
+        xlab="Genres")
+```
+
+c.  Based on the bar plot, (approximately) how many movies are there in genre number 8?
+
+-\> As per the bar plot graph, we can say that 43 movies are there in the number 8 genre.
+
+4.  Histogram
+
+<!-- -->
+
+a.  Create a histogram of sentiment.
+b.  The plot should be properly labeled and a unique colour.
+
+-\> For histogram, we use hist() function.
+we can add unique colours by adding color name or Hex codes in the col value.
+Also, to label the axis we can use xlab and ylab for the labeling.
+
+```{r}
+hist(Excel_PP$Sentiment_PP,
+     col=c("#eb8060", "#b9e38d", "#a1e9f0", "#d9b1f0","#A8FF33","#FFFC33","#9B9A8F","#B82759","#27B8A6","#4827B8"),
+     density = 30, angle = 140,
+     xlab="sentiment",
+     main="Histogram - sentiments for movies")
+```
+
+c.  Which range of sentiment is the most common?
+
+-\> Based on the histogram, we can say that the most common range is from -10 to 0.
+
+5.  Box plot
+
+<!-- -->
+
+a.  Create a horizontal box plot of number of screens the movies were shown on.
+b.  The plot should be properly labeled and a unique colour.
+
+-\> For the Box Plot, we use boxplot() function.
+To create the horizontal box plot we have to use horizontal=TRUE inside the boxplot() function.
+For labeling, we can use xlab and ylab values inside the boxplot() function.
+To change color, we have to define color in the col filed inside the boxplot().
+
+```{r}
+boxplot(Excel_PP$Screens_PP, 
+        main="Distribution of movie screens",
+        xlab="Percentage of movies on screens",
+        col=c("#27B8A6"),
+        horizontal=TRUE,
+        pch=20)
+```
+
+c.  Based on the box plot, approximately how many movies were on fewer than 775 screens?
+
+We can say approximately 50 movies has screens less than 775.
+
+6.  Scatter Plot
+
+<!-- -->
+
+a.  Create a scatter plot comparing budget and gross sales.
+b.  The plot should be properly labeled with a marker type different than the one demonstrated in class.
+c.  Add a line at 45 degrees to the chart.
+
+-\> To create a Scatter plot, we can use plot() function and add budget and gross field in the function then add the main source(table) name.
+To label the plot we can use xlab and ylab and define the values.
+For adding the line at 45 degree, we use abline() function.
+
+```{r}
+
+plot(Budget_PP ~ Gross_PP,
+     data=Excel_PP,
+     col=c("#B82759"),
+     pch=25,
+     main="Scatterplot - Budget & Gross",
+     xlab="Budget",
+     ylab="Gross")
+#abline(coef = c(0,1))
+abline(0, 1, col='blue')
+```
+
+d.  Does there appear to be an association between budget and gross sales for movies?
+
+-\>Based on the scatterplot, we can say that there is an association between budget and gross sales for movies.
+Because Gross value is also increasing when budget is increased.
+
+e.  What does it mean if a movie is plotted below the line?
+
+-\>Below line pointer will have more budget but less gross value.

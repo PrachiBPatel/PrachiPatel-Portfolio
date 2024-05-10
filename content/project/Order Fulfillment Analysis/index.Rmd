@@ -1,0 +1,483 @@
+---
+title: "Order Fulfillment Analysis"
+author: "Prachi Patel"
+date: "2022-11-27"
+output: pdf_document
+---
+
+This section is for the basic set up.
+It will clear all the plots, the console and the workspace.
+It also sets the overall format for numbers.
+
+```{r}
+if(!is.null(dev.list())) dev.off()
+cat("\014") 
+rm(list=ls())
+options(scipen=9)
+```
+
+This section loads and attaches all the necessary packages.
+
+```{r}
+if(!require(readxl)){install.packages("readxl")}
+library("readxl")
+
+if(!require(pastecs)){install.packages("pastecs")}
+library("pastecs")
+
+if(!require(lattice)){install.packages("lattice")}
+library("lattice")
+
+if(!require(ggplot2)){install.packages("ggplot2")}
+library("ggplot2")
+
+if(!require(tinytex)){install.packages("tinytex")}
+library("tinytex")
+
+if(!require(corrgram)){install.packages("corrgram")}
+library("corrgram")
+
+if(!require(psych)){install.packages("psych")}
+library("psych")
+
+if(!require(partykit)){install.packages("partykit")}
+library("partykit")
+
+if(!require(klaR)){install.packages("klaR")}
+  library("klaR")
+
+```
+
+
+```{r setup, include=FALSE}
+getwd()  # for verifying working directory
+ExcelFile <- read.csv("PROG8430_Assign05_22F.txt")
+ExcelFile <- as.data.frame(ExcelFile)
+head(ExcelFile)
+```
+
+## ####################################
+# 1.Preliminary Data Preparation
+## ####################################
+
+## 1. Rename all variables with your initials appended (just as was done in previous assignments). Remember that any variables you subsequently create need to have your initials appended.
+
+### To append initials in the data frame we can use paste function to concatenate value and added _ as a separator.
+
+```{r}
+colnames(ExcelFile) <- paste(colnames(ExcelFile), "", sep = "")
+head(ExcelFile)
+```
+
+## 2. As demonstrated in class and conducted in previous assignments, make quick exploratory graphs of all variables. Remember to adjust categorical variables to factor variables (e.g. all indicator variables). (NOTE – In this assignment, all of the data I have provided is well mannered and free of outliers so this should be a quick and simple exercise. 
+
+```{r}
+
+#Box Plot and Density Plot for Time for Delivery.
+boxplot(ExcelFile$Del, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "Time of Delivery - Box Plot")
+densityplot( ~ ExcelFile$Del, pch=6,col=c("#6bc9c2"), xlab = "Time of Delivery")
+
+#Box Plot and Density Plot for Vintage of Product.
+boxplot(ExcelFile$Vin, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "Vintage of Product - Box Plot")
+densityplot( ~ ExcelFile$Vin, pch=6,col=c("#6bc9c2"), xlab = "Vintage of Product")
+
+#Box Plot and Density Plot for number of packages of product have been ordered.
+boxplot(ExcelFile$Pkg, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "No. of Product Ordered - Box Plot")
+densityplot( ~ ExcelFile$Pkg, pch=6,col=c("#6bc9c2"), xlab = "No. of Product Ordered")
+
+#Box Plot and Density Plot for number of orders the customer has made in the past.
+boxplot(ExcelFile$Cst, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "No. of Orders per Customer - Box Plot")
+densityplot( ~ ExcelFile$Cst, pch=6,col=c("#6bc9c2"), xlab = "No. of Orders per Customer")
+
+#Box Plot and Density Plot for distance the order needs to be delivered.
+boxplot(ExcelFile$Mil, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "Distance - Box Plot")
+densityplot( ~ ExcelFile$Mil, pch=6,col=c("#6bc9c2"), xlab = "Distance")
+
+#Bar Plot for Indicator for if the product is manufactured in Canada (C) or elsewhere (I).
+DomBar <- table(ExcelFile$Dom)
+Dom <- DomBar[order(DomBar,decreasing=TRUE)]
+barplot(Dom,density = 30, angle = 45, main="Dom - Bar Plot", xlab="Dom", ylab = "Frequency", col=c("#6bc9c2"))
+
+#Bar Plot for Indicator for if the product is designated as Hazardous (H) or not (N).
+HazBar <- table(ExcelFile$Haz)
+Haz <- HazBar[order(HazBar,decreasing=TRUE)]
+barplot(Haz,density = 30, angle = 45, main="Haz - Bar Plot", xlab="Haz", ylab = "Frequency", col=c("#6bc9c2"))
+
+#Bar Plot for indicator for which Carrier delivered the item.
+CarBar <- table(ExcelFile$Car)
+Car <- CarBar[order(CarBar,decreasing=TRUE)]
+barplot(Car,density = 30, angle = 45, main="Car - Bar Plot", xlab="Car", ylab = "Frequency", col=c("#6bc9c2"))
+
+
+#converted categorical variables to factor variables. 
+ExcelFile <- as.data.frame(unclass(ExcelFile),stringsAsFactors = TRUE)
+head(ExcelFile)
+
+```
+
+
+## 3. Create a new variable in the dataset called OT_[Initials] which will have a value of 1 if Del <=10 and 0 otherwise. If you have forgotten how to do this, the code to accomplish it is included in the appendix.
+
+### -> Added the OT field in the dataset based on provided condition as if Del value is less than or equals to 10 then 1 otherwise 0.
+
+```{r}
+ExcelFile$OT <- as.factor(ifelse(ExcelFile$Del < 10.1, 1,0))
+str(ExcelFile)
+
+```
+
+## ############################
+# 2. Exploratory Analysis
+## ############################
+
+## 1. Correlations: Create numeric correlations (as demonstrated) and comment on what you see. Are there co-linear variables? 
+
+```{r}
+
+# Creating numeric correlation.
+cor(ExcelFile[,unlist(lapply(ExcelFile,is.numeric))], method="spearman")
+
+# Below are the observations for the co-liner variables.
+# -> Del has strong linear relationship with Mil as it's value is 0.80.
+# -> Vin has almost no linear relationship with Cst as it's value is 0.003.
+# -> Pkg has almost no linear relationship with Mil as it's value is -0.006.
+
+```
+
+
+## 2. Identify the most significant predictor of an on time delivery and provide statistical evidence (in addition to the correlation coefficient) that suggest they are associated with an on time delivery (Think of the contingency tables bar plots we did in class)
+
+```{r}
+
+Table <- table(ExcelFile$Mil,ExcelFile$OT, dnn=list("On Time Delivery","Delivery Time"))
+
+#Vertical Bar Chart
+barplot(prop.table(Table,2), xlab='On Time Delivery',ylab='Delivery Time',main="Distance Delivery by delivery time",col=c("green","yellow")
+,legend=rownames(Table), args.legend = list(x="topleft"))
+
+```
+
+## ############################
+# 3. Model Development
+## ############################
+
+#As demonstrated in class, create two logistic regression models.
+
+## 1. A full model using all of the variables.
+
+```{r}
+
+# Removed Del field from the data set 
+# because correlation is high between newly added field OT and Del 
+# as OT field is created based on Del field only.
+ExcelFile <- ExcelFile[-c(1)]
+
+#Creating a full model for all the variables.
+full.model = glm(OT ~ . ,data=ExcelFile, na.action=na.omit, family="binomial")
+summary(full.model)
+pred <- predict(full.model, newdata=ExcelFile)
+
+```
+
+
+## 2. An additional model using backward selection.
+
+```{r}
+
+# Creating another model using backward selection.
+back.model = step(full.model, direction="backward", details=TRUE)
+summary(back.model)
+pred <- predict(back.model, newdata=ExcelFile)
+
+```
+
+## For each model, interpret and comment on the main measures we 
+## discussed in class:
+## (1) AIC
+## (2) Deviance
+## (3) Residual symmetry
+## (4) z-values
+## (5) Parameter Co-Efficients
+## Based on your preceding analysis, recommend which model should be selected and explain why.
+
+```{r}
+
+### As per created two models(full model and backward model) in last two sections; 
+### 
+### -> AIC - Model is better where AIC value is lower.
+###    AIC value is lower in the Backward Model.
+
+### -> Deviance - Measure of Error = null deviance - Residual deviance. 
+###    Model is better with the higher difference value.
+###    Deviance is higher in the full model.
+
+### -> Residual symmetry value should be zero.
+###    Residual symmetry value is near by zero for Model 2.
+
+### -> Z-values - all Pr(>z) values less than 0.05 is consider as the better model.
+###    For Backward model, Pr(>z) value is less than 0.05 for all except one 
+###    as 0.0816 but it's near by 0.05.
+
+### -> Parameter Co-Efficients
+
+
+### Based on these observations, we can say that backward model is the better model than full model. 
+```
+
+
+
+
+## ##################
+# PART B
+## ##################
+# In this section, all three classifiers should be built using OT_[Intials] as the dependant variable and the remaining variables as the independent variables.
+
+## #######################################
+# 1. Logistic Regression – Backward
+## #######################################
+
+## 1. As above, use the step option in the glm function to fit the model (using backward selection).
+
+```{r}
+
+# Added the Start Time in the start_time.
+start_time <- Sys.time()
+
+# In regression, the dependent variable is marked as Y and the independent variable is marked as X. 
+# So, here adding the OT as dependent variable and other variables as the independent variables.
+
+glm.mod <- glm(OT ~ .,family="binomial", data=ExcelFile, na.action=na.omit)
+stp.glm <- step(glm.mod)
+
+# Added the End time in the end_time.
+end_time <- Sys.time()
+
+# Classifies
+resp <- predict(back.model, type="response")
+head(resp,10)
+# more than 50% chance then 1 else 0.
+class <- ifelse(resp > 0.5,1,0)
+head(class)
+
+```
+
+
+## 2. Summarize the results in a Confusion Matrix .
+```{r}
+
+# creating the confusion matrix.
+LR_CF <-table(ExcelFile$OT, class, dnn = list("Actual","Predicted"))
+LR_CF
+
+LR_TP <-LR_CF[2,2]
+LR_TN <-LR_CF[1,1]
+LR_FP <-LR_CF[1,2]
+LR_FN <-LR_CF[2,1]
+
+```
+
+## 3. As demonstrated in class, calculate the time (in seconds) it took to fit the model and include this in your summary. 
+
+```{r}
+# Processing time for Logistic regression
+Conf_time <- end_time - start_time
+Conf_time
+
+```
+## #################################
+# 2. Naive-Bayes Classification
+## #################################
+
+## 1. Use all the variables in the dataset to fit a Naive-Bayesian classification model. 
+
+```{r}
+
+start_time <- Sys.time()
+
+# In regression, the dependent variable is marked as Y and the independent variable is marked as X. 
+# So, here adding the OT as dependent variable and other variables as the independent variables.
+Naive <- NaiveBayes(OT ~ . ,data = ExcelFile, na.action=na.omit)
+
+end_time <- Sys.time()
+
+```
+
+
+## 2. Summarize the results in a Confusion Matrix.
+
+```{r warning=FALSE}
+# Classifies
+pred_bay <- predict(Naive,ExcelFile)
+ 
+# Creates Confusion Matrix
+Naive_CF <- table(Actual=ExcelFile$OT, Predicted=pred_bay$class)
+Naive_CF
+
+Naive_TP <-Naive_CF[2,2]
+Naive_TN <-Naive_CF[1,1]
+Naive_FP <-Naive_CF[1,2]
+Naive_FN <-Naive_CF[2,1]
+
+```
+
+
+## 3. As demonstrated in class, calculate the time (in seconds) it took to fit the model and include this in your summary. 
+
+```{r}
+# Processing time for Naive Bayes Classification
+NB_Time <- end_time - start_time
+NB_Time
+```
+## ##################################
+# 3. Linear Discriminant Analysis
+## ##################################
+
+## 1. Use all the variables in the dataset to fit an LDA classification model. 
+
+```{r}
+
+start_time <- Sys.time()
+  
+LDA <- lda(OT ~ .,data = ExcelFile, na.action=na.omit)
+  
+end_time <- Sys.time()
+
+```
+
+
+## 2. Summarize the results in a Confusion Matrix.
+
+```{r}
+#Classifies
+pred_dis <- predict(LDA, data=ExcelFile)
+#Confusion Matrix
+LDA_CF <- table(Actual=ExcelFile$OT, Predicted=pred_dis$class)
+LDA_CF
+
+#Defined
+LDA_TP <-LDA_CF[2,2]
+LDA_TN <-LDA_CF[1,1]
+LDA_FP <-LDA_CF[1,2]
+LDA_FN <-LDA_CF[2,1]
+
+```
+
+## 3. As demonstrated in class, calculate the time (in seconds) it took to fit the model and include this in your summary.
+
+```{r}
+# Processing time for Linear Discriminant Analysis
+
+LDA_Time <- end_time - start_time
+LDA_Time
+```
+
+# 4. Compare All Three Classifiers
+#    For all questions below please provide evidence.
+
+## 1. Which classifier is most accurate? (provide evidence)
+
+```{r}
+# Accuracy: The proportion of cases correctly classified: (TP+TN)/Total
+
+# Accuracy for LR classifier.
+LR_ACC <-(LR_TP+LR_TN)/sum(LR_CF)
+LR_ACC
+#Accuracy for Naive classifier.
+Naive_ACC <-(Naive_TP+Naive_TN)/sum(Naive_CF)
+Naive_ACC
+#Accuracy for LDA Classifier.
+LDA_ACC <-(LDA_TP+LDA_TN)/sum(LDA_CF)
+LDA_ACC
+
+## Based on the accuracy values for all three defined classifiers, 
+## Linear Discriminant Analysis classifier is the most accurate 
+## because it's value is slightly higher than other two classifier's accuracy value.
+```
+
+
+## 2. Which classifier is most suitable when processing speed is most important?
+
+```{r}
+
+# Processing time for Logistic Regression – Backward
+cat("Logistic Regression: ")
+Conf_time
+# Processing time for Naive-Bayes Classification
+cat("Logistic Regression: ")
+NB_Time
+# Processing time for Linear Discriminant Analysis
+cat("Logistic Regression: ")
+LDA_Time
+
+### Processing time for Linear Discriminant Analysis is the lowest from remaining two classifiers.
+### Linear Discriminant Analysis is the most suitable classifier 
+### if we consider processing speed as the most important.
+```
+
+
+## 3. Which classifier minimizes false positives?
+
+```{r}
+
+# False Positive value for Logistic Regression Classifier 
+cat("Logistic Regression: ")
+LR_FP
+
+# False Positive value for Naive Bayes Classification
+cat("Naive Bayes Classification: ")
+Naive_FP
+
+# False Positive value for Linear Discriminant Analysis Classifier
+cat("Linear Discriminant Analysis: ")
+LDA_FP
+
+## Based on the FP values for all three classifiers, 
+## Logistic Regression Classifier has the lowest value for false positives.
+```
+
+
+## 4. Which classifier is best overall?
+
+```{r}
+
+### Based on previously created classifiers, it's accuracy and False positive values, 
+### Logistic Regression classifier is the best classifier.
+
+### As Logistic Regression's value for False Positive is the lowest. 
+### For accuracy, Logistic Regression's value is slightly lower with the comparison of  
+### Linear Discriminant Analysis Classifier with 0.001 value.
+
+```
+
+
+
+# Decision Tree
+
+## Use all the variables in the dataset to fit a Decision Tree classification model. 
+
+
+```{r}
+start_time <- Sys.time()
+tree.fit <- ctree(OT ~ ., data=ExcelFile)
+end_time <- Sys.time()
+plot(tree.fit, gp=gpar(fontsize=2))
+```
+## Summarize the results in a Confusion Matrix.
+
+```{r}
+#Classifies
+pred.tree <- predict(tree.fit, ExcelFile)
+
+# creating the confusion matrix.
+CF_TREE <- table(Actual=ExcelFile$OT, Predicted=pred.tree)
+CF_TREE
+```
+
+
+## As demonstrated in class, calculate the time (in seconds) it took to fit the model and include this in your summary.
+
+```{r}
+CF_Time <- end_time - start_time
+CF_Time
+```
+

@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=7142&amp;path=livereload" data-no-instant defer></script>
+  
+                           
+     
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.125.7">
+<title>App Management Analysis | Prachi Patel</title>
+
+
+<meta property="twitter:site" content="@prachipatel2503">
+<meta property="twitter:creator" content="@prachipatel2503">
+
+
+
+
+
+
+
+  
+    
+  
+<meta name="description" content="Prachi Patel Portfolio">
+
+
+<meta property="og:site_name" content="Prachi Patel">
+<meta property="og:title" content="App Management Analysis | Prachi Patel">
+<meta property="og:description" content="Prachi Patel Portfolio" />
+<meta property="og:type" content="page" />
+<meta property="og:url" content="//localhost:7142/project/app-management-analysis/" />
+<meta property="og:locale" content="en">
+
+
+
+
+    
+        <meta property="og:image" content="//localhost:7142/project/sidebar-listing.jpg" >
+        <meta property="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="//localhost:7142/project/sidebar-listing.jpg" >
+    
+    
+  
+  <meta itemprop="name" content="App Management Analysis">
+  <meta itemprop="description" content="This section is for the basic set up. It will clear all the plots, the console and the workspace. It also sets the overall format for numbers.
+if(!is.null(dev.list())) dev.off() ## null device ## 1 cat(&#34;\014&#34;) rm(list=ls()) options(scipen=9) #Load packages #For Excel if(!require(readxl)){install.packages(&#34;readxl&#34;)} ## Loading required package: readxl library(&#34;readxl&#34;) PART 1
+The following statement is made by your manager. Based on the examples and discussion in Lecture 1, transform it in to a question that can be answered with data analytics.">
+  <meta itemprop="datePublished" content="2022-09-28T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-09-28T00:00:00+00:00">
+  <meta itemprop="wordCount" content="2308">
+  <meta itemprop="keywords" content="Theme Features,R,Package">
+  
+  
+
+
+  <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="shortcut icon" href="/img/Logo.png" type="image/x-icon">
+  <link rel="icon" href="/img/Logo.png" type="image/x-icon">
+  
+  
+  <link rel="stylesheet" href="/style.main.min.e5bc2ab02aa5415259a0324101e74cc435a9757b2ef00918dd1d6f36906c0505.css" integrity="sha256-5bwqsCqlQVJZoDJBAedMxDWpdXsu8AkY3R1vNpBsBQU=" media="screen">
+  
+  
+  <script src="/panelset.min.ed1ac24b6e16f4e2481e3d1d098ae66f5bc77438aef619e6e266d8ac5b00dc72.js" type="text/javascript"></script>
+  
+  
+  <script src="/main.min.290cc02c3c32c4a038f8668db865e670276d944944eeedcbc37a6374dce4312f.js" type="text/javascript"></script>
+</head>
+<body>
+      <div class="grid-container single">
+<header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
+  <nav class="site-nav db dt-l w-100" role="navigation">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="//localhost:7142/" title="Home">
+      <img src="/img/Logo.png" class="dib db-l h2 w-auto" alt="Prachi Patel">
+    </a>
+    <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/about/" title="About Blogophonic">About</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 active" href="/project/" title="Project Portfolio">Projects</a>
+      
+      
+    </div>
+  </nav>
+</header>
+
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 ph4-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">App Management Analysis</h1>
+        
+        <p class="f6 measure lh-copy mv1">By Prachi Patel in <a href="//localhost:7142/categories/theme-features">Theme Features</a>  <a href="//localhost:7142/categories/r">R</a>  <a href="//localhost:7142/categories/package">package</a> </p>
+        <p class="f7 db mv0 ttu">September 28, 2022</p>
+
+      
+
+      </header>
+      <section class="post-body pt5 pb4">
+        <p>This section is for the basic set up.
+It will clear all the plots, the console and the workspace.
+It also sets the overall format for numbers.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">is.null</span>(<span style="color:#900;font-weight:bold">dev.list</span>())) <span style="color:#900;font-weight:bold">dev.off</span>()
+</span></span></code></pre></div><pre tabindex="0"><code>## null device 
+##           1
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">cat</span>(<span style="color:#d14">&#34;\014&#34;</span>) 
+</span></span></code></pre></div><p></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">rm</span>(list<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">ls</span>())
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">options</span>(scipen<span style="color:#000;font-weight:bold">=</span><span style="color:#099">9</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#Load packages</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#For Excel</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(readxl)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;readxl&#34;</span>)}
+</span></span></code></pre></div><pre tabindex="0"><code>## Loading required package: readxl
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(<span style="color:#d14">&#34;readxl&#34;</span>)
+</span></span></code></pre></div><p>PART 1</p>
+<ol>
+<li>The following statement is made by your manager. Based on the examples and discussion in Lecture 1, transform it in to a question that can be answered with data analytics. Make sure you discuss the logic and reasoning you use to transform it.</li>
+</ol>
+<p>People are downloading our app more and more but our current users are using the app less and less frequently.</p>
+<p>Answer:</p>
+<p>There are many reasons for the provided statement.
+Such as, 1.
+It will occurs because of poor management for the application.
+2.
+Application functionality is not convenient for the long term or to use in a timely manner.
+3.
+There is a chance of sudden drop-off of the application while using.
+4.
+The application functionality is useful for must users but there is a chance of not having user friendly user functionality or UI/UX.</p>
+<p>To solve mentioned points, company can do a proper management and enhancement for the current application.
+Company can do a survey for to identify the issues.
+Company can improve UI/UX as well as security for their application and make it more convenient for the users to use on a timely manner.
+They can create additional features to the application for current users to use their application more frequent.</p>
+<ol start="2">
+<li>Consider the following three arrays of data. Each array is data for one customer of a streaming service. The numbers in the array represent the number of videos the customer streamed in a day (for example, customer A streamed 21 videos on the first day, 20 on the second and so on). Customer A: (21 20 19 18 21 20 18 22 20 18) Customer B: (22 19 18 21 27 21 22 19 21 24) Customer C: (9 10 8 11 8 7 10 11 7 10) Based on the data provided, answer the following questions. Make sure to provide evidence for your answers.</li>
+</ol>
+<!-- -->
+<p>a)  Which customer streams the least on a typical day?</p>
+<p>-&gt;To define the least value for the provided data we can use the min function for the provided multiple vectors.
+min(vector)</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>Customer_A<span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">c</span>(<span style="color:#099">21</span>,<span style="color:#099">20</span>,<span style="color:#099">19</span>,<span style="color:#099">18</span>,<span style="color:#099">21</span>,<span style="color:#099">20</span>,<span style="color:#099">18</span>,<span style="color:#099">22</span>,<span style="color:#099">20</span>,<span style="color:#099">18</span>)
+</span></span><span style="display:flex;"><span>Customer_B<span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">c</span>(<span style="color:#099">22</span>,<span style="color:#099">19</span>,<span style="color:#099">18</span>,<span style="color:#099">21</span>,<span style="color:#099">27</span>,<span style="color:#099">21</span>,<span style="color:#099">22</span>,<span style="color:#099">19</span>,<span style="color:#099">21</span>,<span style="color:#099">24</span>)
+</span></span><span style="display:flex;"><span>Customer_C<span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">c</span>(<span style="color:#099">9</span>,<span style="color:#099">10</span>,<span style="color:#099">8</span>,<span style="color:#099">11</span>,<span style="color:#099">8</span>,<span style="color:#099">7</span>,<span style="color:#099">10</span>,<span style="color:#099">11</span>,<span style="color:#099">7</span>,<span style="color:#099">10</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">min</span>(<span style="color:#900;font-weight:bold">c</span>(Customer_A,Customer_B,Customer_C))
+</span></span></code></pre></div><pre tabindex="0"><code>## [1] 7
+</code></pre><p>b)  Which customer is the most inconsistent in the usage of the streaming service?</p>
+<p>-&gt;To find the inconsistency, mean function will provide the value.
+mean(vector)</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>Customer_A<span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">c</span>(<span style="color:#099">21</span>,<span style="color:#099">20</span>,<span style="color:#099">19</span>,<span style="color:#099">18</span>,<span style="color:#099">21</span>,<span style="color:#099">20</span>,<span style="color:#099">18</span>,<span style="color:#099">22</span>,<span style="color:#099">20</span>,<span style="color:#099">18</span>)
+</span></span><span style="display:flex;"><span>Customer_B<span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">c</span>(<span style="color:#099">22</span>,<span style="color:#099">19</span>,<span style="color:#099">18</span>,<span style="color:#099">21</span>,<span style="color:#099">27</span>,<span style="color:#099">21</span>,<span style="color:#099">22</span>,<span style="color:#099">19</span>,<span style="color:#099">21</span>,<span style="color:#099">24</span>)
+</span></span><span style="display:flex;"><span>Customer_C<span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">c</span>(<span style="color:#099">9</span>,<span style="color:#099">10</span>,<span style="color:#099">8</span>,<span style="color:#099">11</span>,<span style="color:#099">8</span>,<span style="color:#099">7</span>,<span style="color:#099">10</span>,<span style="color:#099">11</span>,<span style="color:#099">7</span>,<span style="color:#099">10</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">mean</span>(<span style="color:#900;font-weight:bold">c</span>(Customer_A,Customer_B,Customer_C))
+</span></span></code></pre></div><pre tabindex="0"><code>## [1] 16.73333
+</code></pre><p>PART 2 :</p>
+<p>[1].
+Basic Manipulation</p>
+<ol>
+<li>Read in the excel file and change to a data frame.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">getwd</span>()  <span style="color:#998;font-style:italic"># for verifying working directory</span>
+</span></span></code></pre></div><pre tabindex="0"><code>## [1] &#34;C:/Users/patel/Documents/Prachi-Patel-Portfolio/content/project/App Management Analysis&#34;
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>Excel_PP <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">read_excel</span>(<span style="color:#d14">&#34;2014 and 2015 CSM 22F.xlsx&#34;</span>)
+</span></span><span style="display:flex;"><span>Excel_PP <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">as.data.frame</span>(Excel_PP)
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">head</span>(Excel_PP)
+</span></span></code></pre></div><pre tabindex="0"><code>##                               Movie Year Ratings Genre     Gross    Budget
+## 1                           13 Sins 2014     6.3     8      9130   4000000
+## 2                    22 Jump Street 2014     7.1     1 192000000  50000000
+## 3                    3 Days to Kill 2014     6.2     1  30700000  28000000
+## 4            300: Rise of an Empire 2014     6.3     1 106000000 110000000
+## 5                 A Haunted House 2 2014     4.7     8  17300000   3500000
+## 6 A Million Ways to Die in the West 2014     6.1     8  42600000  40000000
+##   Screens Sequel Sentiment   Views Likes Dislikes Comments Aggregate Followers
+## 1      45      1         0 3280543  4632      425      636             1120000
+## 2    3306      2         2  583289  3465       61      186            12350000
+## 3    2872      1         0  304861   328       34       47              483000
+## 4    3470      2         0  452917  2429      132      590              568000
+## 5    2310      2         0 3145573 12163      610     1082             1923800
+## 6    3158      1         0 3013011  9595      419     1020             8153000
+</code></pre><ol start="2">
+<li>Append your initials to all variables in the data frame (Note &ndash; you will need to do this in all your subsequent assignments).</li>
+</ol>
+<p>-&gt;To append initials in the data frame we can use paste function to concatenate value and added _ as a separater.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#Append BDSA initials to column names</span>
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">colnames</span>(Excel_PP) <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">paste</span>(<span style="color:#900;font-weight:bold">colnames</span>(Excel_PP), <span style="color:#d14">&#34;PP&#34;</span>, sep <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;_&#34;</span>)
+</span></span></code></pre></div><ol start="3">
+<li>What are the dimensions of the data set (rows and columns)?</li>
+</ol>
+<p>-&gt;To get all the dimensions from the data set we have to use dim() function.
+First element provides number of rows and the second element provides number of columns.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">dim</span>(Excel_PP)
+</span></span></code></pre></div><pre tabindex="0"><code>## [1] 187  14
+</code></pre><p>[2].</p>
+<p>Summarizing Data 1.
+Means and Standard Deviations</p>
+<p>a.  Calculate the mean and standard deviation for Gross.</p>
+<p>To calculate mean, we have to use mean() function.
+To calculate standard deviation, we have to use sd() function.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">mean</span>(Excel_PP<span style="color:#000;font-weight:bold">$</span>Gross_PP)
+</span></span></code></pre></div><pre tabindex="0"><code>## [1] 77646944
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">sd</span>(Excel_PP<span style="color:#000;font-weight:bold">$</span>Gross_PP)
+</span></span></code></pre></div><pre tabindex="0"><code>## [1] 93899208
+</code></pre><p>b.  Use the results above to calculate the coefficient of variation (rounded to 2 decimal places).</p>
+<p>-&gt; To calculate the coefficient of variation we can divide the standard deviation with the mean value.
+After that, we can round the value with 2 decimal points will round() function.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>mg<span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">mean</span>(Excel_PP<span style="color:#000;font-weight:bold">$</span>Gross_PP)
+</span></span><span style="display:flex;"><span>sg<span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">sd</span>(Excel_PP<span style="color:#000;font-weight:bold">$</span>Gross_PP)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cv<span style="color:#000;font-weight:bold">&lt;-</span> sg<span style="color:#000;font-weight:bold">/</span>mg
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">round</span>(cv,<span style="color:#099">2</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [1] 1.21
+</code></pre><p>c.  Calculate the mean and standard deviation for Budget. Also calculate the coefficient of variation (rounded to 2 decimal places).</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">mean</span>(Excel_PP<span style="color:#000;font-weight:bold">$</span>Budget_PP)
+</span></span></code></pre></div><pre tabindex="0"><code>## [1] 53844373
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">sd</span>(Excel_PP<span style="color:#000;font-weight:bold">$</span>Budget_PP)
+</span></span></code></pre></div><pre tabindex="0"><code>## [1] 57100689
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>mb<span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">mean</span>(Excel_PP<span style="color:#000;font-weight:bold">$</span>Budget_PP)
+</span></span><span style="display:flex;"><span>sb<span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">sd</span>(Excel_PP<span style="color:#000;font-weight:bold">$</span>Budget_PP)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cv <span style="color:#000;font-weight:bold">&lt;-</span> sb <span style="color:#000;font-weight:bold">/</span> mb
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">round</span>(cv,<span style="color:#099">2</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [1] 1.06
+</code></pre><p>d.  Does the budget or the gross sales of a movie have more variation?</p>
+<p>-&gt; Based on data received using var() function.
+Budget and Gross values have more variation.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">var</span>(Excel_PP)
+</span></span></code></pre></div><pre tabindex="0"><code>## Warning in var(Excel_PP): NAs introduced by coercion
+</code></pre><pre tabindex="0"><code>##                        Movie_PP           Year_PP         Ratings_PP
+## Movie_PP                     NA                NA                 NA
+## Year_PP                      NA       0.206486114       -0.006532114
+## Ratings_PP                   NA      -0.006532114        0.996137657
+## Genre_PP                     NA      -0.053734690       -0.499350239
+## Gross_PP                     NA 5069306.624115922 35308300.753406934
+## Budget_PP                    NA 1775262.632396067 18028205.578172617
+## Screens_PP                   NA     147.237306653      143.905065839
+## Sequel_PP                    NA       0.055488471        0.130921166
+## Sentiment_PP                 NA       0.555775976        0.889031683
+## Views_PP                     NA  387530.928411247  -112913.686723017
+## Likes_PP                     NA    1191.165229142     3126.346006555
+## Dislikes_PP                  NA     134.073745041     -296.364544880
+## Comments_PP                  NA      50.704531079      100.410574435
+## Aggregate Followers_PP       NA -116881.651515152   369094.903714565
+##                                  Genre_PP         Gross_PP        Budget_PP
+## Movie_PP                               NA               NA               NA
+## Year_PP                       -0.05373469          5069307          1775263
+## Ratings_PP                    -0.49935024         35308301         18028206
+## Genre_PP                      17.10844690        -78734037        -64858884
+## Gross_PP               -78734037.32936576 8817061282170421 3775843855778270
+## Budget_PP              -64858883.61278822 3775843855778270 3260488656757256
+## Screens_PP                  -871.51909033      77489975267      48034256066
+## Sequel_PP                     -1.03619688         41018337         27693879
+## Sentiment_PP                   1.20418607        -28141562          1043029
+## Views_PP                 -318639.25858203   58857173303556   13785937238320
+## Likes_PP                   -6844.48148468     311013391984      -6037263120
+## Dislikes_PP                 -193.34445978      14436368912       3437450257
+## Comments_PP                -1768.46038181      40965596550      15479685009
+## Aggregate Followers_PP     77138.12463343  136237635030487   45054358719593
+##                              Screens_PP         Sequel_PP      Sentiment_PP
+## Movie_PP                             NA                NA                NA
+## Year_PP                        147.2373        0.05548847         0.5557760
+## Ratings_PP                     143.9051        0.13092117         0.8890317
+## Genre_PP                      -871.5191       -1.03619688         1.2041861
+## Gross_PP               77489975266.9634 41018336.58214018 -28141561.9803347
+## Budget_PP              48034256065.8525 27693878.50152378   1043029.4704157
+## Screens_PP                 2077377.4176      404.82232189      -602.8739578
+## Sequel_PP                      404.8223        1.11850957        -1.0337818
+## Sentiment_PP                  -602.8740       -1.03378184        51.4328101
+## Views_PP                1413979304.9865  -311571.79986775   1270965.0659249
+## Likes_PP                   6049302.5728    -1304.07187626     11382.2799436
+## Dislikes_PP                 442742.9096     -103.11919959       220.4684607
+## Comments_PP                 906575.7182     -289.06376862      1284.7840262
+## Aggregate Followers_PP  1495830280.5684  1167289.29521017  -3603098.9100684
+##                                Views_PP         Likes_PP      Dislikes_PP
+## Movie_PP                             NA               NA               NA
+## Year_PP                        387530.9         1191.165         134.0737
+## Ratings_PP                    -112913.7         3126.346        -296.3645
+## Genre_PP                      -318639.3        -6844.481        -193.3445
+## Gross_PP               58857173303556.1 311013391983.780 14436368911.8972
+## Budget_PP              13785937238320.1  -6037263120.436  3437450256.9616
+## Screens_PP                 1413979305.0      6049302.573      442742.9096
+## Sequel_PP                     -311571.8        -1304.072        -103.1192
+## Sentiment_PP                  1270965.1        11382.280         220.4685
+## Views_PP               22511075377595.3  99200225335.090  4845152325.0543
+## Likes_PP                  99200225335.1    835953856.676    17001330.8359
+## Dislikes_PP                4845152325.1     17001330.836     1729808.4660
+## Comments_PP               12617757685.6     90816442.094     2581598.2658
+## Aggregate Followers_PP  3481677725545.1  11869505141.978   305387081.2977
+##                              Comments_PP Aggregate Followers_PP
+## Movie_PP                              NA                     NA
+## Year_PP                         50.70453             -116881.65
+## Ratings_PP                     100.41057              369094.90
+## Genre_PP                     -1768.46038               77138.12
+## Gross_PP               40965596549.64465     136237635030487.05
+## Budget_PP              15479685008.62458      45054358719593.48
+## Screens_PP                  906575.71825          1495830280.57
+## Sequel_PP                     -289.06377             1167289.30
+## Sentiment_PP                  1284.78403            -3603098.91
+## Views_PP               12617757685.59801       3481677725545.06
+## Likes_PP                  90816442.09436         11869505141.98
+## Dislikes_PP                2581598.26583           305387081.30
+## Comments_PP               12097462.45673           600348631.19
+## Aggregate Followers_PP   600348631.18524      24747035973720.31
+</code></pre><ol start="2">
+<li>Calculate the 32nd percentile of the number of Likes given. This calculation should be rounded to the nearest whole number (no decimal places).</li>
+</ol>
+<p>-&gt; For this, we can use quantile function to calculate percentile function with the provided ratio.
+quantile(table_name$column_name,provided ratio value)</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>PercentileOfLikes <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">quantile</span>(Excel_PP<span style="color:#000;font-weight:bold">$</span>Likes_PP, <span style="color:#900;font-weight:bold">c</span>(<span style="color:#099">.32</span>))
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">round</span>(PercentileOfLikes)
+</span></span></code></pre></div><pre tabindex="0"><code>##  32% 
+## 3355
+</code></pre><p>[3].</p>
+<p>Organizing Data</p>
+<ol>
+<li>Summary Table</li>
+</ol>
+<!-- -->
+<p>a.  Create a table showing average rating by year. This should be rounded to two decimal places.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>AvgRateY_PP <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">aggregate</span>(Excel_PP<span style="color:#000;font-weight:bold">$</span>Ratings_PP, by<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">list</span>(Excel_PP<span style="color:#000;font-weight:bold">$</span>Year_PP), FUN<span style="color:#000;font-weight:bold">=</span>mean, na.rm<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">TRUE</span>)
+</span></span><span style="display:flex;"><span>AvgRateY_PP
+</span></span></code></pre></div><pre tabindex="0"><code>##   Group.1        x
+## 1    2014 6.435338
+## 2    2015 6.403704
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">round</span>(AvgRateY_PP,<span style="color:#099">2</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>##   Group.1    x
+## 1    2014 6.44
+## 2    2015 6.40
+</code></pre><p>b.  Which year&rsquo;s movies have the highest rating? What is it?</p>
+<p>Based on data received from the aggregate function, we can say that 2014 has highest rating as 6.44.</p>
+<ol start="2">
+<li>Cross Tabulation</li>
+</ol>
+<!-- -->
+<p>a.  Create a table counting all genres of movies and which sequel number it is.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">table</span>(Excel_PP<span style="color:#000;font-weight:bold">$</span>Genre_PP,Excel_PP<span style="color:#000;font-weight:bold">$</span>Sequel_PP)
+</span></span></code></pre></div><pre tabindex="0"><code>##     
+##       1  2  3  4  5  6  7
+##   1  36 10  2  3  2  0  2
+##   2   5  1  3  0  1  1  0
+##   3  33  2  1  0  1  0  0
+##   6   2  0  0  0  0  0  0
+##   7   1  0  0  0  0  0  0
+##   8  34  8  1  0  0  0  0
+##   9  10  0  0  0  0  0  0
+##   10  8  1  0  0  0  0  0
+##   12  9  2  1  0  0  0  0
+##   15  7  0  0  0  0  0  0
+</code></pre><p>b.  Change the table to show the percentage of each genre that is the 1st, 2nd, etc. movie in the series. These should be rounded to two decimal places.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>A <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">with</span>(Excel_PP, <span style="color:#900;font-weight:bold">table</span>(Genre_PP,Sequel_PP))
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">round</span>(<span style="color:#900;font-weight:bold">prop.table</span>(A,<span style="color:#099">1</span>)<span style="color:#000;font-weight:bold">*</span><span style="color:#099">100</span>,<span style="color:#099">2</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>##         Sequel_PP
+## Genre_PP      1      2      3      4      5      6      7
+##       1   65.45  18.18   3.64   5.45   3.64   0.00   3.64
+##       2   45.45   9.09  27.27   0.00   9.09   9.09   0.00
+##       3   89.19   5.41   2.70   0.00   2.70   0.00   0.00
+##       6  100.00   0.00   0.00   0.00   0.00   0.00   0.00
+##       7  100.00   0.00   0.00   0.00   0.00   0.00   0.00
+##       8   79.07  18.60   2.33   0.00   0.00   0.00   0.00
+##       9  100.00   0.00   0.00   0.00   0.00   0.00   0.00
+##       10  88.89  11.11   0.00   0.00   0.00   0.00   0.00
+##       12  75.00  16.67   8.33   0.00   0.00   0.00   0.00
+##       15 100.00   0.00   0.00   0.00   0.00   0.00   0.00
+</code></pre><p>c.  What percentage of movies in genre number 8 are not sequel?</p>
+<p>-&gt; Approx, 77% of number 8 genre are not sequel.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>A <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">with</span>(Excel_PP, <span style="color:#900;font-weight:bold">table</span>(Genre_PP,Sequel_PP))
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">round</span>(<span style="color:#900;font-weight:bold">prop.table</span>(A)<span style="color:#000;font-weight:bold">*</span><span style="color:#099">100</span>,<span style="color:#099">2</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>##         Sequel_PP
+## Genre_PP     1     2     3     4     5     6     7
+##       1  19.25  5.35  1.07  1.60  1.07  0.00  1.07
+##       2   2.67  0.53  1.60  0.00  0.53  0.53  0.00
+##       3  17.65  1.07  0.53  0.00  0.53  0.00  0.00
+##       6   1.07  0.00  0.00  0.00  0.00  0.00  0.00
+##       7   0.53  0.00  0.00  0.00  0.00  0.00  0.00
+##       8  18.18  4.28  0.53  0.00  0.00  0.00  0.00
+##       9   5.35  0.00  0.00  0.00  0.00  0.00  0.00
+##       10  4.28  0.53  0.00  0.00  0.00  0.00  0.00
+##       12  4.81  1.07  0.53  0.00  0.00  0.00  0.00
+##       15  3.74  0.00  0.00  0.00  0.00  0.00  0.00
+</code></pre><ol start="3">
+<li>Bar Plot</li>
+</ol>
+<!-- -->
+<p>a.  Create a bar plot of genre of movies.
+b.  The plot should be:
+c.  Rank ordered by highest count of genre.\</p>
+<!-- -->
+<p>ii. Properly labeled (title, x-axis, etc)
+iii. The bars should have a different colour than the one shown in class.</p>
+<p>-&gt; To show BarPlot, we can use barplot function.
+To add the value in the descending order we have to add the decreasing = FALSE in the order() function.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>genreBar_PP <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">table</span>(Excel_PP<span style="color:#000;font-weight:bold">$</span>Genre_PP)
+</span></span><span style="display:flex;"><span>Genre_PP <span style="color:#000;font-weight:bold">&lt;-</span> genreBar_PP<span style="color:#900;font-weight:bold">[order</span>(genreBar_PP,decreasing<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">TRUE</span>)]
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">barplot</span>(Genre_PP,
+</span></span><span style="display:flex;"><span>        col <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;#eb8060&#34;</span>, <span style="color:#d14">&#34;#b9e38d&#34;</span>, <span style="color:#d14">&#34;#a1e9f0&#34;</span>, <span style="color:#d14">&#34;#d9b1f0&#34;</span>,<span style="color:#d14">&#34;#A8FF33&#34;</span>,<span style="color:#d14">&#34;#FFFC33&#34;</span>,<span style="color:#d14">&#34;#9B9A8F&#34;</span>,<span style="color:#d14">&#34;#B82759&#34;</span>,<span style="color:#d14">&#34;#27B8A6&#34;</span>,<span style="color:#d14">&#34;#4827B8&#34;</span>),
+</span></span><span style="display:flex;"><span>        density <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">25</span>, angle <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">45</span>,
+</span></span><span style="display:flex;"><span>        main<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Bar Plot - Number of Genres&#34;</span>,
+</span></span><span style="display:flex;"><span>        xlab<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Genres&#34;</span>)
+</span></span></code></pre></div><img src="/project/app-management-analysis/index_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+<p>c.  Based on the bar plot, (approximately) how many movies are there in genre number 8?</p>
+<p>-&gt; As per the bar plot graph, we can say that 43 movies are there in the number 8 genre.</p>
+<ol start="4">
+<li>Histogram</li>
+</ol>
+<!-- -->
+<p>a.  Create a histogram of sentiment.
+b.  The plot should be properly labeled and a unique colour.</p>
+<p>-&gt; For histogram, we use hist() function.
+we can add unique colours by adding color name or Hex codes in the col value.
+Also, to label the axis we can use xlab and ylab for the labeling.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">hist</span>(Excel_PP<span style="color:#000;font-weight:bold">$</span>Sentiment_PP,
+</span></span><span style="display:flex;"><span>     col<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;#eb8060&#34;</span>, <span style="color:#d14">&#34;#b9e38d&#34;</span>, <span style="color:#d14">&#34;#a1e9f0&#34;</span>, <span style="color:#d14">&#34;#d9b1f0&#34;</span>,<span style="color:#d14">&#34;#A8FF33&#34;</span>,<span style="color:#d14">&#34;#FFFC33&#34;</span>,<span style="color:#d14">&#34;#9B9A8F&#34;</span>,<span style="color:#d14">&#34;#B82759&#34;</span>,<span style="color:#d14">&#34;#27B8A6&#34;</span>,<span style="color:#d14">&#34;#4827B8&#34;</span>),
+</span></span><span style="display:flex;"><span>     density <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">30</span>, angle <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">140</span>,
+</span></span><span style="display:flex;"><span>     xlab<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;sentiment&#34;</span>,
+</span></span><span style="display:flex;"><span>     main<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Histogram - sentiments for movies&#34;</span>)
+</span></span></code></pre></div><img src="/project/app-management-analysis/index_files/figure-html/unnamed-chunk-18-1.png" width="672" />
+<p>c.  Which range of sentiment is the most common?</p>
+<p>-&gt; Based on the histogram, we can say that the most common range is from -10 to 0.</p>
+<ol start="5">
+<li>Box plot</li>
+</ol>
+<!-- -->
+<p>a.  Create a horizontal box plot of number of screens the movies were shown on.
+b.  The plot should be properly labeled and a unique colour.</p>
+<p>-&gt; For the Box Plot, we use boxplot() function.
+To create the horizontal box plot we have to use horizontal=TRUE inside the boxplot() function.
+For labeling, we can use xlab and ylab values inside the boxplot() function.
+To change color, we have to define color in the col filed inside the boxplot().</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">boxplot</span>(Excel_PP<span style="color:#000;font-weight:bold">$</span>Screens_PP, 
+</span></span><span style="display:flex;"><span>        main<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Distribution of movie screens&#34;</span>,
+</span></span><span style="display:flex;"><span>        xlab<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Percentage of movies on screens&#34;</span>,
+</span></span><span style="display:flex;"><span>        col<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;#27B8A6&#34;</span>),
+</span></span><span style="display:flex;"><span>        horizontal<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">TRUE</span>,
+</span></span><span style="display:flex;"><span>        pch<span style="color:#000;font-weight:bold">=</span><span style="color:#099">20</span>)
+</span></span></code></pre></div><img src="/project/app-management-analysis/index_files/figure-html/unnamed-chunk-19-1.png" width="672" />
+<p>c.  Based on the box plot, approximately how many movies were on fewer than 775 screens?</p>
+<p>We can say approximately 50 movies has screens less than 775.</p>
+<ol start="6">
+<li>Scatter Plot</li>
+</ol>
+<!-- -->
+<p>a.  Create a scatter plot comparing budget and gross sales.
+b.  The plot should be properly labeled with a marker type different than the one demonstrated in class.
+c.  Add a line at 45 degrees to the chart.</p>
+<p>-&gt; To create a Scatter plot, we can use plot() function and add budget and gross field in the function then add the main source(table) name.
+To label the plot we can use xlab and ylab and define the values.
+For adding the line at 45 degree, we use abline() function.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">plot</span>(Budget_PP <span style="color:#000;font-weight:bold">~</span> Gross_PP,
+</span></span><span style="display:flex;"><span>     data<span style="color:#000;font-weight:bold">=</span>Excel_PP,
+</span></span><span style="display:flex;"><span>     col<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;#B82759&#34;</span>),
+</span></span><span style="display:flex;"><span>     pch<span style="color:#000;font-weight:bold">=</span><span style="color:#099">25</span>,
+</span></span><span style="display:flex;"><span>     main<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Scatterplot - Budget &amp; Gross&#34;</span>,
+</span></span><span style="display:flex;"><span>     xlab<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Budget&#34;</span>,
+</span></span><span style="display:flex;"><span>     ylab<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Gross&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#abline(coef = c(0,1))</span>
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">abline</span>(<span style="color:#099">0</span>, <span style="color:#099">1</span>, col<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;blue&#39;</span>)
+</span></span></code></pre></div><img src="/project/app-management-analysis/index_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+<p>d.  Does there appear to be an association between budget and gross sales for movies?</p>
+<p>-&gt;Based on the scatterplot, we can say that there is an association between budget and gross sales for movies.
+Because Gross value is also increasing when budget is increased.</p>
+<p>e.  What does it mean if a movie is plotted below the line?</p>
+<p>-&gt;Below line pointer will have more budget but less gross value.</p>
+
+        
+        <details closed class="f6 fw7 input-reset">
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Posted on:</dt>
+    <dd class="fw5 ml0">September 28, 2022</dd>
+  </dl>
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Length:</dt>
+    <dd class="fw5 ml0">11 minute read, 2308 words</dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Categories:</dt>
+    <dd class="fw5 ml0"> <a href="//localhost:7142/categories/theme-features">Theme Features</a>  <a href="//localhost:7142/categories/r">R</a>  <a href="//localhost:7142/categories/package">package</a> </dd>
+  </dl>
+  
+  
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">See Also:</dt>
+    
+  </dl>
+</details>
+
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+  
+    <a class="prev dtc pr2 tl v-top fw6"
+    href="//localhost:7142/project/drug-trial-analysis/">&larr; Drug Trial Analysis</a>
+  
+  
+  
+    <a class="next dtc pl2 tr v-top fw6"
+    href="//localhost:7142/project/earthquakes-analytics/">Earthquake Analysis &rarr;</a>
+  
+</div>
+
+      </footer>
+    </article>
+    
+  </section>
+</main>
+<footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
+  <nav class="db dt-l w-100">
+    <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
+      &copy; 2024 RStudio, Anywhere
+      <span class="middot-divider"></span>
+      Made with <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/hugo-apero/" rel="dct:source">Hugo Apéro</a></span>.
+      <br />
+      
+Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/formspree/blogophonic-hugo" rel="dct:source">Blogophonic</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://formspree.io" property="cc:attributionName" rel="cc:attributionURL">Formspree</a>.
+    </p>
+    
+    <div class="site-social-links db dtc-l v-mid w-100 w-33-l tc pv2 pv0-l mv0">
+      <div class="social-icon-links" aria-hidden="true">
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://github.com/PrachiBPatel" title="github" target="_blank" rel="me noopener">
+      <i class="fab fa-github fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://www.linkedin.com/in/prachi-b-patel/" title="linkedin" target="_blank" rel="me noopener">
+      <i class="fab fa-linkedin fa-lg fa-fw"></i>
+    </a>
+  
+</div>
+
+    </div>
+    
+    <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+      <a class="dib pv1 ph2 link" href="/contact/" title="Contact form">Contact</a>
+      
+    </div>
+  </nav>
+  
+    <script>
+
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (let i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) ||
+            /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+</script>
+
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+
+
+    
+  
+  
+</footer>
+
+      </div>
+    </body>
+</html>

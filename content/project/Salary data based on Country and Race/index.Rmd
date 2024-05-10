@@ -1,0 +1,247 @@
+---
+title: "Salary data based on country and race"
+author: "Prachi Patel"
+date: "2024-03-28"
+output: pdf_document
+editor_options: 
+  markdown: 
+    wrap: sentence
+# layout options: single or single-sidebar
+layout: single
+categories:
+  - Theme Features
+  - R
+  - package
+---
+
+```{r, include=FALSE}
+library(reticulate)
+```
+
+```{python, include=FALSE}
+ #!pip install pandas
+```
+
+DataSet Reference: https://www.kaggle.com/datasets/sudheerp2147234/salary-dataset-based-on-country-and-race?resource=download
+Importing library
+
+```{python}
+import pandas as pd
+import seaborn as sns
+import numpy as np
+import matplotlib.pyplot as plt
+import warnings
+sns.set_theme(color_codes=True)
+warnings.filterwarnings('ignore')
+```
+
+Import Dataset
+
+```{python}
+df = pd.read_csv('Salary_Data_Based_country_and_race.csv')
+```
+
+Read Dataset
+
+```{python}
+df.head()
+```
+
+Database Information
+
+```{python}
+print('\033[92m'+'*' * 28)
+print('\033[92m\033[1m'+'.: Imported Dataset Info :.'+'\033[0m')
+print('\033[92m'+'*' * 28)
+
+print('Total Rows:', df.shape[0])
+print('Total Columns:', df.shape[1])
+```
+
+Dataset Details
+
+```{python}
+print('\033[0m\033[92m'+'*' * 30+'\033[0m')
+print('\033[92m\033[1m'+'.: Dataset Details :.'+'\033[0m')
+print('\033[0m\033[92m'+'*' * 30+'\033[0m')
+
+df.info()
+```
+
+As per the details mentioned above we can say that thre are 9 columns and 6704 records.
+Also, there are couple of null values available in the dataset.
+
+Drop the unnamed column from the dataset.
+
+```{python}
+df.drop(columns=df.columns[0], axis=1,  inplace=True)
+df.head()
+```
+
+Check unique values available for each column.
+
+```{python}
+print('\033[92m'+'*' * 42)
+print('\033[92m\033[1m'+'.: Unique value count for each columns :.'+'\033[0m')
+print('\033[92m'+'*' * 42)
+
+df.select_dtypes(include='object').nunique()
+```
+
+Unique Job Title List
+
+```{python}
+df['Job Title'].unique()
+```
+
+Changing Job Title value from large segment to smaller unique values.
+
+```{python}
+def categorize_job_title(job_title):
+    job_title = str(job_title).lower()  # Convert to lowercase for case-insensitivity
+    if 'software' in job_title or 'developer' in job_title:
+        return 'Software/Developer'
+    elif 'data' in job_title or 'analyst' in job_title or 'scientist' in job_title:
+        return 'Data/Analyst/Scientist'
+    elif 'manager' in job_title or 'director' in job_title or 'vp' in job_title:
+        return 'Manager/Director/VP'
+    elif 'sales' in job_title or 'representative' in job_title:
+        return 'Sales'
+    elif 'marketing' in job_title or 'social media' in job_title:
+        return 'Marketing/ Social Media'
+    elif 'product' in job_title or 'designer' in job_title:
+        return 'Product/Designer'
+    elif 'hr' in job_title or 'human resources' in job_title:
+        return 'HR/Human Resources'
+    elif 'financial' in job_title or 'accountant' in job_title:
+        return 'Financial/Accountant'
+    elif 'project manager' in job_title:
+        return 'Project Manager'
+    elif 'it' in job_title or 'support' in job_title:
+        return 'IT/Technical Support'
+    elif 'operations' in job_title or 'supply chain'in job_title:
+        return 'Operations/Supply Chain'
+    elif 'cusotmer service' in job_title or 'receptionist' in job_title:
+        return 'Customer Service/Receptionist'
+    else:
+        return 'Other'
+
+df['Job Title'] = df['Job Title'].apply(categorize_job_title)
+```
+
+```{python}
+df.head()
+```
+
+Check the unique values doe Race field.
+
+```{python}
+print('\033[92m'+'*' * 35)
+print('\033[92m\033[1m'+'.: Race field unique value list :.'+'\033[0m')
+print('\033[92m'+'*' * 35)
+
+df['Race'].unique()
+```
+
+Number of data for each Race value.
+
+```{python}
+print('\033[92m'+'*' * 42)
+print('\033[92m\033[1m'+'.: Number of data for each Race value :.'+'\033[0m')
+print('\033[92m'+'*' * 42)
+
+df['Race'].value_counts()
+```
+
+Creating a new dataframe to see the persentage of each race data in out database.
+
+```{python}
+race = df['Race'].value_counts().to_frame()
+#race['Percentage'] = round((race['Race']/df.shape[0])*100,2)
+print('\033[92m'+'*' * 38)
+print('\033[92m\033[1m'+'.: Race value count with percentage :.'+'\033[0m')
+print('\033[92m'+'*' * 38)
+
+race
+```
+
+Now, we will add the percentage(%) symbol into the percentage field.
+First converted numeric datatype into the string.
+After that, I have added the percentage(%) symbol into the percentage field.
+
+```{python}
+#race['Percentage'] = race['Percentage'].astype(str)
+#race['Percentage'] = race['Percentage']+'%'
+print('\033[92m'+'*' * 38)
+print('\033[92m\033[1m'+'.: Race value count with percentage :.'+'\033[0m')
+print('\033[92m'+'*' * 38)
+race
+```
+
+Making the Pie Plot for the race percentage data.
+autopct='%.2f' is used to add the two decimal value in the field and add the percentage symbol into the Percentage Field.
+y=0.94 is used to adjust the fine-tune the vertical alignment of the title.
+
+```{python}
+df['Race'].value_counts().plot(kind = 'pie',figsize = (12,6), autopct = '%.2f')
+plt.title('Percentage of each Race', fontweight = 'bold', y = 0.94)
+```
+
+Salary distribution based on the Race.
+Based on the box plot we can see that there is not much difference with the distribution of all race.
+
+```{python}
+salary_by_race = df[['Salary','Race']].boxplot(by='Race',vert=False, figsize = (12,7))
+salary_by_race.axvline(df['Salary'][df['Race'] == 'White'].median(), color = 'red')
+plt.grid(axis = 'y')
+```
+
+Mean of Salary based on Country.
+Based on the graph we can say that there is not much difference in the salary based on each Country.
+
+```{python}
+df.groupby('Country')['Salary'].mean().plot(kind='bar', figsize = (12,6))
+plt.title('Salary amount by Country', fontweight = 'bold', y = 0.94)
+```
+
+Mean of Salary based on Race field.
+
+```{python}
+print('\033[92m'+'*' * 38)
+print('\033[92m\033[1m'+'.: Mean value of Salary by Race field :.'+'\033[0m')
+print('\033[92m'+'*' * 38)
+
+df.groupby('Race')['Salary'].mean()
+```
+
+Bar Plot based on Race and Salary mean value.
+plt.grid(axis='y') - this line is used to add the vertical line. We must have to write this line after df.groupby.
+Otherwise, this will not help to add the grid in the graph.
+
+We can see that there is not much difference in the Salary based on Race.
+
+```{python}
+df.groupby('Race')['Salary'].mean().plot(kind='bar',figsize = (12,6))
+plt.grid(axis='y')
+plt.title('Salary amount by Race', fontweight = 'bold', y = 0.94)
+```
+
+Salary distribution based on Gender.
+Here, vert=False is used to specify the boxes in horizontally
+figsize(12,7) is used to set the size of the figure.
+
+Based on the box plot we can see that male gender have highest salary amount with the comparision of other gender.
+
+```{python}
+df[['Salary','Gender']].boxplot(by='Gender', vert=False, figsize = (12,7))
+plt.grid(axis = 'y')
+```
+
+Mean of Salary based on Gender field.
+Male gender salary amount is higher than other but there is not much difference between one another.
+
+```{python}
+df.groupby('Gender')['Salary'].mean().plot(kind='bar',figsize = (12,6))
+plt.title("Salary Amount's Mean Value by Gender" , fontweight = 'bold', y = 0.94)
+```
+
