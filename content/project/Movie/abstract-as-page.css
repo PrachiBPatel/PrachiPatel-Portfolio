@@ -1,0 +1,9 @@
+/* put the abstract on its own page */
+div.abstract {
+  page-break-before: always;
+}
+
+/* remove the h3 title "Abstract" */
+h3.abstract {
+  display: none;
+}

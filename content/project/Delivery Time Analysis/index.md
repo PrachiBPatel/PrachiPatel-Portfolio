@@ -41,6 +41,10 @@ if(!require(readxl)){install.packages("readxl")}
 ## Loading required package: readxl
 ```
 
+```
+## Warning: package 'readxl' was built under R version 4.2.3
+```
+
 ```r
 library("readxl")
 
@@ -49,6 +53,10 @@ if(!require(pastecs)){install.packages("pastecs")}
 
 ```
 ## Loading required package: pastecs
+```
+
+```
+## Warning: package 'pastecs' was built under R version 4.2.3
 ```
 
 ```r
@@ -61,6 +69,10 @@ if(!require(lattice)){install.packages("lattice")}
 ## Loading required package: lattice
 ```
 
+```
+## Warning: package 'lattice' was built under R version 4.2.3
+```
+
 ```r
 library("lattice")
 
@@ -69,6 +81,10 @@ if(!require(ggplot2)){install.packages("ggplot2")}
 
 ```
 ## Loading required package: ggplot2
+```
+
+```
+## Warning: package 'ggplot2' was built under R version 4.2.3
 ```
 
 ```r
@@ -117,7 +133,7 @@ if(!require(psych)){install.packages("psych")}
 ```
 
 ```
-## Warning: package 'psych' was built under R version 4.2.2
+## Warning: package 'psych' was built under R version 4.2.3
 ```
 
 ```

@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=livereload" data-no-instant defer></script>
+  
+                           
+     
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.125.7">
+<title>Movie Data Analysis | Prachi Patel</title>
+
+
+<meta property="twitter:site" content="@prachipatel2503">
+<meta property="twitter:creator" content="@prachipatel2503">
+
+
+
+
+
+
+
+  
+    
+  
+<meta name="description" content="Prachi Patel Portfolio">
+
+
+<meta property="og:site_name" content="Prachi Patel">
+<meta property="og:title" content="Movie Data Analysis | Prachi Patel">
+<meta property="og:description" content="Prachi Patel Portfolio" />
+<meta property="og:type" content="page" />
+<meta property="og:url" content="//localhost:4321/project/movie/" />
+<meta property="og:locale" content="en">
+
+
+
+
+    
+        <meta property="og:image" content="//localhost:4321/project/sidebar-listing.jpg" >
+        <meta property="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="//localhost:4321/project/sidebar-listing.jpg" >
+    
+    
+  
+  <meta itemprop="name" content="Movie Data Analysis">
+  <meta itemprop="description" content="Introduction: The dataset given containing data of the movie from year 2014 and 2015 including Movie, Year, Ratings, Genre, Gross, Budget, Screens, Sequel, Sentiment, Views, Likes, Dislikes, Comments, Aggregate Followers. The aim of this project is to analyse the data to dig deep into data and know if there are any patters available or not?
+Data Dictionary Variable Description Movie Movie Title Year Year of Movie Release Ratings Average Rating Genre Genre Code Gross Gross Sales (USD) Budget Budget (USD) Screens Nbr of Screens showing Sequel Sequel (1=Original Movie, 2=Sequel, 3=2nd Sequel, etc.">
+  <meta itemprop="datePublished" content="2022-09-28T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-09-28T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1732">
+  
+  
+
+
+  <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="shortcut icon" href="/img/Logo.png" type="image/x-icon">
+  <link rel="icon" href="/img/Logo.png" type="image/x-icon">
+  
+  
+  <link rel="stylesheet" href="/style.main.min.1599950c368cedbe3240140d67cb4831e4b82b5d9e72f181bf246737857ff3a3.css" integrity="sha256-FZmVDDaM7b4yQBQNZ8tIMeS4K12ecvGBvyRnN4V/86M=" media="screen">
+  
+  
+  <script src="/panelset.min.ed1ac24b6e16f4e2481e3d1d098ae66f5bc77438aef619e6e266d8ac5b00dc72.js" type="text/javascript"></script>
+  
+  
+  <script src="/main.min.290cc02c3c32c4a038f8668db865e670276d944944eeedcbc37a6374dce4312f.js" type="text/javascript"></script>
+</head>
+<body>
+      <div class="grid-container">
+<header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
+  <nav class="site-nav db dt-l w-100" role="navigation">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="//localhost:4321/" title="Home">
+      <img src="/img/Logo.png" class="dib db-l h2 w-auto" alt="Prachi Patel">
+    </a>
+    <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/about/" title="About Blogophonic">About</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 active" href="/project/" title="Project Portfolio">Projects</a>
+      
+      
+    </div>
+  </nav>
+</header>
+
+<main class="page-main pa4" role="main" style="text-align: justify">
+  <section class="page-content mw8 center">
+    <article class="post-content pa0 ph4-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4" style="text-align: left">Movie Data Analysis</h1>
+        
+        <p class="f6 measure lh-copy mv1">By Prachi Patel</p>
+        <p class="f7 db mv0 ttu">September 28, 2022</p>
+
+      
+
+      </header>
+      <section class="post-body pt5 pb4">
+        
+
+
+
+<h3 id="introduction">Introduction:
+  <a href="#introduction"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>The dataset given containing data of the movie from year 2014 and 2015 including Movie, Year, Ratings, Genre, Gross, Budget, Screens, Sequel, Sentiment, Views, Likes, Dislikes, Comments, Aggregate Followers. The aim of this project is to analyse the data to dig deep into data and know if there are any patters available or not?</p>
+<hr>
+
+
+
+
+<h4 id="data-dictionary">Data Dictionary
+  <a href="#data-dictionary"></a>
+</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Variable</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Movie</td>
+<td style="text-align:left">Movie Title</td>
+</tr>
+<tr>
+<td style="text-align:left">Year</td>
+<td style="text-align:left">Year of Movie Release</td>
+</tr>
+<tr>
+<td style="text-align:left">Ratings</td>
+<td style="text-align:left">Average Rating</td>
+</tr>
+<tr>
+<td style="text-align:left">Genre</td>
+<td style="text-align:left">Genre Code</td>
+</tr>
+<tr>
+<td style="text-align:left">Gross</td>
+<td style="text-align:left">Gross Sales (USD)</td>
+</tr>
+<tr>
+<td style="text-align:left">Budget</td>
+<td style="text-align:left">Budget (USD)</td>
+</tr>
+<tr>
+<td style="text-align:left">Screens</td>
+<td style="text-align:left">Nbr of Screens showing</td>
+</tr>
+<tr>
+<td style="text-align:left">Sequel</td>
+<td style="text-align:left">Sequel (1=Original Movie, 2=Sequel, 3=2nd Sequel, etc.)</td>
+</tr>
+<tr>
+<td style="text-align:left">Sentiment</td>
+<td style="text-align:left">Gross Social Media Sentiment about the movie</td>
+</tr>
+<tr>
+<td style="text-align:left">Views</td>
+<td style="text-align:left">Number of Views of Reviews</td>
+</tr>
+<tr>
+<td style="text-align:left">Likes</td>
+<td style="text-align:left">Related to Reviews</td>
+</tr>
+<tr>
+<td style="text-align:left">Dislikes</td>
+<td style="text-align:left">Related to Reviews</td>
+</tr>
+<tr>
+<td style="text-align:left">Comments</td>
+<td style="text-align:left">Number of Comments made by users</td>
+</tr>
+<tr>
+<td style="text-align:left">Aggregate Followers</td>
+<td style="text-align:left">Users following social postings on the movie</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<h4 id="initial-setup">Initial Setup
+  <a href="#initial-setup"></a>
+</h4>
+<p>This section is for the basic set up.
+It will clear all the plots, the console and the workspace.
+It also sets the overall format for numbers.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">is.null</span>(<span style="color:#900;font-weight:bold">dev.list</span>())) <span style="color:#900;font-weight:bold">dev.off</span>()
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">cat</span>(<span style="color:#d14">&#34;\014&#34;</span>) 
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">rm</span>(list<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">ls</span>())
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">options</span>(scipen<span style="color:#000;font-weight:bold">=</span><span style="color:#099">9</span>)
+</span></span></code></pre></div><hr>
+
+
+
+
+<h3 id="basic-manipulation">Basic Manipulation
+  <a href="#basic-manipulation"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>This code chunk is to read in the excel file and convert it into a data frame.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">getwd</span>()  <span style="color:#998;font-style:italic"># for verifying working directory</span>
+</span></span><span style="display:flex;"><span>Excel <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">read.csv</span>(<span style="color:#d14">&#34;2014 and 2015 CSM 22F.csv&#34;</span>)
+</span></span><span style="display:flex;"><span>Excel <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">as.data.frame</span>(Excel)
+</span></span></code></pre></div><p>Read data set to view first few rows with the header(column name).</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">head</span>(Excel)
+</span></span></code></pre></div><pre tabindex="0"><code>##                               Movie Year Ratings Genre     Gross    Budget
+## 1                           13 Sins 2014     6.3     8      9130   4000000
+## 2                    22 Jump Street 2014     7.1     1 192000000  50000000
+## 3                    3 Days to Kill 2014     6.2     1  30700000  28000000
+## 4            300: Rise of an Empire 2014     6.3     1 106000000 110000000
+## 5                 A Haunted House 2 2014     4.7     8  17300000   3500000
+## 6 A Million Ways to Die in the West 2014     6.1     8  42600000  40000000
+##   Screens Sequel Sentiment   Views Likes Dislikes Comments Aggregate.Followers
+## 1      45      1         0 3280543  4632      425      636             1120000
+## 2    3306      2         2  583289  3465       61      186            12350000
+## 3    2872      1         0  304861   328       34       47              483000
+## 4    3470      2         0  452917  2429      132      590              568000
+## 5    2310      2         0 3145573 12163      610     1082             1923800
+## 6    3158      1         0 3013011  9595      419     1020             8153000
+</code></pre><p>To get all the dimensions from the data set we have used ncol() and nrow() function.
+We can use dim() function as well to get the dimension of the data set.</p>
+<p>First function provides number of rows and the second function provides number of columns.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">ncol</span>(Excel)
+</span></span></code></pre></div><pre tabindex="0"><code>## [1] 14
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">nrow</span>(Excel)
+</span></span></code></pre></div><pre tabindex="0"><code>## [1] 187
+</code></pre>
+
+
+
+<h4 id="summarizing-data">Summarizing Data.
+  <a href="#summarizing-data"></a>
+</h4>
+<blockquote>
+<p>Means and Standard Deviations</p>
+</blockquote>
+<p>To calculate mean, we have to use mean() function.
+To calculate standard deviation, we have to use sd() function.</p>
+<p>Used the results above to calculated the coefficient of variation.</p>
+<p>To calculate the coefficient of variation I have to divide the standard deviation with the mean value.</p>
+<p>The purpose of using the round() function with 2 decimal points is to simplify and make the number more suitable for practical use or presentation.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>mg<span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">mean</span>(Excel<span style="color:#000;font-weight:bold">$</span>Gross)
+</span></span><span style="display:flex;"><span>sg<span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">sd</span>(Excel<span style="color:#000;font-weight:bold">$</span>Gross)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cv<span style="color:#000;font-weight:bold">&lt;-</span> sg<span style="color:#000;font-weight:bold">/</span>mg
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">round</span>(cv,<span style="color:#099">2</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [1] 1.21
+</code></pre><p>I calculated the mean and standard deviation for the budget and then found the coefficient of variation, rounding it to 2 decimal places.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>mb<span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">mean</span>(Excel<span style="color:#000;font-weight:bold">$</span>Budget)
+</span></span><span style="display:flex;"><span>sb<span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">sd</span>(Excel<span style="color:#000;font-weight:bold">$</span>Budget)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cv <span style="color:#000;font-weight:bold">&lt;-</span> sb <span style="color:#000;font-weight:bold">/</span> mb
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">round</span>(cv,<span style="color:#099">2</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## [1] 1.06
+</code></pre><p>Adding this step lets me see which changes more: the budget or the gross sales of a movie.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">var</span>(Excel)
+</span></span></code></pre></div><pre tabindex="0"><code>## Warning in var(Excel): NAs introduced by coercion
+</code></pre><pre tabindex="0"><code>##                     Movie              Year            Ratings
+## Movie                  NA                NA                 NA
+## Year                   NA       0.206486114       -0.006532114
+## Ratings                NA      -0.006532114        0.996137657
+## Genre                  NA      -0.053734690       -0.499350239
+## Gross                  NA 5069306.624115922 35308300.753406934
+## Budget                 NA 1775262.632396067 18028205.578172617
+## Screens                NA     147.237306653      143.905065839
+## Sequel                 NA       0.055488471        0.130921166
+## Sentiment              NA       0.555775976        0.889031683
+## Views                  NA  387530.928411247  -112913.686723017
+## Likes                  NA    1191.165229142     3126.346006555
+## Dislikes               NA     134.073745041     -296.364544880
+## Comments               NA      50.704531079      100.410574435
+## Aggregate.Followers    NA -116881.651515152   369094.903714565
+##                                  Genre            Gross           Budget
+## Movie                               NA               NA               NA
+## Year                       -0.05373469          5069307          1775263
+## Ratings                    -0.49935024         35308301         18028206
+## Genre                      17.10844690        -78734037        -64858884
+## Gross               -78734037.32936576 8817061282170421 3775843855778270
+## Budget              -64858883.61278822 3775843855778270 3260488656757256
+## Screens                  -871.51909033      77489975267      48034256066
+## Sequel                     -1.03619688         41018337         27693879
+## Sentiment                   1.20418607        -28141562          1043029
+## Views                 -318639.25858203   58857173303556   13785937238320
+## Likes                   -6844.48148468     311013391984      -6037263120
+## Dislikes                 -193.34445978      14436368912       3437450257
+## Comments                -1768.46038181      40965596550      15479685009
+## Aggregate.Followers     77138.12463343  136237635030487   45054358719593
+##                              Screens            Sequel         Sentiment
+## Movie                             NA                NA                NA
+## Year                        147.2373        0.05548847         0.5557760
+## Ratings                     143.9051        0.13092117         0.8890317
+## Genre                      -871.5191       -1.03619688         1.2041861
+## Gross               77489975266.9634 41018336.58214018 -28141561.9803347
+## Budget              48034256065.8525 27693878.50152378   1043029.4704157
+## Screens                 2077377.4176      404.82232189      -602.8739578
+## Sequel                      404.8223        1.11850957        -1.0337818
+## Sentiment                  -602.8740       -1.03378184        51.4328101
+## Views                1413979304.9865  -311571.79986775   1270965.0659249
+## Likes                   6049302.5728    -1304.07187626     11382.2799436
+## Dislikes                 442742.9096     -103.11919959       220.4684607
+## Comments                 906575.7182     -289.06376862      1284.7840262
+## Aggregate.Followers  1495830280.5684  1167289.29521017  -3603098.9100684
+##                                Views            Likes         Dislikes
+## Movie                             NA               NA               NA
+## Year                        387530.9         1191.165         134.0737
+## Ratings                    -112913.7         3126.346        -296.3645
+## Genre                      -318639.3        -6844.481        -193.3445
+## Gross               58857173303556.1 311013391983.780 14436368911.8972
+## Budget              13785937238320.1  -6037263120.436  3437450256.9616
+## Screens                 1413979305.0      6049302.573      442742.9096
+## Sequel                     -311571.8        -1304.072        -103.1192
+## Sentiment                  1270965.1        11382.280         220.4685
+## Views               22511075377595.3  99200225335.090  4845152325.0543
+## Likes                  99200225335.1    835953856.676    17001330.8359
+## Dislikes                4845152325.1     17001330.836     1729808.4660
+## Comments               12617757685.6     90816442.094     2581598.2658
+## Aggregate.Followers  3481677725545.1  11869505141.978   305387081.2977
+##                              Comments Aggregate.Followers
+## Movie                              NA                  NA
+## Year                         50.70453          -116881.65
+## Ratings                     100.41057           369094.90
+## Genre                     -1768.46038            77138.12
+## Gross               40965596549.64465  136237635030487.05
+## Budget              15479685008.62458   45054358719593.48
+## Screens                  906575.71825       1495830280.57
+## Sequel                     -289.06377          1167289.30
+## Sentiment                  1284.78403         -3603098.91
+## Views               12617757685.59801    3481677725545.06
+## Likes                  90816442.09436      11869505141.98
+## Dislikes                2581598.26583        305387081.30
+## Comments               12097462.45673        600348631.19
+## Aggregate.Followers   600348631.18524   24747035973720.31
+</code></pre><p>Based on the data from the <code>var()</code> function, it&rsquo;s clear that both the budget and gross sales values have more differences.</p>
+<hr>
+<p>Adding this step helps me to find the middle value where 32% of the likes given fall below it, providing insight into the distribution of likes.</p>
+<p>For this, I can use quantile function to calculate percentile function with the provided ratio.</p>
+<p>quantile(table_name$column_name,provided ratio value)</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>PercentileOfLikes <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">quantile</span>(Excel<span style="color:#000;font-weight:bold">$</span>Likes, <span style="color:#900;font-weight:bold">c</span>(<span style="color:#099">.32</span>))
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">round</span>(PercentileOfLikes)
+</span></span></code></pre></div><pre tabindex="0"><code>##  32% 
+## 3355
+</code></pre><hr>
+
+
+
+
+<h3 id="organizing-data">Organizing Data
+  <a href="#organizing-data"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<blockquote>
+<p>Summary Table</p>
+</blockquote>
+<p>Created a table that shows average rating by year and rounded to two decimal places.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>AvgRateY <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">aggregate</span>(Excel<span style="color:#000;font-weight:bold">$</span>Ratings, by<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">list</span>(Excel<span style="color:#000;font-weight:bold">$</span>Year), FUN<span style="color:#000;font-weight:bold">=</span>mean, na.rm<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">TRUE</span>)
+</span></span><span style="display:flex;"><span>AvgRateY
+</span></span></code></pre></div><pre tabindex="0"><code>##   Group.1        x
+## 1    2014 6.435338
+## 2    2015 6.403704
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">round</span>(AvgRateY,<span style="color:#099">2</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>##   Group.1    x
+## 1    2014 6.44
+## 2    2015 6.40
+</code></pre><p>Based on data received from the aggregate function, we can say that 2014 has highest rating as 6.44.</p>
+<blockquote>
+<p>Cross Tabulation</p>
+</blockquote>
+<p>Now Let&rsquo;s create a table counting all genres of movies and which sequel number it is.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">table</span>(Excel<span style="color:#000;font-weight:bold">$</span>Genre,Excel<span style="color:#000;font-weight:bold">$</span>Sequel)
+</span></span></code></pre></div><pre tabindex="0"><code>##     
+##       1  2  3  4  5  6  7
+##   1  36 10  2  3  2  0  2
+##   2   5  1  3  0  1  1  0
+##   3  33  2  1  0  1  0  0
+##   6   2  0  0  0  0  0  0
+##   7   1  0  0  0  0  0  0
+##   8  34  8  1  0  0  0  0
+##   9  10  0  0  0  0  0  0
+##   10  8  1  0  0  0  0  0
+##   12  9  2  1  0  0  0  0
+##   15  7  0  0  0  0  0  0
+</code></pre><p>Changed the table to show the percentage of each genre that is the 1st, 2nd and so on, movie in the series.
+Also, rounded to two decimal places.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>A <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">with</span>(Excel, <span style="color:#900;font-weight:bold">table</span>(Genre,Sequel))
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">round</span>(<span style="color:#900;font-weight:bold">prop.table</span>(A,<span style="color:#099">1</span>)<span style="color:#000;font-weight:bold">*</span><span style="color:#099">100</span>,<span style="color:#099">2</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>##      Sequel
+## Genre      1      2      3      4      5      6      7
+##    1   65.45  18.18   3.64   5.45   3.64   0.00   3.64
+##    2   45.45   9.09  27.27   0.00   9.09   9.09   0.00
+##    3   89.19   5.41   2.70   0.00   2.70   0.00   0.00
+##    6  100.00   0.00   0.00   0.00   0.00   0.00   0.00
+##    7  100.00   0.00   0.00   0.00   0.00   0.00   0.00
+##    8   79.07  18.60   2.33   0.00   0.00   0.00   0.00
+##    9  100.00   0.00   0.00   0.00   0.00   0.00   0.00
+##    10  88.89  11.11   0.00   0.00   0.00   0.00   0.00
+##    12  75.00  16.67   8.33   0.00   0.00   0.00   0.00
+##    15 100.00   0.00   0.00   0.00   0.00   0.00   0.00
+</code></pre><p>Percentage of movies in genre number 8 are sequel or not.</p>
+<p>Approx, 77% of number 8 genre are not sequel.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>A <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">with</span>(Excel, <span style="color:#900;font-weight:bold">table</span>(Genre,Sequel))
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">round</span>(<span style="color:#900;font-weight:bold">prop.table</span>(A)<span style="color:#000;font-weight:bold">*</span><span style="color:#099">100</span>,<span style="color:#099">2</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>##      Sequel
+## Genre     1     2     3     4     5     6     7
+##    1  19.25  5.35  1.07  1.60  1.07  0.00  1.07
+##    2   2.67  0.53  1.60  0.00  0.53  0.53  0.00
+##    3  17.65  1.07  0.53  0.00  0.53  0.00  0.00
+##    6   1.07  0.00  0.00  0.00  0.00  0.00  0.00
+##    7   0.53  0.00  0.00  0.00  0.00  0.00  0.00
+##    8  18.18  4.28  0.53  0.00  0.00  0.00  0.00
+##    9   5.35  0.00  0.00  0.00  0.00  0.00  0.00
+##    10  4.28  0.53  0.00  0.00  0.00  0.00  0.00
+##    12  4.81  1.07  0.53  0.00  0.00  0.00  0.00
+##    15  3.74  0.00  0.00  0.00  0.00  0.00  0.00
+</code></pre><blockquote>
+<p>Bar Plot</p>
+</blockquote>
+<p>Created a bar plot of genre of movies.
+The plot should be: rank ordered by highest count of genre.</p>
+<p>Properly labeled (title, x-axis, etc)</p>
+<p>To show BarPlot, I have used barplot function and added the value in the descending order using decreasing = FALSE in the order() function.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>genreBar <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">table</span>(Excel<span style="color:#000;font-weight:bold">$</span>Genre)
+</span></span><span style="display:flex;"><span>Genre <span style="color:#000;font-weight:bold">&lt;-</span> genreBar<span style="color:#900;font-weight:bold">[order</span>(genreBar,decreasing<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">TRUE</span>)]
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">barplot</span>(Genre,
+</span></span><span style="display:flex;"><span>        col <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;#27B8A6&#34;</span>),
+</span></span><span style="display:flex;"><span>        density <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">25</span>, angle <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">45</span>,
+</span></span><span style="display:flex;"><span>        main<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Bar Plot - Number of Genres&#34;</span>,
+</span></span><span style="display:flex;"><span>        xlab<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Genres&#34;</span>)
+</span></span></code></pre></div><img src="/project/movie/index_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+<blockquote>
+<p>Histogram</p>
+</blockquote>
+<p>Now let&rsquo;s create a histogram of sentiment.</p>
+<p>For histogram, we use hist() function and color Hex codes in the col value.
+Also, to label the axis I have used xlab and ylab for labeling graph.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">hist</span>(Excel<span style="color:#000;font-weight:bold">$</span>Sentiment,
+</span></span><span style="display:flex;"><span>     col<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;#27B8A6&#34;</span>),
+</span></span><span style="display:flex;"><span>     density <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">30</span>, angle <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">140</span>,
+</span></span><span style="display:flex;"><span>     xlab<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;sentiment&#34;</span>,
+</span></span><span style="display:flex;"><span>     main<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Histogram - sentiments for movies&#34;</span>)
+</span></span></code></pre></div><img src="/project/movie/index_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+<blockquote>
+<p>Box plot</p>
+</blockquote>
+<p>Created a horizontal box plot of number of screens the movies were shown on.</p>
+<p>For the Box Plot, I have used boxplot() function.For creating the horizontal box plot added horizontal=TRUE inside the boxplot() function.
+For labeling, used xlab and ylab.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">boxplot</span>(Excel<span style="color:#000;font-weight:bold">$</span>Screens, 
+</span></span><span style="display:flex;"><span>        main<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Distribution of movie screens&#34;</span>,
+</span></span><span style="display:flex;"><span>        xlab<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Percentage of movies on screens&#34;</span>,
+</span></span><span style="display:flex;"><span>        col<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;#27B8A6&#34;</span>),
+</span></span><span style="display:flex;"><span>        horizontal<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">TRUE</span>,
+</span></span><span style="display:flex;"><span>        pch<span style="color:#000;font-weight:bold">=</span><span style="color:#099">20</span>)
+</span></span></code></pre></div><img src="/project/movie/index_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+<blockquote>
+<p>Scatter Plot</p>
+</blockquote>
+<p>Created a scatter plot comparing budget and gross sales.</p>
+<p>To create a Scatter plot, we used plot() function and add budget and gross field in the function then add the main source(table) name.
+Also,added the line at 45 degree using abline() function to know association between budget and gross sales for movies.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">plot</span>(Budget <span style="color:#000;font-weight:bold">~</span> Gross,
+</span></span><span style="display:flex;"><span>     data<span style="color:#000;font-weight:bold">=</span>Excel,
+</span></span><span style="display:flex;"><span>     col<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;#B82759&#34;</span>),
+</span></span><span style="display:flex;"><span>     pch<span style="color:#000;font-weight:bold">=</span><span style="color:#099">25</span>,
+</span></span><span style="display:flex;"><span>     main<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Scatterplot - Budget &amp; Gross&#34;</span>,
+</span></span><span style="display:flex;"><span>     xlab<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Budget&#34;</span>,
+</span></span><span style="display:flex;"><span>     ylab<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Gross&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#abline(coef = c(0,1))</span>
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">abline</span>(<span style="color:#099">0</span>, <span style="color:#099">1</span>, col<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;blue&#39;</span>)
+</span></span></code></pre></div><img src="/project/movie/index_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+<p>Based on the scatter plot, we can say that there is an association between budget and gross sales for movies.
+As Gross value is increasing with the budget.</p>
+<p>Also, we can say that below the line pointer moview plotted has more budget the gross value is lesser.</p>
+
+        
+        <details closed class="f6 fw7 input-reset">
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Posted on:</dt>
+    <dd class="fw5 ml0">September 28, 2022</dd>
+  </dl>
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Length:</dt>
+    <dd class="fw5 ml0">9 minute read, 1732 words</dd>
+  </dl>
+  
+  
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">See Also:</dt>
+    
+  </dl>
+</details>
+
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+  
+    <a class="prev dtc pr2 tl v-top fw6"
+    href="//localhost:4321/project/earthquakes-analytics/">&larr; Earthquake Analysis</a>
+  
+  
+  
+</div>
+
+      </footer>
+    </article>
+    
+  </section>
+</main>
+<footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
+  <nav class="db dt-l w-100">
+    <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
+      &copy; 2024 RStudio, Anywhere
+      <span class="middot-divider"></span>
+      Made with <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/hugo-apero/" rel="dct:source">Hugo Apéro</a></span>.
+      <br />
+      
+Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/formspree/blogophonic-hugo" rel="dct:source">Blogophonic</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://formspree.io" property="cc:attributionName" rel="cc:attributionURL">Formspree</a>.
+    </p>
+    
+    <div class="site-social-links db dtc-l v-mid w-100 w-33-l tc pv2 pv0-l mv0">
+      <div class="social-icon-links" aria-hidden="true">
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://github.com/PrachiBPatel" title="github" target="_blank" rel="me noopener">
+      <i class="fab fa-github fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://www.linkedin.com/in/prachi-b-patel/" title="linkedin" target="_blank" rel="me noopener">
+      <i class="fab fa-linkedin fa-lg fa-fw"></i>
+    </a>
+  
+</div>
+
+    </div>
+    
+    <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+      <a class="dib pv1 ph2 link" href="/contact/" title="Contact form">Contact</a>
+      
+    </div>
+  </nav>
+  
+    <script>
+
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (let i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) ||
+            /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+</script>
+
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+
+
+    
+  
+  
+</footer>
+
+      </div>
+    </body>
+</html>

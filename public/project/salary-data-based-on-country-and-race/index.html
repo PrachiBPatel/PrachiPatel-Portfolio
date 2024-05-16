@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=7142&amp;path=livereload" data-no-instant defer></script>
+<html lang="en" dir="ltr"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=livereload" data-no-instant defer></script>
   
                            
      
@@ -31,16 +31,16 @@
 <meta property="og:title" content="Salary data based on country and race Analysis | Prachi Patel">
 <meta property="og:description" content="Prachi Patel Portfolio" />
 <meta property="og:type" content="page" />
-<meta property="og:url" content="//localhost:7142/project/salary-data-based-on-country-and-race/" />
+<meta property="og:url" content="//localhost:4321/project/salary-data-based-on-country-and-race/" />
 <meta property="og:locale" content="en">
 
 
 
 
     
-        <meta property="og:image" content="//localhost:7142/project/sidebar-listing.jpg" >
+        <meta property="og:image" content="//localhost:4321/project/sidebar-listing.jpg" >
         <meta property="twitter:card" content="summary_large_image">
-        <meta name="twitter:image" content="//localhost:7142/project/sidebar-listing.jpg" >
+        <meta name="twitter:image" content="//localhost:4321/project/sidebar-listing.jpg" >
     
     
   
@@ -52,7 +52,6 @@ df.head() ## Unnamed: 0 Age Gender ... Salary Country Race## 0 0 32.0 Male ... 
   <meta itemprop="datePublished" content="2024-03-28T00:00:00+00:00">
   <meta itemprop="dateModified" content="2024-03-28T00:00:00+00:00">
   <meta itemprop="wordCount" content="1932">
-  <meta itemprop="keywords" content="Theme Features,R,Package">
   
   
 
@@ -71,10 +70,10 @@ df.head() ## Unnamed: 0 Age Gender ... Salary Country Race## 0 0 32.0 Male ... 
   <script src="/main.min.290cc02c3c32c4a038f8668db865e670276d944944eeedcbc37a6374dce4312f.js" type="text/javascript"></script>
 </head>
 <body>
-      <div class="grid-container single">
+      <div class="grid-container">
 <header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
   <nav class="site-nav db dt-l w-100" role="navigation">
-    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="//localhost:7142/" title="Home">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="//localhost:4321/" title="Home">
       <img src="/img/Logo.png" class="dib db-l h2 w-auto" alt="Prachi Patel">
     </a>
     <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
@@ -94,13 +93,13 @@ df.head() ## Unnamed: 0 Age Gender ... Salary Country Race## 0 0 32.0 Male ... 
   </nav>
 </header>
 
-<main class="page-main pa4" role="main">
-  <section class="page-content mw7 center">
+<main class="page-main pa4" role="main" style="text-align: justify">
+  <section class="page-content mw8 center">
     <article class="post-content pa0 ph4-l">
       <header class="post-header">
-        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Salary data based on country and race Analysis</h1>
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4" style="text-align: left">Salary data based on country and race Analysis</h1>
         
-        <p class="f6 measure lh-copy mv1">By Prachi Patel in <a href="//localhost:7142/categories/theme-features">Theme Features</a>  <a href="//localhost:7142/categories/r">R</a>  <a href="//localhost:7142/categories/package">package</a> </p>
+        <p class="f6 measure lh-copy mv1">By Prachi Patel</p>
         <p class="f7 db mv0 ttu">March 28, 2024</p>
 
       
@@ -131,22 +130,22 @@ Importing library</p>
 ## [5 rows x 9 columns]
 </code></pre><p>Database Information</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">28</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m****************************
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m****************************
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m</span><span style="color:#d14">\033</span><span style="color:#d14">[1m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;.: Imported Dataset Info :.&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Imported Dataset Info :.[0m
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Imported Dataset Info :.[0m
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">28</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m****************************
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m****************************
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;Total Rows:&#39;</span>, df<span style="color:#000;font-weight:bold">.</span>shape[<span style="color:#099">0</span>])
 </span></span></code></pre></div><pre tabindex="0"><code>## Total Rows: 6704
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;Total Columns:&#39;</span>, df<span style="color:#000;font-weight:bold">.</span>shape[<span style="color:#099">1</span>])
 </span></span></code></pre></div><pre tabindex="0"><code>## Total Columns: 9
 </code></pre><p>Dataset Details</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">30</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [0m[92m******************************[0m
+</span></span></code></pre></div><pre tabindex="0"><code>## [0m[92m******************************[0m
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m</span><span style="color:#d14">\033</span><span style="color:#d14">[1m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;.: Dataset Details :.&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Dataset Details :.[0m
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Dataset Details :.[0m
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">30</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [0m[92m******************************[0m
+</span></span></code></pre></div><pre tabindex="0"><code>## [0m[92m******************************[0m
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>info()
 </span></span></code></pre></div><pre tabindex="0"><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 ## RangeIndex: 6704 entries, 0 to 6703
@@ -179,11 +178,11 @@ Also, there are couple of null values available in the dataset.</p>
 ## [5 rows x 8 columns]
 </code></pre><p>Check unique values available for each column.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">42</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m******************************************
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m******************************************
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m</span><span style="color:#d14">\033</span><span style="color:#d14">[1m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;.: Unique value count for each columns :.&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Unique value count for each columns :.[0m
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Unique value count for each columns :.[0m
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">42</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m******************************************
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m******************************************
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>select_dtypes(include<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;object&#39;</span>)<span style="color:#000;font-weight:bold">.</span>nunique()
 </span></span></code></pre></div><pre tabindex="0"><code>## Gender               3
 ## Education Level      7
@@ -321,21 +320,21 @@ Also, there are couple of null values available in the dataset.</p>
 ## [5 rows x 8 columns]
 </code></pre><p>Check the unique values doe Race field.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">35</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m***********************************
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m***********************************
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m</span><span style="color:#d14">\033</span><span style="color:#d14">[1m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;.: Race field unique value list :.&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Race field unique value list :.[0m
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Race field unique value list :.[0m
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">35</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m***********************************
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m***********************************
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df[<span style="color:#d14">&#39;Race&#39;</span>]<span style="color:#000;font-weight:bold">.</span>unique()
 </span></span></code></pre></div><pre tabindex="0"><code>## array([&#39;White&#39;, &#39;Hispanic&#39;, &#39;Asian&#39;, &#39;Korean&#39;, &#39;Chinese&#39;, &#39;Australian&#39;,
 ##        &#39;Welsh&#39;, &#39;African American&#39;, &#39;Mixed&#39;, &#39;Black&#39;], dtype=object)
 </code></pre><p>Number of data for each Race value.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">42</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m******************************************
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m******************************************
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m</span><span style="color:#d14">\033</span><span style="color:#d14">[1m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;.: Number of data for each Race value :.&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Number of data for each Race value :.[0m
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Number of data for each Race value :.[0m
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">42</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m******************************************
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m******************************************
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df[<span style="color:#d14">&#39;Race&#39;</span>]<span style="color:#000;font-weight:bold">.</span>value_counts()
 </span></span></code></pre></div><pre tabindex="0"><code>## Race
 ## White               1968
@@ -353,11 +352,11 @@ Also, there are couple of null values available in the dataset.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>race <span style="color:#000;font-weight:bold">=</span> df[<span style="color:#d14">&#39;Race&#39;</span>]<span style="color:#000;font-weight:bold">.</span>value_counts()<span style="color:#000;font-weight:bold">.</span>to_frame()
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#race[&#39;Percentage&#39;] = round((race[&#39;Race&#39;]/df.shape[0])*100,2)</span>
 </span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">38</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m**************************************
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m**************************************
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m</span><span style="color:#d14">\033</span><span style="color:#d14">[1m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;.: Race value count with percentage :.&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Race value count with percentage :.[0m
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Race value count with percentage :.[0m
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">38</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m**************************************
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m**************************************
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>race
 </span></span></code></pre></div><pre tabindex="0"><code>##                   count
 ## Race                   
@@ -377,11 +376,11 @@ After that, I have added the percentage(%) symbol into the percentage field.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#race[&#39;Percentage&#39;] = race[&#39;Percentage&#39;].astype(str)</span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#race[&#39;Percentage&#39;] = race[&#39;Percentage&#39;]+&#39;%&#39;</span>
 </span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">38</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m**************************************
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m**************************************
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m</span><span style="color:#d14">\033</span><span style="color:#d14">[1m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;.: Race value count with percentage :.&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Race value count with percentage :.[0m
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Race value count with percentage :.[0m
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">38</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m**************************************
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m**************************************
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>race
 </span></span></code></pre></div><pre tabindex="0"><code>##                   count
 ## Race                   
@@ -414,11 +413,11 @@ Based on the graph we can say that there is not much difference in the salary ba
 </span></span></code></pre></div><img src="/project/salary-data-based-on-country-and-race/index_files/figure-html/unnamed-chunk-19-5.png" width="1152" />
 <p>Mean of Salary based on Race field.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">38</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m**************************************
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m**************************************
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m</span><span style="color:#d14">\033</span><span style="color:#d14">[1m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;.: Mean value of Salary by Race field :.&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Mean value of Salary by Race field :.[0m
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Mean value of Salary by Race field :.[0m
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">38</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m**************************************
+</span></span></code></pre></div><pre tabindex="0"><code>## [92m**************************************
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>groupby(<span style="color:#d14">&#39;Race&#39;</span>)[<span style="color:#d14">&#39;Salary&#39;</span>]<span style="color:#000;font-weight:bold">.</span>mean()
 </span></span></code></pre></div><pre tabindex="0"><code>## Race
 ## African American    112209.658192
@@ -464,11 +463,6 @@ Male gender salary amount is higher than other but there is not much difference 
     <dd class="fw5 ml0">10 minute read, 1932 words</dd>
   </dl>
   
-  <dl class="f6 lh-copy">
-    <dt class="fw7">Categories:</dt>
-    <dd class="fw5 ml0"> <a href="//localhost:7142/categories/theme-features">Theme Features</a>  <a href="//localhost:7142/categories/r">R</a>  <a href="//localhost:7142/categories/package">package</a> </dd>
-  </dl>
-  
   
   
   <dl class="f6 lh-copy">
@@ -485,7 +479,7 @@ Male gender salary amount is higher than other but there is not much difference 
   
   
     <a class="next dtc pl2 tr v-top fw6"
-    href="//localhost:7142/project/order-fulfillment-analysis/">Order Fulfillment Analysis &rarr;</a>
+    href="//localhost:4321/project/cancer-diagnosis-prediction/">Cancer Diagnosis Prediction Model &rarr;</a>
   
 </div>
 

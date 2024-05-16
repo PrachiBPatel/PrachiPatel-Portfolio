@@ -1,24 +1,46 @@
 ---
-title: "Cancer Diagnosis Prediction"
+title: "Cancer Diagnosis Prediction Model"
 author: "Prachi Patel"
 date: "2022-12-13"
-output: pdf_document
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+editor_options: 
+  markdown: 
+    wrap: sentence
 ---
+
+### Introduction:
+
+
+### Data Dictionary
+
+```{r echo=FALSE, results='asis'}
+options(knitr.kable.NA = '')
+data.frame(Variable = c("Cancer","Age","HW","Hst","Exe","Smk","Drk","Hlth"),
+           Description = c("The patient was diagnosed with cancer (0=no, 1=yes)","Age in years","A ratio of Height to Weight","History of Cancer in Family (0=No, 1=Yes)","Time spent exercising each week (in minutes)","Patient is smoker (0=No, 1=Yes)","atient drinks alcohol (0=No, 1=Yes)","General health of patient. Five point scale: (VP) very poor health, (P) poor health, (A) average health, (G) good, (VG) very good health")) |>
+  knitr::kable()
+```
+
+#### Initial Setup
 
 This section is for the basic set up.
 It will clear all the plots, the console and the workspace.
 It also sets the overall format for numbers.
 
-```{r}
+```{r echo=T, results='hide'}
 if(!is.null(dev.list())) dev.off()
 cat("\014") 
 rm(list=ls())
 options(scipen=9)
 ```
 
+#### Load Packages
+
 This section loads and attaches all the necessary packages.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 if(!require(readxl)){install.packages("readxl")}
 library("readxl")
 
@@ -46,37 +68,32 @@ library("partykit")
 if(!require(klaR)){install.packages("klaR")}
   library("klaR")
 
+if(!require(xlsx)){install.packages("xlsx")}
+  library(xlsx)
+
 ```
 
+#### Import Data
 
-```{r setup, include=FALSE}
-getwd()  # for verifying working directory
+This code chunk is to read in the excel file and convert it into a data frame.
+
+```{r message=FALSE}
 ExcelFile <- read_excel("PROG8430_Final_22F_train.xlsx")
 ExcelFile <- as.data.frame(ExcelFile)
 head(ExcelFile)
 ```
 
+#### Data Manupulation
 
-## Append initials in the data frame we can use paste function to concatenate value and added _ as a separator.
-
-```{r}
-colnames(ExcelFile) <- paste(colnames(ExcelFile), "", sep = "")
-head(ExcelFile)
-```
-
-# Convert Character variable into Factor.
+Convert all the Character variable into Factor.
 
 ```{r}
-# convert all the char variables to factor.
 as.data.frame(unclass(ExcelFile),stringsAsFactors = TRUE) 
 ```
 
-
-# Checking Correlation
+Converting all fields in numeric data type as we are checking correlation between all the fields.
 
 ```{r}
-# Checking Correlation
-
 ExcelFile$Cancer <- as.numeric(ExcelFile$Cancer)
 ExcelFile$Hst <- as.numeric(ExcelFile$Hst)
 ExcelFile$Smk <- as.numeric(ExcelFile$Smk)
@@ -91,7 +108,7 @@ ExcelFile <- ExcelFile[-c(7)]
 summary(ExcelFile)
 head(ExcelFile1)
 ```
-# Check Dimensionality reduction
+Check Dimensionality reduction
 
 ```{r}
 # Using summary function, we can summarize all data in the data source.
@@ -103,7 +120,7 @@ stat.desc(ExcelFile)
 ```
 
 
-# Check Outliners
+Check Outliners
 
 ```{r}
 
@@ -144,7 +161,7 @@ health, (A) average health, (G) good, (VG) very good health - Bar Plot", xlab="H
 
 ```
 
-# Creating Full Model
+Creating Full Model
 
 ```{r}
 #Creating a full model for all the variable with the Cancer variable as a dependent variable.
@@ -153,7 +170,7 @@ summary(full.model)
 pred <- predict(full.model, newdata=ExcelFile)
 ```
 
-# Creating Backward Model
+Creating Backward Model
 
 ```{r}
 # Creating another model using backward selection.
@@ -161,21 +178,21 @@ back.model = step(full.model, direction="backward", details=TRUE)
 summary(back.model)
 pred <- predict(back.model, newdata=ExcelFile)
 ```
-# *****************************************************************************************************************
-## AIC
-### Backward model has lowset AIC value.
-## Deviance
-### Backward model has higher deviance difference.
-## Residual symmetry
-### Residual symmetry value is near by zero for backward model.
-## z-values - all Pr(>z) values less than 0.05 is consider as the better model.
-### For Backward model, Pr(>z) value is less than 0.05 for one and another varibale Pr(>z) value is near by 0.05.
+*****************************************************************************************************************
+#### AIC
+Backward model has lowset AIC value.
+#### Deviance
+Backward model has higher deviance difference.
+#### Residual symmetry
+Residual symmetry value is near by zero for backward model.
+#### z-values - all Pr(>z) values less than 0.05 is consider as the better model.
+For Backward model, Pr(>z) value is less than 0.05 for one and another varibale Pr(>z) value is near by 0.05.
 
-### Based on these observations, we can say that backward model is the better model than backward model. 
+Based on these observations, we can say that backward model is the better model than backward model. 
 
-# *****************************************************************************************************************
+*****************************************************************************************************************
 
-# Logistic Regression – Backward
+Logistic Regression – Backward
 
 ```{r}
 
@@ -199,7 +216,7 @@ head(class)
 
 ```
 
-#Confusion Matrix for Logistic Regression – Backward
+Confusion Matrix for Logistic Regression – Backward
 
 ```{r}
 # creating the confusion matrix.
@@ -212,7 +229,7 @@ LR_FP <-LR_CF[1,2]
 LR_FN <-LR_CF[2,1]
 ```
 
-# Naive-Bayes Classification
+Naive-Bayes Classification
 
 ```{r}
 
@@ -222,7 +239,7 @@ Naive <- NaiveBayes(Cancer ~ .,family="binomial", data=ExcelFile, na.action=na.o
 
 ```
 
-# Confusion Matrix for Naive-Bayes Classification
+Confusion Matrix for Naive-Bayes Classification
 
 ```{r warning=FALSE}
 # Classifies
@@ -238,14 +255,14 @@ Naive_FP <-Naive_CF[1,2]
 Naive_FN <-Naive_CF[2,1]
 ```
 
-# Linear Discriminant Analysis
+Linear Discriminant Analysis
 
 ```{r}
 LDA <- lda(Cancer ~ .,data = ExcelFile, na.action=na.omit)
 
 ```
 
-# Confusion Matrix for Linear Discriminant Analysis
+Confusion Matrix for Linear Discriminant Analysis
 
 ```{r}
 #Classifies
@@ -261,7 +278,7 @@ LDA_FP <-LDA_CF[1,2]
 LDA_FN <-LDA_CF[2,1]
 ```
 
-# Checking which classifier is most accurate.
+Checking which classifier is most accurate.
 
 ```{r}
 # Accuracy: The proportion of cases correctly classified: (TP+TN)/Total
@@ -285,7 +302,7 @@ LDA_ACC
 ```
 
 
-# Checking which classifier minimizes false positives.
+Checking which classifier minimizes false positives.
 
 ```{r}
 
@@ -305,21 +322,29 @@ LDA_FP
 ## Linear Discriminant Analysis Classifier has the lowest value for false positives.
 ```
 
-# Add Prediction
+Add Prediction
 
 ```{r}
 
 Test <- read_excel("PROG8430_Final_22F_test.xlsx")
 head(Test,10)
 
+# convert all the char variables to factor.
+as.data.frame(unclass(Test),stringsAsFactors = TRUE) 
+
+Test$Hst <- as.numeric(Test$Hst)
+Test$Smk <- as.numeric(Test$Smk)
+
 Test1 <-as.data.frame(unclass(Test),stringsAsFactors=TRUE)
 
-pred <- predict(back.model, newdata=Test1)
-head(pred)
+Cancer <- predict(back.model, newdata=Test1)
+head(Cancer)
 
-Test1 <- cbind(Test,pred)
+Test1 <- cbind(Test,Cancer)
 
-write_xlsx(Test1,"PROG8430_Final_22F_Pred.xlsx")
+write.xlsx(Test1,"PROG8430_Final_22F_Pred.xlsx")
+
+head(Test1)
 
 ```
 

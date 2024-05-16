@@ -1,0 +1,236 @@
+---
+title: "Movie Data Analysis"
+author: "Prachi Patel"
+date: "2022-09-28"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+### Introduction:
+
+The dataset given containing data of the movie from year 2014 and 2015 including Movie, Year, Ratings, Genre, Gross, Budget, Screens, Sequel, Sentiment, Views, Likes, Dislikes, Comments, Aggregate Followers. The aim of this project is to analyse the data to dig deep into data and know if there are any patters available or not?
+
+----------------------------------------------------------
+
+#### Data Dictionary
+
+```{r echo=FALSE, results='asis'}
+options(knitr.kable.NA = '')
+data.frame(Variable = c("Movie", "Year","Ratings","Genre","Gross","Budget","Screens","Sequel","Sentiment","Views","Likes","Dislikes","Comments","Aggregate Followers"),
+           Description = c("Movie Title","Year of Movie Release","Average Rating","Genre Code","Gross Sales (USD)","Budget (USD)","Nbr of Screens showing","Sequel (1=Original Movie, 2=Sequel, 3=2nd Sequel, etc.)","Gross Social Media Sentiment about the movie","Number of Views of Reviews","Related to Reviews","Related to Reviews","Number of Comments made by users","Users following social postings on the movie")) |>
+  knitr::kable()
+```
+
+#### Initial Setup
+
+This section is for the basic set up.
+It will clear all the plots, the console and the workspace.
+It also sets the overall format for numbers.
+
+```{r echo=T, results='hide'}
+if(!is.null(dev.list())) dev.off()
+cat("\014") 
+rm(list=ls())
+options(scipen=9)
+```
+
+------------------------------------------------------------------------
+
+### Basic Manipulation
+
+This code chunk is to read in the excel file and convert it into a data frame.
+
+```{r results='hide'}
+getwd()  # for verifying working directory
+Excel <- read.csv("2014 and 2015 CSM 22F.csv")
+Excel <- as.data.frame(Excel)
+```
+
+Read data set to view first few rows with the header(column name).
+
+```{r}
+head(Excel)
+```
+
+To get all the dimensions from the data set we have used ncol() and nrow() function.
+We can use dim() function as well to get the dimension of the data set.
+
+First function provides number of rows and the second function provides number of columns.
+
+```{r}
+ncol(Excel)
+nrow(Excel)
+```
+
+#### Summarizing Data.
+
+> Means and Standard Deviations
+
+To calculate mean, we have to use mean() function.
+To calculate standard deviation, we have to use sd() function.
+
+Used the results above to calculated the coefficient of variation.
+
+To calculate the coefficient of variation I have to divide the standard deviation with the mean value.
+
+The purpose of using the round() function with 2 decimal points is to simplify and make the number more suitable for practical use or presentation.
+
+```{r}
+mg<- mean(Excel$Gross)
+sg<- sd(Excel$Gross)
+
+cv<- sg/mg
+round(cv,2)
+```
+
+I calculated the mean and standard deviation for the budget and then found the coefficient of variation, rounding it to 2 decimal places.
+
+```{r}
+mb<- mean(Excel$Budget)
+sb<- sd(Excel$Budget)
+
+cv <- sb / mb
+round(cv,2)
+```
+
+Adding this step lets me see which changes more: the budget or the gross sales of a movie.
+
+```{r}
+var(Excel)
+```
+
+Based on the data from the `var()` function, it's clear that both the budget and gross sales values have more differences.
+
+------------------------------------------------------------------------
+
+Adding this step helps me to find the middle value where 32% of the likes given fall below it, providing insight into the distribution of likes.
+
+For this, I can use quantile function to calculate percentile function with the provided ratio.
+
+quantile(table_name\$column_name,provided ratio value)
+
+```{r}
+PercentileOfLikes <- quantile(Excel$Likes, c(.32))
+round(PercentileOfLikes)
+```
+
+------------------------------------------------------------------------
+
+### Organizing Data
+
+> Summary Table
+
+Created a table that shows average rating by year and rounded to two decimal places.
+
+```{r}
+AvgRateY <- aggregate(Excel$Ratings, by=list(Excel$Year), FUN=mean, na.rm=TRUE)
+AvgRateY
+round(AvgRateY,2)
+```
+
+Based on data received from the aggregate function, we can say that 2014 has highest rating as 6.44.
+
+> Cross Tabulation
+
+Now Let's create a table counting all genres of movies and which sequel number it is.
+
+```{r}
+table(Excel$Genre,Excel$Sequel)
+```
+
+Changed the table to show the percentage of each genre that is the 1st, 2nd and so on, movie in the series.
+Also, rounded to two decimal places.
+
+```{r}
+A <- with(Excel, table(Genre,Sequel))
+round(prop.table(A,1)*100,2)
+```
+
+Percentage of movies in genre number 8 are sequel or not.
+
+Approx, 77% of number 8 genre are not sequel.
+
+```{r}
+A <- with(Excel, table(Genre,Sequel))
+round(prop.table(A)*100,2)
+```
+
+> Bar Plot
+
+Created a bar plot of genre of movies.
+The plot should be: rank ordered by highest count of genre.
+
+Properly labeled (title, x-axis, etc)
+
+To show BarPlot, I have used barplot function and added the value in the descending order using decreasing = FALSE in the order() function.
+
+```{r}
+genreBar <- table(Excel$Genre)
+Genre <- genreBar[order(genreBar,decreasing=TRUE)]
+barplot(Genre,
+        col = c("#27B8A6"),
+        density = 25, angle = 45,
+        main="Bar Plot - Number of Genres",
+        xlab="Genres")
+```
+
+> Histogram
+
+Now let's create a histogram of sentiment.
+
+For histogram, we use hist() function and color Hex codes in the col value.
+Also, to label the axis I have used xlab and ylab for labeling graph.
+
+```{r}
+hist(Excel$Sentiment,
+     col=c("#27B8A6"),
+     density = 30, angle = 140,
+     xlab="sentiment",
+     main="Histogram - sentiments for movies")
+```
+
+> Box plot
+
+Created a horizontal box plot of number of screens the movies were shown on.
+
+For the Box Plot, I have used boxplot() function.For creating the horizontal box plot added horizontal=TRUE inside the boxplot() function.
+For labeling, used xlab and ylab.
+
+```{r}
+boxplot(Excel$Screens, 
+        main="Distribution of movie screens",
+        xlab="Percentage of movies on screens",
+        col=c("#27B8A6"),
+        horizontal=TRUE,
+        pch=20)
+```
+
+> Scatter Plot
+
+Created a scatter plot comparing budget and gross sales.
+
+To create a Scatter plot, we used plot() function and add budget and gross field in the function then add the main source(table) name.
+Also,added the line at 45 degree using abline() function to know association between budget and gross sales for movies.
+
+```{r}
+
+plot(Budget ~ Gross,
+     data=Excel,
+     col=c("#B82759"),
+     pch=25,
+     main="Scatterplot - Budget & Gross",
+     xlab="Budget",
+     ylab="Gross")
+#abline(coef = c(0,1))
+abline(0, 1, col='blue')
+```
+
+Based on the scatter plot, we can say that there is an association between budget and gross sales for movies.
+As Gross value is increasing with the budget.
+
+Also, we can say that below the line pointer moview plotted has more budget the gross value is lesser.

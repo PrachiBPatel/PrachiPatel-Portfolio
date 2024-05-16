@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=7142&amp;path=livereload" data-no-instant defer></script>
+<html lang="en" dir="ltr"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=livereload" data-no-instant defer></script>
   
                            
      
@@ -31,26 +31,26 @@
 <meta property="og:title" content="Delivery Time Analysis | Prachi Patel">
 <meta property="og:description" content="Prachi Patel Portfolio" />
 <meta property="og:type" content="page" />
-<meta property="og:url" content="//localhost:7142/project/delivery-time-analysis/" />
+<meta property="og:url" content="//localhost:4321/project/delivery-time-analysis/" />
 <meta property="og:locale" content="en">
 
 
 
 
     
-        <meta property="og:image" content="//localhost:7142/project/sidebar-listing.jpg" >
+        <meta property="og:image" content="//localhost:4321/project/sidebar-listing.jpg" >
         <meta property="twitter:card" content="summary_large_image">
-        <meta name="twitter:image" content="//localhost:7142/project/sidebar-listing.jpg" >
+        <meta name="twitter:image" content="//localhost:4321/project/sidebar-listing.jpg" >
     
     
   
   <meta itemprop="name" content="Delivery Time Analysis">
   <meta itemprop="description" content="This section is for the basic set up. It will clear all the plots, the console and the workspace. It also sets the overall format for numbers.
 if(!is.null(dev.list())) dev.off() ## null device ## 1 cat(&#34;\014&#34;) rm(list=ls()) options(scipen=9) This section loads and attaches all the necessary packages.
-if(!require(readxl)){install.packages(&#34;readxl&#34;)} ## Loading required package: readxl library(&#34;readxl&#34;) if(!require(pastecs)){install.packages(&#34;pastecs&#34;)} ## Loading required package: pastecs library(&#34;pastecs&#34;) if(!require(lattice)){install.packages(&#34;lattice&#34;)} ## Loading required package: lattice library(&#34;lattice&#34;) if(!require(ggplot2)){install.packages(&#34;ggplot2&#34;)} ## Loading required package: ggplot2 library(&#34;ggplot2&#34;) if(!">
+if(!require(readxl)){install.packages(&#34;readxl&#34;)} ## Loading required package: readxl ## Warning: package &#39;readxl&#39; was built under R version 4.2.3 library(&#34;readxl&#34;) if(!require(pastecs)){install.packages(&#34;pastecs&#34;)} ## Loading required package: pastecs ## Warning: package &#39;pastecs&#39; was built under R version 4.">
   <meta itemprop="datePublished" content="2022-11-13T00:00:00+00:00">
   <meta itemprop="dateModified" content="2022-11-13T00:00:00+00:00">
-  <meta itemprop="wordCount" content="3382">
+  <meta itemprop="wordCount" content="3422">
   
   
 
@@ -72,7 +72,7 @@ if(!require(readxl)){install.packages(&#34;readxl&#34;)} ## Loading required pac
       <div class="grid-container">
 <header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
   <nav class="site-nav db dt-l w-100" role="navigation">
-    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="//localhost:7142/" title="Home">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="//localhost:4321/" title="Home">
       <img src="/img/Logo.png" class="dib db-l h2 w-auto" alt="Prachi Patel">
     </a>
     <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
@@ -92,11 +92,11 @@ if(!require(readxl)){install.packages(&#34;readxl&#34;)} ## Loading required pac
   </nav>
 </header>
 
-<main class="page-main pa4" role="main">
-  <section class="page-content mw7 center">
+<main class="page-main pa4" role="main" style="text-align: justify">
+  <section class="page-content mw8 center">
     <article class="post-content pa0 ph4-l">
       <header class="post-header">
-        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Delivery Time Analysis</h1>
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4" style="text-align: left">Delivery Time Analysis</h1>
         
         <p class="f6 measure lh-copy mv1">By Prachi Patel</p>
         <p class="f7 db mv0 ttu">November 13, 2022</p>
@@ -118,18 +118,22 @@ It also sets the overall format for numbers.</p>
 </span></span></code></pre></div><p>This section loads and attaches all the necessary packages.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(readxl)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;readxl&#34;</span>)}
 </span></span></code></pre></div><pre tabindex="0"><code>## Loading required package: readxl
+</code></pre><pre tabindex="0"><code>## Warning: package &#39;readxl&#39; was built under R version 4.2.3
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(<span style="color:#d14">&#34;readxl&#34;</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(pastecs)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;pastecs&#34;</span>)}
 </span></span></code></pre></div><pre tabindex="0"><code>## Loading required package: pastecs
+</code></pre><pre tabindex="0"><code>## Warning: package &#39;pastecs&#39; was built under R version 4.2.3
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(<span style="color:#d14">&#34;pastecs&#34;</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(lattice)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;lattice&#34;</span>)}
 </span></span></code></pre></div><pre tabindex="0"><code>## Loading required package: lattice
+</code></pre><pre tabindex="0"><code>## Warning: package &#39;lattice&#39; was built under R version 4.2.3
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(<span style="color:#d14">&#34;lattice&#34;</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(ggplot2)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;ggplot2&#34;</span>)}
 </span></span></code></pre></div><pre tabindex="0"><code>## Loading required package: ggplot2
+</code></pre><pre tabindex="0"><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.2.3
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(<span style="color:#d14">&#34;ggplot2&#34;</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(tinytex)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;tinytex&#34;</span>)}
@@ -148,7 +152,7 @@ It also sets the overall format for numbers.</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(psych)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;psych&#34;</span>)}
 </span></span></code></pre></div><pre tabindex="0"><code>## Loading required package: psych
-</code></pre><pre tabindex="0"><code>## Warning: package &#39;psych&#39; was built under R version 4.2.2
+</code></pre><pre tabindex="0"><code>## Warning: package &#39;psych&#39; was built under R version 4.2.3
 </code></pre><pre tabindex="0"><code>## 
 ## Attaching package: &#39;psych&#39;
 </code></pre><pre tabindex="0"><code>## The following objects are masked from &#39;package:ggplot2&#39;:
@@ -988,7 +992,7 @@ It also sets the overall format for numbers.</p>
   </dl>
   <dl class="f6 lh-copy">
     <dt class="fw7">Length:</dt>
-    <dd class="fw5 ml0">16 minute read, 3382 words</dd>
+    <dd class="fw5 ml0">17 minute read, 3422 words</dd>
   </dl>
   
   
@@ -1005,12 +1009,12 @@ It also sets the overall format for numbers.</p>
   
   
     <a class="prev dtc pr2 tl v-top fw6"
-    href="//localhost:7142/project/order-fulfillment-analysis/">&larr; Order Fulfillment Analysis</a>
+    href="//localhost:4321/project/order-fulfillment-analysis/">&larr; Order Fulfillment Analysis</a>
   
   
   
     <a class="next dtc pl2 tr v-top fw6"
-    href="//localhost:7142/project/drug-trial-analysis/">Drug Trial Analysis &rarr;</a>
+    href="//localhost:4321/project/drug-trial-analysis/">Drug Trial Analysis &rarr;</a>
   
 </div>
 

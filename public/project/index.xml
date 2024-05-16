@@ -2,53 +2,60 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects Portfolio on Prachi Patel</title>
-    <link>//localhost:7142/project/</link>
+    <link>//localhost:4321/project/</link>
     <description>Recent content in Projects Portfolio on Prachi Patel</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 28 Mar 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:7142/project/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:4321/project/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Salary data based on country and race Analysis</title>
-      <link>//localhost:7142/project/salary-data-based-on-country-and-race/</link>
+      <link>//localhost:4321/project/salary-data-based-on-country-and-race/</link>
       <pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:7142/project/salary-data-based-on-country-and-race/</guid>
+      <guid>//localhost:4321/project/salary-data-based-on-country-and-race/</guid>
       <description>DataSet Reference: https://www.kaggle.com/datasets/sudheerp2147234/salary-dataset-based-on-country-and-race?resource=download Importing library&#xA;import pandas as pd import seaborn as sns import numpy as np import matplotlib.pyplot as plt import warnings sns.set_theme(color_codes=True) warnings.filterwarnings(&amp;#39;ignore&amp;#39;) Import Dataset&#xA;df = pd.read_csv(&amp;#39;Salary_Data_Based_country_and_race.csv&amp;#39;) Read Dataset&#xA;df.head() ## Unnamed: 0 Age Gender ... Salary Country Race&#xD;## 0 0 32.0 Male ... 90000.0 UK White&#xD;## 1 1 28.0 Female ... 65000.0 USA Hispanic&#xD;## 2 2 45.0 Male ... 150000.0 Canada White&#xD;## 3 3 36.</description>
     </item>
     <item>
+      <title>Cancer Diagnosis Prediction Model</title>
+      <link>//localhost:4321/project/cancer-diagnosis-prediction/</link>
+      <pubDate>Tue, 13 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>//localhost:4321/project/cancer-diagnosis-prediction/</guid>
+      <description>Introduction: Data Dictionary Variable Description Cancer The patient was diagnosed with cancer (0=no, 1=yes) Age Age in years HW A ratio of Height to Weight Hst History of Cancer in Family (0=No, 1=Yes) Exe Time spent exercising each week (in minutes) Smk Patient is smoker (0=No, 1=Yes) Drk atient drinks alcohol (0=No, 1=Yes) Hlth General health of patient. Five point scale: (VP) very poor health, (P) poor health, (A) average health, (G) good, (VG) very good health Initial Setup This section is for the basic set up.</description>
+    </item>
+    <item>
       <title>Order Fulfillment Analysis</title>
-      <link>//localhost:7142/project/order-fulfillment-analysis/</link>
+      <link>//localhost:4321/project/order-fulfillment-analysis/</link>
       <pubDate>Sun, 27 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>//localhost:7142/project/order-fulfillment-analysis/</guid>
+      <guid>//localhost:4321/project/order-fulfillment-analysis/</guid>
       <description>This section is for the basic set up. It will clear all the plots, the console and the workspace. It also sets the overall format for numbers.&#xA;if(!is.null(dev.list())) dev.off() ## null device ## 1 cat(&amp;#34;\014&amp;#34;) rm(list=ls()) options(scipen=9) This section loads and attaches all the necessary packages.&#xA;if(!require(readxl)){install.packages(&amp;#34;readxl&amp;#34;)} ## Loading required package: readxl library(&amp;#34;readxl&amp;#34;) if(!require(pastecs)){install.packages(&amp;#34;pastecs&amp;#34;)} ## Loading required package: pastecs library(&amp;#34;pastecs&amp;#34;) if(!require(lattice)){install.packages(&amp;#34;lattice&amp;#34;)} ## Loading required package: lattice library(&amp;#34;lattice&amp;#34;) if(!require(ggplot2)){install.packages(&amp;#34;ggplot2&amp;#34;)} ## Loading required package: ggplot2 library(&amp;#34;ggplot2&amp;#34;) if(!</description>
     </item>
     <item>
       <title>Delivery Time Analysis</title>
-      <link>//localhost:7142/project/delivery-time-analysis/</link>
+      <link>//localhost:4321/project/delivery-time-analysis/</link>
       <pubDate>Sun, 13 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>//localhost:7142/project/delivery-time-analysis/</guid>
-      <description>This section is for the basic set up. It will clear all the plots, the console and the workspace. It also sets the overall format for numbers.&#xA;if(!is.null(dev.list())) dev.off() ## null device ## 1 cat(&amp;#34;\014&amp;#34;) rm(list=ls()) options(scipen=9) This section loads and attaches all the necessary packages.&#xA;if(!require(readxl)){install.packages(&amp;#34;readxl&amp;#34;)} ## Loading required package: readxl library(&amp;#34;readxl&amp;#34;) if(!require(pastecs)){install.packages(&amp;#34;pastecs&amp;#34;)} ## Loading required package: pastecs library(&amp;#34;pastecs&amp;#34;) if(!require(lattice)){install.packages(&amp;#34;lattice&amp;#34;)} ## Loading required package: lattice library(&amp;#34;lattice&amp;#34;) if(!require(ggplot2)){install.packages(&amp;#34;ggplot2&amp;#34;)} ## Loading required package: ggplot2 library(&amp;#34;ggplot2&amp;#34;) if(!</description>
+      <guid>//localhost:4321/project/delivery-time-analysis/</guid>
+      <description>This section is for the basic set up. It will clear all the plots, the console and the workspace. It also sets the overall format for numbers.&#xA;if(!is.null(dev.list())) dev.off() ## null device ## 1 cat(&amp;#34;\014&amp;#34;) rm(list=ls()) options(scipen=9) This section loads and attaches all the necessary packages.&#xA;if(!require(readxl)){install.packages(&amp;#34;readxl&amp;#34;)} ## Loading required package: readxl ## Warning: package &amp;#39;readxl&amp;#39; was built under R version 4.2.3 library(&amp;#34;readxl&amp;#34;) if(!require(pastecs)){install.packages(&amp;#34;pastecs&amp;#34;)} ## Loading required package: pastecs ## Warning: package &amp;#39;pastecs&amp;#39; was built under R version 4.</description>
     </item>
     <item>
       <title>Drug Trial Analysis</title>
-      <link>//localhost:7142/project/drug-trial-analysis/</link>
+      <link>//localhost:4321/project/drug-trial-analysis/</link>
       <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>//localhost:7142/project/drug-trial-analysis/</guid>
+      <guid>//localhost:4321/project/drug-trial-analysis/</guid>
       <description>500 patients participated in a new drug trial designed to increase the white blood cell count (WBC). One group of patients (“Treat”) were given the medication while the other (“Control”) were not. A number of variables were measured and recorded (including a survey they were asked to fill in). Appendix 1 contains the data dictionary for the data set. One group of respondents (“Treat”) were given additional education on political matters while the other (“Control”) were not.</description>
     </item>
     <item>
-      <title>App Management Analysis</title>
-      <link>//localhost:7142/project/app-management-analysis/</link>
+      <title>Earthquake Analysis</title>
+      <link>//localhost:4321/project/earthquakes-analytics/</link>
       <pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>//localhost:7142/project/app-management-analysis/</guid>
-      <description>This section is for the basic set up. It will clear all the plots, the console and the workspace. It also sets the overall format for numbers.&#xA;if(!is.null(dev.list())) dev.off() ## null device ## 1 cat(&amp;#34;\014&amp;#34;) rm(list=ls()) options(scipen=9) #Load packages #For Excel if(!require(readxl)){install.packages(&amp;#34;readxl&amp;#34;)} ## Loading required package: readxl library(&amp;#34;readxl&amp;#34;) PART 1&#xA;The following statement is made by your manager. Based on the examples and discussion in Lecture 1, transform it in to a question that can be answered with data analytics.</description>
+      <guid>//localhost:4321/project/earthquakes-analytics/</guid>
+      <description>library(reticulate) ## Warning: package &amp;#39;reticulate&amp;#39; was built under R version 4.2.3 # !pip install matplot import numpy as np import pandas as pd df1 = pd.read_csv(&amp;#34;earthquakes-dataset.csv&amp;#34;) df1.head() ## Date Time Latitude ... Location Source Magnitude Source Status&#xD;## 0 01/02/1965 13:44:18 19.246 ... ISCGEM ISCGEM Automatic&#xD;## 1 01/04/1965 11:29:49 1.863 ... ISCGEM ISCGEM Automatic&#xD;## 2 01/05/1965 18:05:58 -20.579 ... ISCGEM ISCGEM Automatic&#xD;## 3 01/08/1965 18:49:43 -59.076 ... ISCGEM ISCGEM Automatic&#xD;## 4 01/09/1965 13:32:50 11.</description>
     </item>
     <item>
-      <title>Earthquake Analysis</title>
-      <link>//localhost:7142/project/earthquakes-analytics/</link>
+      <title>Movie Data Analysis</title>
+      <link>//localhost:4321/project/movie/</link>
       <pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>//localhost:7142/project/earthquakes-analytics/</guid>
-      <description>library(reticulate) ## Warning: package &amp;#39;reticulate&amp;#39; was built under R version 4.2.3 # !pip install matplot import numpy as np import pandas as pd df1 = pd.read_csv(&amp;#34;earthquakes-dataset.csv&amp;#34;) df1.head() ## Date Time Latitude ... Location Source Magnitude Source Status&#xD;## 0 01/02/1965 13:44:18 19.246 ... ISCGEM ISCGEM Automatic&#xD;## 1 01/04/1965 11:29:49 1.863 ... ISCGEM ISCGEM Automatic&#xD;## 2 01/05/1965 18:05:58 -20.579 ... ISCGEM ISCGEM Automatic&#xD;## 3 01/08/1965 18:49:43 -59.076 ... ISCGEM ISCGEM Automatic&#xD;## 4 01/09/1965 13:32:50 11.</description>
+      <guid>//localhost:4321/project/movie/</guid>
+      <description>Introduction: The dataset given containing data of the movie from year 2014 and 2015 including Movie, Year, Ratings, Genre, Gross, Budget, Screens, Sequel, Sentiment, Views, Likes, Dislikes, Comments, Aggregate Followers. The aim of this project is to analyse the data to dig deep into data and know if there are any patters available or not?&#xA;Data Dictionary Variable Description Movie Movie Title Year Year of Movie Release Ratings Average Rating Genre Genre Code Gross Gross Sales (USD) Budget Budget (USD) Screens Nbr of Screens showing Sequel Sequel (1=Original Movie, 2=Sequel, 3=2nd Sequel, etc.</description>
     </item>
   </channel>
 </rss>
