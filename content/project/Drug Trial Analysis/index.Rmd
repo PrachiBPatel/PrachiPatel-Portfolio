@@ -3,12 +3,31 @@ title: "Drug Trial Analysis"
 subtitle: ""
 author: "Prachi Patel"
 date: "2022-10-14"
-output: pdf_document
+excerpt: "
+This project analyzes data from a drug trial with 500 patients to test a new medication that aims to increase white blood cell count. We compare results between a treatment group and a control group to see if the drug works. The study also looks at how other factors like heart rate and blood pressure affect white blood cell counts."
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+editor_options: 
+  markdown: 
+    wrap: sentence
 
 ---
 
-500 patients participated in a new drug trial designed to increase the white blood cell count (WBC). One group of patients (“Treat”) were given the medication while the other (“Control”) were not. A number of variables were measured and recorded (including a survey they were asked to fill in). Appendix 1 contains the data dictionary for the data set. One group of respondents (“Treat”) were given additional education on political matters while the other (“Control”) were not.
-    
+### Introduction
+
+This project analyzes data from a drug trial with 500 patients to test a new medication that aims to increase white blood cell count. We compare results between a treatment group and a control group to see if the drug works. The study also looks at how other factors like heart rate and blood pressure affect white blood cell counts.
+
+# Data Dictionary
+```{r echo=FALSE, results='asis'}
+options(knitr.kable.NA = '')
+data.frame(Variable = c("ID","gender","HR","BP","Wgt1","Wgt2","Hgt","Smoke","Drink","Exercise","Group","WBC","Incode"),
+           Description = c("UserID (unique to each respondent)","Gender of patient","Heart Rate (Low, Normal, High)","Patient Weight 1 week before test start","Patient Weight at test start","Height of patient in inches","Does the patient smoke?","Does the patient drink alcohol?","Minutes per week patient exercises","Test/Control","White Blood Cell Count","Annual Income")) |>
+  knitr::kable()
+```
+
+### Initial Setup
 
 This section is for the basic set up.
 It will clear all the plots, the console and the workspace.
@@ -20,6 +39,8 @@ cat("\014")
 rm(list=ls())
 options(scipen=9)
 ```
+
+### Load Packages
 
 This section loads and attaches all the necessary packages.
 
@@ -41,6 +62,7 @@ library("tinytex")
 
 ```
 
+### Import Data
 
 ```{r setup, include=FALSE}
 getwd()  # for verifying working directory
@@ -49,19 +71,12 @@ ExcelFile <- as.data.frame(ExcelFile)
 head(ExcelFile)
 ```
 
-1. Data Transformation and Preparation
+### Data Transformation and Preparation
 
-  1. Initial Transformation
-    a. Rename all variables with your initials appended (just as was done in assignment 1 and 2)
-      ->To append initials in the data frame we can use paste function to concatenate value and added _ as a separator.
+> Initial Transformation
 
-```{r}
-colnames(ExcelFile) <- paste(colnames(ExcelFile), "", sep = "_")
-head(ExcelFile)
-```
-
-    b. Transform character variables to factor variables.
-      -> Using factor function we can convert character variable to factor variable.
+Transforming character variables to factor variables.
+  Using factor function we can convert character variable to factor variable.
         
 ```{r}
 ExcelFile$gender <- as.factor(ExcelFile$gender)
@@ -73,10 +88,11 @@ ExcelFile$Group <- as.factor(ExcelFile$Group)
 head(ExcelFile)
 ```
 
-  2. Reduce Dimensionality
+> Reduce Dimensionality
   
-    a. Apply the Missing Value Filter to remove appropriate columns of data.
-      -> Using summary function, we can summarize all data in the data source. Based on the summary data 492 values out of 500 is blank or null for Income field.
+Applying the Missing Value Filter to remove appropriate columns of data using summary function, summarized all data in the data source. 
+
+Based on the summary data 492 values out of 500 is blank or null for Income field.
     
 ```{r}
 summary(ExcelFile)
@@ -84,9 +100,9 @@ ExcelFile <- ExcelFile[-c(13)]
 summary(ExcelFile)
 ```
   
-    
-    b. Apply the Low Variance Filter to remove appropriate columns of data.
-      -> Removed Hgt column because Height's coef.var value is 0.04.
+Applying the Low Variance Filter to remove appropriate columns of data.
+
+Removed Hgt column because Height's coef.var value is 0.04.
       
 ```{r}
 stat.desc(ExcelFile)
@@ -96,34 +112,31 @@ ExcelFile <- ExcelFile[-c(8)]
 stat.desc(ExcelFile)
 head(ExcelFile)
 ```
-    c. Apply the High Correlation Filter to remove appropriate columns of data.
-      -> Removing Wgt2 fields because Wgt2's correlation is 0.99; which is almost same as 1 for Wgt1.
+
+Applying the High Correlation Filter to remove appropriate columns of data.
+
+Removing Wgt2 fields because Wgt2's correlation is 0.99; which is almost same as 1 for Wgt1.
     
 ```{r}
-#sapply(ExcelFile, class)
-#sapply(ExcelFile, is.factor)
 cor(ExcelFile[sapply(ExcelFile, function(x) !is.factor(x))])
-#cor(ExcelFile,method="spearman")
 ExcelFile <- ExcelFile[-c(6)]
 head(ExcelFile)
 ```
     
-    
-    d. Drop any variables that do not contribute any useful analytical information at all.
-      -> Removing ID and Gender fields because both columns data is not useful for the analytics. As ID is the row number for each field and for gender column all data are marked as Female.
+Dropping the ID and Gender fields because both columns data is not useful for the analytics. 
+
+As ID is the row number for each field and for gender column all data are marked as Female.
 
 ```{r}
-
 ExcelFile <- ExcelFile[-c(1:2)]
 head(ExcelFile)
-
 ```
 
-
-  3. Outliers
+> Outliers
   
-    a. Create boxplots of all relevant variables (i.e. numeric, non-binary) to determine outliers.
-      -> Created boxplot for Weight, Exercise, and White Blood Cell fields as remaining fields are non-numeric.
+Creating box plots of all relevant variables (i.e. numeric, non-binary) to determine outliers.
+
+Created box plot for Weight, Exercise, and White Blood Cell fields as remaining fields are non-numeric.
       
 ```{r}
 #Weight Data
@@ -141,12 +154,13 @@ densityplot( ~ ExcelFile$WBC, pch=6,col=c("#6bc9c2"), xlab = "White Blood Cell")
 
 ```
     
-    
-    
-    b. Comment on any outliers you see and deal with them appropriately
-      -> Based on the previous box plots and density plots for Weight, Exercise and White Blood Cells fields; Weight and White Blood Cell fields has outlines.
-         For Weight, we have removed outliners data where value is less than 58.
-         For White blood cell, we have removed outliners data where value is less than 4100 and greater than 9700.
+Commenting on any outliers you see and deal with them appropriately
+
+Based on the previous box plots and density plots for Weight, Exercise and White Blood Cells fields; Weight and White Blood Cell fields has outlines.
+
+For Weight, we have removed outliners data where value is less than 58.
+
+For White blood cell, we have removed outliners data where value is less than 4100 and greater than 9700.
          
 ```{r}
 
@@ -165,22 +179,23 @@ boxplot(ExcelFile$WBC, horizontal=TRUE, col=c("#e8bbfa"), pch=20, main = "White 
 densityplot( ~ ExcelFile$WBC, pch=6,col=c("#e8bbfa"), xlab = "White Blood Cell")
 ```
     
-    
-2. Organizing Data
-  1. Scatter Plots
-    a. Create a histogram for one of the Weight variables.
+### Organizing Data
+
+> Scatter Plots
+
+Created a histogram for one of the Weight variables.
     
 ```{r}
 histogram(~Wgt1, dat=ExcelFile, breaks=10,col = c("#6bc9c2"), type="density", xlab="Weight", main="Histogram of Weight")
 ```
     
-    
-    b. Create a histogram for Exercise. 
+Created a histogram for Exercise. 
     
 ```{r}
 histogram(~Exercise, dat=ExcelFile, breaks=10,col = c("#6bc9c2"), type="density", xlab="Exercise", main="Histogram of Exercise")
 ```
-    c. Create a scatter plot showing the relationship between Exercise and Weight. (note: Exercise should be on the x-axis, Weight should be the y-axis)
+
+Created a scatter plot showing the relationship between Exercise and Weight. (note: Exercise should be on the x-axis, Weight should be the y-axis)
     
 ```{r}
 plot(Wgt1 ~ Exercise,
@@ -192,11 +207,14 @@ plot(Wgt1 ~ Exercise,
      ylab="Weight")
 abline(0, 1, col='blue')
 ```
-    d. What conclusions, if any, can you draw from the chart?
-      -> Based on the Scatter plot graph, we can say that exercise and weight data is not in a direct relationship as all data is show all over the graph.
+
+> Conclusion from the chart...
+
+Based on the Scatter plot graph, we can say that exercise and weight data is not in a direct relationship as all data is show all over the graph.
       
-    e. Calculate a correlation coefficient between these two variables. What conclusion you draw from it?
-      -> Based on the correlation coefficient value, we can say that weight and exercise value are corelated to each other.
+Calculating a correlation coefficient between these two variables. 
+
+Based on the correlation coefficient value, we can say that weight and exercise value are correlated to each other.
     
 ```{r}
 ExcelFile$Wgt1 <- as.numeric(ExcelFile$Wgt1)
@@ -204,32 +222,37 @@ ExcelFile$Exercise <- as.numeric(ExcelFile$Exercise)
 cor.test(ExcelFile$Wgt1,ExcelFile$Exercise, method="spearman")
 ```
     
-    
-3. Inference
-  1. Normality
-    a. Create a QQ Normal plot of White Blood Cell counts.
+### Inference
+
+> Normality
+
+Created a QQ Normal plot of White Blood Cell counts.
     
 ```{r}
 qqnorm(ExcelFile$WBC, pch = 1,col = c("#6bc9c2"), frame = FALSE, main = "Normal Q-Q Plot for White Blood Cell")
 qqline(ExcelFile$WBC, col = "black", lwd = 2)
 ```
     
-    
-    b. Conduct a statistical test for normality on White Blood Cell counts.
-      -> For the statistical test, we can perform shapiro test to get the value for normality.
-         For this, p-value is 0.1515. We can say that data is normally distributed.
+Conducted a statistical test for normality on White Blood Cell counts.
+
+For the statistical test, we can perform shapiro test to get the value for normality.
+
+For this, p-value is 0.1515. We can say that data is normally distributed.
     
 ```{r}
 shapiro.test(ExcelFile$WBC)
 ```
 
     
-    c. Is White Blood Cell count normally distributed? What led you to this conclusion?
-      -> Based on the p-value get using shapiro test and the Q-Q plot graph, we can say that White Blood Cell data is normally distributed.
+Now let's check if is White Blood Cell count normally distributed? What led you to this conclusion?
+
+Based on the p-value get using shapiro test and the Q-Q plot graph, we can say that White Blood Cell data is normally distributed.
     
-  2. Statistically Significant Differences
-    a. Compare White Blood Cell counts between the treatment and control group using a suitable hypothesis test.
-      -> Below is the process to choose comparison test.
+> Statistically Significant Differences
+
+Compared White Blood Cell counts between the treatment and control group using a suitable hypothesis test.
+
+Below is the process to choose comparison test.
     
 ```{r}
 #As data is in the continuous manner, we will compare the means and groups if there are two or more than two and whether data meets the main three assumptions or not. 
@@ -250,14 +273,12 @@ res <- t.test(WBC ~ Group, data = ExcelFile, var.equal = TRUE)
 res
 ```
     
-    
-    b. Explain why you chose the test you did. 
-      -> Based on previous assumptions conditions, all 3 conditons are satisfied to perform the t-test.
-    
-    c. Do you have strong evidence that White Blood Cell counts are different between the treatment and control groups?
-      -> Based on p-value for WBC counts, we can say that means are different. 
-         For T-test, if p > 0.05 - Means are same.
-                     if p < 0.05 - Means are different.
+Based on previous assumptions conditions, all 3 conditions are satisfied to perform the t-test.
+
+Based on p-value for WBC counts, we can say that means are different. 
+
+For T-test, if p > 0.05 - Means are same.
+            if p < 0.05 - Means are different.
     
 ```{r}
 t.test(WBC ~ Group, data = ExcelFile, var.equal = TRUE)
@@ -268,10 +289,11 @@ bwplot(WBC ~ Group, data=ExcelFile,
 
 ```
     
-    
-  3. Multiple Statistical Differences
-    a. Determine if White Blood Cell count varies by Heart Rate Level using ANOVA (statistical) and a sequence of boxplots (graphical).
-      -> Using ANOVA test result, where pr = 0.768 we can say that means are same.
+> Multiple Statistical Differences
+
+Determining if White Blood Cell count varies by Heart Rate Level using ANOVA (statistical) and a sequence of boxplots (graphical).
+  
+Using ANOVA test result, where pr = 0.768 we can say that means are same.
     
 ```{r}
 summary(aov(WBC ~ HR, data=ExcelFile))
@@ -285,9 +307,9 @@ range=0)
 
 ```
     
-    
-    b. Determine if White Blood Cell count varies by Blood Pressure Level using ANOVA and a sequence of boxplots.
-      -> Using ANOVA test result, where pr = 0.322 we can say that means are same.
+Determining if White Blood Cell count varies by Blood Pressure Level using ANOVA and a sequence of boxplots.
+
+Using ANOVA test result, where pr = 0.322 we can say that means are same.
     
 ```{r}
 summary(aov(WBC ~ BP, data=ExcelFile))
@@ -299,19 +321,3 @@ ylab = "WBC",
 col=c("#6bc9c2"),
 range=0)
 ```
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
