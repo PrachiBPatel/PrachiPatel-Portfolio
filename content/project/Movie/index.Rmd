@@ -2,6 +2,7 @@
 title: "Movie Data Analysis"
 author: "Prachi Patel"
 date: "2022-09-28"
+excerpt: "The dataset given containing data of the movie from year 2014 and 2015 including Movie, Year, Ratings, Genre, Gross, Budget, Screens, Sequel, Sentiment, Views, Likes, Dislikes, Comments, Aggregate Followers. The aim of this project is to analyse the data to dig deep into data and know if there are any patters available or not?"
 output:
   html_document:
     df_print: paged

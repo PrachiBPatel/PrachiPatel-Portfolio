@@ -2,6 +2,7 @@
 title: "Cancer Diagnosis Prediction Model"
 author: "Prachi Patel"
 date: "2022-12-13"
+excerpt: "This project aims to predict cancer diagnosis using patient data. It compares different methods like Logistic Regression, Naive Bayes, and Linear Discriminant Analysis to find the most accurate model. The goal is to identify the best way to predict cancer while minimizing errors."
 output:
   html_document:
     df_print: paged
@@ -11,15 +12,16 @@ editor_options:
     wrap: sentence
 ---
 
-### Introduction:
+### Introduction
 
+This project aims to predict cancer diagnosis using patient data. It compares different methods like Logistic Regression, Naive Bayes, and Linear Discriminant Analysis to find the most accurate model. The goal is to identify the best way to predict cancer while minimizing errors.
 
 ### Data Dictionary
 
 ```{r echo=FALSE, results='asis'}
 options(knitr.kable.NA = '')
 data.frame(Variable = c("Cancer","Age","HW","Hst","Exe","Smk","Drk","Hlth"),
-           Description = c("The patient was diagnosed with cancer (0=no, 1=yes)","Age in years","A ratio of Height to Weight","History of Cancer in Family (0=No, 1=Yes)","Time spent exercising each week (in minutes)","Patient is smoker (0=No, 1=Yes)","atient drinks alcohol (0=No, 1=Yes)","General health of patient. Five point scale: (VP) very poor health, (P) poor health, (A) average health, (G) good, (VG) very good health")) |>
+           Description = c("The patient was diagnosed with cancer (0=no, 1=yes)","Age in years","A ratio of Height to Weight","History of Cancer in Family (0=No, 1=Yes)","Time spent exercising each week (in minutes)","Patient is smoker (0=No, 1=Yes)","Patient drinks alcohol (0=No, 1=Yes)","General health of patient. Five point scale: (VP) very poor health, (P) poor health, (A) average health, (G) good, (VG) very good health")) |>
   knitr::kable()
 ```
 
@@ -87,7 +89,7 @@ head(ExcelFile)
 
 Convert all the Character variable into Factor.
 
-```{r}
+```{r results='hide'}
 as.data.frame(unclass(ExcelFile),stringsAsFactors = TRUE) 
 ```
 
@@ -100,60 +102,105 @@ ExcelFile$Smk <- as.numeric(ExcelFile$Smk)
 ExcelFile$Drk <- as.numeric(ExcelFile$Drk)
 ExcelFile1 <- ExcelFile[c(1:7)]
 cor(ExcelFile1[,unlist(lapply(ExcelFile1,is.numeric))], method="spearman")
+```
 
-# Based on the correlation, we can say that there is strong correlation between Smoke and Drink in the model.
+Based on the correlation, we can say that there is strong correlation between Smoke and Drink in the model.
 
+```{r}
 ExcelFile1 <- ExcelFile1[-c(7)]
 ExcelFile <- ExcelFile[-c(7)]
 summary(ExcelFile)
-head(ExcelFile1)
 ```
-Check Dimensionality reduction
+
+> Checking Dimensionality reduction.
+
+Using summary function, I have summarized all data in the data source.
 
 ```{r}
-# Using summary function, we can summarize all data in the data source.
-## Based on summary, we can say that no null data is available.
 summary(ExcelFile)
+```
 
-# Checking coef.var values for numeric field.
+Based on summary, we can say that no null data is available as no data is available in `nbr.null` row.
+
+```{r}
 stat.desc(ExcelFile)
 ```
 
+> Checking Outliners
 
-Check Outliners
+Create `barplot` for cancer field that shows if the patient was diagnosed with cancer or not.
+
+This plot will show if any outliners are available or not.
 
 ```{r}
-
 Cancer <- table(ExcelFile$Cancer)
 Cancer <- Cancer[order(Cancer,decreasing=TRUE)]
 barplot(Cancer,density = 30, angle = 45, main="The patient was diagnosed with cancer (0=no, 1=yes)", xlab="The patient was diagnosed with cancer", ylab = "Frequency", col=c("#6bc9c2"))
+```
 
-# Created boxplot for Age (i.e. numeric, non-binary) to determine outliers.
+As per the graph we can say that there are no outliners are available for the cancer field.
+
+Created `boxplot` for Age (i.e. numeric, non-binary) to determine outliers.
+
+```{r}
 boxplot(ExcelFile$Age, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "Age in years")
 densityplot( ~ ExcelFile$Age, pch=6,col=c("#6bc9c2"), xlab = "Age")
+```
 
-# Created boxplot for Height to Weight (i.e. numeric, non-binary) to determine outliers.
+As per the graph we can say that there are no outliners are available for the Age field.
+
+Created `boxplot` for Height to Weight (i.e. numeric, non-binary) to determine outliers.
+
+```{r}
 boxplot(ExcelFile$HW, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "A ratio of Height to Weight")
 densityplot( ~ ExcelFile$HW, pch=6,col=c("#6bc9c2"), xlab = "Height to Weight")
+```
 
-#Code to delete outliner data where Height to Weight value is more than 2.
+As per the graph we can say that there are outliners are available for the height to weight ratio field.
+
+This code to delete outliner data where Height to Weight value is more than 2.
+
+```{r}
 nr <- which(ExcelFile$HW > 2)
 ExcelFile <- ExcelFile[-c(nr),]
 boxplot(ExcelFile$HW, horizontal=TRUE, col=c("#e8bbfa"), pch=20, main = "A ratio of Height to Weight")
 densityplot( ~ ExcelFile$HW, pch=6,col=c("#e8bbfa"), xlab = "Height to Weight")
+```
 
+Now we can see that no outliners are available for the height to weight field.
+
+Created `boxplot` for History of Cancer in Family field to determine outliers.
+
+```{r}
 Hst <- table(ExcelFile$Hst)
 Hst <- Hst[order(Hst,decreasing=TRUE)]
 barplot(Hst,density = 30, angle = 45, main="History of Cancer in Family (0=No, 1=Yes)", xlab="History of Cancer", ylab = "Frequency", col=c("#6bc9c2"))
+```
 
-# Created boxplot for Exercise (i.e. numeric, non-binary) to determine outliers.
+And we can see that no outliners are available in the History of Cancer in Family field.
+
+Created `boxplot` for Exercise (i.e. numeric, non-binary) to determine outliers.
+
+```{r}
 boxplot(ExcelFile$Exe, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "Time spent exercising each week (in minutes) - Box Plot")
 densityplot( ~ ExcelFile$Exe, pch=6,col=c("#6bc9c2"), xlab = "Exercise")
+```
 
+No outliners are available in the exercise field as well.
+
+Now, let's check the outliners for the smoker field.
+
+```{r}
 Smk <- table(ExcelFile$Smk)
 Smk <- Smk[order(Smk,decreasing=TRUE)]
 barplot(Smk,density = 30, angle = 45, main="Patient is smoker (0=No, 1=Yes) - Bar Plot", xlab="Smoker", ylab = "Frequency", col=c("#6bc9c2"))
+```
 
+And again we can see that no data available in smoker field as well.
+
+Now, let's check the outliners for the health of the patient field as well.
+
+```{r}
 Hlth <- table(ExcelFile$Hlth)
 Hlth <- Hlth[order(Hlth,decreasing=TRUE)]
 barplot(Hlth,density = 30, angle = 45, main="General health of patient. Five point scale: (VP) very poor health, (P) poor 
@@ -161,65 +208,84 @@ health, (A) average health, (G) good, (VG) very good health - Bar Plot", xlab="H
 
 ```
 
-Creating Full Model
+And for this field as well we can see that no outliners are available for this field as well.
+
+> Full Model
+
+Now, let's create a full model for all the variable with the Cancer variable as a dependent variable.
 
 ```{r}
-#Creating a full model for all the variable with the Cancer variable as a dependent variable.
 full.model = glm(Cancer ~ . ,data=ExcelFile, na.action=na.omit, family="binomial")
 summary(full.model)
 pred <- predict(full.model, newdata=ExcelFile)
 ```
 
-Creating Backward Model
+> Backward Model
+
+Creating another model using backward selection.
 
 ```{r}
-# Creating another model using backward selection.
 back.model = step(full.model, direction="backward", details=TRUE)
 summary(back.model)
 pred <- predict(back.model, newdata=ExcelFile)
 ```
-*****************************************************************************************************************
-#### AIC
-Backward model has lowset AIC value.
-#### Deviance
-Backward model has higher deviance difference.
-#### Residual symmetry
-Residual symmetry value is near by zero for backward model.
-#### z-values - all Pr(>z) values less than 0.05 is consider as the better model.
-For Backward model, Pr(>z) value is less than 0.05 for one and another varibale Pr(>z) value is near by 0.05.
 
-Based on these observations, we can say that backward model is the better model than backward model. 
+-------------------------------------------------------------------------------
 
-*****************************************************************************************************************
+Let's analyse the backward model.
 
-Logistic Regression – Backward
+**AIC** - Backward model has lowest AIC value.
+
+**Deviance** - Backward model has higher deviance difference.
+
+**Residual symmetry** - Residual symmetry value is near by zero for backward model.
+
+**z-values** - all Pr(>z) values less than 0.05 is consider as the better model.
+
+For Backward model, Pr(>z) value is less than 0.05 for one and another variable Pr(>z) value is near by 0.05.
+
+> Based on all these observations, we can say that *backward model* is the better model than other model. 
+
+-------------------------------------------------------------------------
+
+As backward model is better, let's create a Logistic Regression using Backward.
 
 ```{r}
-
+# Converting these field into factor.
 ExcelFile$Cancer <- as.factor(ExcelFile$Cancer)
 ExcelFile$Hst <- as.factor(ExcelFile$Hst)
 ExcelFile$Smk <- as.factor(ExcelFile$Smk)
-
-# In regression, the dependent variable is marked as Y and the independent variable is marked as X. 
-# So, here adding the Cancer as dependent variable and other variables as the independent variables.
-
-glm.mod <- glm(Cancer ~ .,family="binomial", data=ExcelFile, na.action=na.omit)
-stp.glm <- step(glm.mod)
-
-
-# Classifies
-resp <- predict(back.model, type="response")
-head(resp,10)
-# more than 50% chance then 1 else 0.
-class <- ifelse(resp > 0.5,1,0)
-head(class)
-
 ```
 
-Confusion Matrix for Logistic Regression – Backward
+In regression, the dependent variable is marked as Y and the independent variable is marked as X. 
+
+So, here adding the Cancer as dependent variable and other variables as the independent variables.
 
 ```{r}
-# creating the confusion matrix.
+# glm = 'Generalized Linear Models'
+glm.mod <- glm(Cancer ~ .,family="binomial", data=ExcelFile, na.action=na.omit)
+stp.glm <- step(glm.mod)
+```
+
+Classifies
+
+```{r}
+resp <- predict(back.model, type="response")
+head(resp,10)
+```
+
+adding a condition of more than 50% chance then 1 else 0.
+
+```{r}
+class <- ifelse(resp > 0.5,1,0)
+head(class)
+```
+
+> Confusion Matrix for Logistic Regression – Backward
+
+creating the confusion matrix.
+
+```{r}
 LR_CF <-table(ExcelFile$Cancer, class, dnn = list("Actual","Predicted"))
 LR_CF
 
@@ -229,23 +295,27 @@ LR_FP <-LR_CF[1,2]
 LR_FN <-LR_CF[2,1]
 ```
 
-Naive-Bayes Classification
+> Naive-Bayes Classification
+
+In regression, the dependent variable is marked as Y and the independent variable is marked as X. 
+
+So, here adding the OT as dependent variable and other variables as the independent variables.
 
 ```{r}
-
-# In regression, the dependent variable is marked as Y and the independent variable is marked as X. 
-# So, here adding the OT as dependent variable and other variables as the independent variables.
 Naive <- NaiveBayes(Cancer ~ .,family="binomial", data=ExcelFile, na.action=na.omit)
-
 ```
 
-Confusion Matrix for Naive-Bayes Classification
+> Confusion Matrix for Naive-Bayes Classification
+
+Classifies
 
 ```{r warning=FALSE}
-# Classifies
 pred_bay <- predict(Naive,ExcelFile)
- 
-# Creates Confusion Matrix
+```
+
+Creates Confusion Matrix
+
+```{r}
 Naive_CF <- table(Actual=ExcelFile$Cancer, Predicted=pred_bay$class)
 Naive_CF
 
@@ -255,80 +325,103 @@ Naive_FP <-Naive_CF[1,2]
 Naive_FN <-Naive_CF[2,1]
 ```
 
-Linear Discriminant Analysis
+> Linear Discriminant Analysis
 
 ```{r}
 LDA <- lda(Cancer ~ .,data = ExcelFile, na.action=na.omit)
-
 ```
 
-Confusion Matrix for Linear Discriminant Analysis
+> Confusion Matrix for Linear Discriminant Analysis
+
+Classifies
+```{r}
+pred_dis <- predict(LDA, data=ExcelFile)
+```
+
+Confusion Matrix
 
 ```{r}
-#Classifies
-pred_dis <- predict(LDA, data=ExcelFile)
-#Confusion Matrix
 LDA_CF <- table(Actual=ExcelFile$Cancer, Predicted=pred_dis$class)
 LDA_CF
+```
 
-#Defined
+Defined
+
+```{r}
 LDA_TP <-LDA_CF[2,2]
 LDA_TN <-LDA_CF[1,1]
 LDA_FP <-LDA_CF[1,2]
 LDA_FN <-LDA_CF[2,1]
 ```
 
-Checking which classifier is most accurate.
+> Checking which classifier is most accurate.
+
+Accuracy: The proportion of cases correctly classified: (TP+TN)/Total
+
+Accuracy for LR classifier.
 
 ```{r}
-# Accuracy: The proportion of cases correctly classified: (TP+TN)/Total
-
-# Accuracy for LR classifier.
 LR_ACC <-(LR_TP+LR_TN)/sum(LR_CF)
 cat("Logistic Regression: ")
 LR_ACC
-#Accuracy for Naive classifier.
+```
+
+Accuracy for Naive classifier.
+
+```{r}
 Naive_ACC <-(Naive_TP+Naive_TN)/sum(Naive_CF)
 cat("Naive Bayes Classification: ")
 Naive_ACC
-#Accuracy for LDA Classifier.
+```
+
+Accuracy for LDA Classifier.
+
+```{r}
 LDA_ACC <-(LDA_TP+LDA_TN)/sum(LDA_CF)
 cat("Linear Discriminant Analysis: ")
 LDA_ACC
-
-## Based on the accuracy values for all three defined classifiers, 
-## Linear Discriminant Analysis classifier is the most accurate 
-## because it's value is slightly higher than other two classifier's accuracy value.
 ```
 
+Based on the accuracy values for all three defined classifiers, Linear Discriminant Analysis classifier is the most accurate 
+because it's value is slightly higher than other two classifier's accuracy value.
 
-Checking which classifier minimizes false positives.
+> Checking which classifier minimizes false positives.
+
+False Positive value for Logistic Regression Classifier.
 
 ```{r}
-
-# False Positive value for Logistic Regression Classifier 
 cat("Logistic Regression: ")
 LR_FP
-
-# False Positive value for Naive Bayes Classification
-cat("Naive Bayes Classification: ")
-Naive_FP
-
-# False Positive value for Linear Discriminant Analysis Classifier
-cat("Linear Discriminant Analysis: ")
-LDA_FP
-
-## Based on the FP values for all three classifiers, 
-## Linear Discriminant Analysis Classifier has the lowest value for false positives.
 ```
 
-Add Prediction
+False Positive value for Naive Bayes Classification.
+
+```{r}
+cat("Naive Bayes Classification: ")
+Naive_FP
+```
+
+False Positive value for Linear Discriminant Analysis Classifier
+
+```{r}
+cat("Linear Discriminant Analysis: ")
+LDA_FP
+```
+
+Based on the FP(False Positive) values for all three classifiers, 
+Linear Discriminant Analysis Classifier has the lowest value for false positives.
+
+> Add Prediction
 
 ```{r}
 
 Test <- read_excel("PROG8430_Final_22F_test.xlsx")
 head(Test,10)
+```
 
+
+
+```{r}
 # convert all the char variables to factor.
 as.data.frame(unclass(Test),stringsAsFactors = TRUE) 
 
@@ -337,6 +430,7 @@ Test$Smk <- as.numeric(Test$Smk)
 
 Test1 <-as.data.frame(unclass(Test),stringsAsFactors=TRUE)
 
+# Predicting a cancer values for new data using backward model that I have created previously. 
 Cancer <- predict(back.model, newdata=Test1)
 head(Cancer)
 

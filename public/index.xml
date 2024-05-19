@@ -97,7 +97,7 @@
       <link>//localhost:4321/project/cancer-diagnosis-prediction/</link>
       <pubDate>Tue, 13 Dec 2022 00:00:00 +0000</pubDate>
       <guid>//localhost:4321/project/cancer-diagnosis-prediction/</guid>
-      <description>Introduction: Data Dictionary Variable Description Cancer The patient was diagnosed with cancer (0=no, 1=yes) Age Age in years HW A ratio of Height to Weight Hst History of Cancer in Family (0=No, 1=Yes) Exe Time spent exercising each week (in minutes) Smk Patient is smoker (0=No, 1=Yes) Drk atient drinks alcohol (0=No, 1=Yes) Hlth General health of patient. Five point scale: (VP) very poor health, (P) poor health, (A) average health, (G) good, (VG) very good health Initial Setup This section is for the basic set up.</description>
+      <description>Introduction This project aims to predict cancer diagnosis using patient data. It compares different methods like Logistic Regression, Naive Bayes, and Linear Discriminant Analysis to find the most accurate model. The goal is to identify the best way to predict cancer while minimizing errors.&#xA;Data Dictionary Variable Description Cancer The patient was diagnosed with cancer (0=no, 1=yes) Age Age in years HW A ratio of Height to Weight Hst History of Cancer in Family (0=No, 1=Yes) Exe Time spent exercising each week (in minutes) Smk Patient is smoker (0=No, 1=Yes) Drk Patient drinks alcohol (0=No, 1=Yes) Hlth General health of patient.</description>
     </item>
     <item>
       <title>Order Fulfillment Analysis</title>
@@ -111,7 +111,7 @@
       <link>//localhost:4321/project/delivery-time-analysis/</link>
       <pubDate>Sun, 13 Nov 2022 00:00:00 +0000</pubDate>
       <guid>//localhost:4321/project/delivery-time-analysis/</guid>
-      <description>This section is for the basic set up. It will clear all the plots, the console and the workspace. It also sets the overall format for numbers.&#xA;if(!is.null(dev.list())) dev.off() ## null device ## 1 cat(&amp;#34;\014&amp;#34;) rm(list=ls()) options(scipen=9) This section loads and attaches all the necessary packages.&#xA;if(!require(readxl)){install.packages(&amp;#34;readxl&amp;#34;)} ## Loading required package: readxl ## Warning: package &amp;#39;readxl&amp;#39; was built under R version 4.2.3 library(&amp;#34;readxl&amp;#34;) if(!require(pastecs)){install.packages(&amp;#34;pastecs&amp;#34;)} ## Loading required package: pastecs ## Warning: package &amp;#39;pastecs&amp;#39; was built under R version 4.</description>
+      <description>Introduction Multivariate Linear Regression&#xA;Use multiple linear regression to determine the factors which contribute to, and help predict, the delivery time (variable: Del). As always, imagine this analysis will be generating a report that will be presented to a client.&#xA;Data Dictionary Variable Description Del Time for delivery (in days, rounded to nearest 10th) Vin Vintage of product (i.e. how long it has been in the warehouse). Pkg How many packages of product have been ordered Cst How many orders the customer has made in the past Mil Distance the order needs to be delivered (in km) Dom Indicator for if the product is manufactured in Canada (C) or elsewhere (I) Hazard Indicator for if the product is designated as Hazardous (H) or not (N).</description>
     </item>
     <item>
       <title>Drug Trial Analysis</title>

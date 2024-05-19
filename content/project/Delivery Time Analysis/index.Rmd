@@ -2,23 +2,50 @@
 title: "Delivery Time Analysis"
 author: "Prachi Patel"
 date: "2022-11-13"
-output: pdf_document
+excerpt: ""
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+editor_options: 
+  markdown: 
+    wrap: sentence
 ---
+
+### Introduction
+
+Multivariate Linear Regression
+
+Use multiple linear regression to determine the factors which contribute to, and help predict, the delivery time (variable: Del). As always, imagine this analysis will be generating a report that will be presented to a client.
+
+### Data Dictionary
+
+```{r echo=FALSE, results='asis'}
+options(knitr.kable.NA = '')
+data.frame(Variable = c("Del","Vin","Pkg","Cst","Mil","Dom","Hazard","Car"),
+           Description = c("Time for delivery (in days, rounded to nearest 10th)","Vintage of product (i.e. how long it has been in the warehouse).","How many packages of product have been ordered","How many orders the customer has made in the past","Distance the order needs to be delivered (in km)","Indicator for if the product is manufactured in Canada (C) or elsewhere (I)","Indicator for if the product is designated as Hazardous (H) or not (N).","Indicator for which Carrier delivered the item (Fed Post, or M-Press Delivery)")) |>
+  knitr::kable()
+```
+
+### Initial Setup
 
 This section is for the basic set up.
 It will clear all the plots, the console and the workspace.
 It also sets the overall format for numbers.
 
-```{r}
+```{r echo=T, results='hide'}
 if(!is.null(dev.list())) dev.off()
 cat("\014") 
 rm(list=ls())
 options(scipen=9)
 ```
 
+### Load Packages
+
 This section loads and attaches all the necessary packages.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
+
 if(!require(readxl)){install.packages("readxl")}
 library("readxl")
 
@@ -42,71 +69,79 @@ library("psych")
 
 ```
 
+### Import Data
 
 ```{r setup, include=FALSE}
-getwd()  # for verifying working directory
 ExcelFile <- read.csv("PROG8430_Assign04_22F.txt")
 ExcelFile <- as.data.frame(ExcelFile)
 head(ExcelFile)
 ```
 
-####################################
-# 1. Preliminary and Exploratory
-####################################
+### Preliminary and Exploratory
 
-##  1. Rename all variables with your initials appended (just as was done in assignment 1,2 and 3)
+First of all I am examining the data using the exploratory techniques to know; Does the data look reasonable? Are there any outliers? If so, deal with them appropriately. 
+
+As per below boxplots and density plots for vintage of products, removing the outliers as value -10 is not making any sense for this field.
+
+Also, removed the outliners for No. of Product Ordered data where value is marked as Zero
   
 ```{r}
-colnames(ExcelFile) <- paste(colnames(ExcelFile), "", sep = "")
-head(ExcelFile)
+# Checking the outliners for all the fields one-by-one.
+
+# Time of delivery field.
+boxplot(ExcelFile$Del, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "Time of Delivery - Box Plot")
+densityplot( ~ ExcelFile$Del, pch=6,col=c("#6bc9c2"), xlab = "Time of Delivery") 
+# No outliners are available for time of delivery field
 ```
 
-##    2. Examine the data using the exploratory techniques we have learned in class. Does the data look reasonable? Are there any outliers? If so, deal with them appropriately. 
-
-###     -> As per below boxplots and density plots for vintage of products, removing the outliers as value -10 is not making any cense for this field.
-###       Also, removed the outliners for No. of Product Ordered data where value is marked as Zero
-  
 ```{r}
-#Checking the outliners for all the fields.
-
-boxplot(ExcelFile$Del, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "Time of Delivery - Box Plot")
-densityplot( ~ ExcelFile$Del, pch=6,col=c("#6bc9c2"), xlab = "Time of Delivery")
-
+# Now, let's check for next field - Vintage of product.
 boxplot(ExcelFile$Vin, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "Vintage of Product - Box Plot")
 densityplot( ~ ExcelFile$Vin, pch=6,col=c("#6bc9c2"), xlab = "Vintage of Product")
-
-boxplot(ExcelFile$Pkg, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "No. of Product Ordered - Box Plot")
-densityplot( ~ ExcelFile$Pkg, pch=6,col=c("#6bc9c2"), xlab = "No. of Product Ordered")
-
-boxplot(ExcelFile$Cst, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "No. of Orders per Customer - Box Plot")
-densityplot( ~ ExcelFile$Cst, pch=6,col=c("#6bc9c2"), xlab = "No. of Orders per Customer")
-
-boxplot(ExcelFile$Mil, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "Distance - Box Plot")
-densityplot( ~ ExcelFile$Mil, pch=6,col=c("#6bc9c2"), xlab = "Distance")
-
-#Removed the vintage of products fields outliers and showing the updated box plot and density plot.
+# And here we can see that there is a outliner available in this field. So, let's remove the outliers as value -10 is not making any sense for this field.
 
 nr <- which(ExcelFile$Vin <0)
 ExcelFile <- ExcelFile[-c(nr),]
 
+#Removed the vintage of products fields outliers and showing the updated box plot and density plot.
+
 boxplot(ExcelFile$Vin, horizontal=TRUE, col=c("#e8bbfa"), pch=20, main = "Vintage of Product - Box Plot")
 densityplot( ~ ExcelFile$Vin, pch=6,col=c("#e8bbfa"), xlab = "Vintage of Product")
+```
 
-#Removed the No. of Product Ordered data where value is marked as Zero. Because zero value will not help in the analysis of this data.
+```{r}
+# Let's check the outliner for No.of products field.
+boxplot(ExcelFile$Pkg, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "No. of Product Ordered - Box Plot")
+densityplot( ~ ExcelFile$Pkg, pch=6,col=c("#6bc9c2"), xlab = "No. of Product Ordered")
+# And for this field as well there is a outliner available. So, let's remove that as well.
 
 nr <- which(ExcelFile$Pkg <= 0)
 ExcelFile <- ExcelFile[-c(nr),]
 
+#Removed the No. of Product Ordered data where value is marked as Zero. Because zero value will not help in the analysis of this data.
+
 boxplot(ExcelFile$Pkg, horizontal=TRUE, col=c("#e8bbfa"), pch=20, main = "No. of Product Ordered - Box Plot")
 densityplot( ~ ExcelFile$Pkg, pch=6,col=c("#e8bbfa"), xlab = "No. of Product Ordered")
+```
 
+```{r}
+# Checking the outliner for this next field - No. of orders per person.
+boxplot(ExcelFile$Cst, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "No. of Orders per Customer - Box Plot")
+densityplot( ~ ExcelFile$Cst, pch=6,col=c("#6bc9c2"), xlab = "No. of Orders per Customer")
+# As we see there are no outliners available for this field.
+```
+
+```{r}
+# Let's check for the last field - Distance.
+boxplot(ExcelFile$Mil, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "Distance - Box Plot")
+densityplot( ~ ExcelFile$Mil, pch=6,col=c("#6bc9c2"), xlab = "Distance")
+# And for this field, no outliners are available.
 ```
   
   
-##  3. Using an appropriate technique from class, determine if there is any evidence if one Carrier has faster delivery times than the other. Make sure you explain the approach you took and your conclusions.
+Using an appropriate technique now let's determine if there is any evidence if one Carrier has faster delivery times than the other.
 
-###   -> For checking fastest delivery times than the other, we can check using comparision test. 
-###       Based on the mean value we received using t-test, we can say that Fed Post carrier has faster delivery time than M-Press Delivery Carrier.
+For checking fastest delivery times than the other, let's use the comparision test. 
   
 ```{r}
 
@@ -117,32 +152,38 @@ qqline(ExcelFile$Del)
 
 # To check compare two mean values we have to check the 3 assumptions for t-test.
 
-# 1. Data is independent.
-# 2. Data is normally distributed. 
-#      Using Shapiro Normality test - p-value; we can say that data is normally distributed as p-value is 0.1288 that is greater than 0.05.
+# 1. Data is independent. ✓
+# 2. Data is normally distributed. ✓
+# 3. Variance is unknown. ✓
+
+# Let's check the shapiro normality test.
 
 shapiro.test(ExcelFile$Del)
-
 bwplot(Del ~ Car, data = ExcelFile)
+# Using Shapiro Normality test - p-value; we can say that data is normally distributed as p-value is 0.1288 that is greater than 0.05.
+```
 
-# 3. Variance is unknown.
-#     Based on f-test p-value = 0.1454, we can say that variances are same.
+```{r}
+# Now, let's check for f-test.
 
 Car.FTest <- var.test(Del ~ Car, data=ExcelFile)
 Car.FTest
+# Based on f-test p-value = 0.1454, we can say that variances are same.
+```
 
-# Data met all the assumptions so that we are performing t-test to compare mean value.
-#   Based on the mean value we received using t-test, we can say that Fed Post carrier has faster delivery time than M-Press Delivery Carrier.
+```{r}
+# As data met all the assumptions let's perform t-test to compare mean value.
 
 Car.TTest <- t.test(Del ~ Car, data=ExcelFile)
 Car.TTest
+# Based on the mean value we received using t-test, we can say that Fed Post carrier has faster delivery time than M-Press Delivery Carrier.
 
 ```
   
-  
-##  4. As demonstrated in class, split the data frame into a training and a test file. This should be a 80/20 split. For the set.seed(), use the last four digits of your student number. The training set will be used to build the following models and the test set will be used to validate them.
-  
+Now let's split the data frame into a training and a test file. And the ratio is 80/20 split. 
 
+For the set.seed(), I have used the random four digits. I have used the training set to build the following models and the test set to validate them.
+  
 ```{r, echo=FALSE}
 
 # Added 0.8 value to split data in 80:20 ratio.
@@ -152,28 +193,21 @@ sr <- 0.8
 n.row <- nrow(ExcelFile)
 
 #Choose the rows for the training sample 
-
 set.seed(3879)
 training.rows <- sample(1:n.row, sr*n.row, replace=FALSE)
 
 #Assign to the training sample database.
-
 train <- subset(ExcelFile[training.rows,])
 
 # Assign the balance to the Test sample database.
-
 test <- subset(ExcelFile[-c(training.rows),])
 
 ```
   
-  
-####################################
-# 2.  Simple Linear Regression
-####################################
 
-##  1. Correlations: Create both numeric and graphical correlations (as demonstrated in class) and comment on noteworthy correlations you observe. Are these surprising? Do they make sense?
+### Simple Linear Regression
 
-###   -> Based on the numeric and graphical corelation values, we can say that Time for Delivery is corelated to the number of packages ordered as it's value is 0.54. Further away the corelation value is from zero means stronger relation between those two variables. For number of orders customer has made is also negatively corelated to the time for delivery as it's value is -0.58. 
+Correlations: Created both numeric and graphical correlations and see; if are these surprising? Do they make sense?
 
 ```{r}
 
@@ -199,28 +233,27 @@ lm.fit_Mil <-lm(Del ~ Mil, data = train)
 plot(Del ~ Mil, data = train, pch=20)
 abline(lm.fit_Mil, col="Red")
 
+# Based on the numeric and graphical correlation values, we can say that Time for Delivery is correlated to the number of packages ordered as it's value is 0.54. Further away the correlation value is from zero means stronger relation between those two variables. For number of orders customer has made is also negatively correlated to the time for delivery as it's value is -0.58. 
+
 ```
   
   
-##  2. Create a simple linear regression model using time for delivery as the dependent variable and number of packages as the independent. Create a scatter plot of the two variables and overlay the regression line.
+Created a simple linear regression model using time for delivery as the dependent variable and number of packages as the independent. Also, created a scatter plot of the two variables and overlay the regression line.
   
-###  -> Simple linear regression is used to predict outcome based one variable.In regression, the dependent variable is marked as Y and the independent variable is marked as X. 
-###       Based on the regression line and plot, we can say that delivery is not dependent based on number of packages field.
+Simple linear regression is used to predict outcome based one variable.In regression, the dependent variable is marked as Y and the independent variable is marked as X. 
   
 ```{r}
 
-  lm.fit_Pkg <-lm(Del ~ Pkg, data = train)
-  summary(lm.fit_Pkg)
-  
-  plot(Del ~ Pkg, data = train, pch=20)
-  abline(lm.fit_Pkg, col="Red")
+lm.fit_Pkg <-lm(Del ~ Pkg, data = train)
+summary(lm.fit_Pkg)
 
+plot(Del ~ Pkg, data = train, pch=20)
+abline(lm.fit_Pkg, col="Red")
+# Based on the regression line and plot, we can say that delivery is not dependent based on number of packages field.
 ```
   
   
-##  3. Create a simple linear regression model using time for delivery as the dependent variable and vintage of the product as the independent. Create a scatter plot of the two variables and overlay the regression line.
-
-###   -> Based on the regression line and plot, we can say that delivery is not dependent based on vintage of the product field.
+Created a simple linear regression model using time for delivery as the dependent variable and vintage of the product as the independent and create a scatter plot of the two variables and overlay the regression line.
   
 ```{r}
 lm.fit_Vin <-lm(Del ~ Vin, data = train)
@@ -228,13 +261,11 @@ summary(lm.fit_Vin)
 
 plot(Del ~ Vin, data = train, pch=20)
 abline(lm.fit_Vin, col="Red")
-
+# Based on the regression line and plot, we can say that delivery is not dependent based on vintage of the product field.
 ```
   
   
-##  4. As demonstrated in class, compare the models (F-Stat,r2, RMSE for train and test, etc.) Which model is superior? Why?
-  
-###   -> Lower the RMSE better the model. Based on the RMSE values we can say that train model is better for no. of packeges per order data and test model is better for Vintage of product data. As both the models value is lower than other.
+Now let's compare the models (F-Stat,r2, RMSE for train and test, etc.) Which model is superior? Why?
 
 
 ```{r}
@@ -251,6 +282,10 @@ pred <- predict(lm.fit_Vin, newdata=train)
 RMSE_trn <- sqrt(mean((train$Del - pred)^2))
 round(RMSE_trn,3)
 
+# Lower the RMSE better the model. 
+
+# Based on the RMSE values we can say that train model is better for no. of packages per order data and test model is better for Vintage of product data. As both the models value is lower than other.
+
 ############### Test Model###############
 
 pred <- predict(lm.fit_Pkg, newdata=test)
@@ -262,34 +297,16 @@ pred <- predict(lm.fit_Vin, newdata=test)
 
 RMSE_trn <- sqrt(mean((test$Del - pred)^2))
 round(RMSE_trn,3)
+
 ```
   
-  
+### Model Development – Multivariate
 
-####################################
-# 4. Model Development – Multivariate
-####################################
-
-##  As demonstrated in class, create two models, one using all the variables and the other using backward selection. For each model interpret and comment on the main measures we discussed in class (including RMSE for train and test). (Your commentary should be yours, not simply copied from my example).
-
-###       Check F-Stat (P-Value) for significance. So, value is less tha 0.05 then model is better than random one. Over here p-value is closer to zero for both the models then it's better than choosing randomly.
-
-###       Adjusted R-Squared value is can't be negatice.
-###       -For train model adjusted r-squared value is 0.6084 meaning 60.84% variation in the output. 
-###       -For test model adjusted r-squared value is 0.6078 meaning 60.78% variation in the output.
-###           Higher the r-square better the model. So, based on r-squared value, we can say that train model is better than test model.
-
-###       Residuals should be zero and symmetrical and it will used to calculate the difference between model's prediction and actual value.
-
-###       T-test of coefficient is for checking if the value matches with corelation and for significance. If value is less than 0.5 then coefficient is non zero. and value is greater than 0.05 then coefficient is zero.
-
-###       Estimated Coefficient. Normal value for this test is 0.05 but in both the model is near to zero.
-
-###       Lower values of RMSE indicate better fit. For test model, RMSE value is 0.98 and train model RMSE value is indicated as 1.
+Now let's create two models, one using all the variables and the other using backward selection. For each model interpret and comment on the main measures including RMSE for train and test.
 
   
 ```{r}
-## Using All Variables created Training Model
+# Using All Variables created Training Model
 
 full.model_Train = lm(Del ~ . ,data=train, na.action=na.omit)
 
@@ -301,20 +318,39 @@ pred <- predict(full.model_Train, newdata=train)
 RMSE_trn_full <- sqrt(mean((train$Del - pred)^2))
 round(RMSE_trn_full,2)
 
-## Using Backward Selection for Training Model
+# Using Backward Selection for Training Model
 
 back.model_Train = step(full.model_Train, direction="backward", details=TRUE)
 
 summary(back.model_Train)
 
+# First checked F-Stat (P-Value) for significance. value is less than 0.05 then model is better than random one. Over here p-value is closer to zero for both the models then it's better than choosing randomly.
+
+# Adjusted R-Squared value is can’t be negative.
+#  For train model adjusted r-squared value is 0.6084 meaning 60.84% variation in the output.
+
+# Higher the r-square better the model.
+#  Let's check for the test model and decide which one is better.
+
+# Residuals should be zero and symmetrical and it will used to calculate the difference between model’s prediction and actual value.
+
+# T-test of coefficient is for checking if the value matches with correlation and for significance. If value is less than 0.5 then coefficient is non zero. and value is greater than 0.05 then coefficient is zero.
+
+# Estimated Coefficient. Normal value for this test is 0.05 but in for this model value is near to zero.
+
+
 pred <- predict(back.model_Train, newdata=train)
 
 # calculating RMSE.
+# Lower values of RMSE indicate better fit.
 RMSE_trn_back <- sqrt(mean((train$Del - pred)^2))
 round(RMSE_trn_back,2)
+#  For the train model RMSE value is indicated as 1.
+```
 
-#########################################################33
-## Using All Variables created Test Model
+```{r}
+#########################################################
+# Using All Variables created Test Model
 
 full.model_test = lm(Del ~ . ,data=test, na.action=na.omit)
 
@@ -322,30 +358,41 @@ summary(full.model_test)
 
 pred <- predict(full.model_test, newdata=test)
 
-#calculating RMSE.
+# Calculating RMSE.
 RMSE_tst_full <- sqrt(mean((test$Del - pred)^2))
 round(RMSE_tst_full,2)
 
-## Using Backward Selection for Test Model
+# Using Backward Selection for Test Model
 
 back.model_test = step(full.model_test, direction="backward", details=TRUE)
 
 summary(back.model_test)
 
+# Adjusted R-Squared value is can’t be negative.
+#  For test model adjusted r-squared value is 0.6078 meaning 60.78% variation in the output.
+
+# Higher the r-square better the model.
+# So, based on r-squared values for both the models, we can say that train model is better than test model.
+
+# Residuals should be zero and symmetrical and it will used to calculate the difference between model’s prediction and actual value.
+
+# T-test of coefficient is for checking if the value matches with correlation and for significance. If value is less than 0.5 then coefficient is non zero. and value is greater than 0.05 then coefficient is zero.
+
+# Estimated Coefficient. Normal value for this test is 0.05 but in for this model value is near to zero as well.
+
 pred <- predict(back.model_test, newdata=test)
-#calculating RMSE.
+
+# Calculating RMSE.
+# Lower values of RMSE indicate better fit.
 RMSE_tst_back <- sqrt(mean((test$Del - pred)^2))
 round(RMSE_tst_back,2)
 
+# For test model, RMSE value is indicated as 0.98 
 ```
   
-  
+### Model Evaluation – Verifying Assumptions - Multivariate
 
-####################################
-# 5. Model Evaluation – Verifying Assumptions - Multivariate
-####################################
-
-##  For both models created in Step 4, evaluate the main assumptions of regression (for example, Error terms mean of zero, constant variance and normally distributed, etc.)
+For both models created in Step 4, evaluate the main assumptions of regression (for example, Error terms mean of zero, constant variance and normally distributed, etc.)
   
 ```{r}
 # Training Model
@@ -356,6 +403,7 @@ par(mfrow = c(1, 1))
 par(mfrow = c(2, 2))  
 plot(back.model_Train)  
 par(mfrow = c(1, 1))
+
 # Test Model
 par(mfrow = c(2, 2))  
 plot(full.model_test)  
@@ -375,17 +423,16 @@ full.res_tst <- residuals(full.model_test)
 back.res_tst <- residuals(back.model_test)
 
 
-# Check Normality Numerical - Based on the shapiro normality test we can say that all the models' are normally distributed as p-value is greater than 0.05.
+# Checking Normality Numerical - Based on the Shapiro normality test we can say that all the models' are normally distributed as p-value is greater than 0.05.
 # Training Model
 shapiro.test(full.res_trn)
 shapiro.test(back.res_trn)
-# Test Model
-
+# Test Model 
 shapiro.test(full.res_tst)
 shapiro.test(back.res_tst)
 
 # Comparing the RMSE for both the models.
-##  Lower the RMSE better the model. test model is better for both full and backward models as test model's value is lower with the comparision of backward model.
+#  Lower the RMSE better the model. test model is better for both full and backward models as test model's value is lower with the comparison of backward model.
 
 RMSE_full <- c(RMSE_trn_full,RMSE_tst_full)
 round(RMSE_full,2)
@@ -394,17 +441,6 @@ RMSE_back <- c(RMSE_trn_back,RMSE_tst_back)
 round(RMSE_back,2)
 ```
   
+### Final Recommendation - Multivariate
 
-####################################
-# 6. Final Recommendation - Multivariate
-####################################
-
-## Based on your preceding analysis, recommend which of the two models from step 4 should be used and why.
-
-###     Based on all the points mentioned in the step 4, we can say that test model is better than train model as all values are better in the test model based with the comparision of train model.
-
-
-
-
-
-
+Based on my preceding analysis, I recommend test model is the better model than train model as all the values are better in the test model based on all the comparison with the train model.
