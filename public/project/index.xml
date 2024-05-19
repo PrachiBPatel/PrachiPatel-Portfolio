@@ -34,7 +34,7 @@
       <link>//localhost:4321/project/delivery-time-analysis/</link>
       <pubDate>Sun, 13 Nov 2022 00:00:00 +0000</pubDate>
       <guid>//localhost:4321/project/delivery-time-analysis/</guid>
-      <description>Introduction Multivariate Linear Regression&#xA;Use multiple linear regression to determine the factors which contribute to, and help predict, the delivery time (variable: Del). As always, imagine this analysis will be generating a report that will be presented to a client.&#xA;Data Dictionary Variable Description Del Time for delivery (in days, rounded to nearest 10th) Vin Vintage of product (i.e. how long it has been in the warehouse). Pkg How many packages of product have been ordered Cst How many orders the customer has made in the past Mil Distance the order needs to be delivered (in km) Dom Indicator for if the product is manufactured in Canada (C) or elsewhere (I) Hazard Indicator for if the product is designated as Hazardous (H) or not (N).</description>
+      <description>Introduction This project analyzes the factors affecting delivery times using multiple linear regression. It examines various variables like product age, order size, and delivery distance to predict how long deliveries will take. The goal is to find key predictors and compare different carriers to improve delivery efficiency.&#xA;Data Dictionary Variable Description Del Time for delivery (in days, rounded to nearest 10th) Vin Vintage of product (i.e. how long it has been in the warehouse).</description>
     </item>
     <item>
       <title>Drug Trial Analysis</title>

@@ -2,7 +2,7 @@
 title: "Delivery Time Analysis"
 author: "Prachi Patel"
 date: "2022-11-13"
-excerpt: ""
+excerpt: "This project analyzes the factors affecting delivery times using multiple linear regression. It examines various variables like product age, order size, and delivery distance to predict how long deliveries will take. The goal is to find key predictors and compare different carriers to improve delivery efficiency."
 output:
   html_document:
     df_print: paged
@@ -14,9 +14,7 @@ editor_options:
 
 ### Introduction
 
-Multivariate Linear Regression
-
-Use multiple linear regression to determine the factors which contribute to, and help predict, the delivery time (variable: Del). As always, imagine this analysis will be generating a report that will be presented to a client.
+This project analyzes the factors affecting delivery times using multiple linear regression. It examines various variables like product age, order size, and delivery distance to predict how long deliveries will take. The goal is to find key predictors and compare different carriers to improve delivery efficiency.
 
 ### Data Dictionary
 
