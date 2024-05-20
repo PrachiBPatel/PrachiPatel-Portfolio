@@ -79,7 +79,7 @@ if(!require(xlsx)){install.packages("xlsx")}
 
 This code chunk is to read in the excel file and convert it into a data frame.
 
-```{r message=FALSE}
+```{r message=FALSE, results='hide'}
 ExcelFile <- read_excel("PROG8430_Final_22F_train.xlsx")
 ExcelFile <- as.data.frame(ExcelFile)
 head(ExcelFile)

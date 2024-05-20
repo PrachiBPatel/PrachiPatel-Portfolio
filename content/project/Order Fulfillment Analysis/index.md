@@ -2,8 +2,37 @@
 title: "Order Fulfillment Analysis"
 author: "Prachi Patel"
 date: "2022-11-27"
-output: pdf_document
+excerpt: "This project aims to analyze the factors affecting the on-time delivery of orders for a major mail-order company. By employing logistic regression, Naive-Bayes classification, and Linear Discriminant Analysis, the goal is to identify significant predictors of delivery success and compare the accuracy, processing speed, and false positive rates of these classification techniques. The ultimate objective is to determine the most effective model for ensuring deliveries are made within the company’s target timeframe."
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+editor_options: 
+  markdown: 
+    wrap: sentence
 ---
+
+### Introduction
+
+This project aims to analyze the factors affecting the on-time delivery of orders for a major mail-order company.
+By employing logistic regression, Naive-Bayes classification, and Linear Discriminant Analysis, the goal is to identify significant predictors of delivery success and compare the accuracy, processing speed, and false positive rates of these classification techniques.
+The ultimate objective is to determine the most effective model for ensuring deliveries are made within the company's target timeframe.
+
+### Data Dictionary
+
+
+|Variable |Description                                                                    |
+|:--------|:------------------------------------------------------------------------------|
+|Del      |Time for delivery (in days, rounded to nearest 10th)                           |
+|Vin      |Vintage of product (i.e. how long it has been in the warehouse).               |
+|Pkg      |How many packages of product have been ordered                                 |
+|Cst      |How many orders the customer has made in the past                              |
+|Mil      |Distance the order needs to be delivered (in km)                               |
+|Dom      |Indicator for if the product is manufactured in Canada (C) or elsewhere (I)    |
+|Haz      |Indicator for if the product is designated as Hazardous (H) or not (N).        |
+|Car      |Indicator for which Carrier delivered the item (Fed Post, or M-Press Delivery) |
+
+### Initial Setup
 
 This section is for the basic set up.
 It will clear all the plots, the console and the workspace.
@@ -12,205 +41,61 @@ It also sets the overall format for numbers.
 
 ```r
 if(!is.null(dev.list())) dev.off()
-```
-
-```
-## null device 
-##           1
-```
-
-```r
 cat("\014") 
-```
-
-
-
-```r
 rm(list=ls())
 options(scipen=9)
 ```
+
+### Load Packages
 
 This section loads and attaches all the necessary packages.
 
 
 ```r
 if(!require(readxl)){install.packages("readxl")}
-```
-
-```
-## Loading required package: readxl
-```
-
-```r
 library("readxl")
 
 if(!require(pastecs)){install.packages("pastecs")}
-```
-
-```
-## Loading required package: pastecs
-```
-
-```r
 library("pastecs")
 
 if(!require(lattice)){install.packages("lattice")}
-```
-
-```
-## Loading required package: lattice
-```
-
-```r
 library("lattice")
 
 if(!require(ggplot2)){install.packages("ggplot2")}
-```
-
-```
-## Loading required package: ggplot2
-```
-
-```r
 library("ggplot2")
 
 if(!require(tinytex)){install.packages("tinytex")}
-```
-
-```
-## Loading required package: tinytex
-```
-
-```r
 library("tinytex")
 
 if(!require(corrgram)){install.packages("corrgram")}
-```
-
-```
-## Loading required package: corrgram
-```
-
-```
-## Warning: package 'corrgram' was built under R version 4.2.2
-```
-
-```
-## 
-## Attaching package: 'corrgram'
-```
-
-```
-## The following object is masked from 'package:lattice':
-## 
-##     panel.fill
-```
-
-```r
 library("corrgram")
 
 if(!require(psych)){install.packages("psych")}
-```
-
-```
-## Loading required package: psych
-```
-
-```
-## Warning: package 'psych' was built under R version 4.2.2
-```
-
-```
-## 
-## Attaching package: 'psych'
-```
-
-```
-## The following objects are masked from 'package:ggplot2':
-## 
-##     %+%, alpha
-```
-
-```r
 library("psych")
 
 if(!require(partykit)){install.packages("partykit")}
-```
-
-```
-## Loading required package: partykit
-```
-
-```
-## Warning: package 'partykit' was built under R version 4.2.2
-```
-
-```
-## Loading required package: grid
-```
-
-```
-## Loading required package: libcoin
-```
-
-```
-## Warning: package 'libcoin' was built under R version 4.2.2
-```
-
-```
-## Loading required package: mvtnorm
-```
-
-```r
 library("partykit")
 
 if(!require(klaR)){install.packages("klaR")}
-```
-
-```
-## Loading required package: klaR
-```
-
-```
-## Warning: package 'klaR' was built under R version 4.2.2
-```
-
-```
-## Loading required package: MASS
-```
-
-```r
   library("klaR")
 ```
 
-
-
-
-## ####################################
-# 1.Preliminary Data Preparation
-## ####################################
-
-## 1. Rename all variables with your initials appended (just as was done in previous assignments). Remember that any variables you subsequently create need to have your initials appended.
-
-### To append initials in the data frame we can use paste function to concatenate value and added _ as a separator.
+### Import Data
 
 
 ```r
-colnames(ExcelFile) <- paste(colnames(ExcelFile), "", sep = "")
+ExcelFile <- read.csv("PROG8430_Assign05_22F.txt")
+ExcelFile <- as.data.frame(ExcelFile)
 head(ExcelFile)
 ```
 
-```
-##    Del Vin Pkg Cst  Mil Dom Haz              Car
-## 1  9.5   6   6  13 1447   C   H M-Press Delivery
-## 2 11.9  18   7   7 1874   I   N         Fed Post
-## 3 14.6   7   7   8 1865   I   N         Fed Post
-## 4 17.5  11   5  16 3111   I   H M-Press Delivery
-## 5 10.7  12   4  10 1319   C   H         Fed Post
-## 6 10.5  12   3   5 1415   C   N M-Press Delivery
-```
+### Preliminary Data Preparation
 
-## 2. As demonstrated in class and conducted in previous assignments, make quick exploratory graphs of all variables. Remember to adjust categorical variables to factor variables (e.g. all indicator variables). (NOTE – In this assignment, all of the data I have provided is well mannered and free of outliers so this should be a quick and simple exercise. 
+First let's create a quick exploratory graphs of all variables.
+Also, I have adjusted categorical variables to factor variables.
+
+Checking if any outliners are available in any of these fields.
+If available, I will remove those.
 
 
 ```r
@@ -218,65 +103,65 @@ head(ExcelFile)
 boxplot(ExcelFile$Del, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "Time of Delivery - Box Plot")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 ```r
 densityplot( ~ ExcelFile$Del, pch=6,col=c("#6bc9c2"), xlab = "Time of Delivery")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-2.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-2.png" width="672" />
 
 ```r
 #Box Plot and Density Plot for Vintage of Product.
 boxplot(ExcelFile$Vin, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "Vintage of Product - Box Plot")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-3.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-3.png" width="672" />
 
 ```r
 densityplot( ~ ExcelFile$Vin, pch=6,col=c("#6bc9c2"), xlab = "Vintage of Product")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-4.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-4.png" width="672" />
 
 ```r
 #Box Plot and Density Plot for number of packages of product have been ordered.
 boxplot(ExcelFile$Pkg, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "No. of Product Ordered - Box Plot")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-5.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-5.png" width="672" />
 
 ```r
 densityplot( ~ ExcelFile$Pkg, pch=6,col=c("#6bc9c2"), xlab = "No. of Product Ordered")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-6.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-6.png" width="672" />
 
 ```r
 #Box Plot and Density Plot for number of orders the customer has made in the past.
 boxplot(ExcelFile$Cst, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "No. of Orders per Customer - Box Plot")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-7.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-7.png" width="672" />
 
 ```r
 densityplot( ~ ExcelFile$Cst, pch=6,col=c("#6bc9c2"), xlab = "No. of Orders per Customer")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-8.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-8.png" width="672" />
 
 ```r
 #Box Plot and Density Plot for distance the order needs to be delivered.
 boxplot(ExcelFile$Mil, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "Distance - Box Plot")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-9.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-9.png" width="672" />
 
 ```r
 densityplot( ~ ExcelFile$Mil, pch=6,col=c("#6bc9c2"), xlab = "Distance")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-10.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-10.png" width="672" />
 
 ```r
 #Bar Plot for Indicator for if the product is manufactured in Canada (C) or elsewhere (I).
@@ -285,7 +170,7 @@ Dom <- DomBar[order(DomBar,decreasing=TRUE)]
 barplot(Dom,density = 30, angle = 45, main="Dom - Bar Plot", xlab="Dom", ylab = "Frequency", col=c("#6bc9c2"))
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-11.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-11.png" width="672" />
 
 ```r
 #Bar Plot for Indicator for if the product is designated as Hazardous (H) or not (N).
@@ -294,7 +179,7 @@ Haz <- HazBar[order(HazBar,decreasing=TRUE)]
 barplot(Haz,density = 30, angle = 45, main="Haz - Bar Plot", xlab="Haz", ylab = "Frequency", col=c("#6bc9c2"))
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-12.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-12.png" width="672" />
 
 ```r
 #Bar Plot for indicator for which Carrier delivered the item.
@@ -303,10 +188,15 @@ Car <- CarBar[order(CarBar,decreasing=TRUE)]
 barplot(Car,density = 30, angle = 45, main="Car - Bar Plot", xlab="Car", ylab = "Frequency", col=c("#6bc9c2"))
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-13.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-13.png" width="672" />
 
 ```r
-#converted categorical variables to factor variables. 
+# As we see, there are no outliners available in any of these fields.
+```
+
+
+```r
+# Now, I am converting categorical variables to factor variables. 
 ExcelFile <- as.data.frame(unclass(ExcelFile),stringsAsFactors = TRUE)
 head(ExcelFile)
 ```
@@ -321,10 +211,7 @@ head(ExcelFile)
 ## 6 10.5  12   3   5 1415   C   N M-Press Delivery
 ```
 
-
-## 3. Create a new variable in the dataset called OT_[Initials] which will have a value of 1 if Del <=10 and 0 otherwise. If you have forgotten how to do this, the code to accomplish it is included in the appendix.
-
-### -> Added the OT field in the dataset based on provided condition as if Del value is less than or equals to 10 then 1 otherwise 0.
+Creating a new variable in the dataset which will have a value of 1 if *Del\<=10* and 0 otherwise.
 
 
 ```r
@@ -345,11 +232,11 @@ str(ExcelFile)
 ##  $ OT : Factor w/ 2 levels "0","1": 2 1 1 1 1 1 1 1 2 2 ...
 ```
 
-## ############################
-# 2. Exploratory Analysis
-## ############################
+### Exploratory Analysis
 
-## 1. Correlations: Create numeric correlations (as demonstrated) and comment on what you see. Are there co-linear variables? 
+> Correlations
+
+Creating numeric correlations and checking if there are any co-linear variables available or not?
 
 
 ```r
@@ -366,34 +253,97 @@ cor(ExcelFile[,unlist(lapply(ExcelFile,is.numeric))], method="spearman")
 ## Mil  0.80714307  0.015999532 -0.006156180  0.011867198  1.00000000
 ```
 
+Observations on co-liner variables.
+
+**Del** and **Mil** has strong linear relationship, with the value of 0.80.
+
+**Vin** and **Cst** has almost no linear relationship, with the value of 0.003.
+
+**Pkg** and **Mil** has almost no linear relationship, with a value of -0.006.
+
+------------------------------------------------------------------------
+
+Identifying the most significant predictor of an on time delivery and provide statistical evidence (in addition to the correlation coefficient) that suggest they are associated with an on time delivery.
+
+
 ```r
-# Below are the observations for the co-liner variables.
-# -> Del has strong linear relationship with Mil as it's value is 0.80.
-# -> Vin has almost no linear relationship with Cst as it's value is 0.003.
-# -> Pkg has almost no linear relationship with Mil as it's value is -0.006.
+# Fit logistic regression model
+logit_model <- glm(OT ~ ., data = ExcelFile, family = "binomial")
+
+# Summary of the model
+summary(logit_model)
 ```
 
-
-## 2. Identify the most significant predictor of an on time delivery and provide statistical evidence (in addition to the correlation coefficient) that suggest they are associated with an on time delivery (Think of the contingency tables bar plots we did in class)
-
-
-```r
-Table <- table(ExcelFile$Mil,ExcelFile$OT, dnn=list("On Time Delivery","Delivery Time"))
-
-#Vertical Bar Chart
-barplot(prop.table(Table,2), xlab='On Time Delivery',ylab='Delivery Time',main="Distance Delivery by delivery time",col=c("green","yellow")
-,legend=rownames(Table), args.legend = list(x="topleft"))
+```
+## 
+## Call:
+## glm(formula = OT ~ ., family = "binomial", data = ExcelFile)
+## 
+## Deviance Residuals: 
+##         Min           1Q       Median           3Q          Max  
+## -0.00043175  -0.00000002  -0.00000002   0.00000002   0.00048262  
+## 
+## Coefficients:
+##                          Estimate    Std. Error z value Pr(>|z|)
+## (Intercept)          3363.4470870 41474.8613344   0.081    0.935
+## Del                  -334.6568036  4123.6533319  -0.081    0.935
+## Vin                    -0.0125951    60.9955647   0.000    1.000
+## Pkg                     0.0545867   106.0600619   0.001    1.000
+## Cst                    -0.0729954    68.6990311  -0.001    0.999
+## Mil                     0.0005319     0.8526512   0.001    1.000
+## DomI                   -0.0364939   490.4463000   0.000    1.000
+## HazN                   -0.3179562   534.3371694  -0.001    1.000
+## CarM-Press Delivery    -0.2695322   519.4178209  -0.001    1.000
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 8660.850577183  on 6331  degrees of freedom
+## Residual deviance:    0.000017397  on 6323  degrees of freedom
+## AIC: 18
+## 
+## Number of Fisher Scoring iterations: 25
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+```r
+# Likelihood ratio test
+anova(logit_model, test = "Chisq")
+```
 
-## ############################
-# 3. Model Development
-## ############################
+```
+## Analysis of Deviance Table
+## 
+## Model: binomial, link: logit
+## 
+## Response: OT
+## 
+## Terms added sequentially (first to last)
+## 
+## 
+##      Df Deviance Resid. Df Resid. Dev Pr(>Chi)    
+## NULL                  6331     8660.9             
+## Del   1   8660.9      6330        0.0   <2e-16 ***
+## Vin   1      0.0      6329        0.0        1    
+## Pkg   1      0.0      6328        0.0        1    
+## Cst   1      0.0      6327        0.0        1    
+## Mil   1      0.0      6326        0.0        1    
+## Dom   1      0.0      6325        0.0        1    
+## Haz   1      0.0      6324        0.0        1    
+## Car   1      0.0      6323        0.0        1    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
 
-#As demonstrated in class, create two logistic regression models.
+The logistic regression analysis indicates that distance (Mil) is the most significant predictor of on-time delivery, supported by its highly significant p-value (\< 2e-16).
 
-## 1. A full model using all of the variables.
+Other predictors such as number of orders per customer (Cst), manufactured outside Canada (Dom), non-hazardous products (Haz), and the carrier (Car) also show strong associations with on-time delivery based on their p-values.
+
+------------------------------------------------------------------------
+
+### Model Development
+
+Now, let's create two logistic regression models.
+
+**A full model using all of the variables.**
 
 
 ```r
@@ -443,8 +393,7 @@ summary(full.model)
 pred <- predict(full.model, newdata=ExcelFile)
 ```
 
-
-## 2. An additional model using backward selection.
+**An additional model using backward selection**
 
 
 ```r
@@ -518,52 +467,38 @@ summary(back.model)
 pred <- predict(back.model, newdata=ExcelFile)
 ```
 
-## For each model, interpret and comment on the main measures we 
-## discussed in class:
-## (1) AIC
-## (2) Deviance
-## (3) Residual symmetry
-## (4) z-values
-## (5) Parameter Co-Efficients
-## Based on your preceding analysis, recommend which model should be selected and explain why.
+Based on this analysis, I recommend backward model should be selected as:
 
+Here is the several measures I have considered to choose which model is better.
 
-```r
-### As per created two models(full model and backward model) in last two sections; 
-### 
-### -> AIC - Model is better where AIC value is lower.
-###    AIC value is lower in the Backward Model.
+> **AIC** - Model is better where AIC value is lower.
 
-### -> Deviance - Measure of Error = null deviance - Residual deviance. 
-###    Model is better with the higher difference value.
-###    Deviance is higher in the full model.
+AIC value is lower in the Backward Model with the comparison of full model.
 
-### -> Residual symmetry value should be zero.
-###    Residual symmetry value is near by zero for Model 2.
+> **Deviance** - Measure of Error = null deviance - Residual deviance.
 
-### -> Z-values - all Pr(>z) values less than 0.05 is consider as the better model.
-###    For Backward model, Pr(>z) value is less than 0.05 for all except one 
-###    as 0.0816 but it's near by 0.05.
+> Model is better with the higher difference value.
 
-### -> Parameter Co-Efficients
+Deviance is higher in the full model.
 
+> Residual symmetry value should be zero.
+> Residual symmetry value is near by zero for Model 2(backward model).
 
-### Based on these observations, we can say that backward model is the better model than full model. 
-```
+> Z-values - all Pr(\>z) values less than 0.05 is consider as the better model.
 
+For Backward model, Pr(\>z) value is less than 0.05 for all except one as 0.0816 but it's near by 0.05.
 
+> Parameter Co-Efficient
 
+Based on these observations, we can say that `backward model` is the better model than full model.
 
-## ##################
-# PART B
-## ##################
-# In this section, all three classifiers should be built using OT_[Intials] as the dependant variable and the remaining variables as the independent variables.
+------------------------------------------------------------------------
 
-## #######################################
-# 1. Logistic Regression – Backward
-## #######################################
+> In this section, all three classifiers are built as the dependant variable and the remaining variables as the independent variables.
 
-## 1. As above, use the step option in the glm function to fit the model (using backward selection).
+### Logistic Regression -- Backward
+
+As above, used the step option in the glm function to fit the model (using backward selection).
 
 
 ```r
@@ -572,7 +507,6 @@ start_time <- Sys.time()
 
 # In regression, the dependent variable is marked as Y and the independent variable is marked as X. 
 # So, here adding the OT as dependent variable and other variables as the independent variables.
-
 glm.mod <- glm(OT ~ .,family="binomial", data=ExcelFile, na.action=na.omit)
 stp.glm <- step(glm.mod)
 ```
@@ -631,8 +565,8 @@ head(class)
 ## 1 0 0 0 0 1
 ```
 
+Summarized the results in a Confusion Matrix .
 
-## 2. Summarize the results in a Confusion Matrix .
 
 ```r
 # creating the confusion matrix.
@@ -648,13 +582,14 @@ LR_CF
 ```
 
 ```r
+# Adding the results in confusion matrix.
 LR_TP <-LR_CF[2,2]
 LR_TN <-LR_CF[1,1]
 LR_FP <-LR_CF[1,2]
 LR_FN <-LR_CF[2,1]
 ```
 
-## 3. As demonstrated in class, calculate the time (in seconds) it took to fit the model and include this in your summary. 
+Now, let's calculate the time (in seconds) it took to fit the model.
 
 
 ```r
@@ -664,13 +599,12 @@ Conf_time
 ```
 
 ```
-## Time difference of 0.5778341 secs
+## Time difference of 0.3985372 secs
 ```
-## #################################
-# 2. Naive-Bayes Classification
-## #################################
 
-## 1. Use all the variables in the dataset to fit a Naive-Bayesian classification model. 
+### Naive-Bayes Classification
+
+Used all the variables in the dataset to fit a Naive-Bayesian classification model.
 
 
 ```r
@@ -683,8 +617,7 @@ Naive <- NaiveBayes(OT ~ . ,data = ExcelFile, na.action=na.omit)
 end_time <- Sys.time()
 ```
 
-
-## 2. Summarize the results in a Confusion Matrix.
+Summarized the results in a Confusion Matrix.
 
 
 ```r
@@ -710,8 +643,7 @@ Naive_FP <-Naive_CF[1,2]
 Naive_FN <-Naive_CF[2,1]
 ```
 
-
-## 3. As demonstrated in class, calculate the time (in seconds) it took to fit the model and include this in your summary. 
+Now, let's calculate the time (in seconds) it took to fit the model.
 
 
 ```r
@@ -721,30 +653,27 @@ NB_Time
 ```
 
 ```
-## Time difference of 0.009624958 secs
+## Time difference of 0.01524496 secs
 ```
-## ##################################
-# 3. Linear Discriminant Analysis
-## ##################################
 
-## 1. Use all the variables in the dataset to fit an LDA classification model. 
+### Linear Discriminant Analysis
+
+Used all the variables in the dataset to fit an LDA classification model.
 
 
 ```r
 start_time <- Sys.time()
-  
 LDA <- lda(OT ~ .,data = ExcelFile, na.action=na.omit)
-  
 end_time <- Sys.time()
 ```
 
-
-## 2. Summarize the results in a Confusion Matrix.
+Summarized the results in a Confusion Matrix.
 
 
 ```r
 #Classifies
 pred_dis <- predict(LDA, data=ExcelFile)
+
 #Confusion Matrix
 LDA_CF <- table(Actual=ExcelFile$OT, Predicted=pred_dis$class)
 LDA_CF
@@ -765,24 +694,22 @@ LDA_FP <-LDA_CF[1,2]
 LDA_FN <-LDA_CF[2,1]
 ```
 
-## 3. As demonstrated in class, calculate the time (in seconds) it took to fit the model and include this in your summary.
+Now, let's calculate the time (in seconds) it took to fit the model.
 
 
 ```r
 # Processing time for Linear Discriminant Analysis
-
 LDA_Time <- end_time - start_time
 LDA_Time
 ```
 
 ```
-## Time difference of 0.01251292 secs
+## Time difference of 0.01161194 secs
 ```
 
-# 4. Compare All Three Classifiers
-#    For all questions below please provide evidence.
+> Comparing All Three Classifiers
 
-## 1. Which classifier is most accurate? (provide evidence)
+Now take a look at Which classifier is most accurate.
 
 
 ```r
@@ -818,86 +745,50 @@ LDA_ACC
 ```
 
 ```r
-## Based on the accuracy values for all three defined classifiers, 
-## Linear Discriminant Analysis classifier is the most accurate 
-## because it's value is slightly higher than other two classifier's accuracy value.
+# Based on the accuracy values for all three defined classifiers; 
+#Linear Discriminant Analysis classifier is the most accurate because it's value is slightly higher than other two classifier's accuracy value.
 ```
 
-
-## 2. Which classifier is most suitable when processing speed is most important?
+Now let's check Which classifier is most suitable when processing speed is most important.
 
 
 ```r
 # Processing time for Logistic Regression – Backward
-cat("Logistic Regression: ")
-```
-
-```
-## Logistic Regression:
-```
-
-```r
 Conf_time
 ```
 
 ```
-## Time difference of 0.5778341 secs
+## Time difference of 0.3985372 secs
 ```
 
 ```r
 # Processing time for Naive-Bayes Classification
-cat("Logistic Regression: ")
-```
-
-```
-## Logistic Regression:
-```
-
-```r
 NB_Time
 ```
 
 ```
-## Time difference of 0.009624958 secs
+## Time difference of 0.01524496 secs
 ```
 
 ```r
 # Processing time for Linear Discriminant Analysis
-cat("Logistic Regression: ")
-```
-
-```
-## Logistic Regression:
-```
-
-```r
 LDA_Time
 ```
 
 ```
-## Time difference of 0.01251292 secs
+## Time difference of 0.01161194 secs
 ```
 
 ```r
-### Processing time for Linear Discriminant Analysis is the lowest from remaining two classifiers.
-### Linear Discriminant Analysis is the most suitable classifier 
-### if we consider processing speed as the most important.
+# Processing time for Linear Discriminant Analysis is the lowest from remaining two classifiers.
+# Linear Discriminant Analysis is the most suitable classifier if we consider processing speed as the most important.
 ```
 
-
-## 3. Which classifier minimizes false positives?
+Now let's check Which classifier minimizes false positives.
 
 
 ```r
 # False Positive value for Logistic Regression Classifier 
-cat("Logistic Regression: ")
-```
-
-```
-## Logistic Regression:
-```
-
-```r
 LR_FP
 ```
 
@@ -907,14 +798,6 @@ LR_FP
 
 ```r
 # False Positive value for Naive Bayes Classification
-cat("Naive Bayes Classification: ")
-```
-
-```
-## Naive Bayes Classification:
-```
-
-```r
 Naive_FP
 ```
 
@@ -924,14 +807,6 @@ Naive_FP
 
 ```r
 # False Positive value for Linear Discriminant Analysis Classifier
-cat("Linear Discriminant Analysis: ")
-```
-
-```
-## Linear Discriminant Analysis:
-```
-
-```r
 LDA_FP
 ```
 
@@ -940,29 +815,21 @@ LDA_FP
 ```
 
 ```r
-## Based on the FP values for all three classifiers, 
-## Logistic Regression Classifier has the lowest value for false positives.
+# Based on the FP values for all three classifiers, 
+# Logistic Regression Classifier has the lowest value for false positives.
 ```
 
+**See Which classifier is best overall.**
 
-## 4. Which classifier is best overall?
+Based on previously created classifiers, it's accuracy and False positive values, Logistic Regression classifier is the best classifier.
 
+As Logistic Regression's value for False Positive is the lowest.
 
-```r
-### Based on previously created classifiers, it's accuracy and False positive values, 
-### Logistic Regression classifier is the best classifier.
+For accuracy, Logistic Regression's value is slightly lower with the comparison of Linear Discriminant Analysis Classifier with 0.001 value.
 
-### As Logistic Regression's value for False Positive is the lowest. 
-### For accuracy, Logistic Regression's value is slightly lower with the comparison of  
-### Linear Discriminant Analysis Classifier with 0.001 value.
-```
+### Decision Tree
 
-
-
-# Decision Tree
-
-## Use all the variables in the dataset to fit a Decision Tree classification model. 
-
+Used all the variables in the dataset to fit a Decision Tree classification model.
 
 
 ```r
@@ -973,7 +840,8 @@ plot(tree.fit, gp=gpar(fontsize=2))
 ```
 
 <img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-24-1.png" width="672" />
-## Summarize the results in a Confusion Matrix.
+
+Summarizing the results in a Confusion Matrix.
 
 
 ```r
@@ -992,8 +860,7 @@ CF_TREE
 ##      1  504 2232
 ```
 
-
-## As demonstrated in class, calculate the time (in seconds) it took to fit the model and include this in your summary.
+calculating the time (in seconds) it took to fit the model.
 
 
 ```r
@@ -1002,6 +869,5 @@ CF_Time
 ```
 
 ```
-## Time difference of 0.105793 secs
+## Time difference of 0.1172068 secs
 ```
-

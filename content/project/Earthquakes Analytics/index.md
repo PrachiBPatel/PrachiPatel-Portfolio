@@ -2,8 +2,29 @@
 title: "Earthquake Analysis"
 author: "Prachi Patel"
 date: "2022-09-28"
-output: pdf_document
+excerpt: ""
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+editor_options: 
+  markdown: 
+    wrap: sentence
+
 ---
+
+### Introduction
+
+### Data Dictionary
+
+
+|Variable |Description |
+|:--------|:-----------|
+|         |            |
+
+### Import Library
+
+This section loads and attaches all the necessary libraries for this project.
 
 
 ```r
@@ -15,10 +36,10 @@ library(reticulate)
 ```
 
 
-```python
-# !pip install matplot
-```
 
+### Import python Libraries
+
+Adding the necessary python libraries for this project.
 
 
 ```python
@@ -26,6 +47,7 @@ import numpy as np
 import pandas as pd
 ```
 
+### Import Dataset
 
 
 ```python
@@ -341,13 +363,13 @@ df2.sample(5)
 ```
 
 ```
-##                      Latitude  Longitude        Type   Depth  Magnitude
-## Date_Time                                                              
-## 2005-07-13 00:29:30   10.3510    92.9030  Earthquake   49.60        5.5
-## 1993-09-27 04:43:56   30.6780   132.1210  Earthquake   37.90        5.6
-## 1974-05-17 20:55:11   -6.5130   106.8370  Earthquake  131.00        6.0
-## 2016-11-13 14:01:02  -28.8598   -67.4611  Earthquake  108.78        5.7
-## 2005-05-31 09:06:55  -62.8270   155.7760  Earthquake   10.00        5.7
+##                      Latitude  Longitude        Type  Depth  Magnitude
+## Date_Time                                                             
+## 2007-09-26 12:49:57    -5.024    153.626  Earthquake   35.0        5.6
+## 1987-03-14 06:10:05   -23.520   -177.467  Earthquake   40.1        5.6
+## 1982-11-14 08:29:20    52.986    158.669  Earthquake   92.0        5.6
+## 1988-08-20 08:19:38   -16.484    167.171  Earthquake   21.8        5.9
+## 2006-11-15 00:53:25   -50.599    162.328  Earthquake   10.0        5.5
 ```
 
 Get the unique values for specific columns.
@@ -521,7 +543,7 @@ inline is used to enable static images of the plots into the notebook environmen
 plt.hist(df2['Magnitude'])
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-31-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-32-1.png" width="672" />
 
 
 ```python
@@ -531,7 +553,7 @@ plt.ylabel('Number of Earthquackes')
 plt.title('1965-2016 Earthquackes')
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-32-3.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-33-3.png" width="672" />
 
 bins are the vuckets where the data is relied into.
 Normally choose bins size between 5 to 10. But it also depends upon your database as well.
@@ -544,7 +566,7 @@ plt.ylabel('Number of Earthquackes')
 plt.title('1965-2016 Earthquackes')
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-33-5.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-34-5.png" width="672" />
 
 
 ```python
@@ -554,7 +576,7 @@ plt.ylabel('Number of Earthquackes')
 plt.title('1965-2016 Earthquackes')
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-34-7.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-35-7.png" width="672" />
 
 
 ```python
@@ -564,7 +586,7 @@ plt.ylabel('Number of Earthquackes')
 plt.title('1965-2016 Earthquackes')
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-35-9.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-36-9.png" width="672" />
 
 If you want the same graph with different bins value then you can create bins function and just change the value of bins using function instead of writing whole line of code again and again.
 
@@ -579,14 +601,14 @@ def myplot(bins):
 myplot(10)
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-36-11.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-37-11.png" width="672" />
 
 
 ```python
 myplot(20)
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-37-13.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-38-13.png" width="672" />
 
 Line Chart
 
@@ -595,14 +617,14 @@ Line Chart
 plt.plot(df2['Magnitude'][df2.Type == 'Earthquake'].resample('1Y').max())
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-38-15.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-39-15.png" width="672" />
 
 
 ```python
 plt.plot(df2['Magnitude'][df2.Type == 'Earthquake'].resample('6M').max())
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-39-17.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-40-17.png" width="672" />
 
 How many earthquakes we have per year?
 For this we have to use unique indexes and here we are using bar plots because we are comparing number year by year.
@@ -674,7 +696,7 @@ plt.bar(df2.index.year.unique(),df2.index.year[df2.Type == 'Earthquake'].value_c
 plt.title('Earthquake per year')
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-46-19.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-47-19.png" width="672" />
 
 How many Nuclear Explosions we have per year?
 
@@ -685,7 +707,7 @@ plt.bar(df2[df2.Type == 'Nuclear Explosion'].index.year.unique(),
 plt.title('Nukes per Year')
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-47-21.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-48-21.png" width="672" />
 
 Scatter Plots - to see relationships and co-relation between different values.
 
@@ -707,7 +729,7 @@ Scatter Plots - to see relationships and co-relation between different values.
 plt.scatter(df2['Magnitude'],df2['Depth'])
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-50-23.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-51-23.png" width="672" />
 
 
 ```python
@@ -715,7 +737,7 @@ plt.figure(figsize=(19,10))
 plt.scatter(df2['Longitude'],df2['Latitude'],df2['Magnitude']*10,df2['Depth'])
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-51-25.png" width="1824" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-52-25.png" width="1824" />
 
 Depth of Each Earthquakes
 

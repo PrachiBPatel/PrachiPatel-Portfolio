@@ -1,16 +1,32 @@
 ---
-title: "Salary data based on country and race Analysis"
+title: "Salary data based on country and race"
 author: "Prachi Patel"
 date: "2024-03-28"
-output: pdf_document
+excerpt: ""
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+editor_options: 
+  markdown: 
+    wrap: sentence
 ---
 
+### Introduction
+
+### Data Dictionary
+
+### Import Library
+
+This section loads and attaches all the necessary libraries for this project.
 
 
 
 
-DataSet Reference: https://www.kaggle.com/datasets/sudheerp2147234/salary-dataset-based-on-country-and-race?resource=download
-Importing library
+
+> Data Set Reference: Kaggle
+
+### Importing Python Library
 
 
 ```python
@@ -19,21 +35,21 @@ import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
 import warnings
-sns.set_theme(color_codes=True)
 warnings.filterwarnings('ignore')
 ```
 
-Import Dataset
+### Import Dataset
 
 
 ```python
 df = pd.read_csv('Salary_Data_Based_country_and_race.csv')
 ```
 
-Read Dataset
+### Read Dataset
 
 
 ```python
+# It will return first few rows of the dataset.
 df.head()
 ```
 
@@ -48,32 +64,8 @@ df.head()
 ## [5 rows x 9 columns]
 ```
 
-Database Information
+#### Database Information
 
-
-```python
-print('\033[92m'+'*' * 28)
-```
-
-```
-## [92m****************************
-```
-
-```python
-print('\033[92m\033[1m'+'.: Imported Dataset Info :.'+'\033[0m')
-```
-
-```
-## [92m[1m.: Imported Dataset Info :.[0m
-```
-
-```python
-print('\033[92m'+'*' * 28)
-```
-
-```
-## [92m****************************
-```
 
 ```python
 print('Total Rows:', df.shape[0])
@@ -91,32 +83,8 @@ print('Total Columns:', df.shape[1])
 ## Total Columns: 9
 ```
 
-Dataset Details
+#### Dataset Details
 
-
-```python
-print('\033[0m\033[92m'+'*' * 30+'\033[0m')
-```
-
-```
-## [0m[92m******************************[0m
-```
-
-```python
-print('\033[92m\033[1m'+'.: Dataset Details :.'+'\033[0m')
-```
-
-```
-## [92m[1m.: Dataset Details :.[0m
-```
-
-```python
-print('\033[0m\033[92m'+'*' * 30+'\033[0m')
-```
-
-```
-## [0m[92m******************************[0m
-```
 
 ```python
 df.info()
@@ -141,10 +109,13 @@ df.info()
 ## memory usage: 471.5+ KB
 ```
 
-As per the details mentioned above we can say that thre are 9 columns and 6704 records.
-Also, there are couple of null values available in the dataset.
+As per the details mentioned above we can say that there are 9 columns and 6704 records.
 
-Drop the unnamed column from the dataset.
+Also, there are couple of null values and unnamed column available in the dataset.
+
+---------------------------------------------------------------------------------------------------
+
+Let's drop the unnamed column from the dataset.
 
 
 ```python
@@ -163,32 +134,8 @@ df.head()
 ## [5 rows x 8 columns]
 ```
 
-Check unique values available for each column.
+Now let's check unique values available for each column and adjust if needed.
 
-
-```python
-print('\033[92m'+'*' * 42)
-```
-
-```
-## [92m******************************************
-```
-
-```python
-print('\033[92m\033[1m'+'.: Unique value count for each columns :.'+'\033[0m')
-```
-
-```
-## [92m[1m.: Unique value count for each columns :.[0m
-```
-
-```python
-print('\033[92m'+'*' * 42)
-```
-
-```
-## [92m******************************************
-```
 
 ```python
 df.select_dtypes(include='object').nunique()
@@ -203,10 +150,9 @@ df.select_dtypes(include='object').nunique()
 ## dtype: int64
 ```
 
-Unique Job Title List
-
 
 ```python
+# Unique Job Title List
 df['Job Title'].unique()
 ```
 
@@ -299,7 +245,7 @@ df['Job Title'].unique()
 ##        'Delivery Driver'], dtype=object)
 ```
 
-Changing Job Title value from large segment to smaller unique values.
+Now, let's change Job Title value from large segment to smaller unique values. So, it will be easy to analyze.
 
 
 ```python
@@ -336,49 +282,9 @@ df['Job Title'] = df['Job Title'].apply(categorize_job_title)
 ```
 
 
-```python
-df.head()
-```
-
-```
-##     Age  Gender Education Level  ...    Salary  Country      Race
-## 0  32.0    Male      Bachelor's  ...   90000.0       UK     White
-## 1  28.0  Female        Master's  ...   65000.0      USA  Hispanic
-## 2  45.0    Male             PhD  ...  150000.0   Canada     White
-## 3  36.0  Female      Bachelor's  ...   60000.0      USA  Hispanic
-## 4  52.0    Male        Master's  ...  200000.0      USA     Asian
-## 
-## [5 rows x 8 columns]
-```
-
-Check the unique values doe Race field.
-
 
 ```python
-print('\033[92m'+'*' * 35)
-```
-
-```
-## [92m***********************************
-```
-
-```python
-print('\033[92m\033[1m'+'.: Race field unique value list :.'+'\033[0m')
-```
-
-```
-## [92m[1m.: Race field unique value list :.[0m
-```
-
-```python
-print('\033[92m'+'*' * 35)
-```
-
-```
-## [92m***********************************
-```
-
-```python
+#Unique values for Race field
 df['Race'].unique()
 ```
 
@@ -387,34 +293,9 @@ df['Race'].unique()
 ##        'Welsh', 'African American', 'Mixed', 'Black'], dtype=object)
 ```
 
-Number of data for each Race value.
-
 
 ```python
-print('\033[92m'+'*' * 42)
-```
-
-```
-## [92m******************************************
-```
-
-```python
-print('\033[92m\033[1m'+'.: Number of data for each Race value :.'+'\033[0m')
-```
-
-```
-## [92m[1m.: Number of data for each Race value :.[0m
-```
-
-```python
-print('\033[92m'+'*' * 42)
-```
-
-```
-## [92m******************************************
-```
-
-```python
+# Number of data for Race field.
 df['Race'].value_counts()
 ```
 
@@ -433,165 +314,148 @@ df['Race'].value_counts()
 ## Name: count, dtype: int64
 ```
 
-Creating a new dataframe to see the persentage of each race data in out database.
+Creating a new data frame to see the percentage of each race data in out database.
 
 
 ```python
-race = df['Race'].value_counts().to_frame()
-#race['Percentage'] = round((race['Race']/df.shape[0])*100,2)
-print('\033[92m'+'*' * 38)
+# Calculate the percentage of each race
+race_percentage = df['Race'].value_counts(normalize=True) * 100
+
+# Convert the series to a DataFrame
+race_percentage_df = race_percentage.reset_index()
+race_percentage_df.columns = ['Race', 'Percentage']
+
+# Display the DataFrame
+race_percentage_df
 ```
 
 ```
-## [92m**************************************
-```
-
-```python
-print('\033[92m\033[1m'+'.: Race value count with percentage :.'+'\033[0m')
-```
-
-```
-## [92m[1m.: Race value count with percentage :.[0m
-```
-
-```python
-print('\033[92m'+'*' * 38)
-```
-
-```
-## [92m**************************************
-```
-
-```python
-race
-```
-
-```
-##                   count
-## Race                   
-## White              1968
-## Asian              1603
-## Korean              457
-## Australian          452
-## Chinese             444
-## Black               437
-## African American    354
-## Mixed               334
-## Welsh               333
-## Hispanic            322
+##                Race  Percentage
+## 0             White   29.355609
+## 1             Asian   23.911098
+## 2            Korean    6.816826
+## 3        Australian    6.742243
+## 4           Chinese    6.622912
+## 5             Black    6.518496
+## 6  African American    5.280430
+## 7             Mixed    4.982100
+## 8             Welsh    4.967184
+## 9          Hispanic    4.803103
 ```
 
 Now, we will add the percentage(%) symbol into the percentage field.
+
 First converted numeric datatype into the string.
+
 After that, I have added the percentage(%) symbol into the percentage field.
 
 
 ```python
-#race['Percentage'] = race['Percentage'].astype(str)
-#race['Percentage'] = race['Percentage']+'%'
-print('\033[92m'+'*' * 38)
+# Round the percentage values to two decimal places
+race_percentage_df['Percentage'] = race_percentage_df['Percentage'].astype(float).round(2)
+
+# Convert the percentage values to strings and add the percentage symbol
+race_percentage_df['Percentage'] = race_percentage_df['Percentage'].astype(str) + '%'
+
+# Display the DataFrame with the formatted percentage values
+race_percentage_df
 ```
 
 ```
-## [92m**************************************
-```
-
-```python
-print('\033[92m\033[1m'+'.: Race value count with percentage :.'+'\033[0m')
-```
-
-```
-## [92m[1m.: Race value count with percentage :.[0m
-```
-
-```python
-print('\033[92m'+'*' * 38)
-```
-
-```
-## [92m**************************************
-```
-
-```python
-race
-```
-
-```
-##                   count
-## Race                   
-## White              1968
-## Asian              1603
-## Korean              457
-## Australian          452
-## Chinese             444
-## Black               437
-## African American    354
-## Mixed               334
-## Welsh               333
-## Hispanic            322
+##                Race Percentage
+## 0             White     29.36%
+## 1             Asian     23.91%
+## 2            Korean      6.82%
+## 3        Australian      6.74%
+## 4           Chinese      6.62%
+## 5             Black      6.52%
+## 6  African American      5.28%
+## 7             Mixed      4.98%
+## 8             Welsh      4.97%
+## 9          Hispanic       4.8%
 ```
 
 Making the Pie Plot for the race percentage data.
+
 autopct='%.2f' is used to add the two decimal value in the field and add the percentage symbol into the Percentage Field.
+
 y=0.94 is used to adjust the fine-tune the vertical alignment of the title.
 
 
 ```python
-df['Race'].value_counts().plot(kind = 'pie',figsize = (12,6), autopct = '%.2f')
-plt.title('Percentage of each Race', fontweight = 'bold', y = 0.94)
+# Create a pie chart
+plt.figure(figsize=(8, 8))  # Set the figure size
+plt.pie(
+    race_percentage,  # Data for the pie chart
+    labels=race_percentage.index,  # Labels for each slice
+    autopct='%.2f%%',  # Format the percentage values to two decimal places
+    startangle=140  # Start angle for the first slice
+)
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-17-1.png" width="1152" />
+```
+## ([<matplotlib.patches.Wedge object at 0x0000017D7D3CAB50>, <matplotlib.patches.Wedge object at 0x0000017D7D673C50>, <matplotlib.patches.Wedge object at 0x0000017D7D681910>, <matplotlib.patches.Wedge object at 0x0000017D7D681050>, <matplotlib.patches.Wedge object at 0x0000017D7D68D310>, <matplotlib.patches.Wedge object at 0x0000017D7D68F390>, <matplotlib.patches.Wedge object at 0x0000017D7D698ED0>, <matplotlib.patches.Wedge object at 0x0000017D7D69AB50>, <matplotlib.patches.Wedge object at 0x0000017D7D6A4990>, <matplotlib.patches.Wedge object at 0x0000017D7D68F190>], [Text(-1.072493477675293, -0.2444539636495102, 'White'), Text(0.3530411045439956, -1.0418070735516993, 'Asian'), Text(1.0575487878554573, -0.3026393254444195, 'Korean'), Text(1.088096237888774, 0.16138951977218494, 'Australian'), Text(0.9277920392832755, 0.5909331026796362, 'Chinese'), Text(0.612745305701961, 0.9135333548044159, 'Black'), Text(0.2402077844388794, 1.0734524769615863, 'African American'), Text(-0.11229257013235895, 1.0942533430120602, 'Mixed'), Text(-0.44333604109140684, 1.006704104823954, 'Welsh'), Text(-0.726786471721758, 0.8257005658967652, 'Hispanic')], [Text(-0.5849964423683416, -0.13333852562700554, '29.36%'), Text(0.19256787520581578, -0.5682584037554722, '23.91%'), Text(0.5768447933757039, -0.16507599569695608, '6.82%'), Text(0.5935070388484222, 0.0880306471484645, '6.74%'), Text(0.5060683850636047, 0.32232714691616515, '6.62%'), Text(0.3342247122010696, 0.49829092080240855, '6.52%'), Text(0.13102242787575238, 0.585519532888138, '5.28%'), Text(-0.06125049279946851, 0.59686545982476, '4.98%'), Text(-0.24181965877713096, 0.5491113299039748, '4.97%'), Text(-0.39642898457550435, 0.45038212685278095, '4.80%')])
+```
+
+```python
+# Add a title with vertical alignment fine-tuned
+plt.title('Race Percentage Distribution', y=0.94)
+
+# Display the plot
+plt.show()
+```
+
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-16-1.png" width="768" />
 
 Salary distribution based on the Race.
+
 Based on the box plot we can see that there is not much difference with the distribution of all race.
 
 
 ```python
-salary_by_race = df[['Salary','Race']].boxplot(by='Race',vert=False, figsize = (12,7))
-salary_by_race.axvline(df['Salary'][df['Race'] == 'White'].median(), color = 'red')
-plt.grid(axis = 'y')
+# Create a box plot for salary distribution based on race
+plt.figure(figsize=(12, 8))
+sns.boxplot(x='Race', y='Salary', data=df)
+
+# Add a title to the plot
+plt.title('Salary Distribution Based on Race')
+
+# Display the plot
+plt.show()
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-18-3.png" width="1152" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-17-3.png" width="1152" />
 
-Mean of Salary based on Country.
+**Mean of Salary based on Country**
+
 Based on the graph we can say that there is not much difference in the salary based on each Country.
 
 
 ```python
-df.groupby('Country')['Salary'].mean().plot(kind='bar', figsize = (12,6))
-plt.title('Salary amount by Country', fontweight = 'bold', y = 0.94)
+# Calculate the mean salary for each country
+mean_salary_by_country = df.groupby('Country')['Salary'].mean().reset_index()
+
+# Rename the columns for clarity
+mean_salary_by_country.columns = ['Country', 'Mean Salary']
+
+# Sort the values by mean salary for better visualization
+mean_salary_by_country = mean_salary_by_country.sort_values(by='Mean Salary')
+
+# Create a bar plot for mean salary based on country
+plt.figure(figsize=(14, 8))
+sns.barplot(x='Mean Salary', y='Country', data=mean_salary_by_country, palette='viridis')
+
+# Add a title to the plot
+plt.title('Mean Salary Based on Country')
+
+# Display the plot
+plt.show()
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-19-5.png" width="1152" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-18-5.png" width="1344" />
 
-Mean of Salary based on Race field.
+**Mean of Salary based on Race field**
 
-
-```python
-print('\033[92m'+'*' * 38)
-```
-
-```
-## [92m**************************************
-```
-
-```python
-print('\033[92m\033[1m'+'.: Mean value of Salary by Race field :.'+'\033[0m')
-```
-
-```
-## [92m[1m.: Mean value of Salary by Race field :.[0m
-```
-
-```python
-print('\033[92m'+'*' * 38)
-```
-
-```
-## [92m**************************************
-```
 
 ```python
 df.groupby('Race')['Salary'].mean()
@@ -613,42 +477,94 @@ df.groupby('Race')['Salary'].mean()
 ```
 
 Bar Plot based on Race and Salary mean value.
-plt.grid(axis='y') - this line is used to add the vertical line. We must have to write this line after df.groupby.
+
+plt.grid(axis='y') - this line is used to add the vertical line.
+
+We must have to write this line after df.groupby.
+
 Otherwise, this will not help to add the grid in the graph.
 
 We can see that there is not much difference in the Salary based on Race.
 
 
 ```python
-df.groupby('Race')['Salary'].mean().plot(kind='bar',figsize = (12,6))
-plt.grid(axis='y')
-plt.title('Salary amount by Race', fontweight = 'bold', y = 0.94)
+# Calculate the mean salary for each race
+mean_salary_by_race = df.groupby('Race')['Salary'].mean().reset_index()
+
+# Rename the columns for clarity
+mean_salary_by_race.columns = ['Race', 'Mean Salary']
+
+# Sort the values by mean salary for better visualization
+mean_salary_by_race = mean_salary_by_race.sort_values(by='Mean Salary')
+
+# Create a bar plot for mean salary based on race
+plt.figure(figsize=(14, 8))
+sns.barplot(x='Mean Salary', y='Race', data=mean_salary_by_race, palette='viridis')
+
+# Add a title to the plot
+plt.title('Mean Salary Based on Race')
+
+# Add vertical grid lines
+plt.grid(axis='x')
+
+# Display the plot
+plt.show()
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-21-7.png" width="1152" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-20-7.png" width="1344" />
 
-Salary distribution based on Gender.
-Here, vert=False is used to specify the boxes in horizontally
-figsize(12,7) is used to set the size of the figure.
+**Salary distribution based on Gender**
+
+Here, `vert=False` is used to specify the boxes in horizontally figsize(12,7) is used to set the size of the figure.
 
 Based on the box plot we can see that male gender have highest salary amount with the comparision of other gender.
 
 
 ```python
-df[['Salary','Gender']].boxplot(by='Gender', vert=False, figsize = (12,7))
-plt.grid(axis = 'y')
+# Create a box plot for salary distribution based on gender
+plt.figure(figsize=(12, 7))
+sns.boxplot(x='Salary', y='Gender', data=df, orient='h')
+
+# Add a title to the plot
+plt.title('Salary Distribution Based on Gender')
+
+# Display the plot
+plt.show()
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-22-9.png" width="1152" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-21-9.png" width="1152" />
 
-Mean of Salary based on Gender field.
+**Mean of Salary based on Gender field**
+
 Male gender salary amount is higher than other but there is not much difference between one another.
 
 
 ```python
-df.groupby('Gender')['Salary'].mean().plot(kind='bar',figsize = (12,6))
-plt.title("Salary Amount's Mean Value by Gender" , fontweight = 'bold', y = 0.94)
+# Calculate the mean salary for each gender
+mean_salary_by_gender = df.groupby('Gender')['Salary'].mean().reset_index()
+
+# Rename the columns for clarity
+mean_salary_by_gender.columns = ['Gender', 'Mean Salary']
+
+# Sort the values by mean salary for better visualization (optional)
+mean_salary_by_gender = mean_salary_by_gender.sort_values(by='Mean Salary')
+
+# Create a bar plot for mean salary based on gender
+plt.figure(figsize=(10, 6))
+sns.barplot(x='Gender', y='Mean Salary', data=mean_salary_by_gender, palette='viridis')
+
+# Add a title to the plot
+plt.title('Mean Salary Based on Gender')
+
+# Add vertical grid lines
+plt.grid(axis='y')
+
+# Display the plot
+plt.show()
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-23-11.png" width="1152" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-22-11.png" width="960" />
 
+#### Conclusion
+
+The analysis found that salaries are quite similar across different countries and races, showing no significant disparities. However, there is a slight difference in salaries based on gender, with males earning slightly more on average. Overall, the data suggests relative salary equality with some minor gender-based differences.

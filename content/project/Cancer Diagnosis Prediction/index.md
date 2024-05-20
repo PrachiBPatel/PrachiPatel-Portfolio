@@ -92,16 +92,6 @@ ExcelFile <- as.data.frame(ExcelFile)
 head(ExcelFile)
 ```
 
-```
-##   Cancer Age    HW Hst Exe Smk Drk Hlth
-## 1      0  43 1.127   1  53   0   0   VG
-## 2      0  39 1.214   0  38   0   0    A
-## 3      1  49 0.898   0  18   1   1    P
-## 4      0  59 1.028   0   9   1   1    P
-## 5      0  45 1.082   0 127   0   0   VG
-## 6      0  53 1.057   1  11   0   0    A
-```
-
 #### Data Manupulation
 
 Convert all the Character variable into Factor.

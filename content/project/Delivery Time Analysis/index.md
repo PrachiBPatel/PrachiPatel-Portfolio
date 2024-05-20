@@ -75,6 +75,11 @@ library("psych")
 ### Import Data
 
 
+```r
+ExcelFile <- read.csv("PROG8430_Assign04_22F.txt")
+ExcelFile <- as.data.frame(ExcelFile)
+head(ExcelFile)
+```
 
 ### Preliminary and Exploratory
 
@@ -92,13 +97,13 @@ Also, removed the outliners for No. of Product Ordered data where value is marke
 boxplot(ExcelFile$Del, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "Time of Delivery - Box Plot")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 ```r
 densityplot( ~ ExcelFile$Del, pch=6,col=c("#6bc9c2"), xlab = "Time of Delivery") 
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-2.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-2.png" width="672" />
 
 ```r
 # No outliners are available for time of delivery field
@@ -110,13 +115,13 @@ densityplot( ~ ExcelFile$Del, pch=6,col=c("#6bc9c2"), xlab = "Time of Delivery")
 boxplot(ExcelFile$Vin, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "Vintage of Product - Box Plot")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 
 ```r
 densityplot( ~ ExcelFile$Vin, pch=6,col=c("#6bc9c2"), xlab = "Vintage of Product")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-2.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-2.png" width="672" />
 
 ```r
 # And here we can see that there is a outliner available in this field. So, let's remove the outliers as value -10 is not making any sense for this field.
@@ -129,13 +134,13 @@ ExcelFile <- ExcelFile[-c(nr),]
 boxplot(ExcelFile$Vin, horizontal=TRUE, col=c("#e8bbfa"), pch=20, main = "Vintage of Product - Box Plot")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-3.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-3.png" width="672" />
 
 ```r
 densityplot( ~ ExcelFile$Vin, pch=6,col=c("#e8bbfa"), xlab = "Vintage of Product")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-4.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-4.png" width="672" />
 
 
 ```r
@@ -143,13 +148,13 @@ densityplot( ~ ExcelFile$Vin, pch=6,col=c("#e8bbfa"), xlab = "Vintage of Product
 boxplot(ExcelFile$Pkg, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "No. of Product Ordered - Box Plot")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 
 ```r
 densityplot( ~ ExcelFile$Pkg, pch=6,col=c("#6bc9c2"), xlab = "No. of Product Ordered")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-2.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-7-2.png" width="672" />
 
 ```r
 # And for this field as well there is a outliner available. So, let's remove that as well.
@@ -162,13 +167,13 @@ ExcelFile <- ExcelFile[-c(nr),]
 boxplot(ExcelFile$Pkg, horizontal=TRUE, col=c("#e8bbfa"), pch=20, main = "No. of Product Ordered - Box Plot")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-3.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-7-3.png" width="672" />
 
 ```r
 densityplot( ~ ExcelFile$Pkg, pch=6,col=c("#e8bbfa"), xlab = "No. of Product Ordered")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-4.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-7-4.png" width="672" />
 
 
 ```r
@@ -176,13 +181,13 @@ densityplot( ~ ExcelFile$Pkg, pch=6,col=c("#e8bbfa"), xlab = "No. of Product Ord
 boxplot(ExcelFile$Cst, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "No. of Orders per Customer - Box Plot")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
 ```r
 densityplot( ~ ExcelFile$Cst, pch=6,col=c("#6bc9c2"), xlab = "No. of Orders per Customer")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-7-2.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-8-2.png" width="672" />
 
 ```r
 # As we see there are no outliners available for this field.
@@ -194,13 +199,13 @@ densityplot( ~ ExcelFile$Cst, pch=6,col=c("#6bc9c2"), xlab = "No. of Orders per 
 boxplot(ExcelFile$Mil, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "Distance - Box Plot")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 
 ```r
 densityplot( ~ ExcelFile$Mil, pch=6,col=c("#6bc9c2"), xlab = "Distance")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-8-2.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-9-2.png" width="672" />
 
 ```r
 # And for this field, no outliners are available.
@@ -219,7 +224,7 @@ qqnorm(ExcelFile$Del)
 qqline(ExcelFile$Del)
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 
 ```r
 # To check compare two mean values we have to check the 3 assumptions for t-test.
@@ -245,7 +250,7 @@ shapiro.test(ExcelFile$Del)
 bwplot(Del ~ Car, data = ExcelFile)
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-9-2.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-10-2.png" width="672" />
 
 ```r
 # Using Shapiro Normality test - p-value; we can say that data is normally distributed as p-value is 0.1288 that is greater than 0.05.
@@ -334,7 +339,7 @@ corrgram(train, order=TRUE, lower.panel=panel.shade,
          main="Correlations")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-14-1.png" width="672" />
 
 ```r
 lm.fit_Pkg <-lm(Del ~ Pkg, data = train)
@@ -342,7 +347,7 @@ plot(Del ~ Pkg, data = train, pch=20)
 abline(lm.fit_Pkg, col="Red")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-13-2.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-14-2.png" width="672" />
 
 ```r
 lm.fit_Vin <-lm(Del ~ Vin, data = train)
@@ -350,7 +355,7 @@ plot(Del ~ Vin, data = train, pch=20)
 abline(lm.fit_Vin, col="Red")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-13-3.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-14-3.png" width="672" />
 
 ```r
 lm.fit_Cst <-lm(Del ~ Cst, data = train)
@@ -358,7 +363,7 @@ plot(Del ~ Cst, data = train, pch=20)
 abline(lm.fit_Cst, col="Red")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-13-4.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-14-4.png" width="672" />
 
 ```r
 lm.fit_Mil <-lm(Del ~ Mil, data = train)
@@ -366,7 +371,7 @@ plot(Del ~ Mil, data = train, pch=20)
 abline(lm.fit_Mil, col="Red")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-13-5.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-14-5.png" width="672" />
 
 ```r
 # Based on the numeric and graphical correlation values, we can say that Time for Delivery is correlated to the number of packages ordered as it's value is 0.54. Further away the correlation value is from zero means stronger relation between those two variables. For number of orders customer has made is also negatively correlated to the time for delivery as it's value is -0.58. 
@@ -409,7 +414,7 @@ plot(Del ~ Pkg, data = train, pch=20)
 abline(lm.fit_Pkg, col="Red")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-15-1.png" width="672" />
 
 ```r
 # Based on the regression line and plot, we can say that delivery is not dependent based on number of packages field.
@@ -450,7 +455,7 @@ plot(Del ~ Vin, data = train, pch=20)
 abline(lm.fit_Vin, col="Red")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-16-1.png" width="672" />
 
 ```r
 # Based on the regression line and plot, we can say that delivery is not dependent based on vintage of the product field.
@@ -843,7 +848,7 @@ par(mfrow = c(2, 2))
 plot(full.model_Train)  
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-19-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-20-1.png" width="672" />
 
 ```r
 par(mfrow = c(1, 1))  
@@ -852,7 +857,7 @@ par(mfrow = c(2, 2))
 plot(back.model_Train)  
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-19-2.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-20-2.png" width="672" />
 
 ```r
 par(mfrow = c(1, 1))
@@ -862,7 +867,7 @@ par(mfrow = c(2, 2))
 plot(full.model_test)  
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-19-3.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-20-3.png" width="672" />
 
 ```r
 par(mfrow = c(1, 1))  
@@ -871,7 +876,7 @@ par(mfrow = c(2, 2))
 plot(back.model_test)  
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-19-4.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-20-4.png" width="672" />
 
 ```r
 par(mfrow = c(1, 1))

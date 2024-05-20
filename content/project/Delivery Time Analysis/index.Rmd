@@ -69,7 +69,7 @@ library("psych")
 
 ### Import Data
 
-```{r setup, include=FALSE}
+```{r results='hide'}
 ExcelFile <- read.csv("PROG8430_Assign04_22F.txt")
 ExcelFile <- as.data.frame(ExcelFile)
 head(ExcelFile)

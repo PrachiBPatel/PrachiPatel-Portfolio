@@ -24,12 +24,12 @@
   
     
   
-<meta name="description" content="Prachi Patel Portfolio">
+<meta name="description" content="This project aims to analyze the factors affecting the on-time delivery of orders for a major mail-order company. By employing logistic regression, Naive-Bayes classification, and Linear Discriminant Analysis, the goal is to identify significant predictors of delivery success and compare the accuracy, processing speed, and false positive rates of these classification techniques. The ultimate objective is to determine the most effective model for ensuring deliveries are made within the company’s target timeframe.">
 
 
 <meta property="og:site_name" content="Prachi Patel">
 <meta property="og:title" content="Order Fulfillment Analysis | Prachi Patel">
-<meta property="og:description" content="Prachi Patel Portfolio" />
+<meta property="og:description" content="This project aims to analyze the factors affecting the on-time delivery of orders for a major mail-order company. By employing logistic regression, Naive-Bayes classification, and Linear Discriminant Analysis, the goal is to identify significant predictors of delivery success and compare the accuracy, processing speed, and false positive rates of these classification techniques. The ultimate objective is to determine the most effective model for ensuring deliveries are made within the company’s target timeframe." />
 <meta property="og:type" content="page" />
 <meta property="og:url" content="//localhost:4321/project/order-fulfillment-analysis/" />
 <meta property="og:locale" content="en">
@@ -45,12 +45,10 @@
     
   
   <meta itemprop="name" content="Order Fulfillment Analysis">
-  <meta itemprop="description" content="This section is for the basic set up. It will clear all the plots, the console and the workspace. It also sets the overall format for numbers.
-if(!is.null(dev.list())) dev.off() ## null device ## 1 cat(&#34;\014&#34;) rm(list=ls()) options(scipen=9) This section loads and attaches all the necessary packages.
-if(!require(readxl)){install.packages(&#34;readxl&#34;)} ## Loading required package: readxl library(&#34;readxl&#34;) if(!require(pastecs)){install.packages(&#34;pastecs&#34;)} ## Loading required package: pastecs library(&#34;pastecs&#34;) if(!require(lattice)){install.packages(&#34;lattice&#34;)} ## Loading required package: lattice library(&#34;lattice&#34;) if(!require(ggplot2)){install.packages(&#34;ggplot2&#34;)} ## Loading required package: ggplot2 library(&#34;ggplot2&#34;) if(!">
+  <meta itemprop="description" content="Introduction This project aims to analyze the factors affecting the on-time delivery of orders for a major mail-order company. By employing logistic regression, Naive-Bayes classification, and Linear Discriminant Analysis, the goal is to identify significant predictors of delivery success and compare the accuracy, processing speed, and false positive rates of these classification techniques. The ultimate objective is to determine the most effective model for ensuring deliveries are made within the company&rsquo;s target timeframe.">
   <meta itemprop="datePublished" content="2022-11-27T00:00:00+00:00">
   <meta itemprop="dateModified" content="2022-11-27T00:00:00+00:00">
-  <meta itemprop="wordCount" content="3032">
+  <meta itemprop="wordCount" content="3025">
   
   
 
@@ -105,178 +103,194 @@ if(!require(readxl)){install.packages(&#34;readxl&#34;)} ## Loading required pac
 
       </header>
       <section class="post-body pt5 pb4">
-        <p>This section is for the basic set up.
-It will clear all the plots, the console and the workspace.
-It also sets the overall format for numbers.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">is.null</span>(<span style="color:#900;font-weight:bold">dev.list</span>())) <span style="color:#900;font-weight:bold">dev.off</span>()
-</span></span></code></pre></div><pre tabindex="0"><code>## null device 
-##           1
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">cat</span>(<span style="color:#d14">&#34;\014&#34;</span>) 
-</span></span></code></pre></div><p></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">rm</span>(list<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">ls</span>())
-</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">options</span>(scipen<span style="color:#000;font-weight:bold">=</span><span style="color:#099">9</span>)
-</span></span></code></pre></div><p>This section loads and attaches all the necessary packages.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(readxl)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;readxl&#34;</span>)}
-</span></span></code></pre></div><pre tabindex="0"><code>## Loading required package: readxl
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(<span style="color:#d14">&#34;readxl&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(pastecs)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;pastecs&#34;</span>)}
-</span></span></code></pre></div><pre tabindex="0"><code>## Loading required package: pastecs
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(<span style="color:#d14">&#34;pastecs&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(lattice)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;lattice&#34;</span>)}
-</span></span></code></pre></div><pre tabindex="0"><code>## Loading required package: lattice
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(<span style="color:#d14">&#34;lattice&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(ggplot2)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;ggplot2&#34;</span>)}
-</span></span></code></pre></div><pre tabindex="0"><code>## Loading required package: ggplot2
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(<span style="color:#d14">&#34;ggplot2&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(tinytex)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;tinytex&#34;</span>)}
-</span></span></code></pre></div><pre tabindex="0"><code>## Loading required package: tinytex
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(<span style="color:#d14">&#34;tinytex&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(corrgram)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;corrgram&#34;</span>)}
-</span></span></code></pre></div><pre tabindex="0"><code>## Loading required package: corrgram
-</code></pre><pre tabindex="0"><code>## Warning: package &#39;corrgram&#39; was built under R version 4.2.2
-</code></pre><pre tabindex="0"><code>## 
-## Attaching package: &#39;corrgram&#39;
-</code></pre><pre tabindex="0"><code>## The following object is masked from &#39;package:lattice&#39;:
-## 
-##     panel.fill
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(<span style="color:#d14">&#34;corrgram&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(psych)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;psych&#34;</span>)}
-</span></span></code></pre></div><pre tabindex="0"><code>## Loading required package: psych
-</code></pre><pre tabindex="0"><code>## Warning: package &#39;psych&#39; was built under R version 4.2.2
-</code></pre><pre tabindex="0"><code>## 
-## Attaching package: &#39;psych&#39;
-</code></pre><pre tabindex="0"><code>## The following objects are masked from &#39;package:ggplot2&#39;:
-## 
-##     %+%, alpha
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(<span style="color:#d14">&#34;psych&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(partykit)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;partykit&#34;</span>)}
-</span></span></code></pre></div><pre tabindex="0"><code>## Loading required package: partykit
-</code></pre><pre tabindex="0"><code>## Warning: package &#39;partykit&#39; was built under R version 4.2.2
-</code></pre><pre tabindex="0"><code>## Loading required package: grid
-</code></pre><pre tabindex="0"><code>## Loading required package: libcoin
-</code></pre><pre tabindex="0"><code>## Warning: package &#39;libcoin&#39; was built under R version 4.2.2
-</code></pre><pre tabindex="0"><code>## Loading required package: mvtnorm
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(<span style="color:#d14">&#34;partykit&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(klaR)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;klaR&#34;</span>)}
-</span></span></code></pre></div><pre tabindex="0"><code>## Loading required package: klaR
-</code></pre><pre tabindex="0"><code>## Warning: package &#39;klaR&#39; was built under R version 4.2.2
-</code></pre><pre tabindex="0"><code>## Loading required package: MASS
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">library</span>(<span style="color:#d14">&#34;klaR&#34;</span>)
-</span></span></code></pre></div>
+        
 
 
 
-<h2 id="heading">
-  <a href="#heading"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
-
-
-
-
-<h1 id="1preliminary-data-preparation">1.Preliminary Data Preparation
-  <a href="#1preliminary-data-preparation"></a>
-</h1>
-
-
-
-
-<h2 id="heading-1">
-  <a href="#heading-1"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
-
-
-
-
-<h2 id="1-rename-all-variables-with-your-initials-appended-just-as-was-done-in-previous-assignments-remember-that-any-variables-you-subsequently-create-need-to-have-your-initials-appended">1. Rename all variables with your initials appended (just as was done in previous assignments). Remember that any variables you subsequently create need to have your initials appended.
-  <a href="#1-rename-all-variables-with-your-initials-appended-just-as-was-done-in-previous-assignments-remember-that-any-variables-you-subsequently-create-need-to-have-your-initials-appended"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
-
-
-
-
-<h3 id="to-append-initials-in-the-data-frame-we-can-use-paste-function-to-concatenate-value-and-added-_-as-a-separator">To append initials in the data frame we can use paste function to concatenate value and added _ as a separator.
-  <a href="#to-append-initials-in-the-data-frame-we-can-use-paste-function-to-concatenate-value-and-added-_-as-a-separator"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<h3 id="introduction">Introduction
+  <a href="#introduction"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 0h24v24H0z" fill="currentColor"></path>
       <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
     </svg></a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">colnames</span>(ExcelFile) <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">paste</span>(<span style="color:#900;font-weight:bold">colnames</span>(ExcelFile), <span style="color:#d14">&#34;&#34;</span>, sep <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">head</span>(ExcelFile)
-</span></span></code></pre></div><pre tabindex="0"><code>##    Del Vin Pkg Cst  Mil Dom Haz              Car
-## 1  9.5   6   6  13 1447   C   H M-Press Delivery
-## 2 11.9  18   7   7 1874   I   N         Fed Post
-## 3 14.6   7   7   8 1865   I   N         Fed Post
-## 4 17.5  11   5  16 3111   I   H M-Press Delivery
-## 5 10.7  12   4  10 1319   C   H         Fed Post
-## 6 10.5  12   3   5 1415   C   N M-Press Delivery
-</code></pre>
+<p>This project aims to analyze the factors affecting the on-time delivery of orders for a major mail-order company.
+By employing logistic regression, Naive-Bayes classification, and Linear Discriminant Analysis, the goal is to identify significant predictors of delivery success and compare the accuracy, processing speed, and false positive rates of these classification techniques.
+The ultimate objective is to determine the most effective model for ensuring deliveries are made within the company&rsquo;s target timeframe.</p>
 
 
 
-<h2 id="2-as-demonstrated-in-class-and-conducted-in-previous-assignments-make-quick-exploratory-graphs-of-all-variables-remember-to-adjust-categorical-variables-to-factor-variables-eg-all-indicator-variables-note--in-this-assignment-all-of-the-data-i-have-provided-is-well-mannered-and-free-of-outliers-so-this-should-be-a-quick-and-simple-exercise">2. As demonstrated in class and conducted in previous assignments, make quick exploratory graphs of all variables. Remember to adjust categorical variables to factor variables (e.g. all indicator variables). (NOTE – In this assignment, all of the data I have provided is well mannered and free of outliers so this should be a quick and simple exercise.
-  <a href="#2-as-demonstrated-in-class-and-conducted-in-previous-assignments-make-quick-exploratory-graphs-of-all-variables-remember-to-adjust-categorical-variables-to-factor-variables-eg-all-indicator-variables-note--in-this-assignment-all-of-the-data-i-have-provided-is-well-mannered-and-free-of-outliers-so-this-should-be-a-quick-and-simple-exercise"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+
+<h3 id="data-dictionary">Data Dictionary
+  <a href="#data-dictionary"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 0h24v24H0z" fill="currentColor"></path>
       <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
     </svg></a>
-</h2>
+</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Variable</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Del</td>
+<td style="text-align:left">Time for delivery (in days, rounded to nearest 10th)</td>
+</tr>
+<tr>
+<td style="text-align:left">Vin</td>
+<td style="text-align:left">Vintage of product (i.e. how long it has been in the warehouse).</td>
+</tr>
+<tr>
+<td style="text-align:left">Pkg</td>
+<td style="text-align:left">How many packages of product have been ordered</td>
+</tr>
+<tr>
+<td style="text-align:left">Cst</td>
+<td style="text-align:left">How many orders the customer has made in the past</td>
+</tr>
+<tr>
+<td style="text-align:left">Mil</td>
+<td style="text-align:left">Distance the order needs to be delivered (in km)</td>
+</tr>
+<tr>
+<td style="text-align:left">Dom</td>
+<td style="text-align:left">Indicator for if the product is manufactured in Canada (C) or elsewhere (I)</td>
+</tr>
+<tr>
+<td style="text-align:left">Haz</td>
+<td style="text-align:left">Indicator for if the product is designated as Hazardous (H) or not (N).</td>
+</tr>
+<tr>
+<td style="text-align:left">Car</td>
+<td style="text-align:left">Indicator for which Carrier delivered the item (Fed Post, or M-Press Delivery)</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<h3 id="initial-setup">Initial Setup
+  <a href="#initial-setup"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>This section is for the basic set up.
+It will clear all the plots, the console and the workspace.
+It also sets the overall format for numbers.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">is.null</span>(<span style="color:#900;font-weight:bold">dev.list</span>())) <span style="color:#900;font-weight:bold">dev.off</span>()
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">cat</span>(<span style="color:#d14">&#34;\014&#34;</span>) 
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">rm</span>(list<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">ls</span>())
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">options</span>(scipen<span style="color:#000;font-weight:bold">=</span><span style="color:#099">9</span>)
+</span></span></code></pre></div>
+
+
+
+<h3 id="load-packages">Load Packages
+  <a href="#load-packages"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>This section loads and attaches all the necessary packages.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(readxl)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;readxl&#34;</span>)}
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(<span style="color:#d14">&#34;readxl&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(pastecs)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;pastecs&#34;</span>)}
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(<span style="color:#d14">&#34;pastecs&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(lattice)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;lattice&#34;</span>)}
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(<span style="color:#d14">&#34;lattice&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(ggplot2)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;ggplot2&#34;</span>)}
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(<span style="color:#d14">&#34;ggplot2&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(tinytex)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;tinytex&#34;</span>)}
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(<span style="color:#d14">&#34;tinytex&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(corrgram)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;corrgram&#34;</span>)}
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(<span style="color:#d14">&#34;corrgram&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(psych)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;psych&#34;</span>)}
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(<span style="color:#d14">&#34;psych&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(partykit)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;partykit&#34;</span>)}
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(<span style="color:#d14">&#34;partykit&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">require</span>(klaR)){<span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#d14">&#34;klaR&#34;</span>)}
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">library</span>(<span style="color:#d14">&#34;klaR&#34;</span>)
+</span></span></code></pre></div>
+
+
+
+<h3 id="import-data">Import Data
+  <a href="#import-data"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>ExcelFile <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">read.csv</span>(<span style="color:#d14">&#34;PROG8430_Assign05_22F.txt&#34;</span>)
+</span></span><span style="display:flex;"><span>ExcelFile <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">as.data.frame</span>(ExcelFile)
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">head</span>(ExcelFile)
+</span></span></code></pre></div>
+
+
+
+<h3 id="preliminary-data-preparation">Preliminary Data Preparation
+  <a href="#preliminary-data-preparation"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>First let&rsquo;s create a quick exploratory graphs of all variables.
+Also, I have adjusted categorical variables to factor variables.</p>
+<p>Checking if any outliners are available in any of these fields.
+If available, I will remove those.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#Box Plot and Density Plot for Time for Delivery.</span>
 </span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">boxplot</span>(ExcelFile<span style="color:#000;font-weight:bold">$</span>Del, horizontal<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">TRUE</span>, col<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;#6bc9c2&#34;</span>), pch<span style="color:#000;font-weight:bold">=</span><span style="color:#099">20</span>, main <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;Time of Delivery - Box Plot&#34;</span>)
-</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">densityplot</span>( <span style="color:#000;font-weight:bold">~</span> ExcelFile<span style="color:#000;font-weight:bold">$</span>Del, pch<span style="color:#000;font-weight:bold">=</span><span style="color:#099">6</span>,col<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;#6bc9c2&#34;</span>), xlab <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;Time of Delivery&#34;</span>)
-</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-4-2.png" width="672" />
+</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-5-2.png" width="672" />
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#Box Plot and Density Plot for Vintage of Product.</span>
 </span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">boxplot</span>(ExcelFile<span style="color:#000;font-weight:bold">$</span>Vin, horizontal<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">TRUE</span>, col<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;#6bc9c2&#34;</span>), pch<span style="color:#000;font-weight:bold">=</span><span style="color:#099">20</span>, main <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;Vintage of Product - Box Plot&#34;</span>)
-</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-4-3.png" width="672" />
+</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-5-3.png" width="672" />
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">densityplot</span>( <span style="color:#000;font-weight:bold">~</span> ExcelFile<span style="color:#000;font-weight:bold">$</span>Vin, pch<span style="color:#000;font-weight:bold">=</span><span style="color:#099">6</span>,col<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;#6bc9c2&#34;</span>), xlab <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;Vintage of Product&#34;</span>)
-</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-4-4.png" width="672" />
+</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-5-4.png" width="672" />
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#Box Plot and Density Plot for number of packages of product have been ordered.</span>
 </span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">boxplot</span>(ExcelFile<span style="color:#000;font-weight:bold">$</span>Pkg, horizontal<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">TRUE</span>, col<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;#6bc9c2&#34;</span>), pch<span style="color:#000;font-weight:bold">=</span><span style="color:#099">20</span>, main <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;No. of Product Ordered - Box Plot&#34;</span>)
-</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-4-5.png" width="672" />
+</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-5-5.png" width="672" />
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">densityplot</span>( <span style="color:#000;font-weight:bold">~</span> ExcelFile<span style="color:#000;font-weight:bold">$</span>Pkg, pch<span style="color:#000;font-weight:bold">=</span><span style="color:#099">6</span>,col<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;#6bc9c2&#34;</span>), xlab <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;No. of Product Ordered&#34;</span>)
-</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-4-6.png" width="672" />
+</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-5-6.png" width="672" />
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#Box Plot and Density Plot for number of orders the customer has made in the past.</span>
 </span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">boxplot</span>(ExcelFile<span style="color:#000;font-weight:bold">$</span>Cst, horizontal<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">TRUE</span>, col<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;#6bc9c2&#34;</span>), pch<span style="color:#000;font-weight:bold">=</span><span style="color:#099">20</span>, main <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;No. of Orders per Customer - Box Plot&#34;</span>)
-</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-4-7.png" width="672" />
+</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-5-7.png" width="672" />
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">densityplot</span>( <span style="color:#000;font-weight:bold">~</span> ExcelFile<span style="color:#000;font-weight:bold">$</span>Cst, pch<span style="color:#000;font-weight:bold">=</span><span style="color:#099">6</span>,col<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;#6bc9c2&#34;</span>), xlab <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;No. of Orders per Customer&#34;</span>)
-</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-4-8.png" width="672" />
+</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-5-8.png" width="672" />
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#Box Plot and Density Plot for distance the order needs to be delivered.</span>
 </span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">boxplot</span>(ExcelFile<span style="color:#000;font-weight:bold">$</span>Mil, horizontal<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">TRUE</span>, col<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;#6bc9c2&#34;</span>), pch<span style="color:#000;font-weight:bold">=</span><span style="color:#099">20</span>, main <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;Distance - Box Plot&#34;</span>)
-</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-4-9.png" width="672" />
+</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-5-9.png" width="672" />
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">densityplot</span>( <span style="color:#000;font-weight:bold">~</span> ExcelFile<span style="color:#000;font-weight:bold">$</span>Mil, pch<span style="color:#000;font-weight:bold">=</span><span style="color:#099">6</span>,col<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;#6bc9c2&#34;</span>), xlab <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;Distance&#34;</span>)
-</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-4-10.png" width="672" />
+</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-5-10.png" width="672" />
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#Bar Plot for Indicator for if the product is manufactured in Canada (C) or elsewhere (I).</span>
 </span></span><span style="display:flex;"><span>DomBar <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">table</span>(ExcelFile<span style="color:#000;font-weight:bold">$</span>Dom)
 </span></span><span style="display:flex;"><span>Dom <span style="color:#000;font-weight:bold">&lt;-</span> DomBar<span style="color:#900;font-weight:bold">[order</span>(DomBar,decreasing<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">TRUE</span>)]
 </span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">barplot</span>(Dom,density <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">30</span>, angle <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">45</span>, main<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Dom - Bar Plot&#34;</span>, xlab<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Dom&#34;</span>, ylab <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;Frequency&#34;</span>, col<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;#6bc9c2&#34;</span>))
-</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-4-11.png" width="672" />
+</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-5-11.png" width="672" />
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#Bar Plot for Indicator for if the product is designated as Hazardous (H) or not (N).</span>
 </span></span><span style="display:flex;"><span>HazBar <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">table</span>(ExcelFile<span style="color:#000;font-weight:bold">$</span>Haz)
 </span></span><span style="display:flex;"><span>Haz <span style="color:#000;font-weight:bold">&lt;-</span> HazBar<span style="color:#900;font-weight:bold">[order</span>(HazBar,decreasing<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">TRUE</span>)]
 </span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">barplot</span>(Haz,density <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">30</span>, angle <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">45</span>, main<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Haz - Bar Plot&#34;</span>, xlab<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Haz&#34;</span>, ylab <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;Frequency&#34;</span>, col<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;#6bc9c2&#34;</span>))
-</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-4-12.png" width="672" />
+</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-5-12.png" width="672" />
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#Bar Plot for indicator for which Carrier delivered the item.</span>
 </span></span><span style="display:flex;"><span>CarBar <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">table</span>(ExcelFile<span style="color:#000;font-weight:bold">$</span>Car)
 </span></span><span style="display:flex;"><span>Car <span style="color:#000;font-weight:bold">&lt;-</span> CarBar<span style="color:#900;font-weight:bold">[order</span>(CarBar,decreasing<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">TRUE</span>)]
 </span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">barplot</span>(Car,density <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">30</span>, angle <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">45</span>, main<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Car - Bar Plot&#34;</span>, xlab<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Car&#34;</span>, ylab <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;Frequency&#34;</span>, col<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;#6bc9c2&#34;</span>))
-</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-4-13.png" width="672" />
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#converted categorical variables to factor variables. </span>
+</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-5-13.png" width="672" />
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># As we see, there are no outliners available in any of these fields.</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Now, I am converting categorical variables to factor variables. </span>
 </span></span><span style="display:flex;"><span>ExcelFile <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">as.data.frame</span>(<span style="color:#900;font-weight:bold">unclass</span>(ExcelFile),stringsAsFactors <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">TRUE</span>)
 </span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">head</span>(ExcelFile)
 </span></span></code></pre></div><pre tabindex="0"><code>##    Del Vin Pkg Cst  Mil Dom Haz              Car
@@ -286,26 +300,7 @@ It also sets the overall format for numbers.</p>
 ## 4 17.5  11   5  16 3111   I   H M-Press Delivery
 ## 5 10.7  12   4  10 1319   C   H         Fed Post
 ## 6 10.5  12   3   5 1415   C   N M-Press Delivery
-</code></pre>
-
-
-
-<h2 id="3-create-a-new-variable-in-the-dataset-called-ot_initials-which-will-have-a-value-of-1-if-del-10-and-0-otherwise-if-you-have-forgotten-how-to-do-this-the-code-to-accomplish-it-is-included-in-the-appendix">3. Create a new variable in the dataset called OT_[Initials] which will have a value of 1 if Del &lt;=10 and 0 otherwise. If you have forgotten how to do this, the code to accomplish it is included in the appendix.
-  <a href="#3-create-a-new-variable-in-the-dataset-called-ot_initials-which-will-have-a-value-of-1-if-del-10-and-0-otherwise-if-you-have-forgotten-how-to-do-this-the-code-to-accomplish-it-is-included-in-the-appendix"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
-
-
-
-
-<h3 id="--added-the-ot-field-in-the-dataset-based-on-provided-condition-as-if-del-value-is-less-than-or-equals-to-10-then-1-otherwise-0">-&gt; Added the OT field in the dataset based on provided condition as if Del value is less than or equals to 10 then 1 otherwise 0.
-  <a href="#--added-the-ot-field-in-the-dataset-based-on-provided-condition-as-if-del-value-is-less-than-or-equals-to-10-then-1-otherwise-0"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h3>
+</code></pre><p>Creating a new variable in the dataset which will have a value of 1 if <em>Del&lt;=10</em> and 0 otherwise.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>ExcelFile<span style="color:#000;font-weight:bold">$</span>OT <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">as.factor</span>(<span style="color:#900;font-weight:bold">ifelse</span>(ExcelFile<span style="color:#000;font-weight:bold">$</span>Del <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">10.1</span>, <span style="color:#099">1</span>,<span style="color:#099">0</span>))
 </span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">str</span>(ExcelFile)
 </span></span></code></pre></div><pre tabindex="0"><code>## &#39;data.frame&#39;:	6332 obs. of  9 variables:
@@ -322,39 +317,16 @@ It also sets the overall format for numbers.</p>
 
 
 
-<h2 id="heading-2">
-  <a href="#heading-2"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<h3 id="exploratory-analysis">Exploratory Analysis
+  <a href="#exploratory-analysis"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 0h24v24H0z" fill="currentColor"></path>
       <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
     </svg></a>
-</h2>
-
-
-
-
-<h1 id="2-exploratory-analysis">2. Exploratory Analysis
-  <a href="#2-exploratory-analysis"></a>
-</h1>
-
-
-
-
-<h2 id="heading-3">
-  <a href="#heading-3"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
-
-
-
-
-<h2 id="1-correlations-create-numeric-correlations-as-demonstrated-and-comment-on-what-you-see-are-there-co-linear-variables">1. Correlations: Create numeric correlations (as demonstrated) and comment on what you see. Are there co-linear variables?
-  <a href="#1-correlations-create-numeric-correlations-as-demonstrated-and-comment-on-what-you-see-are-there-co-linear-variables"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
+</h3>
+<blockquote>
+<p>Correlations</p>
+</blockquote>
+<p>Creating numeric correlations and checking if there are any co-linear variables available or not?</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Creating numeric correlation.</span>
 </span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">cor</span>(ExcelFile[,<span style="color:#900;font-weight:bold">unlist</span>(<span style="color:#900;font-weight:bold">lapply</span>(ExcelFile,is.numeric))], method<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;spearman&#34;</span>)
 </span></span></code></pre></div><pre tabindex="0"><code>##             Del          Vin          Pkg          Cst         Mil
@@ -363,64 +335,82 @@ It also sets the overall format for numbers.</p>
 ## Pkg -0.01647442 -0.001976183  1.000000000 -0.001496276 -0.00615618
 ## Cst -0.02149227  0.003928352 -0.001496276  1.000000000  0.01186720
 ## Mil  0.80714307  0.015999532 -0.006156180  0.011867198  1.00000000
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Below are the observations for the co-liner variables.</span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># -&gt; Del has strong linear relationship with Mil as it&#39;s value is 0.80.</span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># -&gt; Vin has almost no linear relationship with Cst as it&#39;s value is 0.003.</span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># -&gt; Pkg has almost no linear relationship with Mil as it&#39;s value is -0.006.</span>
-</span></span></code></pre></div>
-
-
-
-<h2 id="2-identify-the-most-significant-predictor-of-an-on-time-delivery-and-provide-statistical-evidence-in-addition-to-the-correlation-coefficient-that-suggest-they-are-associated-with-an-on-time-delivery-think-of-the-contingency-tables-bar-plots-we-did-in-class">2. Identify the most significant predictor of an on time delivery and provide statistical evidence (in addition to the correlation coefficient) that suggest they are associated with an on time delivery (Think of the contingency tables bar plots we did in class)
-  <a href="#2-identify-the-most-significant-predictor-of-an-on-time-delivery-and-provide-statistical-evidence-in-addition-to-the-correlation-coefficient-that-suggest-they-are-associated-with-an-on-time-delivery-think-of-the-contingency-tables-bar-plots-we-did-in-class"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>Table <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">table</span>(ExcelFile<span style="color:#000;font-weight:bold">$</span>Mil,ExcelFile<span style="color:#000;font-weight:bold">$</span>OT, dnn<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">list</span>(<span style="color:#d14">&#34;On Time Delivery&#34;</span>,<span style="color:#d14">&#34;Delivery Time&#34;</span>))
+</code></pre><p>Observations on co-liner variables.</p>
+<p><strong>Del</strong> and <strong>Mil</strong> has strong linear relationship, with the value of 0.80.</p>
+<p><strong>Vin</strong> and <strong>Cst</strong> has almost no linear relationship, with the value of 0.003.</p>
+<p><strong>Pkg</strong> and <strong>Mil</strong> has almost no linear relationship, with a value of -0.006.</p>
+<hr>
+<p>Identifying the most significant predictor of an on time delivery and provide statistical evidence (in addition to the correlation coefficient) that suggest they are associated with an on time delivery.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Fit logistic regression model</span>
+</span></span><span style="display:flex;"><span>logit_model <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">glm</span>(OT <span style="color:#000;font-weight:bold">~</span> ., data <span style="color:#000;font-weight:bold">=</span> ExcelFile, family <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;binomial&#34;</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#Vertical Bar Chart</span>
-</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">barplot</span>(<span style="color:#900;font-weight:bold">prop.table</span>(Table,<span style="color:#099">2</span>), xlab<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;On Time Delivery&#39;</span>,ylab<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Delivery Time&#39;</span>,main<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Distance Delivery by delivery time&#34;</span>,col<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;green&#34;</span>,<span style="color:#d14">&#34;yellow&#34;</span>)
-</span></span><span style="display:flex;"><span>,legend<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">rownames</span>(Table), args.legend <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">list</span>(x<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;topleft&#34;</span>))
-</span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Summary of the model</span>
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">summary</span>(logit_model)
+</span></span></code></pre></div><pre tabindex="0"><code>## 
+## Call:
+## glm(formula = OT ~ ., family = &#34;binomial&#34;, data = ExcelFile)
+## 
+## Deviance Residuals: 
+##         Min           1Q       Median           3Q          Max  
+## -0.00043175  -0.00000002  -0.00000002   0.00000002   0.00048262  
+## 
+## Coefficients:
+##                          Estimate    Std. Error z value Pr(&gt;|z|)
+## (Intercept)          3363.4470870 41474.8613344   0.081    0.935
+## Del                  -334.6568036  4123.6533319  -0.081    0.935
+## Vin                    -0.0125951    60.9955647   0.000    1.000
+## Pkg                     0.0545867   106.0600619   0.001    1.000
+## Cst                    -0.0729954    68.6990311  -0.001    0.999
+## Mil                     0.0005319     0.8526512   0.001    1.000
+## DomI                   -0.0364939   490.4463000   0.000    1.000
+## HazN                   -0.3179562   534.3371694  -0.001    1.000
+## CarM-Press Delivery    -0.2695322   519.4178209  -0.001    1.000
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 8660.850577183  on 6331  degrees of freedom
+## Residual deviance:    0.000017397  on 6323  degrees of freedom
+## AIC: 18
+## 
+## Number of Fisher Scoring iterations: 25
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Likelihood ratio test</span>
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">anova</span>(logit_model, test <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;Chisq&#34;</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## Analysis of Deviance Table
+## 
+## Model: binomial, link: logit
+## 
+## Response: OT
+## 
+## Terms added sequentially (first to last)
+## 
+## 
+##      Df Deviance Resid. Df Resid. Dev Pr(&gt;Chi)    
+## NULL                  6331     8660.9             
+## Del   1   8660.9      6330        0.0   &lt;2e-16 ***
+## Vin   1      0.0      6329        0.0        1    
+## Pkg   1      0.0      6328        0.0        1    
+## Cst   1      0.0      6327        0.0        1    
+## Mil   1      0.0      6326        0.0        1    
+## Dom   1      0.0      6325        0.0        1    
+## Haz   1      0.0      6324        0.0        1    
+## Car   1      0.0      6323        0.0        1    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre><p>The logistic regression analysis indicates that distance (Mil) is the most significant predictor of on-time delivery, supported by its highly significant p-value (&lt; 2e-16).</p>
+<p>Other predictors such as number of orders per customer (Cst), manufactured outside Canada (Dom), non-hazardous products (Haz), and the carrier (Car) also show strong associations with on-time delivery based on their p-values.</p>
+<hr>
 
 
 
 
-<h2 id="heading-4">
-  <a href="#heading-4"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<h3 id="model-development">Model Development
+  <a href="#model-development"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 0h24v24H0z" fill="currentColor"></path>
       <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
     </svg></a>
-</h2>
-
-
-
-
-<h1 id="3-model-development">3. Model Development
-  <a href="#3-model-development"></a>
-</h1>
-
-
-
-
-<h2 id="heading-5">
-  <a href="#heading-5"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
-<p>#As demonstrated in class, create two logistic regression models.</p>
-
-
-
-
-<h2 id="1-a-full-model-using-all-of-the-variables">1. A full model using all of the variables.
-  <a href="#1-a-full-model-using-all-of-the-variables"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
+</h3>
+<p>Now, let&rsquo;s create two logistic regression models.</p>
+<p><strong>A full model using all of the variables.</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Removed Del field from the data set </span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># because correlation is high between newly added field OT and Del </span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># as OT field is created based on Del field only.</span>
@@ -459,16 +449,7 @@ It also sets the overall format for numbers.</p>
 ## 
 ## Number of Fisher Scoring iterations: 6
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>pred <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">predict</span>(full.model, newdata<span style="color:#000;font-weight:bold">=</span>ExcelFile)
-</span></span></code></pre></div>
-
-
-
-<h2 id="2-an-additional-model-using-backward-selection">2. An additional model using backward selection.
-  <a href="#2-an-additional-model-using-backward-selection"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
+</span></span></code></pre></div><p><strong>An additional model using backward selection</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Creating another model using backward selection.</span>
 </span></span><span style="display:flex;"><span>back.model <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">step</span>(full.model, direction<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;backward&#34;</span>, details<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">TRUE</span>)
 </span></span></code></pre></div><pre tabindex="0"><code>## Start:  AIC=4121.95
@@ -525,183 +506,51 @@ It also sets the overall format for numbers.</p>
 ## 
 ## Number of Fisher Scoring iterations: 6
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>pred <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">predict</span>(back.model, newdata<span style="color:#000;font-weight:bold">=</span>ExcelFile)
-</span></span></code></pre></div>
+</span></span></code></pre></div><p>Based on this analysis, I recommend backward model should be selected as:</p>
+<p>Here is the several measures I have considered to choose which model is better.</p>
+<blockquote>
+<p><strong>AIC</strong> - Model is better where AIC value is lower.</p>
+</blockquote>
+<p>AIC value is lower in the Backward Model with the comparison of full model.</p>
+<blockquote>
+<p><strong>Deviance</strong> - Measure of Error = null deviance - Residual deviance.</p>
+</blockquote>
+<blockquote>
+<p>Model is better with the higher difference value.</p>
+</blockquote>
+<p>Deviance is higher in the full model.</p>
+<blockquote>
+<p>Residual symmetry value should be zero.
+Residual symmetry value is near by zero for Model 2(backward model).</p>
+</blockquote>
+<blockquote>
+<p>Z-values - all Pr(&gt;z) values less than 0.05 is consider as the better model.</p>
+</blockquote>
+<p>For Backward model, Pr(&gt;z) value is less than 0.05 for all except one as 0.0816 but it&rsquo;s near by 0.05.</p>
+<blockquote>
+<p>Parameter Co-Efficient</p>
+</blockquote>
+<p>Based on these observations, we can say that <code>backward model</code> is the better model than full model.</p>
+<hr>
+<blockquote>
+<p>In this section, all three classifiers are built as the dependant variable and the remaining variables as the independent variables.</p>
+</blockquote>
 
 
 
-<h2 id="for-each-model-interpret-and-comment-on-the-main-measures-we">For each model, interpret and comment on the main measures we
-  <a href="#for-each-model-interpret-and-comment-on-the-main-measures-we"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+
+<h3 id="logistic-regression----backward">Logistic Regression &ndash; Backward
+  <a href="#logistic-regression----backward"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 0h24v24H0z" fill="currentColor"></path>
       <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
     </svg></a>
-</h2>
-
-
-
-
-<h2 id="discussed-in-class">discussed in class:
-  <a href="#discussed-in-class"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
-
-
-
-
-<h2 id="1-aic">(1) AIC
-  <a href="#1-aic"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
-
-
-
-
-<h2 id="2-deviance">(2) Deviance
-  <a href="#2-deviance"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
-
-
-
-
-<h2 id="3-residual-symmetry">(3) Residual symmetry
-  <a href="#3-residual-symmetry"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
-
-
-
-
-<h2 id="4-z-values">(4) z-values
-  <a href="#4-z-values"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
-
-
-
-
-<h2 id="5-parameter-co-efficients">(5) Parameter Co-Efficients
-  <a href="#5-parameter-co-efficients"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
-
-
-
-
-<h2 id="based-on-your-preceding-analysis-recommend-which-model-should-be-selected-and-explain-why">Based on your preceding analysis, recommend which model should be selected and explain why.
-  <a href="#based-on-your-preceding-analysis-recommend-which-model-should-be-selected-and-explain-why"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic">### As per created two models(full model and backward model) in last two sections; </span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">### </span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">### -&gt; AIC - Model is better where AIC value is lower.</span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">###    AIC value is lower in the Backward Model.</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">### -&gt; Deviance - Measure of Error = null deviance - Residual deviance. </span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">###    Model is better with the higher difference value.</span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">###    Deviance is higher in the full model.</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">### -&gt; Residual symmetry value should be zero.</span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">###    Residual symmetry value is near by zero for Model 2.</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">### -&gt; Z-values - all Pr(&gt;z) values less than 0.05 is consider as the better model.</span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">###    For Backward model, Pr(&gt;z) value is less than 0.05 for all except one </span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">###    as 0.0816 but it&#39;s near by 0.05.</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">### -&gt; Parameter Co-Efficients</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">### Based on these observations, we can say that backward model is the better model than full model. </span>
-</span></span></code></pre></div>
-
-
-
-<h2 id="heading-6">
-  <a href="#heading-6"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
-
-
-
-
-<h1 id="part-b">PART B
-  <a href="#part-b"></a>
-</h1>
-
-
-
-
-<h2 id="heading-7">
-  <a href="#heading-7"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
-
-
-
-
-<h1 id="in-this-section-all-three-classifiers-should-be-built-using-ot_intials-as-the-dependant-variable-and-the-remaining-variables-as-the-independent-variables">In this section, all three classifiers should be built using OT_[Intials] as the dependant variable and the remaining variables as the independent variables.
-  <a href="#in-this-section-all-three-classifiers-should-be-built-using-ot_intials-as-the-dependant-variable-and-the-remaining-variables-as-the-independent-variables"></a>
-</h1>
-
-
-
-
-<h2 id="heading-8">
-  <a href="#heading-8"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
-
-
-
-
-<h1 id="1-logistic-regression--backward">1. Logistic Regression – Backward
-  <a href="#1-logistic-regression--backward"></a>
-</h1>
-
-
-
-
-<h2 id="heading-9">
-  <a href="#heading-9"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
-
-
-
-
-<h2 id="1-as-above-use-the-step-option-in-the-glm-function-to-fit-the-model-using-backward-selection">1. As above, use the step option in the glm function to fit the model (using backward selection).
-  <a href="#1-as-above-use-the-step-option-in-the-glm-function-to-fit-the-model-using-backward-selection"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
+</h3>
+<p>As above, used the step option in the glm function to fit the model (using backward selection).</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Added the Start Time in the start_time.</span>
 </span></span><span style="display:flex;"><span>start_time <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">Sys.time</span>()
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># In regression, the dependent variable is marked as Y and the independent variable is marked as X. </span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># So, here adding the OT as dependent variable and other variables as the independent variables.</span>
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>glm.mod <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">glm</span>(OT <span style="color:#000;font-weight:bold">~</span> .,family<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;binomial&#34;</span>, data<span style="color:#000;font-weight:bold">=</span>ExcelFile, na.action<span style="color:#000;font-weight:bold">=</span>na.omit)
 </span></span><span style="display:flex;"><span>stp.glm <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">step</span>(glm.mod)
 </span></span></code></pre></div><pre tabindex="0"><code>## Start:  AIC=4121.95
@@ -743,16 +592,7 @@ It also sets the overall format for numbers.</p>
 </span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">head</span>(class)
 </span></span></code></pre></div><pre tabindex="0"><code>## 1 2 3 4 5 6 
 ## 1 0 0 0 0 1
-</code></pre>
-
-
-
-<h2 id="2-summarize-the-results-in-a-confusion-matrix-">2. Summarize the results in a Confusion Matrix .
-  <a href="#2-summarize-the-results-in-a-confusion-matrix-"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
+</code></pre><p>Summarized the results in a Confusion Matrix .</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># creating the confusion matrix.</span>
 </span></span><span style="display:flex;"><span>LR_CF <span style="color:#000;font-weight:bold">&lt;-</span><span style="color:#900;font-weight:bold">table</span>(ExcelFile<span style="color:#000;font-weight:bold">$</span>OT, class, dnn <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">list</span>(<span style="color:#d14">&#34;Actual&#34;</span>,<span style="color:#d14">&#34;Predicted&#34;</span>))
 </span></span><span style="display:flex;"><span>LR_CF
@@ -760,61 +600,27 @@ It also sets the overall format for numbers.</p>
 ## Actual    0    1
 ##      0 3164  432
 ##      1  480 2256
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>LR_TP <span style="color:#000;font-weight:bold">&lt;-</span>LR_CF[2,<span style="color:#099">2</span>]
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Adding the results in confusion matrix.</span>
+</span></span><span style="display:flex;"><span>LR_TP <span style="color:#000;font-weight:bold">&lt;-</span>LR_CF[2,<span style="color:#099">2</span>]
 </span></span><span style="display:flex;"><span>LR_TN <span style="color:#000;font-weight:bold">&lt;-</span>LR_CF[1,<span style="color:#099">1</span>]
 </span></span><span style="display:flex;"><span>LR_FP <span style="color:#000;font-weight:bold">&lt;-</span>LR_CF[1,<span style="color:#099">2</span>]
 </span></span><span style="display:flex;"><span>LR_FN <span style="color:#000;font-weight:bold">&lt;-</span>LR_CF[2,<span style="color:#099">1</span>]
-</span></span></code></pre></div>
-
-
-
-<h2 id="3-as-demonstrated-in-class-calculate-the-time-in-seconds-it-took-to-fit-the-model-and-include-this-in-your-summary">3. As demonstrated in class, calculate the time (in seconds) it took to fit the model and include this in your summary.
-  <a href="#3-as-demonstrated-in-class-calculate-the-time-in-seconds-it-took-to-fit-the-model-and-include-this-in-your-summary"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
+</span></span></code></pre></div><p>Now, let&rsquo;s calculate the time (in seconds) it took to fit the model.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Processing time for Logistic regression</span>
 </span></span><span style="display:flex;"><span>Conf_time <span style="color:#000;font-weight:bold">&lt;-</span> end_time <span style="color:#000;font-weight:bold">-</span> start_time
 </span></span><span style="display:flex;"><span>Conf_time
-</span></span></code></pre></div><pre tabindex="0"><code>## Time difference of 0.5778341 secs
+</span></span></code></pre></div><pre tabindex="0"><code>## Time difference of 0.3985372 secs
 </code></pre>
 
 
 
-<h2 id="heading-10">
-  <a href="#heading-10"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<h3 id="naive-bayes-classification">Naive-Bayes Classification
+  <a href="#naive-bayes-classification"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 0h24v24H0z" fill="currentColor"></path>
       <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
     </svg></a>
-</h2>
-
-
-
-
-<h1 id="2-naive-bayes-classification">2. Naive-Bayes Classification
-  <a href="#2-naive-bayes-classification"></a>
-</h1>
-
-
-
-
-<h2 id="heading-11">
-  <a href="#heading-11"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
-
-
-
-
-<h2 id="1-use-all-the-variables-in-the-dataset-to-fit-a-naive-bayesian-classification-model">1. Use all the variables in the dataset to fit a Naive-Bayesian classification model.
-  <a href="#1-use-all-the-variables-in-the-dataset-to-fit-a-naive-bayesian-classification-model"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
+</h3>
+<p>Used all the variables in the dataset to fit a Naive-Bayesian classification model.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>start_time <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">Sys.time</span>()
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># In regression, the dependent variable is marked as Y and the independent variable is marked as X. </span>
@@ -822,16 +628,7 @@ It also sets the overall format for numbers.</p>
 </span></span><span style="display:flex;"><span>Naive <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">NaiveBayes</span>(OT <span style="color:#000;font-weight:bold">~</span> . ,data <span style="color:#000;font-weight:bold">=</span> ExcelFile, na.action<span style="color:#000;font-weight:bold">=</span>na.omit)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>end_time <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">Sys.time</span>()
-</span></span></code></pre></div>
-
-
-
-<h2 id="2-summarize-the-results-in-a-confusion-matrix">2. Summarize the results in a Confusion Matrix.
-  <a href="#2-summarize-the-results-in-a-confusion-matrix"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
+</span></span></code></pre></div><p>Summarized the results in a Confusion Matrix.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Classifies</span>
 </span></span><span style="display:flex;"><span>pred_bay <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">predict</span>(Naive,ExcelFile)
 </span></span><span style="display:flex;"><span> 
@@ -846,74 +643,29 @@ It also sets the overall format for numbers.</p>
 </span></span><span style="display:flex;"><span>Naive_TN <span style="color:#000;font-weight:bold">&lt;-</span>Naive_CF[1,<span style="color:#099">1</span>]
 </span></span><span style="display:flex;"><span>Naive_FP <span style="color:#000;font-weight:bold">&lt;-</span>Naive_CF[1,<span style="color:#099">2</span>]
 </span></span><span style="display:flex;"><span>Naive_FN <span style="color:#000;font-weight:bold">&lt;-</span>Naive_CF[2,<span style="color:#099">1</span>]
-</span></span></code></pre></div>
-
-
-
-<h2 id="3-as-demonstrated-in-class-calculate-the-time-in-seconds-it-took-to-fit-the-model-and-include-this-in-your-summary-1">3. As demonstrated in class, calculate the time (in seconds) it took to fit the model and include this in your summary.
-  <a href="#3-as-demonstrated-in-class-calculate-the-time-in-seconds-it-took-to-fit-the-model-and-include-this-in-your-summary-1"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
+</span></span></code></pre></div><p>Now, let&rsquo;s calculate the time (in seconds) it took to fit the model.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Processing time for Naive Bayes Classification</span>
 </span></span><span style="display:flex;"><span>NB_Time <span style="color:#000;font-weight:bold">&lt;-</span> end_time <span style="color:#000;font-weight:bold">-</span> start_time
 </span></span><span style="display:flex;"><span>NB_Time
-</span></span></code></pre></div><pre tabindex="0"><code>## Time difference of 0.009624958 secs
+</span></span></code></pre></div><pre tabindex="0"><code>## Time difference of 0.01524496 secs
 </code></pre>
 
 
 
-<h2 id="heading-12">
-  <a href="#heading-12"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<h3 id="linear-discriminant-analysis">Linear Discriminant Analysis
+  <a href="#linear-discriminant-analysis"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 0h24v24H0z" fill="currentColor"></path>
       <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
     </svg></a>
-</h2>
-
-
-
-
-<h1 id="3-linear-discriminant-analysis">3. Linear Discriminant Analysis
-  <a href="#3-linear-discriminant-analysis"></a>
-</h1>
-
-
-
-
-<h2 id="heading-13">
-  <a href="#heading-13"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
-
-
-
-
-<h2 id="1-use-all-the-variables-in-the-dataset-to-fit-an-lda-classification-model">1. Use all the variables in the dataset to fit an LDA classification model.
-  <a href="#1-use-all-the-variables-in-the-dataset-to-fit-an-lda-classification-model"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
+</h3>
+<p>Used all the variables in the dataset to fit an LDA classification model.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>start_time <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">Sys.time</span>()
-</span></span><span style="display:flex;"><span>  
 </span></span><span style="display:flex;"><span>LDA <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">lda</span>(OT <span style="color:#000;font-weight:bold">~</span> .,data <span style="color:#000;font-weight:bold">=</span> ExcelFile, na.action<span style="color:#000;font-weight:bold">=</span>na.omit)
-</span></span><span style="display:flex;"><span>  
 </span></span><span style="display:flex;"><span>end_time <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">Sys.time</span>()
-</span></span></code></pre></div>
-
-
-
-<h2 id="2-summarize-the-results-in-a-confusion-matrix-1">2. Summarize the results in a Confusion Matrix.
-  <a href="#2-summarize-the-results-in-a-confusion-matrix-1"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
+</span></span></code></pre></div><p>Summarized the results in a Confusion Matrix.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#Classifies</span>
 </span></span><span style="display:flex;"><span>pred_dis <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">predict</span>(LDA, data<span style="color:#000;font-weight:bold">=</span>ExcelFile)
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#Confusion Matrix</span>
 </span></span><span style="display:flex;"><span>LDA_CF <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">table</span>(Actual<span style="color:#000;font-weight:bold">=</span>ExcelFile<span style="color:#000;font-weight:bold">$</span>OT, Predicted<span style="color:#000;font-weight:bold">=</span>pred_dis<span style="color:#000;font-weight:bold">$</span>class)
 </span></span><span style="display:flex;"><span>LDA_CF
@@ -926,45 +678,15 @@ It also sets the overall format for numbers.</p>
 </span></span><span style="display:flex;"><span>LDA_TN <span style="color:#000;font-weight:bold">&lt;-</span>LDA_CF[1,<span style="color:#099">1</span>]
 </span></span><span style="display:flex;"><span>LDA_FP <span style="color:#000;font-weight:bold">&lt;-</span>LDA_CF[1,<span style="color:#099">2</span>]
 </span></span><span style="display:flex;"><span>LDA_FN <span style="color:#000;font-weight:bold">&lt;-</span>LDA_CF[2,<span style="color:#099">1</span>]
-</span></span></code></pre></div>
-
-
-
-<h2 id="3-as-demonstrated-in-class-calculate-the-time-in-seconds-it-took-to-fit-the-model-and-include-this-in-your-summary-2">3. As demonstrated in class, calculate the time (in seconds) it took to fit the model and include this in your summary.
-  <a href="#3-as-demonstrated-in-class-calculate-the-time-in-seconds-it-took-to-fit-the-model-and-include-this-in-your-summary-2"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
+</span></span></code></pre></div><p>Now, let&rsquo;s calculate the time (in seconds) it took to fit the model.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Processing time for Linear Discriminant Analysis</span>
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>LDA_Time <span style="color:#000;font-weight:bold">&lt;-</span> end_time <span style="color:#000;font-weight:bold">-</span> start_time
 </span></span><span style="display:flex;"><span>LDA_Time
-</span></span></code></pre></div><pre tabindex="0"><code>## Time difference of 0.01251292 secs
-</code></pre>
-
-
-
-<h1 id="4-compare-all-three-classifiers">4. Compare All Three Classifiers
-  <a href="#4-compare-all-three-classifiers"></a>
-</h1>
-
-
-
-
-<h1 id="for-all-questions-below-please-provide-evidence">For all questions below please provide evidence.
-  <a href="#for-all-questions-below-please-provide-evidence"></a>
-</h1>
-
-
-
-
-<h2 id="1-which-classifier-is-most-accurate-provide-evidence">1. Which classifier is most accurate? (provide evidence)
-  <a href="#1-which-classifier-is-most-accurate-provide-evidence"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
+</span></span></code></pre></div><pre tabindex="0"><code>## Time difference of 0.01161194 secs
+</code></pre><blockquote>
+<p>Comparing All Three Classifiers</p>
+</blockquote>
+<p>Now take a look at Which classifier is most accurate.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Accuracy: The proportion of cases correctly classified: (TP+TN)/Total</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Accuracy for LR classifier.</span>
@@ -979,103 +701,53 @@ It also sets the overall format for numbers.</p>
 </span></span><span style="display:flex;"><span>LDA_ACC <span style="color:#000;font-weight:bold">&lt;-</span>(LDA_TP<span style="color:#000;font-weight:bold">+</span>LDA_TN)<span style="color:#000;font-weight:bold">/</span><span style="color:#900;font-weight:bold">sum</span>(LDA_CF)
 </span></span><span style="display:flex;"><span>LDA_ACC
 </span></span></code></pre></div><pre tabindex="0"><code>## [1] 0.8564435
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic">## Based on the accuracy values for all three defined classifiers, </span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">## Linear Discriminant Analysis classifier is the most accurate </span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">## because it&#39;s value is slightly higher than other two classifier&#39;s accuracy value.</span>
-</span></span></code></pre></div>
-
-
-
-<h2 id="2-which-classifier-is-most-suitable-when-processing-speed-is-most-important">2. Which classifier is most suitable when processing speed is most important?
-  <a href="#2-which-classifier-is-most-suitable-when-processing-speed-is-most-important"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Based on the accuracy values for all three defined classifiers; </span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#Linear Discriminant Analysis classifier is the most accurate because it&#39;s value is slightly higher than other two classifier&#39;s accuracy value.</span>
+</span></span></code></pre></div><p>Now let&rsquo;s check Which classifier is most suitable when processing speed is most important.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Processing time for Logistic Regression – Backward</span>
-</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">cat</span>(<span style="color:#d14">&#34;Logistic Regression: &#34;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## Logistic Regression:
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>Conf_time
-</span></span></code></pre></div><pre tabindex="0"><code>## Time difference of 0.5778341 secs
+</span></span><span style="display:flex;"><span>Conf_time
+</span></span></code></pre></div><pre tabindex="0"><code>## Time difference of 0.3985372 secs
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Processing time for Naive-Bayes Classification</span>
-</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">cat</span>(<span style="color:#d14">&#34;Logistic Regression: &#34;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## Logistic Regression:
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>NB_Time
-</span></span></code></pre></div><pre tabindex="0"><code>## Time difference of 0.009624958 secs
+</span></span><span style="display:flex;"><span>NB_Time
+</span></span></code></pre></div><pre tabindex="0"><code>## Time difference of 0.01524496 secs
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Processing time for Linear Discriminant Analysis</span>
-</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">cat</span>(<span style="color:#d14">&#34;Logistic Regression: &#34;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## Logistic Regression:
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>LDA_Time
-</span></span></code></pre></div><pre tabindex="0"><code>## Time difference of 0.01251292 secs
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic">### Processing time for Linear Discriminant Analysis is the lowest from remaining two classifiers.</span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">### Linear Discriminant Analysis is the most suitable classifier </span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">### if we consider processing speed as the most important.</span>
-</span></span></code></pre></div>
-
-
-
-<h2 id="3-which-classifier-minimizes-false-positives">3. Which classifier minimizes false positives?
-  <a href="#3-which-classifier-minimizes-false-positives"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
+</span></span><span style="display:flex;"><span>LDA_Time
+</span></span></code></pre></div><pre tabindex="0"><code>## Time difference of 0.01161194 secs
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Processing time for Linear Discriminant Analysis is the lowest from remaining two classifiers.</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Linear Discriminant Analysis is the most suitable classifier if we consider processing speed as the most important.</span>
+</span></span></code></pre></div><p>Now let&rsquo;s check Which classifier minimizes false positives.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># False Positive value for Logistic Regression Classifier </span>
-</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">cat</span>(<span style="color:#d14">&#34;Logistic Regression: &#34;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## Logistic Regression:
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>LR_FP
+</span></span><span style="display:flex;"><span>LR_FP
 </span></span></code></pre></div><pre tabindex="0"><code>## [1] 432
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># False Positive value for Naive Bayes Classification</span>
-</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">cat</span>(<span style="color:#d14">&#34;Naive Bayes Classification: &#34;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## Naive Bayes Classification:
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>Naive_FP
+</span></span><span style="display:flex;"><span>Naive_FP
 </span></span></code></pre></div><pre tabindex="0"><code>## [1] 440
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># False Positive value for Linear Discriminant Analysis Classifier</span>
-</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">cat</span>(<span style="color:#d14">&#34;Linear Discriminant Analysis: &#34;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## Linear Discriminant Analysis:
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>LDA_FP
+</span></span><span style="display:flex;"><span>LDA_FP
 </span></span></code></pre></div><pre tabindex="0"><code>## [1] 439
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic">## Based on the FP values for all three classifiers, </span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">## Logistic Regression Classifier has the lowest value for false positives.</span>
-</span></span></code></pre></div>
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Based on the FP values for all three classifiers, </span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Logistic Regression Classifier has the lowest value for false positives.</span>
+</span></span></code></pre></div><p><strong>See Which classifier is best overall.</strong></p>
+<p>Based on previously created classifiers, it&rsquo;s accuracy and False positive values, Logistic Regression classifier is the best classifier.</p>
+<p>As Logistic Regression&rsquo;s value for False Positive is the lowest.</p>
+<p>For accuracy, Logistic Regression&rsquo;s value is slightly lower with the comparison of Linear Discriminant Analysis Classifier with 0.001 value.</p>
 
 
 
-<h2 id="4-which-classifier-is-best-overall">4. Which classifier is best overall?
-  <a href="#4-which-classifier-is-best-overall"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+
+<h3 id="decision-tree">Decision Tree
+  <a href="#decision-tree"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 0h24v24H0z" fill="currentColor"></path>
       <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
     </svg></a>
-</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic">### Based on previously created classifiers, it&#39;s accuracy and False positive values, </span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">### Logistic Regression classifier is the best classifier.</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">### As Logistic Regression&#39;s value for False Positive is the lowest. </span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">### For accuracy, Logistic Regression&#39;s value is slightly lower with the comparison of  </span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">### Linear Discriminant Analysis Classifier with 0.001 value.</span>
-</span></span></code></pre></div>
-
-
-
-<h1 id="decision-tree">Decision Tree
-  <a href="#decision-tree"></a>
-</h1>
-
-
-
-
-<h2 id="use-all-the-variables-in-the-dataset-to-fit-a-decision-tree-classification-model">Use all the variables in the dataset to fit a Decision Tree classification model.
-  <a href="#use-all-the-variables-in-the-dataset-to-fit-a-decision-tree-classification-model"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
+</h3>
+<p>Used all the variables in the dataset to fit a Decision Tree classification model.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>start_time <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">Sys.time</span>()
 </span></span><span style="display:flex;"><span>tree.fit <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">ctree</span>(OT <span style="color:#000;font-weight:bold">~</span> ., data<span style="color:#000;font-weight:bold">=</span>ExcelFile)
 </span></span><span style="display:flex;"><span>end_time <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">Sys.time</span>()
 </span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">plot</span>(tree.fit, gp<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">gpar</span>(fontsize<span style="color:#000;font-weight:bold">=</span><span style="color:#099">2</span>))
 </span></span></code></pre></div><img src="/project/order-fulfillment-analysis/index_files/figure-html/unnamed-chunk-24-1.png" width="672" />
-## Summarize the results in a Confusion Matrix.
+<p>Summarizing the results in a Confusion Matrix.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#Classifies</span>
 </span></span><span style="display:flex;"><span>pred.tree <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">predict</span>(tree.fit, ExcelFile)
 </span></span><span style="display:flex;"><span>
@@ -1086,19 +758,10 @@ It also sets the overall format for numbers.</p>
 ## Actual    0    1
 ##      0 3193  403
 ##      1  504 2232
-</code></pre>
-
-
-
-<h2 id="as-demonstrated-in-class-calculate-the-time-in-seconds-it-took-to-fit-the-model-and-include-this-in-your-summary">As demonstrated in class, calculate the time (in seconds) it took to fit the model and include this in your summary.
-  <a href="#as-demonstrated-in-class-calculate-the-time-in-seconds-it-took-to-fit-the-model-and-include-this-in-your-summary"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
+</code></pre><p>calculating the time (in seconds) it took to fit the model.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>CF_Time <span style="color:#000;font-weight:bold">&lt;-</span> end_time <span style="color:#000;font-weight:bold">-</span> start_time
 </span></span><span style="display:flex;"><span>CF_Time
-</span></span></code></pre></div><pre tabindex="0"><code>## Time difference of 0.105793 secs
+</span></span></code></pre></div><pre tabindex="0"><code>## Time difference of 0.1172068 secs
 </code></pre>
         
         <details closed class="f6 fw7 input-reset">
@@ -1108,7 +771,7 @@ It also sets the overall format for numbers.</p>
   </dl>
   <dl class="f6 lh-copy">
     <dt class="fw7">Length:</dt>
-    <dd class="fw5 ml0">15 minute read, 3032 words</dd>
+    <dd class="fw5 ml0">15 minute read, 3025 words</dd>
   </dl>
   
   

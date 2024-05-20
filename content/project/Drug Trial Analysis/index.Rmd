@@ -3,8 +3,7 @@ title: "Drug Trial Analysis"
 subtitle: ""
 author: "Prachi Patel"
 date: "2022-10-14"
-excerpt: "
-This project analyzes data from a drug trial with 500 patients to test a new medication that aims to increase white blood cell count. We compare results between a treatment group and a control group to see if the drug works. The study also looks at how other factors like heart rate and blood pressure affect white blood cell counts."
+excerpt: " This project analyzes data from a drug trial with 500 patients to test a new medication that aims to increase white blood cell count. We compare results between a treatment group and a control group to see if the drug works. The study also looks at how other factors like heart rate and blood pressure affect white blood cell counts."
 output:
   html_document:
     df_print: paged
@@ -20,10 +19,11 @@ editor_options:
 This project analyzes data from a drug trial with 500 patients to test a new medication that aims to increase white blood cell count. We compare results between a treatment group and a control group to see if the drug works. The study also looks at how other factors like heart rate and blood pressure affect white blood cell counts.
 
 # Data Dictionary
+
 ```{r echo=FALSE, results='asis'}
 options(knitr.kable.NA = '')
-data.frame(Variable = c("ID","gender","HR","BP","Wgt1","Wgt2","Hgt","Smoke","Drink","Exercise","Group","WBC","Incode"),
-           Description = c("UserID (unique to each respondent)","Gender of patient","Heart Rate (Low, Normal, High)","Patient Weight 1 week before test start","Patient Weight at test start","Height of patient in inches","Does the patient smoke?","Does the patient drink alcohol?","Minutes per week patient exercises","Test/Control","White Blood Cell Count","Annual Income")) |>
+data.frame(Variable = c("ID","gender","HR","BP","Wgt1","Wgt2","Exercise","Hgt","Smoke","Drink","Group","WBC","Income"),
+           Description = c("UserID (unique to each respondent)","Gender of patient","Heart Rate (Low, Normal, High)","Blood Pressure (Low, Normal, High)","Patient Weight 1 week before test start","Patient Weight at test start","Minutes per week patient exercises","Height of patient in inches","Does the patient smoke?","Does the patient drink alcohol?","Test/Control","White Blood Cell Count","Annual Income")) |>
   knitr::kable()
 ```
 
@@ -33,7 +33,7 @@ This section is for the basic set up.
 It will clear all the plots, the console and the workspace.
 It also sets the overall format for numbers.
 
-```{r}
+```{r echo=T, results='hide'}
 if(!is.null(dev.list())) dev.off()
 cat("\014") 
 rm(list=ls())
@@ -44,7 +44,7 @@ options(scipen=9)
 
 This section loads and attaches all the necessary packages.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 if(!require(readxl)){install.packages("readxl")}
 library("readxl")
 
@@ -64,8 +64,7 @@ library("tinytex")
 
 ### Import Data
 
-```{r setup, include=FALSE}
-getwd()  # for verifying working directory
+```{r results='hide'}
 ExcelFile <- read_excel("Drug_Trial_Data.xlsx")
 ExcelFile <- as.data.frame(ExcelFile)
 head(ExcelFile)

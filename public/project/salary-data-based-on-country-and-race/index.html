@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="generator" content="Hugo 0.125.7">
-<title>Salary data based on country and race Analysis | Prachi Patel</title>
+<title>Salary data based on country and race | Prachi Patel</title>
 
 
 <meta property="twitter:site" content="@prachipatel2503">
@@ -28,7 +28,7 @@
 
 
 <meta property="og:site_name" content="Prachi Patel">
-<meta property="og:title" content="Salary data based on country and race Analysis | Prachi Patel">
+<meta property="og:title" content="Salary data based on country and race | Prachi Patel">
 <meta property="og:description" content="Prachi Patel Portfolio" />
 <meta property="og:type" content="page" />
 <meta property="og:url" content="//localhost:4321/project/salary-data-based-on-country-and-race/" />
@@ -44,14 +44,13 @@
     
     
   
-  <meta itemprop="name" content="Salary data based on country and race Analysis">
-  <meta itemprop="description" content="DataSet Reference: https://www.kaggle.com/datasets/sudheerp2147234/salary-dataset-based-on-country-and-race?resource=download Importing library
-import pandas as pd import seaborn as sns import numpy as np import matplotlib.pyplot as plt import warnings sns.set_theme(color_codes=True) warnings.filterwarnings(&#39;ignore&#39;) Import Dataset
-df = pd.read_csv(&#39;Salary_Data_Based_country_and_race.csv&#39;) Read Dataset
-df.head() ## Unnamed: 0 Age Gender ... Salary Country Race## 0 0 32.0 Male ... 90000.0 UK White## 1 1 28.0 Female ... 65000.0 USA Hispanic## 2 2 45.0 Male ... 150000.0 Canada White## 3 3 36.">
+  <meta itemprop="name" content="Salary data based on country and race">
+  <meta itemprop="description" content="Introduction Data Dictionary Import Library This section loads and attaches all the necessary libraries for this project.
+Data Set Reference: Kaggle
+Importing Python Library import pandas as pd import seaborn as sns import numpy as np import matplotlib.pyplot as plt import warnings warnings.filterwarnings(&#39;ignore&#39;) Import Dataset df = pd.read_csv(&#39;Salary_Data_Based_country_and_race.csv&#39;) Read Dataset # It will return first few rows of the dataset. df.head() ## Unnamed: 0 Age Gender ... Salary Country Race## 0 0 32.">
   <meta itemprop="datePublished" content="2024-03-28T00:00:00+00:00">
   <meta itemprop="dateModified" content="2024-03-28T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1932">
+  <meta itemprop="wordCount" content="2211">
   
   
 
@@ -97,7 +96,7 @@ df.head() ## Unnamed: 0 Age Gender ... Salary Country Race## 0 0 32.0 Male ... 
   <section class="page-content mw8 center">
     <article class="post-content pa0 ph4-l">
       <header class="post-header">
-        <h1 class="f1 lh-solid measure-narrow mb3 fw4" style="text-align: left">Salary data based on country and race Analysis</h1>
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4" style="text-align: left">Salary data based on country and race</h1>
         
         <p class="f6 measure lh-copy mv1">By Prachi Patel</p>
         <p class="f7 db mv0 ttu">March 28, 2024</p>
@@ -106,20 +105,79 @@ df.head() ## Unnamed: 0 Age Gender ... Salary Country Race## 0 0 32.0 Male ... 
 
       </header>
       <section class="post-body pt5 pb4">
-        <p>DataSet Reference: 
-<a href="https://www.kaggle.com/datasets/sudheerp2147234/salary-dataset-based-on-country-and-race?resource=download" target="_blank" rel="noopener">https://www.kaggle.com/datasets/sudheerp2147234/salary-dataset-based-on-country-and-race?resource=download</a>
-Importing library</p>
+        
+
+
+
+<h3 id="introduction">Introduction
+  <a href="#introduction"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+
+
+
+
+<h3 id="data-dictionary">Data Dictionary
+  <a href="#data-dictionary"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+
+
+
+
+<h3 id="import-library">Import Library
+  <a href="#import-library"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>This section loads and attaches all the necessary libraries for this project.</p>
+<blockquote>
+<p>Data Set Reference: Kaggle</p>
+</blockquote>
+
+
+
+
+<h3 id="importing-python-library">Importing Python Library
+  <a href="#importing-python-library"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">pandas</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">pd</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">seaborn</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">sns</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">numpy</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">np</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">matplotlib.pyplot</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">plt</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">warnings</span>
-</span></span><span style="display:flex;"><span>sns<span style="color:#000;font-weight:bold">.</span>set_theme(color_codes<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">True</span>)
 </span></span><span style="display:flex;"><span>warnings<span style="color:#000;font-weight:bold">.</span>filterwarnings(<span style="color:#d14">&#39;ignore&#39;</span>)
-</span></span></code></pre></div><p>Import Dataset</p>
+</span></span></code></pre></div>
+
+
+
+<h3 id="import-dataset">Import Dataset
+  <a href="#import-dataset"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df <span style="color:#000;font-weight:bold">=</span> pd<span style="color:#000;font-weight:bold">.</span>read_csv(<span style="color:#d14">&#39;Salary_Data_Based_country_and_race.csv&#39;</span>)
-</span></span></code></pre></div><p>Read Dataset</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>head()
+</span></span></code></pre></div>
+
+
+
+<h3 id="read-dataset">Read Dataset
+  <a href="#read-dataset"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># It will return first few rows of the dataset.</span>
+</span></span><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>head()
 </span></span></code></pre></div><pre tabindex="0"><code>##    Unnamed: 0   Age  Gender  ...    Salary Country      Race
 ## 0           0  32.0    Male  ...   90000.0      UK     White
 ## 1           1  28.0  Female  ...   65000.0     USA  Hispanic
@@ -128,25 +186,25 @@ Importing library</p>
 ## 4           4  52.0    Male  ...  200000.0     USA     Asian
 ## 
 ## [5 rows x 9 columns]
-</code></pre><p>Database Information</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">28</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m****************************
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m</span><span style="color:#d14">\033</span><span style="color:#d14">[1m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;.: Imported Dataset Info :.&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Imported Dataset Info :.[0m
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">28</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m****************************
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;Total Rows:&#39;</span>, df<span style="color:#000;font-weight:bold">.</span>shape[<span style="color:#099">0</span>])
+</code></pre>
+
+
+
+<h4 id="database-information">Database Information
+  <a href="#database-information"></a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;Total Rows:&#39;</span>, df<span style="color:#000;font-weight:bold">.</span>shape[<span style="color:#099">0</span>])
 </span></span></code></pre></div><pre tabindex="0"><code>## Total Rows: 6704
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;Total Columns:&#39;</span>, df<span style="color:#000;font-weight:bold">.</span>shape[<span style="color:#099">1</span>])
 </span></span></code></pre></div><pre tabindex="0"><code>## Total Columns: 9
-</code></pre><p>Dataset Details</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">30</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [0m[92m******************************[0m
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m</span><span style="color:#d14">\033</span><span style="color:#d14">[1m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;.: Dataset Details :.&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Dataset Details :.[0m
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">30</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [0m[92m******************************[0m
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>info()
+</code></pre>
+
+
+
+<h4 id="dataset-details">Dataset Details
+  <a href="#dataset-details"></a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>info()
 </span></span></code></pre></div><pre tabindex="0"><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 ## RangeIndex: 6704 entries, 0 to 6703
 ## Data columns (total 9 columns):
@@ -163,9 +221,10 @@ Importing library</p>
 ##  8   Race                 6704 non-null   object 
 ## dtypes: float64(3), int64(1), object(5)
 ## memory usage: 471.5+ KB
-</code></pre><p>As per the details mentioned above we can say that thre are 9 columns and 6704 records.
-Also, there are couple of null values available in the dataset.</p>
-<p>Drop the unnamed column from the dataset.</p>
+</code></pre><p>As per the details mentioned above we can say that there are 9 columns and 6704 records.</p>
+<p>Also, there are couple of null values and unnamed column available in the dataset.</p>
+<hr>
+<p>Let&rsquo;s drop the unnamed column from the dataset.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>drop(columns<span style="color:#000;font-weight:bold">=</span>df<span style="color:#000;font-weight:bold">.</span>columns[<span style="color:#099">0</span>], axis<span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>,  inplace<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">True</span>)
 </span></span><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>head()
 </span></span></code></pre></div><pre tabindex="0"><code>##     Age  Gender Education Level  ...    Salary  Country      Race
@@ -176,22 +235,16 @@ Also, there are couple of null values available in the dataset.</p>
 ## 4  52.0    Male        Master&#39;s  ...  200000.0      USA     Asian
 ## 
 ## [5 rows x 8 columns]
-</code></pre><p>Check unique values available for each column.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">42</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m******************************************
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m</span><span style="color:#d14">\033</span><span style="color:#d14">[1m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;.: Unique value count for each columns :.&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Unique value count for each columns :.[0m
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">42</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m******************************************
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>select_dtypes(include<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;object&#39;</span>)<span style="color:#000;font-weight:bold">.</span>nunique()
+</code></pre><p>Now let&rsquo;s check unique values available for each column and adjust if needed.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>select_dtypes(include<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;object&#39;</span>)<span style="color:#000;font-weight:bold">.</span>nunique()
 </span></span></code></pre></div><pre tabindex="0"><code>## Gender               3
 ## Education Level      7
 ## Job Title          193
 ## Country              5
 ## Race                10
 ## dtype: int64
-</code></pre><p>Unique Job Title List</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df[<span style="color:#d14">&#39;Job Title&#39;</span>]<span style="color:#000;font-weight:bold">.</span>unique()
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Unique Job Title List</span>
+</span></span><span style="display:flex;"><span>df[<span style="color:#d14">&#39;Job Title&#39;</span>]<span style="color:#000;font-weight:bold">.</span>unique()
 </span></span></code></pre></div><pre tabindex="0"><code>## array([&#39;Software Engineer&#39;, &#39;Data Analyst&#39;, &#39;Senior Manager&#39;,
 ##        &#39;Sales Associate&#39;, &#39;Director&#39;, &#39;Marketing Analyst&#39;,
 ##        &#39;Product Manager&#39;, &#39;Sales Manager&#39;, &#39;Marketing Coordinator&#39;,
@@ -278,7 +331,7 @@ Also, there are couple of null values available in the dataset.</p>
 ##        &#39;Digital Marketing Specialist&#39;, &#39;Receptionist&#39;,
 ##        &#39;Marketing Director&#39;, &#39;Social M&#39;, &#39;Social Media Man&#39;,
 ##        &#39;Delivery Driver&#39;], dtype=object)
-</code></pre><p>Changing Job Title value from large segment to smaller unique values.</p>
+</code></pre><p>Now, let&rsquo;s change Job Title value from large segment to smaller unique values. So, it will be easy to analyze.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">categorize_job_title</span>(job_title):
 </span></span><span style="display:flex;"><span>    job_title <span style="color:#000;font-weight:bold">=</span> <span style="color:#0086b3">str</span>(job_title)<span style="color:#000;font-weight:bold">.</span>lower()  <span style="color:#998;font-style:italic"># Convert to lowercase for case-insensitivity</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">if</span> <span style="color:#d14">&#39;software&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title <span style="color:#000;font-weight:bold">or</span> <span style="color:#d14">&#39;developer&#39;</span> <span style="color:#000;font-weight:bold">in</span> job_title:
@@ -309,33 +362,12 @@ Also, there are couple of null values available in the dataset.</p>
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#d14">&#39;Other&#39;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>df[<span style="color:#d14">&#39;Job Title&#39;</span>] <span style="color:#000;font-weight:bold">=</span> df[<span style="color:#d14">&#39;Job Title&#39;</span>]<span style="color:#000;font-weight:bold">.</span>apply(categorize_job_title)
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>head()
-</span></span></code></pre></div><pre tabindex="0"><code>##     Age  Gender Education Level  ...    Salary  Country      Race
-## 0  32.0    Male      Bachelor&#39;s  ...   90000.0       UK     White
-## 1  28.0  Female        Master&#39;s  ...   65000.0      USA  Hispanic
-## 2  45.0    Male             PhD  ...  150000.0   Canada     White
-## 3  36.0  Female      Bachelor&#39;s  ...   60000.0      USA  Hispanic
-## 4  52.0    Male        Master&#39;s  ...  200000.0      USA     Asian
-## 
-## [5 rows x 8 columns]
-</code></pre><p>Check the unique values doe Race field.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">35</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m***********************************
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m</span><span style="color:#d14">\033</span><span style="color:#d14">[1m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;.: Race field unique value list :.&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Race field unique value list :.[0m
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">35</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m***********************************
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df[<span style="color:#d14">&#39;Race&#39;</span>]<span style="color:#000;font-weight:bold">.</span>unique()
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#Unique values for Race field</span>
+</span></span><span style="display:flex;"><span>df[<span style="color:#d14">&#39;Race&#39;</span>]<span style="color:#000;font-weight:bold">.</span>unique()
 </span></span></code></pre></div><pre tabindex="0"><code>## array([&#39;White&#39;, &#39;Hispanic&#39;, &#39;Asian&#39;, &#39;Korean&#39;, &#39;Chinese&#39;, &#39;Australian&#39;,
 ##        &#39;Welsh&#39;, &#39;African American&#39;, &#39;Mixed&#39;, &#39;Black&#39;], dtype=object)
-</code></pre><p>Number of data for each Race value.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">42</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m******************************************
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m</span><span style="color:#d14">\033</span><span style="color:#d14">[1m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;.: Number of data for each Race value :.&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Number of data for each Race value :.[0m
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">42</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m******************************************
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df[<span style="color:#d14">&#39;Race&#39;</span>]<span style="color:#000;font-weight:bold">.</span>value_counts()
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Number of data for Race field.</span>
+</span></span><span style="display:flex;"><span>df[<span style="color:#d14">&#39;Race&#39;</span>]<span style="color:#000;font-weight:bold">.</span>value_counts()
 </span></span></code></pre></div><pre tabindex="0"><code>## Race
 ## White               1968
 ## Asian               1603
@@ -348,77 +380,102 @@ Also, there are couple of null values available in the dataset.</p>
 ## Welsh                333
 ## Hispanic             322
 ## Name: count, dtype: int64
-</code></pre><p>Creating a new dataframe to see the persentage of each race data in out database.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>race <span style="color:#000;font-weight:bold">=</span> df[<span style="color:#d14">&#39;Race&#39;</span>]<span style="color:#000;font-weight:bold">.</span>value_counts()<span style="color:#000;font-weight:bold">.</span>to_frame()
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#race[&#39;Percentage&#39;] = round((race[&#39;Race&#39;]/df.shape[0])*100,2)</span>
-</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">38</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m**************************************
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m</span><span style="color:#d14">\033</span><span style="color:#d14">[1m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;.: Race value count with percentage :.&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Race value count with percentage :.[0m
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">38</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m**************************************
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>race
-</span></span></code></pre></div><pre tabindex="0"><code>##                   count
-## Race                   
-## White              1968
-## Asian              1603
-## Korean              457
-## Australian          452
-## Chinese             444
-## Black               437
-## African American    354
-## Mixed               334
-## Welsh               333
-## Hispanic            322
-</code></pre><p>Now, we will add the percentage(%) symbol into the percentage field.
-First converted numeric datatype into the string.
-After that, I have added the percentage(%) symbol into the percentage field.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#race[&#39;Percentage&#39;] = race[&#39;Percentage&#39;].astype(str)</span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#race[&#39;Percentage&#39;] = race[&#39;Percentage&#39;]+&#39;%&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">38</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m**************************************
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m</span><span style="color:#d14">\033</span><span style="color:#d14">[1m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;.: Race value count with percentage :.&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Race value count with percentage :.[0m
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">38</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m**************************************
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>race
-</span></span></code></pre></div><pre tabindex="0"><code>##                   count
-## Race                   
-## White              1968
-## Asian              1603
-## Korean              457
-## Australian          452
-## Chinese             444
-## Black               437
-## African American    354
-## Mixed               334
-## Welsh               333
-## Hispanic            322
-</code></pre><p>Making the Pie Plot for the race percentage data.
-autopct=&rsquo;%.2f&rsquo; is used to add the two decimal value in the field and add the percentage symbol into the Percentage Field.
-y=0.94 is used to adjust the fine-tune the vertical alignment of the title.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df[<span style="color:#d14">&#39;Race&#39;</span>]<span style="color:#000;font-weight:bold">.</span>value_counts()<span style="color:#000;font-weight:bold">.</span>plot(kind <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;pie&#39;</span>,figsize <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">12</span>,<span style="color:#099">6</span>), autopct <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;</span><span style="color:#d14">%.2f</span><span style="color:#d14">&#39;</span>)
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Percentage of each Race&#39;</span>, fontweight <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;bold&#39;</span>, y <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0.94</span>)
-</span></span></code></pre></div><img src="/project/salary-data-based-on-country-and-race/index_files/figure-html/unnamed-chunk-17-1.png" width="1152" />
-<p>Salary distribution based on the Race.
-Based on the box plot we can see that there is not much difference with the distribution of all race.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>salary_by_race <span style="color:#000;font-weight:bold">=</span> df[[<span style="color:#d14">&#39;Salary&#39;</span>,<span style="color:#d14">&#39;Race&#39;</span>]]<span style="color:#000;font-weight:bold">.</span>boxplot(by<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Race&#39;</span>,vert<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">False</span>, figsize <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">12</span>,<span style="color:#099">7</span>))
-</span></span><span style="display:flex;"><span>salary_by_race<span style="color:#000;font-weight:bold">.</span>axvline(df[<span style="color:#d14">&#39;Salary&#39;</span>][df[<span style="color:#d14">&#39;Race&#39;</span>] <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;White&#39;</span>]<span style="color:#000;font-weight:bold">.</span>median(), color <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;red&#39;</span>)
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>grid(axis <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;y&#39;</span>)
-</span></span></code></pre></div><img src="/project/salary-data-based-on-country-and-race/index_files/figure-html/unnamed-chunk-18-3.png" width="1152" />
-<p>Mean of Salary based on Country.
-Based on the graph we can say that there is not much difference in the salary based on each Country.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>groupby(<span style="color:#d14">&#39;Country&#39;</span>)[<span style="color:#d14">&#39;Salary&#39;</span>]<span style="color:#000;font-weight:bold">.</span>mean()<span style="color:#000;font-weight:bold">.</span>plot(kind<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;bar&#39;</span>, figsize <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">12</span>,<span style="color:#099">6</span>))
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Salary amount by Country&#39;</span>, fontweight <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;bold&#39;</span>, y <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0.94</span>)
-</span></span></code></pre></div><img src="/project/salary-data-based-on-country-and-race/index_files/figure-html/unnamed-chunk-19-5.png" width="1152" />
-<p>Mean of Salary based on Race field.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">38</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m**************************************
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m</span><span style="color:#d14">\033</span><span style="color:#d14">[1m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;.: Mean value of Salary by Race field :.&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[0m&#39;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m[1m.: Mean value of Salary by Race field :.[0m
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;</span><span style="color:#d14">\033</span><span style="color:#d14">[92m&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39;*&#39;</span> <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">38</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## [92m**************************************
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>groupby(<span style="color:#d14">&#39;Race&#39;</span>)[<span style="color:#d14">&#39;Salary&#39;</span>]<span style="color:#000;font-weight:bold">.</span>mean()
+</code></pre><p>Creating a new data frame to see the percentage of each race data in out database.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Calculate the percentage of each race</span>
+</span></span><span style="display:flex;"><span>race_percentage <span style="color:#000;font-weight:bold">=</span> df[<span style="color:#d14">&#39;Race&#39;</span>]<span style="color:#000;font-weight:bold">.</span>value_counts(normalize<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">True</span>) <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">100</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Convert the series to a DataFrame</span>
+</span></span><span style="display:flex;"><span>race_percentage_df <span style="color:#000;font-weight:bold">=</span> race_percentage<span style="color:#000;font-weight:bold">.</span>reset_index()
+</span></span><span style="display:flex;"><span>race_percentage_df<span style="color:#000;font-weight:bold">.</span>columns <span style="color:#000;font-weight:bold">=</span> [<span style="color:#d14">&#39;Race&#39;</span>, <span style="color:#d14">&#39;Percentage&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Display the DataFrame</span>
+</span></span><span style="display:flex;"><span>race_percentage_df
+</span></span></code></pre></div><pre tabindex="0"><code>##                Race  Percentage
+## 0             White   29.355609
+## 1             Asian   23.911098
+## 2            Korean    6.816826
+## 3        Australian    6.742243
+## 4           Chinese    6.622912
+## 5             Black    6.518496
+## 6  African American    5.280430
+## 7             Mixed    4.982100
+## 8             Welsh    4.967184
+## 9          Hispanic    4.803103
+</code></pre><p>Now, we will add the percentage(%) symbol into the percentage field.</p>
+<p>First converted numeric datatype into the string.</p>
+<p>After that, I have added the percentage(%) symbol into the percentage field.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Round the percentage values to two decimal places</span>
+</span></span><span style="display:flex;"><span>race_percentage_df[<span style="color:#d14">&#39;Percentage&#39;</span>] <span style="color:#000;font-weight:bold">=</span> race_percentage_df[<span style="color:#d14">&#39;Percentage&#39;</span>]<span style="color:#000;font-weight:bold">.</span>astype(<span style="color:#0086b3">float</span>)<span style="color:#000;font-weight:bold">.</span>round(<span style="color:#099">2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Convert the percentage values to strings and add the percentage symbol</span>
+</span></span><span style="display:flex;"><span>race_percentage_df[<span style="color:#d14">&#39;Percentage&#39;</span>] <span style="color:#000;font-weight:bold">=</span> race_percentage_df[<span style="color:#d14">&#39;Percentage&#39;</span>]<span style="color:#000;font-weight:bold">.</span>astype(<span style="color:#0086b3">str</span>) <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#39;%&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Display the DataFrame with the formatted percentage values</span>
+</span></span><span style="display:flex;"><span>race_percentage_df
+</span></span></code></pre></div><pre tabindex="0"><code>##                Race Percentage
+## 0             White     29.36%
+## 1             Asian     23.91%
+## 2            Korean      6.82%
+## 3        Australian      6.74%
+## 4           Chinese      6.62%
+## 5             Black      6.52%
+## 6  African American      5.28%
+## 7             Mixed      4.98%
+## 8             Welsh      4.97%
+## 9          Hispanic       4.8%
+</code></pre><p>Making the Pie Plot for the race percentage data.</p>
+<p>autopct=&rsquo;%.2f&rsquo; is used to add the two decimal value in the field and add the percentage symbol into the Percentage Field.</p>
+<p>y=0.94 is used to adjust the fine-tune the vertical alignment of the title.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create a pie chart</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>figure(figsize<span style="color:#000;font-weight:bold">=</span>(<span style="color:#099">8</span>, <span style="color:#099">8</span>))  <span style="color:#998;font-style:italic"># Set the figure size</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>pie(
+</span></span><span style="display:flex;"><span>    race_percentage,  <span style="color:#998;font-style:italic"># Data for the pie chart</span>
+</span></span><span style="display:flex;"><span>    labels<span style="color:#000;font-weight:bold">=</span>race_percentage<span style="color:#000;font-weight:bold">.</span>index,  <span style="color:#998;font-style:italic"># Labels for each slice</span>
+</span></span><span style="display:flex;"><span>    autopct<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;</span><span style="color:#d14">%.2f%%</span><span style="color:#d14">&#39;</span>,  <span style="color:#998;font-style:italic"># Format the percentage values to two decimal places</span>
+</span></span><span style="display:flex;"><span>    startangle<span style="color:#000;font-weight:bold">=</span><span style="color:#099">140</span>  <span style="color:#998;font-style:italic"># Start angle for the first slice</span>
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## ([&lt;matplotlib.patches.Wedge object at 0x0000017D7D3CAB50&gt;, &lt;matplotlib.patches.Wedge object at 0x0000017D7D673C50&gt;, &lt;matplotlib.patches.Wedge object at 0x0000017D7D681910&gt;, &lt;matplotlib.patches.Wedge object at 0x0000017D7D681050&gt;, &lt;matplotlib.patches.Wedge object at 0x0000017D7D68D310&gt;, &lt;matplotlib.patches.Wedge object at 0x0000017D7D68F390&gt;, &lt;matplotlib.patches.Wedge object at 0x0000017D7D698ED0&gt;, &lt;matplotlib.patches.Wedge object at 0x0000017D7D69AB50&gt;, &lt;matplotlib.patches.Wedge object at 0x0000017D7D6A4990&gt;, &lt;matplotlib.patches.Wedge object at 0x0000017D7D68F190&gt;], [Text(-1.072493477675293, -0.2444539636495102, &#39;White&#39;), Text(0.3530411045439956, -1.0418070735516993, &#39;Asian&#39;), Text(1.0575487878554573, -0.3026393254444195, &#39;Korean&#39;), Text(1.088096237888774, 0.16138951977218494, &#39;Australian&#39;), Text(0.9277920392832755, 0.5909331026796362, &#39;Chinese&#39;), Text(0.612745305701961, 0.9135333548044159, &#39;Black&#39;), Text(0.2402077844388794, 1.0734524769615863, &#39;African American&#39;), Text(-0.11229257013235895, 1.0942533430120602, &#39;Mixed&#39;), Text(-0.44333604109140684, 1.006704104823954, &#39;Welsh&#39;), Text(-0.726786471721758, 0.8257005658967652, &#39;Hispanic&#39;)], [Text(-0.5849964423683416, -0.13333852562700554, &#39;29.36%&#39;), Text(0.19256787520581578, -0.5682584037554722, &#39;23.91%&#39;), Text(0.5768447933757039, -0.16507599569695608, &#39;6.82%&#39;), Text(0.5935070388484222, 0.0880306471484645, &#39;6.74%&#39;), Text(0.5060683850636047, 0.32232714691616515, &#39;6.62%&#39;), Text(0.3342247122010696, 0.49829092080240855, &#39;6.52%&#39;), Text(0.13102242787575238, 0.585519532888138, &#39;5.28%&#39;), Text(-0.06125049279946851, 0.59686545982476, &#39;4.98%&#39;), Text(-0.24181965877713096, 0.5491113299039748, &#39;4.97%&#39;), Text(-0.39642898457550435, 0.45038212685278095, &#39;4.80%&#39;)])
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Add a title with vertical alignment fine-tuned</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Race Percentage Distribution&#39;</span>, y<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0.94</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Display the plot</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>show()
+</span></span></code></pre></div><img src="/project/salary-data-based-on-country-and-race/index_files/figure-html/unnamed-chunk-16-1.png" width="768" />
+<p>Salary distribution based on the Race.</p>
+<p>Based on the box plot we can see that there is not much difference with the distribution of all race.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create a box plot for salary distribution based on race</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>figure(figsize<span style="color:#000;font-weight:bold">=</span>(<span style="color:#099">12</span>, <span style="color:#099">8</span>))
+</span></span><span style="display:flex;"><span>sns<span style="color:#000;font-weight:bold">.</span>boxplot(x<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Race&#39;</span>, y<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Salary&#39;</span>, data<span style="color:#000;font-weight:bold">=</span>df)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Add a title to the plot</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Salary Distribution Based on Race&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Display the plot</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>show()
+</span></span></code></pre></div><img src="/project/salary-data-based-on-country-and-race/index_files/figure-html/unnamed-chunk-17-3.png" width="1152" />
+<p><strong>Mean of Salary based on Country</strong></p>
+<p>Based on the graph we can say that there is not much difference in the salary based on each Country.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Calculate the mean salary for each country</span>
+</span></span><span style="display:flex;"><span>mean_salary_by_country <span style="color:#000;font-weight:bold">=</span> df<span style="color:#000;font-weight:bold">.</span>groupby(<span style="color:#d14">&#39;Country&#39;</span>)[<span style="color:#d14">&#39;Salary&#39;</span>]<span style="color:#000;font-weight:bold">.</span>mean()<span style="color:#000;font-weight:bold">.</span>reset_index()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Rename the columns for clarity</span>
+</span></span><span style="display:flex;"><span>mean_salary_by_country<span style="color:#000;font-weight:bold">.</span>columns <span style="color:#000;font-weight:bold">=</span> [<span style="color:#d14">&#39;Country&#39;</span>, <span style="color:#d14">&#39;Mean Salary&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Sort the values by mean salary for better visualization</span>
+</span></span><span style="display:flex;"><span>mean_salary_by_country <span style="color:#000;font-weight:bold">=</span> mean_salary_by_country<span style="color:#000;font-weight:bold">.</span>sort_values(by<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Mean Salary&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create a bar plot for mean salary based on country</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>figure(figsize<span style="color:#000;font-weight:bold">=</span>(<span style="color:#099">14</span>, <span style="color:#099">8</span>))
+</span></span><span style="display:flex;"><span>sns<span style="color:#000;font-weight:bold">.</span>barplot(x<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Mean Salary&#39;</span>, y<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Country&#39;</span>, data<span style="color:#000;font-weight:bold">=</span>mean_salary_by_country, palette<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;viridis&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Add a title to the plot</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Mean Salary Based on Country&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Display the plot</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>show()
+</span></span></code></pre></div><img src="/project/salary-data-based-on-country-and-race/index_files/figure-html/unnamed-chunk-18-5.png" width="1344" />
+<p><strong>Mean of Salary based on Race field</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>groupby(<span style="color:#d14">&#39;Race&#39;</span>)[<span style="color:#d14">&#39;Salary&#39;</span>]<span style="color:#000;font-weight:bold">.</span>mean()
 </span></span></code></pre></div><pre tabindex="0"><code>## Race
 ## African American    112209.658192
 ## Asian               115302.068621
@@ -431,26 +488,78 @@ Based on the graph we can say that there is not much difference in the salary ba
 ## Welsh               112560.645646
 ## White               117071.055527
 ## Name: Salary, dtype: float64
-</code></pre><p>Bar Plot based on Race and Salary mean value.
-plt.grid(axis=&lsquo;y&rsquo;) - this line is used to add the vertical line. We must have to write this line after df.groupby.
-Otherwise, this will not help to add the grid in the graph.</p>
+</code></pre><p>Bar Plot based on Race and Salary mean value.</p>
+<p>plt.grid(axis=&lsquo;y&rsquo;) - this line is used to add the vertical line.</p>
+<p>We must have to write this line after df.groupby.</p>
+<p>Otherwise, this will not help to add the grid in the graph.</p>
 <p>We can see that there is not much difference in the Salary based on Race.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>groupby(<span style="color:#d14">&#39;Race&#39;</span>)[<span style="color:#d14">&#39;Salary&#39;</span>]<span style="color:#000;font-weight:bold">.</span>mean()<span style="color:#000;font-weight:bold">.</span>plot(kind<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;bar&#39;</span>,figsize <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">12</span>,<span style="color:#099">6</span>))
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>grid(axis<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;y&#39;</span>)
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Salary amount by Race&#39;</span>, fontweight <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;bold&#39;</span>, y <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0.94</span>)
-</span></span></code></pre></div><img src="/project/salary-data-based-on-country-and-race/index_files/figure-html/unnamed-chunk-21-7.png" width="1152" />
-<p>Salary distribution based on Gender.
-Here, vert=False is used to specify the boxes in horizontally
-figsize(12,7) is used to set the size of the figure.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Calculate the mean salary for each race</span>
+</span></span><span style="display:flex;"><span>mean_salary_by_race <span style="color:#000;font-weight:bold">=</span> df<span style="color:#000;font-weight:bold">.</span>groupby(<span style="color:#d14">&#39;Race&#39;</span>)[<span style="color:#d14">&#39;Salary&#39;</span>]<span style="color:#000;font-weight:bold">.</span>mean()<span style="color:#000;font-weight:bold">.</span>reset_index()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Rename the columns for clarity</span>
+</span></span><span style="display:flex;"><span>mean_salary_by_race<span style="color:#000;font-weight:bold">.</span>columns <span style="color:#000;font-weight:bold">=</span> [<span style="color:#d14">&#39;Race&#39;</span>, <span style="color:#d14">&#39;Mean Salary&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Sort the values by mean salary for better visualization</span>
+</span></span><span style="display:flex;"><span>mean_salary_by_race <span style="color:#000;font-weight:bold">=</span> mean_salary_by_race<span style="color:#000;font-weight:bold">.</span>sort_values(by<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Mean Salary&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create a bar plot for mean salary based on race</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>figure(figsize<span style="color:#000;font-weight:bold">=</span>(<span style="color:#099">14</span>, <span style="color:#099">8</span>))
+</span></span><span style="display:flex;"><span>sns<span style="color:#000;font-weight:bold">.</span>barplot(x<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Mean Salary&#39;</span>, y<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Race&#39;</span>, data<span style="color:#000;font-weight:bold">=</span>mean_salary_by_race, palette<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;viridis&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Add a title to the plot</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Mean Salary Based on Race&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Add vertical grid lines</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>grid(axis<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;x&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Display the plot</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>show()
+</span></span></code></pre></div><img src="/project/salary-data-based-on-country-and-race/index_files/figure-html/unnamed-chunk-20-7.png" width="1344" />
+<p><strong>Salary distribution based on Gender</strong></p>
+<p>Here, <code>vert=False</code> is used to specify the boxes in horizontally figsize(12,7) is used to set the size of the figure.</p>
 <p>Based on the box plot we can see that male gender have highest salary amount with the comparision of other gender.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df[[<span style="color:#d14">&#39;Salary&#39;</span>,<span style="color:#d14">&#39;Gender&#39;</span>]]<span style="color:#000;font-weight:bold">.</span>boxplot(by<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Gender&#39;</span>, vert<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">False</span>, figsize <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">12</span>,<span style="color:#099">7</span>))
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>grid(axis <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;y&#39;</span>)
-</span></span></code></pre></div><img src="/project/salary-data-based-on-country-and-race/index_files/figure-html/unnamed-chunk-22-9.png" width="1152" />
-<p>Mean of Salary based on Gender field.
-Male gender salary amount is higher than other but there is not much difference between one another.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#000;font-weight:bold">.</span>groupby(<span style="color:#d14">&#39;Gender&#39;</span>)[<span style="color:#d14">&#39;Salary&#39;</span>]<span style="color:#000;font-weight:bold">.</span>mean()<span style="color:#000;font-weight:bold">.</span>plot(kind<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;bar&#39;</span>,figsize <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">12</span>,<span style="color:#099">6</span>))
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#34;Salary Amount&#39;s Mean Value by Gender&#34;</span> , fontweight <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;bold&#39;</span>, y <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0.94</span>)
-</span></span></code></pre></div><img src="/project/salary-data-based-on-country-and-race/index_files/figure-html/unnamed-chunk-23-11.png" width="1152" />
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create a box plot for salary distribution based on gender</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>figure(figsize<span style="color:#000;font-weight:bold">=</span>(<span style="color:#099">12</span>, <span style="color:#099">7</span>))
+</span></span><span style="display:flex;"><span>sns<span style="color:#000;font-weight:bold">.</span>boxplot(x<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Salary&#39;</span>, y<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Gender&#39;</span>, data<span style="color:#000;font-weight:bold">=</span>df, orient<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;h&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Add a title to the plot</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Salary Distribution Based on Gender&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Display the plot</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>show()
+</span></span></code></pre></div><img src="/project/salary-data-based-on-country-and-race/index_files/figure-html/unnamed-chunk-21-9.png" width="1152" />
+<p><strong>Mean of Salary based on Gender field</strong></p>
+<p>Male gender salary amount is higher than other but there is not much difference between one another.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Calculate the mean salary for each gender</span>
+</span></span><span style="display:flex;"><span>mean_salary_by_gender <span style="color:#000;font-weight:bold">=</span> df<span style="color:#000;font-weight:bold">.</span>groupby(<span style="color:#d14">&#39;Gender&#39;</span>)[<span style="color:#d14">&#39;Salary&#39;</span>]<span style="color:#000;font-weight:bold">.</span>mean()<span style="color:#000;font-weight:bold">.</span>reset_index()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Rename the columns for clarity</span>
+</span></span><span style="display:flex;"><span>mean_salary_by_gender<span style="color:#000;font-weight:bold">.</span>columns <span style="color:#000;font-weight:bold">=</span> [<span style="color:#d14">&#39;Gender&#39;</span>, <span style="color:#d14">&#39;Mean Salary&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Sort the values by mean salary for better visualization (optional)</span>
+</span></span><span style="display:flex;"><span>mean_salary_by_gender <span style="color:#000;font-weight:bold">=</span> mean_salary_by_gender<span style="color:#000;font-weight:bold">.</span>sort_values(by<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Mean Salary&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create a bar plot for mean salary based on gender</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>figure(figsize<span style="color:#000;font-weight:bold">=</span>(<span style="color:#099">10</span>, <span style="color:#099">6</span>))
+</span></span><span style="display:flex;"><span>sns<span style="color:#000;font-weight:bold">.</span>barplot(x<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Gender&#39;</span>, y<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Mean Salary&#39;</span>, data<span style="color:#000;font-weight:bold">=</span>mean_salary_by_gender, palette<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;viridis&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Add a title to the plot</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Mean Salary Based on Gender&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Add vertical grid lines</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>grid(axis<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;y&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Display the plot</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>show()
+</span></span></code></pre></div><img src="/project/salary-data-based-on-country-and-race/index_files/figure-html/unnamed-chunk-22-11.png" width="960" />
+
+
+
+
+<h4 id="conclusion">Conclusion
+  <a href="#conclusion"></a>
+</h4>
+<p>The analysis found that salaries are quite similar across different countries and races, showing no significant disparities. However, there is a slight difference in salaries based on gender, with males earning slightly more on average. Overall, the data suggests relative salary equality with some minor gender-based differences.</p>
 
         
         <details closed class="f6 fw7 input-reset">
@@ -460,7 +569,7 @@ Male gender salary amount is higher than other but there is not much difference 
   </dl>
   <dl class="f6 lh-copy">
     <dt class="fw7">Length:</dt>
-    <dd class="fw5 ml0">10 minute read, 1932 words</dd>
+    <dd class="fw5 ml0">11 minute read, 2211 words</dd>
   </dl>
   
   

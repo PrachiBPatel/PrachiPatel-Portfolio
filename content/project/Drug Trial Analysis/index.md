@@ -3,7 +3,7 @@ title: "Drug Trial Analysis"
 subtitle: ""
 author: "Prachi Patel"
 date: "2022-10-14"
-excerpt: ""
+excerpt: " This project analyzes data from a drug trial with 500 patients to test a new medication that aims to increase white blood cell count. We compare results between a treatment group and a control group to see if the drug works. The study also looks at how other factors like heart rate and blood pressure affect white blood cell counts."
 output:
   html_document:
     df_print: paged
@@ -15,21 +15,27 @@ editor_options:
 ---
 
 ### Introduction
-Statistical Inference and Comparisons
-500 patients participated in a new drug trial designed to increase the white blood cell count (WBC). One group of patients (“Treat”) were given the medication while the other (“Control”) were not. A number of variables were measured and recorded (including a survey they were asked to fill in). Appendix 1 contains the data dictionary for the data set. One group of respondents (“Treat”) were given additional education on political matters while the other (“Control”) were not.
-    
+
+This project analyzes data from a drug trial with 500 patients to test a new medication that aims to increase white blood cell count. We compare results between a treatment group and a control group to see if the drug works. The study also looks at how other factors like heart rate and blood pressure affect white blood cell counts.
+
 # Data Dictionary
 
-|Variable |Description                                                                    |
-|:--------|:------------------------------------------------------------------------------|
-|Del      |Time for delivery (in days, rounded to nearest 10th)                           |
-|Vin      |Vintage of product (i.e. how long it has been in the warehouse).               |
-|Pkg      |How many packages of product have been ordered                                 |
-|Cst      |How many orders the customer has made in the past                              |
-|Mil      |Distance the order needs to be delivered (in km)                               |
-|Dom      |Indicator for if the product is manufactured in Canada (C) or elsewhere (I)    |
-|Hazard   |Indicator for if the product is designated as Hazardous (H) or not (N).        |
-|Car      |Indicator for which Carrier delivered the item (Fed Post, or M-Press Delivery) |
+
+|Variable |Description                             |
+|:--------|:---------------------------------------|
+|ID       |UserID (unique to each respondent)      |
+|gender   |Gender of patient                       |
+|HR       |Heart Rate (Low, Normal, High)          |
+|BP       |Blood Pressure (Low, Normal, High)      |
+|Wgt1     |Patient Weight 1 week before test start |
+|Wgt2     |Patient Weight at test start            |
+|Exercise |Minutes per week patient exercises      |
+|Hgt      |Height of patient in inches             |
+|Smoke    |Does the patient smoke?                 |
+|Drink    |Does the patient drink alcohol?         |
+|Group    |Test/Control                            |
+|WBC      |White Blood Cell Count                  |
+|Income   |Annual Income                           |
 
 ### Initial Setup
 
@@ -40,20 +46,7 @@ It also sets the overall format for numbers.
 
 ```r
 if(!is.null(dev.list())) dev.off()
-```
-
-```
-## null device 
-##           1
-```
-
-```r
 cat("\014") 
-```
-
-
-
-```r
 rm(list=ls())
 options(scipen=9)
 ```
@@ -65,75 +58,29 @@ This section loads and attaches all the necessary packages.
 
 ```r
 if(!require(readxl)){install.packages("readxl")}
-```
-
-```
-## Loading required package: readxl
-```
-
-```
-## Warning: package 'readxl' was built under R version 4.2.3
-```
-
-```r
 library("readxl")
 
 if(!require(pastecs)){install.packages("pastecs")}
-```
-
-```
-## Loading required package: pastecs
-```
-
-```
-## Warning: package 'pastecs' was built under R version 4.2.3
-```
-
-```r
 library("pastecs")
 
 if(!require(lattice)){install.packages("lattice")}
-```
-
-```
-## Loading required package: lattice
-```
-
-```
-## Warning: package 'lattice' was built under R version 4.2.3
-```
-
-```r
 library("lattice")
 
 if(!require(ggplot2)){install.packages("ggplot2")}
-```
-
-```
-## Loading required package: ggplot2
-```
-
-```
-## Warning: package 'ggplot2' was built under R version 4.2.3
-```
-
-```r
 library("ggplot2")
 
 if(!require(tinytex)){install.packages("tinytex")}
-```
-
-```
-## Loading required package: tinytex
-```
-
-```r
 library("tinytex")
 ```
 
 ### Import Data
 
 
+```r
+ExcelFile <- read_excel("Drug_Trial_Data.xlsx")
+ExcelFile <- as.data.frame(ExcelFile)
+head(ExcelFile)
+```
 
 ### Data Transformation and Preparation
 
@@ -442,38 +389,38 @@ Created box plot for Weight, Exercise, and White Blood Cell fields as remaining 
 boxplot(ExcelFile$Wgt1, horizontal=TRUE, col=c("#6bc9c2"), pch=20, main = "Weight - Box Plot")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 
 ```r
 densityplot( ~ ExcelFile$Wgt1, pch=6,col=c("#6bc9c2"), xlab = "Weight")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-9-2.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-10-2.png" width="672" />
 
 ```r
 #Exercise Data
 boxplot(ExcelFile$Exercise, horizontal=TRUE,col=c("#6bc9c2"), pch=20, main = "Exercise - Box Plot")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-9-3.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-10-3.png" width="672" />
 
 ```r
 densityplot( ~ ExcelFile$Exercise, pch=6,col=c("#6bc9c2"), xlab = "Exercise")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-9-4.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-10-4.png" width="672" />
 
 ```r
 boxplot(ExcelFile$WBC, horizontal=TRUE,col=c("#6bc9c2"), pch=20, main = "White Blood Cell - Box Plot")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-9-5.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-10-5.png" width="672" />
 
 ```r
 densityplot( ~ ExcelFile$WBC, pch=6,col=c("#6bc9c2"), xlab = "White Blood Cell")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-9-6.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-10-6.png" width="672" />
     
 Commenting on any outliers you see and deal with them appropriately
 
@@ -491,13 +438,13 @@ ExcelFile <- ExcelFile[-c(nr),]
 boxplot(ExcelFile$Wgt1, horizontal=TRUE, col=c("#e8bbfa"), pch=20, main = "Weight - Box Plot")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 
 ```r
 densityplot( ~ ExcelFile$Wgt1, pch=6,col=c("#e8bbfa"), xlab = "Weight")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-10-2.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-11-2.png" width="672" />
 
 ```r
 #Code to delete outliner data where WBC value is less than 4100 and greater than 9700.
@@ -508,13 +455,13 @@ ExcelFile <- ExcelFile[-c(nr),]
 boxplot(ExcelFile$WBC, horizontal=TRUE, col=c("#e8bbfa"), pch=20, main = "White Blood Cell - Box Plot")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-10-3.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-11-3.png" width="672" />
 
 ```r
 densityplot( ~ ExcelFile$WBC, pch=6,col=c("#e8bbfa"), xlab = "White Blood Cell")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-10-4.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-11-4.png" width="672" />
     
 ### Organizing Data
 
@@ -527,7 +474,7 @@ Created a histogram for one of the Weight variables.
 histogram(~Wgt1, dat=ExcelFile, breaks=10,col = c("#6bc9c2"), type="density", xlab="Weight", main="Histogram of Weight")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-12-1.png" width="672" />
     
 Created a histogram for Exercise. 
     
@@ -536,7 +483,7 @@ Created a histogram for Exercise.
 histogram(~Exercise, dat=ExcelFile, breaks=10,col = c("#6bc9c2"), type="density", xlab="Exercise", main="Histogram of Exercise")
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 
 Created a scatter plot showing the relationship between Exercise and Weight. (note: Exercise should be on the x-axis, Weight should be the y-axis)
     
@@ -552,7 +499,7 @@ plot(Wgt1 ~ Exercise,
 abline(0, 1, col='blue')
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-14-1.png" width="672" />
 
 > Conclusion from the chart...
 
@@ -598,7 +545,7 @@ qqnorm(ExcelFile$WBC, pch = 1,col = c("#6bc9c2"), frame = FALSE, main = "Normal 
 qqline(ExcelFile$WBC, col = "black", lwd = 2)
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-16-1.png" width="672" />
     
 Conducted a statistical test for normality on White Blood Cell counts.
 
@@ -722,7 +669,7 @@ bwplot(WBC ~ Group, data=ExcelFile,
        xlab="Group", ylab = "WBC",  pch = '|')
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-18-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-19-1.png" width="672" />
     
 > Multiple Statistical Differences
 
@@ -750,7 +697,7 @@ col=c("#6bc9c2"),
 range=0)
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-19-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-20-1.png" width="672" />
     
 Determining if White Blood Cell count varies by Blood Pressure Level using ANOVA and a sequence of boxplots.
 
@@ -776,4 +723,4 @@ col=c("#6bc9c2"),
 range=0)
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-21-1.png" width="672" />

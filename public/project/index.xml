@@ -9,11 +9,11 @@
     <lastBuildDate>Thu, 28 Mar 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="//localhost:4321/project/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Salary data based on country and race Analysis</title>
+      <title>Salary data based on country and race</title>
       <link>//localhost:4321/project/salary-data-based-on-country-and-race/</link>
       <pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate>
       <guid>//localhost:4321/project/salary-data-based-on-country-and-race/</guid>
-      <description>DataSet Reference: https://www.kaggle.com/datasets/sudheerp2147234/salary-dataset-based-on-country-and-race?resource=download Importing library&#xA;import pandas as pd import seaborn as sns import numpy as np import matplotlib.pyplot as plt import warnings sns.set_theme(color_codes=True) warnings.filterwarnings(&amp;#39;ignore&amp;#39;) Import Dataset&#xA;df = pd.read_csv(&amp;#39;Salary_Data_Based_country_and_race.csv&amp;#39;) Read Dataset&#xA;df.head() ## Unnamed: 0 Age Gender ... Salary Country Race&#xD;## 0 0 32.0 Male ... 90000.0 UK White&#xD;## 1 1 28.0 Female ... 65000.0 USA Hispanic&#xD;## 2 2 45.0 Male ... 150000.0 Canada White&#xD;## 3 3 36.</description>
+      <description>Introduction Data Dictionary Import Library This section loads and attaches all the necessary libraries for this project.&#xA;Data Set Reference: Kaggle&#xA;Importing Python Library import pandas as pd import seaborn as sns import numpy as np import matplotlib.pyplot as plt import warnings warnings.filterwarnings(&amp;#39;ignore&amp;#39;) Import Dataset df = pd.read_csv(&amp;#39;Salary_Data_Based_country_and_race.csv&amp;#39;) Read Dataset # It will return first few rows of the dataset. df.head() ## Unnamed: 0 Age Gender ... Salary Country Race&#xD;## 0 0 32.</description>
     </item>
     <item>
       <title>Cancer Diagnosis Prediction Model</title>
@@ -27,7 +27,7 @@
       <link>//localhost:4321/project/order-fulfillment-analysis/</link>
       <pubDate>Sun, 27 Nov 2022 00:00:00 +0000</pubDate>
       <guid>//localhost:4321/project/order-fulfillment-analysis/</guid>
-      <description>This section is for the basic set up. It will clear all the plots, the console and the workspace. It also sets the overall format for numbers.&#xA;if(!is.null(dev.list())) dev.off() ## null device ## 1 cat(&amp;#34;\014&amp;#34;) rm(list=ls()) options(scipen=9) This section loads and attaches all the necessary packages.&#xA;if(!require(readxl)){install.packages(&amp;#34;readxl&amp;#34;)} ## Loading required package: readxl library(&amp;#34;readxl&amp;#34;) if(!require(pastecs)){install.packages(&amp;#34;pastecs&amp;#34;)} ## Loading required package: pastecs library(&amp;#34;pastecs&amp;#34;) if(!require(lattice)){install.packages(&amp;#34;lattice&amp;#34;)} ## Loading required package: lattice library(&amp;#34;lattice&amp;#34;) if(!require(ggplot2)){install.packages(&amp;#34;ggplot2&amp;#34;)} ## Loading required package: ggplot2 library(&amp;#34;ggplot2&amp;#34;) if(!</description>
+      <description>Introduction This project aims to analyze the factors affecting the on-time delivery of orders for a major mail-order company. By employing logistic regression, Naive-Bayes classification, and Linear Discriminant Analysis, the goal is to identify significant predictors of delivery success and compare the accuracy, processing speed, and false positive rates of these classification techniques. The ultimate objective is to determine the most effective model for ensuring deliveries are made within the company&amp;rsquo;s target timeframe.</description>
     </item>
     <item>
       <title>Delivery Time Analysis</title>
@@ -41,14 +41,14 @@
       <link>//localhost:4321/project/drug-trial-analysis/</link>
       <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
       <guid>//localhost:4321/project/drug-trial-analysis/</guid>
-      <description>Introduction Statistical Inference and Comparisons 500 patients participated in a new drug trial designed to increase the white blood cell count (WBC). One group of patients (“Treat”) were given the medication while the other (“Control”) were not. A number of variables were measured and recorded (including a survey they were asked to fill in). Appendix 1 contains the data dictionary for the data set. One group of respondents (“Treat”) were given additional education on political matters while the other (“Control”) were not.</description>
+      <description>Introduction This project analyzes data from a drug trial with 500 patients to test a new medication that aims to increase white blood cell count. We compare results between a treatment group and a control group to see if the drug works. The study also looks at how other factors like heart rate and blood pressure affect white blood cell counts.&#xA;Data Dictionary Variable Description ID UserID (unique to each respondent) gender Gender of patient HR Heart Rate (Low, Normal, High) BP Blood Pressure (Low, Normal, High) Wgt1 Patient Weight 1 week before test start Wgt2 Patient Weight at test start Exercise Minutes per week patient exercises Hgt Height of patient in inches Smoke Does the patient smoke?</description>
     </item>
     <item>
       <title>Earthquake Analysis</title>
       <link>//localhost:4321/project/earthquakes-analytics/</link>
       <pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate>
       <guid>//localhost:4321/project/earthquakes-analytics/</guid>
-      <description>library(reticulate) ## Warning: package &amp;#39;reticulate&amp;#39; was built under R version 4.2.3 # !pip install matplot import numpy as np import pandas as pd df1 = pd.read_csv(&amp;#34;earthquakes-dataset.csv&amp;#34;) df1.head() ## Date Time Latitude ... Location Source Magnitude Source Status&#xD;## 0 01/02/1965 13:44:18 19.246 ... ISCGEM ISCGEM Automatic&#xD;## 1 01/04/1965 11:29:49 1.863 ... ISCGEM ISCGEM Automatic&#xD;## 2 01/05/1965 18:05:58 -20.579 ... ISCGEM ISCGEM Automatic&#xD;## 3 01/08/1965 18:49:43 -59.076 ... ISCGEM ISCGEM Automatic&#xD;## 4 01/09/1965 13:32:50 11.</description>
+      <description>Introduction Data Dictionary Variable Description Import Library This section loads and attaches all the necessary libraries for this project.&#xA;library(reticulate) ## Warning: package &amp;#39;reticulate&amp;#39; was built under R version 4.2.3 Import python Libraries Adding the necessary python libraries for this project.&#xA;import numpy as np import pandas as pd Import Dataset df1 = pd.read_csv(&amp;#34;earthquakes-dataset.csv&amp;#34;) df1.head() ## Date Time Latitude ... Location Source Magnitude Source Status&#xD;## 0 01/02/1965 13:44:18 19.</description>
     </item>
     <item>
       <title>Movie Data Analysis</title>

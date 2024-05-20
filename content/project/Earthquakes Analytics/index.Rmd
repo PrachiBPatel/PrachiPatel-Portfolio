@@ -2,23 +2,50 @@
 title: "Earthquake Analysis"
 author: "Prachi Patel"
 date: "2022-09-28"
-output: pdf_document
+excerpt: ""
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+editor_options: 
+  markdown: 
+    wrap: sentence
+
 ---
+
+### Introduction
+
+### Data Dictionary
+
+```{r echo=FALSE, results='asis'}
+options(knitr.kable.NA = '')
+data.frame(Variable = c(""),
+           Description = c("")) |>
+  knitr::kable()
+```
+
+### Import Library
+
+This section loads and attaches all the necessary libraries for this project.
 
 ```{r}
 library(reticulate)
 ```
 
-```{python}
+```{python, include=FALSE}
 # !pip install matplot
 ```
 
+### Import python Libraries
+
+Adding the necessary python libraries for this project.
 
 ```{python}
 import numpy as np
 import pandas as pd
 ```
 
+### Import Dataset
 
 ```{python}
 df1 = pd.read_csv("earthquakes-dataset.csv")
