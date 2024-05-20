@@ -2,7 +2,7 @@
 title: "Salary data based on country and race"
 author: "Prachi Patel"
 date: "2024-03-28"
-excerpt: ""
+excerpt: "This project analyzes salary data to understand how income varies by country, race, and gender. Using data from Kaggle, we examine patterns and differences in salaries. Our goal is to identify any disparities and provide insights into salary distribution across different demographic groups."
 output:
   html_document:
     df_print: paged
@@ -14,7 +14,7 @@ editor_options:
 
 ### Introduction
 
-### Data Dictionary
+This project analyzes salary data to understand how income varies by country, race, and gender. Using data from Kaggle, we examine patterns and differences in salaries. Our goal is to identify any disparities and provide insights into salary distribution across different demographic groups
 
 ### Import Library
 

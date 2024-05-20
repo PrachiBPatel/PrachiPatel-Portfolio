@@ -2,7 +2,7 @@
 title: "Salary data based on country and race"
 author: "Prachi Patel"
 date: "2024-03-28"
-excerpt: ""
+excerpt: "This project analyzes salary data to understand how income varies by country, race, and gender. Using data from Kaggle, we examine patterns and differences in salaries. Our goal is to identify any disparities and provide insights into salary distribution across different demographic groups."
 output:
   html_document:
     df_print: paged
@@ -14,7 +14,7 @@ editor_options:
 
 ### Introduction
 
-### Data Dictionary
+This project analyzes salary data to understand how income varies by country, race, and gender. Using data from Kaggle, we examine patterns and differences in salaries. Our goal is to identify any disparities and provide insights into salary distribution across different demographic groups
 
 ### Import Library
 
@@ -394,7 +394,7 @@ plt.pie(
 ```
 
 ```
-## ([<matplotlib.patches.Wedge object at 0x0000017D7D3CAB50>, <matplotlib.patches.Wedge object at 0x0000017D7D673C50>, <matplotlib.patches.Wedge object at 0x0000017D7D681910>, <matplotlib.patches.Wedge object at 0x0000017D7D681050>, <matplotlib.patches.Wedge object at 0x0000017D7D68D310>, <matplotlib.patches.Wedge object at 0x0000017D7D68F390>, <matplotlib.patches.Wedge object at 0x0000017D7D698ED0>, <matplotlib.patches.Wedge object at 0x0000017D7D69AB50>, <matplotlib.patches.Wedge object at 0x0000017D7D6A4990>, <matplotlib.patches.Wedge object at 0x0000017D7D68F190>], [Text(-1.072493477675293, -0.2444539636495102, 'White'), Text(0.3530411045439956, -1.0418070735516993, 'Asian'), Text(1.0575487878554573, -0.3026393254444195, 'Korean'), Text(1.088096237888774, 0.16138951977218494, 'Australian'), Text(0.9277920392832755, 0.5909331026796362, 'Chinese'), Text(0.612745305701961, 0.9135333548044159, 'Black'), Text(0.2402077844388794, 1.0734524769615863, 'African American'), Text(-0.11229257013235895, 1.0942533430120602, 'Mixed'), Text(-0.44333604109140684, 1.006704104823954, 'Welsh'), Text(-0.726786471721758, 0.8257005658967652, 'Hispanic')], [Text(-0.5849964423683416, -0.13333852562700554, '29.36%'), Text(0.19256787520581578, -0.5682584037554722, '23.91%'), Text(0.5768447933757039, -0.16507599569695608, '6.82%'), Text(0.5935070388484222, 0.0880306471484645, '6.74%'), Text(0.5060683850636047, 0.32232714691616515, '6.62%'), Text(0.3342247122010696, 0.49829092080240855, '6.52%'), Text(0.13102242787575238, 0.585519532888138, '5.28%'), Text(-0.06125049279946851, 0.59686545982476, '4.98%'), Text(-0.24181965877713096, 0.5491113299039748, '4.97%'), Text(-0.39642898457550435, 0.45038212685278095, '4.80%')])
+## ([<matplotlib.patches.Wedge object at 0x000001D3EA1D18D0>, <matplotlib.patches.Wedge object at 0x000001D3EA1E7AD0>, <matplotlib.patches.Wedge object at 0x000001D3EA1F1890>, <matplotlib.patches.Wedge object at 0x000001D3EA1F0F90>, <matplotlib.patches.Wedge object at 0x000001D3EA1FD290>, <matplotlib.patches.Wedge object at 0x000001D3EA1FF210>, <matplotlib.patches.Wedge object at 0x000001D3EA208E10>, <matplotlib.patches.Wedge object at 0x000001D3EA20AB50>, <matplotlib.patches.Wedge object at 0x000001D3EA214910>, <matplotlib.patches.Wedge object at 0x000001D3EA1FF010>], [Text(-1.072493477675293, -0.2444539636495102, 'White'), Text(0.3530411045439956, -1.0418070735516993, 'Asian'), Text(1.0575487878554573, -0.3026393254444195, 'Korean'), Text(1.088096237888774, 0.16138951977218494, 'Australian'), Text(0.9277920392832755, 0.5909331026796362, 'Chinese'), Text(0.612745305701961, 0.9135333548044159, 'Black'), Text(0.2402077844388794, 1.0734524769615863, 'African American'), Text(-0.11229257013235895, 1.0942533430120602, 'Mixed'), Text(-0.44333604109140684, 1.006704104823954, 'Welsh'), Text(-0.726786471721758, 0.8257005658967652, 'Hispanic')], [Text(-0.5849964423683416, -0.13333852562700554, '29.36%'), Text(0.19256787520581578, -0.5682584037554722, '23.91%'), Text(0.5768447933757039, -0.16507599569695608, '6.82%'), Text(0.5935070388484222, 0.0880306471484645, '6.74%'), Text(0.5060683850636047, 0.32232714691616515, '6.62%'), Text(0.3342247122010696, 0.49829092080240855, '6.52%'), Text(0.13102242787575238, 0.585519532888138, '5.28%'), Text(-0.06125049279946851, 0.59686545982476, '4.98%'), Text(-0.24181965877713096, 0.5491113299039748, '4.97%'), Text(-0.39642898457550435, 0.45038212685278095, '4.80%')])
 ```
 
 ```python
