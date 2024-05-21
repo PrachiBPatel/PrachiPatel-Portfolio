@@ -3,11 +3,11 @@ title: Projects Portfolio
 description: "Data Analysis Projects"
 author: "Prachi Patel"
 show_post_thumbnail: false
-show_author_byline: true
+show_author_byline: false
 show_post_date: false
 show_button_links: false
 # for listing page layout
-layout: list-sidebar # list, list-sidebar, list-grid
+layout: list # list, list-sidebar, list-grid
 
 # for list-sidebar layout
 sidebar: 
