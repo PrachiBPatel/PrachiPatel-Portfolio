@@ -20,7 +20,7 @@ This project analyzes salary data to understand how income varies by country, ra
 
 This section loads and attaches all the necessary libraries for this project.
 
-```{r, include=FALSE}
+```{r, warning=FALSE}
 library(reticulate)
 ```
 

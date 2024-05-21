@@ -24,12 +24,12 @@
   
     
   
-<meta name="description" content="Prachi Patel Portfolio">
+<meta name="description" content="This project aims to analyze earthquake data to understand patterns, trends, and characteristics of seismic activity. By examining factors such as location, magnitude, and depth of earthquakes over time, we seek to gain insights into seismic behavior and potential risk areas. Through data visualization and statistical analysis, we aim to contribute to earthquake preparedness and mitigation efforts.">
 
 
 <meta property="og:site_name" content="Prachi Patel">
 <meta property="og:title" content="Earthquake Analysis | Prachi Patel">
-<meta property="og:description" content="Prachi Patel Portfolio" />
+<meta property="og:description" content="This project aims to analyze earthquake data to understand patterns, trends, and characteristics of seismic activity. By examining factors such as location, magnitude, and depth of earthquakes over time, we seek to gain insights into seismic behavior and potential risk areas. Through data visualization and statistical analysis, we aim to contribute to earthquake preparedness and mitigation efforts." />
 <meta property="og:type" content="page" />
 <meta property="og:url" content="//localhost:4321/project/earthquakes-analytics/" />
 <meta property="og:locale" content="en">
@@ -45,12 +45,11 @@
     
   
   <meta itemprop="name" content="Earthquake Analysis">
-  <meta itemprop="description" content="Introduction Data Dictionary Variable Description Import Library This section loads and attaches all the necessary libraries for this project.
-library(reticulate) ## Warning: package &#39;reticulate&#39; was built under R version 4.2.3 Import python Libraries Adding the necessary python libraries for this project.
-import numpy as np import pandas as pd Import Dataset df1 = pd.read_csv(&#34;earthquakes-dataset.csv&#34;) df1.head() ## Date Time Latitude ... Location Source Magnitude Source Status## 0 01/02/1965 13:44:18 19.">
+  <meta itemprop="description" content="Introduction This project aims to analyze earthquake data to understand patterns, trends, and characteristics of seismic activity. By examining factors such as location, magnitude, and depth of earthquakes over time, we seek to gain insights into seismic behavior and potential risk areas. Through data visualization and statistical analysis, we aim to contribute to earthquake preparedness and mitigation efforts.
+Data Dictionary Variable Description Import Library This section loads and attaches all the necessary libraries for this project.">
   <meta itemprop="datePublished" content="2022-09-28T00:00:00+00:00">
   <meta itemprop="dateModified" content="2022-09-28T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1924">
+  <meta itemprop="wordCount" content="1479">
   
   
 
@@ -115,6 +114,7 @@ import numpy as np import pandas as pd Import Dataset df1 = pd.read_csv(&#34;ear
       <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
     </svg></a>
 </h3>
+<p>This project aims to analyze earthquake data to understand patterns, trends, and characteristics of seismic activity. By examining factors such as location, magnitude, and depth of earthquakes over time, we seek to gain insights into seismic behavior and potential risk areas. Through data visualization and statistical analysis, we aim to contribute to earthquake preparedness and mitigation efforts.</p>
 
 
 
@@ -151,8 +151,7 @@ import numpy as np import pandas as pd Import Dataset df1 = pd.read_csv(&#34;ear
 </h3>
 <p>This section loads and attaches all the necessary libraries for this project.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(reticulate)
-</span></span></code></pre></div><pre tabindex="0"><code>## Warning: package &#39;reticulate&#39; was built under R version 4.2.3
-</code></pre>
+</span></span></code></pre></div>
 
 
 
@@ -165,6 +164,8 @@ import numpy as np import pandas as pd Import Dataset df1 = pd.read_csv(&#34;ear
 <p>Adding the necessary python libraries for this project.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">numpy</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">np</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">pandas</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">pd</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">matplotlib</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">mpl</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">matplotlib.pyplot</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">plt</span>
 </span></span></code></pre></div>
 
 
@@ -185,7 +186,8 @@ import numpy as np import pandas as pd Import Dataset df1 = pd.read_csv(&#34;ear
 ## 4  01/09/1965  13:32:50    11.938  ...           ISCGEM           ISCGEM  Automatic
 ## 
 ## [5 rows x 21 columns]
-</code></pre><p>if you add errors argument as coerce then it will make sure that invalid parsing will resulting as a null value for that specific record rather than just failing.</p>
+</code></pre><p>I add the <code>errors</code> argument with the value <code>coerce</code> to make sure that if there&rsquo;s any problem parsing the data, it will just set that bad value to null instead of stopping everything.</p>
+<p>This way, the process keeps going smoothly even if there are a few mistakes in the data.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df1[<span style="color:#d14">&#39;Datetime&#39;</span>] <span style="color:#000;font-weight:bold">=</span> pd<span style="color:#000;font-weight:bold">.</span>to_datetime(df1[<span style="color:#d14">&#39;Date&#39;</span>]<span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#39; &#39;</span><span style="color:#000;font-weight:bold">+</span>df1[<span style="color:#d14">&#39;Time&#39;</span>],errors<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;coerce&#39;</span>)
 </span></span><span style="display:flex;"><span>df1<span style="color:#000;font-weight:bold">.</span>head()
 </span></span></code></pre></div><pre tabindex="0"><code>##          Date      Time  ...     Status            Datetime
@@ -196,64 +198,23 @@ import numpy as np import pandas as pd Import Dataset df1 = pd.read_csv(&#34;ear
 ## 4  01/09/1965  13:32:50  ...  Automatic 1965-01-09 13:32:50
 ## 
 ## [5 rows x 22 columns]
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df1[<span style="color:#d14">&#39;Datetime&#39;</span>][<span style="color:#099">0</span>]
-</span></span></code></pre></div><pre tabindex="0"><code>## Timestamp(&#39;1965-01-02 13:44:18&#39;)
-</code></pre><p>a Weekday as Sun, Mon</p>
-<p>%A Weekday as full name as Sunday, Monday
-%w Weekday as decimal no as 0,1,2&hellip;
-%d Day of month as 01,02
-%b Months as Jan, Feb
-%B Months as January, February
-%m Months as 01,02
-%y Year without century as 11,12,13
-%Y Year with century 2011,2012
-%H 24 Hours clock from 00 to 23
-%I 12 Hours clock from 01 to 12
-%p AM, PM
-%M Minutes from 00 to 59
-%S Seconds from 00 to 59
-%f Microseconds 6 decimal numbers</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df1[<span style="color:#d14">&#39;Datetime&#39;</span>][<span style="color:#099">0</span>]<span style="color:#000;font-weight:bold">.</span>strftime(<span style="color:#d14">&#39;%A or </span><span style="color:#d14">%a</span><span style="color:#d14"> and in %B&#39;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## &#39;Saturday or Sat and in January&#39;
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df1 <span style="color:#000;font-weight:bold">=</span> df1<span style="color:#000;font-weight:bold">.</span>set_index([<span style="color:#d14">&#39;Datetime&#39;</span>])
+</code></pre><p>Set the <code>Datetime</code> field as the index to enable more efficient and meaningful data analysis.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df1 <span style="color:#000;font-weight:bold">=</span> pd<span style="color:#000;font-weight:bold">.</span>read_csv(<span style="color:#d14">&#34;earthquakes-dataset.csv&#34;</span>,index_col<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0</span>, parse_dates<span style="color:#000;font-weight:bold">=</span>[[<span style="color:#d14">&#39;Date&#39;</span>,<span style="color:#d14">&#39;Time&#39;</span>]])
+</span></span><span style="display:flex;"><span>df1<span style="color:#000;font-weight:bold">.</span>index <span style="color:#000;font-weight:bold">=</span> pd<span style="color:#000;font-weight:bold">.</span>to_datetime(df1<span style="color:#000;font-weight:bold">.</span>index, errors<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;coerce&#39;</span>)
 </span></span><span style="display:flex;"><span>df1<span style="color:#000;font-weight:bold">.</span>head()
-</span></span></code></pre></div><pre tabindex="0"><code>##                            Date      Time  ...  Magnitude Source     Status
-## Datetime                                   ...                             
-## 1965-01-02 13:44:18  01/02/1965  13:44:18  ...            ISCGEM  Automatic
-## 1965-01-04 11:29:49  01/04/1965  11:29:49  ...            ISCGEM  Automatic
-## 1965-01-05 18:05:58  01/05/1965  18:05:58  ...            ISCGEM  Automatic
-## 1965-01-08 18:49:43  01/08/1965  18:49:43  ...            ISCGEM  Automatic
-## 1965-01-09 13:32:50  01/09/1965  13:32:50  ...            ISCGEM  Automatic
+</span></span></code></pre></div><pre tabindex="0"><code>##                      Latitude  Longitude  ... Magnitude Source     Status
+## Date_Time                                 ...                            
+## 1965-01-02 13:44:18    19.246    145.616  ...           ISCGEM  Automatic
+## 1965-01-04 11:29:49     1.863    127.352  ...           ISCGEM  Automatic
+## 1965-01-05 18:05:58   -20.579   -173.972  ...           ISCGEM  Automatic
+## 1965-01-08 18:49:43   -59.076    -23.557  ...           ISCGEM  Automatic
+## 1965-01-09 13:32:50    11.938    126.427  ...           ISCGEM  Automatic
 ## 
-## [5 rows x 21 columns]
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df1<span style="color:#000;font-weight:bold">.</span>dtypes
-</span></span></code></pre></div><pre tabindex="0"><code>## Date                           object
-## Time                           object
-## Latitude                      float64
-## Longitude                     float64
-## Type                           object
-## Depth                         float64
-## Depth Error                   float64
-## Depth Seismic Stations        float64
-## Magnitude                     float64
-## Magnitude Type                 object
-## Magnitude Error               float64
-## Magnitude Seismic Stations    float64
-## Azimuthal Gap                 float64
-## Horizontal Distance           float64
-## Horizontal Error              float64
-## Root Mean Square              float64
-## ID                             object
-## Source                         object
-## Location Source                object
-## Magnitude Source               object
-## Status                         object
-## dtype: object
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df1[<span style="color:#d14">&#39;Depth&#39;</span>] <span style="color:#000;font-weight:bold">=</span> df1[<span style="color:#d14">&#39;Depth&#39;</span>]<span style="color:#000;font-weight:bold">.</span>astype(<span style="color:#0086b3">int</span>)
+## [5 rows x 19 columns]
+</code></pre><p>Data type of the <code>Depth</code> field is currently set to float, I have changed it to int.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df1[<span style="color:#d14">&#39;Depth&#39;</span>] <span style="color:#000;font-weight:bold">=</span> df1[<span style="color:#d14">&#39;Depth&#39;</span>]<span style="color:#000;font-weight:bold">.</span>astype(<span style="color:#0086b3">int</span>)
 </span></span><span style="display:flex;"><span>df1<span style="color:#000;font-weight:bold">.</span>dtypes
-</span></span></code></pre></div><pre tabindex="0"><code>## Date                           object
-## Time                           object
-## Latitude                      float64
+</span></span></code></pre></div><pre tabindex="0"><code>## Latitude                      float64
 ## Longitude                     float64
 ## Type                           object
 ## Depth                           int32
@@ -273,74 +234,6 @@ import numpy as np import pandas as pd Import Dataset df1 = pd.read_csv(&#34;ear
 ## Magnitude Source               object
 ## Status                         object
 ## dtype: object
-</code></pre><p>Read csv function has additional arguments like parse date, make an index.
-Steps we have done above this to merge date and time column and make that column as a index column.
-We can do the same process in the line of code while adding the csv file in to the jupyter notebook.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df1 <span style="color:#000;font-weight:bold">=</span> pd<span style="color:#000;font-weight:bold">.</span>read_csv(<span style="color:#d14">&#34;earthquakes-dataset.csv&#34;</span>,index_col<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0</span>, parse_dates<span style="color:#000;font-weight:bold">=</span>[[<span style="color:#d14">&#39;Date&#39;</span>,<span style="color:#d14">&#39;Time&#39;</span>]])
-</span></span></code></pre></div><pre tabindex="0"><code>## &lt;string&gt;:1: FutureWarning: Support for nested sequences for &#39;parse_dates&#39; in pd.read_csv is deprecated. Combine the desired columns with pd.to_datetime after parsing instead.
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df1<span style="color:#000;font-weight:bold">.</span>head()
-</span></span></code></pre></div><pre tabindex="0"><code>##                      Latitude  Longitude  ... Magnitude Source     Status
-## Date_Time                                 ...                            
-## 01/02/1965 13:44:18    19.246    145.616  ...           ISCGEM  Automatic
-## 01/04/1965 11:29:49     1.863    127.352  ...           ISCGEM  Automatic
-## 01/05/1965 18:05:58   -20.579   -173.972  ...           ISCGEM  Automatic
-## 01/08/1965 18:49:43   -59.076    -23.557  ...           ISCGEM  Automatic
-## 01/09/1965 13:32:50    11.938    126.427  ...           ISCGEM  Automatic
-## 
-## [5 rows x 19 columns]
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df1<span style="color:#000;font-weight:bold">.</span>index
-</span></span></code></pre></div><pre tabindex="0"><code>## Index([&#39;01/02/1965 13:44:18&#39;, &#39;01/04/1965 11:29:49&#39;, &#39;01/05/1965 18:05:58&#39;,
-##        &#39;01/08/1965 18:49:43&#39;, &#39;01/09/1965 13:32:50&#39;, &#39;01/10/1965 13:36:32&#39;,
-##        &#39;01/12/1965 13:32:25&#39;, &#39;01/15/1965 23:17:42&#39;, &#39;01/16/1965 11:32:37&#39;,
-##        &#39;01/17/1965 10:43:17&#39;,
-##        ...
-##        &#39;12/24/2016 03:58:55&#39;, &#39;12/25/2016 14:22:27&#39;, &#39;12/25/2016 14:32:13&#39;,
-##        &#39;12/27/2016 23:20:56&#39;, &#39;12/28/2016 08:18:01&#39;, &#39;12/28/2016 08:22:12&#39;,
-##        &#39;12/28/2016 09:13:47&#39;, &#39;12/28/2016 12:38:51&#39;, &#39;12/29/2016 22:30:19&#39;,
-##        &#39;12/30/2016 20:08:28&#39;],
-##       dtype=&#39;object&#39;, name=&#39;Date_Time&#39;, length=23412)
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df1<span style="color:#000;font-weight:bold">.</span>index <span style="color:#000;font-weight:bold">=</span> pd<span style="color:#000;font-weight:bold">.</span>to_datetime(df1<span style="color:#000;font-weight:bold">.</span>index, errors<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;coerce&#39;</span>)
-</span></span><span style="display:flex;"><span>df1<span style="color:#000;font-weight:bold">.</span>index
-</span></span></code></pre></div><pre tabindex="0"><code>## DatetimeIndex([&#39;1965-01-02 13:44:18&#39;, &#39;1965-01-04 11:29:49&#39;,
-##                &#39;1965-01-05 18:05:58&#39;, &#39;1965-01-08 18:49:43&#39;,
-##                &#39;1965-01-09 13:32:50&#39;, &#39;1965-01-10 13:36:32&#39;,
-##                &#39;1965-01-12 13:32:25&#39;, &#39;1965-01-15 23:17:42&#39;,
-##                &#39;1965-01-16 11:32:37&#39;, &#39;1965-01-17 10:43:17&#39;,
-##                ...
-##                &#39;2016-12-24 03:58:55&#39;, &#39;2016-12-25 14:22:27&#39;,
-##                &#39;2016-12-25 14:32:13&#39;, &#39;2016-12-27 23:20:56&#39;,
-##                &#39;2016-12-28 08:18:01&#39;, &#39;2016-12-28 08:22:12&#39;,
-##                &#39;2016-12-28 09:13:47&#39;, &#39;2016-12-28 12:38:51&#39;,
-##                &#39;2016-12-29 22:30:19&#39;, &#39;2016-12-30 20:08:28&#39;],
-##               dtype=&#39;datetime64[ns]&#39;, name=&#39;Date_Time&#39;, length=23412, freq=None)
-</code></pre><p>info function to check the null values we have.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df1<span style="color:#000;font-weight:bold">.</span>info()
-</span></span></code></pre></div><pre tabindex="0"><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-## DatetimeIndex: 23412 entries, 1965-01-02 13:44:18 to 2016-12-30 20:08:28
-## Data columns (total 19 columns):
-##  #   Column                      Non-Null Count  Dtype  
-## ---  ------                      --------------  -----  
-##  0   Latitude                    23412 non-null  float64
-##  1   Longitude                   23412 non-null  float64
-##  2   Type                        23412 non-null  object 
-##  3   Depth                       23412 non-null  float64
-##  4   Depth Error                 4461 non-null   float64
-##  5   Depth Seismic Stations      7097 non-null   float64
-##  6   Magnitude                   23412 non-null  float64
-##  7   Magnitude Type              23409 non-null  object 
-##  8   Magnitude Error             327 non-null    float64
-##  9   Magnitude Seismic Stations  2564 non-null   float64
-##  10  Azimuthal Gap               7299 non-null   float64
-##  11  Horizontal Distance         1604 non-null   float64
-##  12  Horizontal Error            1156 non-null   float64
-##  13  Root Mean Square            17352 non-null  float64
-##  14  ID                          23412 non-null  object 
-##  15  Source                      23412 non-null  object 
-##  16  Location Source             23412 non-null  object 
-##  17  Magnitude Source            23412 non-null  object 
-##  18  Status                      23412 non-null  object 
-## dtypes: float64(12), object(7)
-## memory usage: 3.6+ MB
 </code></pre><p>Drop all the columns with the null values.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df1 <span style="color:#000;font-weight:bold">=</span> df1<span style="color:#000;font-weight:bold">.</span>dropna(axis <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">1</span>)
 </span></span><span style="display:flex;"><span>df1<span style="color:#000;font-weight:bold">.</span>head()
@@ -353,7 +246,8 @@ We can do the same process in the line of code while adding the csv file in to t
 ## 1965-01-09 13:32:50    11.938    126.427  ...           ISCGEM  Automatic
 ## 
 ## [5 rows x 10 columns]
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df1<span style="color:#000;font-weight:bold">.</span>info()
+</code></pre><p>Verify if any null value is available or not.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df1<span style="color:#000;font-weight:bold">.</span>info() <span style="color:#998;font-style:italic"># As we see no null values are available.</span>
 </span></span></code></pre></div><pre tabindex="0"><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 ## DatetimeIndex: 23412 entries, 1965-01-02 13:44:18 to 2016-12-30 20:08:28
 ## Data columns (total 10 columns):
@@ -362,61 +256,47 @@ We can do the same process in the line of code while adding the csv file in to t
 ##  0   Latitude          23412 non-null  float64
 ##  1   Longitude         23412 non-null  float64
 ##  2   Type              23412 non-null  object 
-##  3   Depth             23412 non-null  float64
+##  3   Depth             23412 non-null  int32  
 ##  4   Magnitude         23412 non-null  float64
 ##  5   ID                23412 non-null  object 
 ##  6   Source            23412 non-null  object 
 ##  7   Location Source   23412 non-null  object 
 ##  8   Magnitude Source  23412 non-null  object 
 ##  9   Status            23412 non-null  object 
-## dtypes: float64(4), object(6)
-## memory usage: 2.0+ MB
-</code></pre><p>Creaded a new dataset having improtant columns such as latitude, longitude, type, depth and magnitude.</p>
+## dtypes: float64(3), int32(1), object(6)
+## memory usage: 1.9+ MB
+</code></pre><p>Created a new dataset having important columns such as latitude, longitude, type, depth and magnitude.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2 <span style="color:#000;font-weight:bold">=</span> df1[[<span style="color:#d14">&#39;Latitude&#39;</span>,<span style="color:#d14">&#39;Longitude&#39;</span>,<span style="color:#d14">&#39;Type&#39;</span>,<span style="color:#d14">&#39;Depth&#39;</span>,<span style="color:#d14">&#39;Magnitude&#39;</span>]]
 </span></span></code></pre></div><p>Sample is used to get the random records based on provided number of records.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2<span style="color:#000;font-weight:bold">.</span>sample(<span style="color:#099">5</span>)
 </span></span></code></pre></div><pre tabindex="0"><code>##                      Latitude  Longitude        Type  Depth  Magnitude
 ## Date_Time                                                             
-## 2007-09-26 12:49:57    -5.024    153.626  Earthquake   35.0        5.6
-## 1987-03-14 06:10:05   -23.520   -177.467  Earthquake   40.1        5.6
-## 1982-11-14 08:29:20    52.986    158.669  Earthquake   92.0        5.6
-## 1988-08-20 08:19:38   -16.484    167.171  Earthquake   21.8        5.9
-## 2006-11-15 00:53:25   -50.599    162.328  Earthquake   10.0        5.5
-</code></pre><p>Get the unique values for specific columns.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2<span style="color:#000;font-weight:bold">.</span>Type<span style="color:#000;font-weight:bold">.</span>unique()
-</span></span></code></pre></div><pre tabindex="0"><code>## array([&#39;Earthquake&#39;, &#39;Nuclear Explosion&#39;, &#39;Explosion&#39;, &#39;Rock Burst&#39;],
-##       dtype=object)
-</code></pre><p>Biggest Earthquack in the last fifty years.</p>
+## 2010-02-27 09:00:17   -33.443    -71.525  Earthquake     35        5.6
+## 1989-12-30 12:38:11   -26.209    -70.507  Earthquake     32        5.5
+## 2010-05-05 16:29:03    -4.054    101.096  Earthquake     27        6.5
+## 1991-04-19 06:39:42    16.865    -60.592  Earthquake     16        5.5
+## 1969-03-15 13:35:36    51.303   -179.068  Earthquake     42        5.7
+</code></pre><p>Now, let&rsquo;s check biggest earthquake in the last fifty years.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2[df2<span style="color:#000;font-weight:bold">.</span>Type <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Earthquake&#39;</span>]<span style="color:#000;font-weight:bold">.</span>Magnitude<span style="color:#000;font-weight:bold">.</span>max()
 </span></span></code></pre></div><pre tabindex="0"><code>## 9.1
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2[df2<span style="color:#000;font-weight:bold">.</span>Type <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Earthquake&#39;</span>]<span style="color:#000;font-weight:bold">.</span>Depth<span style="color:#000;font-weight:bold">.</span>max()
-</span></span></code></pre></div><pre tabindex="0"><code>## 700.0
+</span></span></code></pre></div><pre tabindex="0"><code>## 700
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2[df2<span style="color:#000;font-weight:bold">.</span>Type <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Earthquake&#39;</span>]<span style="color:#000;font-weight:bold">.</span>Depth<span style="color:#000;font-weight:bold">.</span>min()
-</span></span></code></pre></div><pre tabindex="0"><code>## -1.1
-</code></pre><p>Value count for each value present in the type column.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2<span style="color:#000;font-weight:bold">.</span>Type<span style="color:#000;font-weight:bold">.</span>value_counts()
-</span></span></code></pre></div><pre tabindex="0"><code>## Type
-## Earthquake           23232
-## Nuclear Explosion      175
-## Explosion                4
-## Rock Burst               1
-## Name: count, dtype: int64
-</code></pre><p>Average range of magnitude for the specified period of time.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2[<span style="color:#d14">&#39;Magnitude&#39;</span>][df2<span style="color:#000;font-weight:bold">.</span>Type <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Earthquacke&#39;</span>]<span style="color:#000;font-weight:bold">.</span>resample(<span style="color:#d14">&#39;1D&#39;</span>)<span style="color:#000;font-weight:bold">.</span>mean()
-</span></span></code></pre></div><pre tabindex="0"><code>## Series([], Freq: D, Name: Magnitude, dtype: float64)
-</code></pre><p>Check stand deviation.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2[<span style="color:#d14">&#39;Magnitude&#39;</span>][df2<span style="color:#000;font-weight:bold">.</span>Type <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Earthquacke&#39;</span>]<span style="color:#000;font-weight:bold">.</span>resample(<span style="color:#d14">&#39;1M&#39;</span>)<span style="color:#000;font-weight:bold">.</span>std()
-</span></span></code></pre></div><pre tabindex="0"><code>## &lt;string&gt;:1: FutureWarning: &#39;M&#39; is deprecated and will be removed in a future version, please use &#39;ME&#39; instead.
-## Series([], Freq: ME, Name: Magnitude, dtype: float64)
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2<span style="color:#000;font-weight:bold">.</span>loc[df2[<span style="color:#d14">&#39;Magnitude&#39;</span>] <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">9.1</span>]
+</span></span></code></pre></div><pre tabindex="0"><code>## -1
+</code></pre><p>let&rsquo;s narrow down the dataset to include only the records corresponding to the largest earthquake event.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2<span style="color:#000;font-weight:bold">.</span>loc[df2[<span style="color:#d14">&#39;Magnitude&#39;</span>] <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">9.1</span>]
 </span></span></code></pre></div><pre tabindex="0"><code>##                      Latitude  Longitude        Type  Depth  Magnitude
 ## Date_Time                                                             
-## 2004-12-26 00:58:53     3.295     95.982  Earthquake   30.0        9.1
-## 2011-03-11 05:46:24    38.297    142.373  Earthquake   29.0        9.1
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2<span style="color:#000;font-weight:bold">.</span>loc[df2[<span style="color:#d14">&#39;Depth&#39;</span>] <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1.1</span>]
+## 2004-12-26 00:58:53     3.295     95.982  Earthquake     30        9.1
+## 2011-03-11 05:46:24    38.297    142.373  Earthquake     29        9.1
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2<span style="color:#000;font-weight:bold">.</span>loc[df2[<span style="color:#d14">&#39;Depth&#39;</span>] <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">700</span>]
 </span></span></code></pre></div><pre tabindex="0"><code>##                      Latitude  Longitude        Type  Depth  Magnitude
 ## Date_Time                                                             
-## 1992-06-28 12:00:45    34.131   -116.408  Earthquake   -1.1       5.77
+## 1985-10-22 19:14:02   -20.158   -179.163  Earthquake    700        5.5
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2<span style="color:#000;font-weight:bold">.</span>loc[df2[<span style="color:#d14">&#39;Depth&#39;</span>] <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]
+</span></span></code></pre></div><pre tabindex="0"><code>##                      Latitude  Longitude        Type  Depth  Magnitude
+## Date_Time                                                             
+## 1992-06-28 12:00:45    34.131   -116.408  Earthquake     -1       5.77
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2<span style="color:#000;font-weight:bold">.</span>index<span style="color:#000;font-weight:bold">.</span>year[df2<span style="color:#000;font-weight:bold">.</span>Type <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Nuclear Explosion&#39;</span>]<span style="color:#000;font-weight:bold">.</span>value_counts()<span style="color:#000;font-weight:bold">.</span>sort_index()
 </span></span></code></pre></div><pre tabindex="0"><code>## Date_Time
 ## 1966.0     1
@@ -448,110 +328,140 @@ We can do the same process in the line of code while adding the csv file in to t
 ## 1995.0     2
 ## 1996.0     1
 ## Name: count, dtype: int64
-</code></pre><p>To Install packages in Jupyter Notebook you can use conda or pip install.
-Ex.,
-conda install matplotlib
-or
-pip install matplotlib
-or
-!pip install matplotlib</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">matplotlib</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">mpl</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">matplotlib.pyplot</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">plt</span>
-</span></span></code></pre></div><p>inline is used to enable static images of the plots into the notebook environment.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#d14">&#39;%matplotlib inlin&#39;</span>
-</span></span></code></pre></div><pre tabindex="0"><code>## &#39;%matplotlib inlin&#39;
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>hist(df2[<span style="color:#d14">&#39;Magnitude&#39;</span>])
-</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-32-1.png" width="672" />
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>hist(df2[<span style="color:#d14">&#39;Magnitude&#39;</span>])
+</code></pre><p>Added a visualization for the distribution of earthquake magnitudes in the dataset, as it will provides insights into the frequency and range of earthquake magnitudes.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>hist(df2[<span style="color:#d14">&#39;Magnitude&#39;</span>], bins<span style="color:#000;font-weight:bold">=</span><span style="color:#099">10</span>, edgecolor<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;black&#39;</span>, <span style="color:#0086b3">range</span> <span style="color:#000;font-weight:bold">=</span> [<span style="color:#099">6</span>,<span style="color:#099">7</span>])
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>xlabel(<span style="color:#d14">&#39;Magnitude&#39;</span>)
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>ylabel(<span style="color:#d14">&#39;Number of Earthquackes&#39;</span>)
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;1965-2016 Earthquackes&#39;</span>)
-</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-33-3.png" width="672" />
-<p>bins are the vuckets where the data is relied into.
-Normally choose bins size between 5 to 10. But it also depends upon your database as well.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>hist(df2[<span style="color:#d14">&#39;Magnitude&#39;</span>], bins <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">10</span>, edgecolor <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;black&#39;</span>)
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>xlabel(<span style="color:#d14">&#39;Magnitude&#39;</span>)
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>ylabel(<span style="color:#d14">&#39;Number of Earthquackes&#39;</span>)
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;1965-2016 Earthquackes&#39;</span>)
-</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-34-5.png" width="672" />
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>hist(df2[<span style="color:#d14">&#39;Magnitude&#39;</span>], bins<span style="color:#000;font-weight:bold">=</span>[<span style="color:#099">6</span>,<span style="color:#099">6.1</span>,<span style="color:#099">6.2</span>,<span style="color:#099">6.3</span>,<span style="color:#099">6.4</span>,<span style="color:#099">6.5</span>,<span style="color:#099">6.6</span>,<span style="color:#099">6.7</span>,<span style="color:#099">6.8</span>,<span style="color:#099">6.9</span>,<span style="color:#099">7</span>], edgecolor <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;black&#39;</span>)
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>xlabel(<span style="color:#d14">&#39;Magnitude&#39;</span>)
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>ylabel(<span style="color:#d14">&#39;Number of Earthquackes&#39;</span>)
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;1965-2016 Earthquackes&#39;</span>)
-</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-35-7.png" width="672" />
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>hist(df2[<span style="color:#d14">&#39;Magnitude&#39;</span>], bins<span style="color:#000;font-weight:bold">=</span><span style="color:#099">10</span>, edgecolor <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;black&#39;</span>, <span style="color:#0086b3">range</span> <span style="color:#000;font-weight:bold">=</span> [<span style="color:#099">6</span>,<span style="color:#099">7</span>])
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>xlabel(<span style="color:#d14">&#39;Magnitude&#39;</span>)
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>ylabel(<span style="color:#d14">&#39;Number of Earthquackes&#39;</span>)
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;1965-2016 Earthquackes&#39;</span>)
-</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-36-9.png" width="672" />
-<p>If you want the same graph with different bins value then you can create bins function and just change the value of bins using function instead of writing whole line of code again and again.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">myplot</span>(bins):
-</span></span><span style="display:flex;"><span>    plt<span style="color:#000;font-weight:bold">.</span>hist(df2[<span style="color:#d14">&#39;Magnitude&#39;</span>], bins <span style="color:#000;font-weight:bold">=</span> bins, edgecolor <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;black&#39;</span>)
-</span></span><span style="display:flex;"><span>    plt<span style="color:#000;font-weight:bold">.</span>xlabel(<span style="color:#d14">&#39;Magnitude&#39;</span>)
-</span></span><span style="display:flex;"><span>    plt<span style="color:#000;font-weight:bold">.</span>ylabel(<span style="color:#d14">&#39;Number of Earthquackes&#39;</span>)
-</span></span><span style="display:flex;"><span>    plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;1965-2016 Earthquackes&#39;</span>)
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>myplot(<span style="color:#099">10</span>)
-</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-37-11.png" width="672" />
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>myplot(<span style="color:#099">20</span>)
-</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-38-13.png" width="672" />
-<p>Line Chart</p>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>ylabel(<span style="color:#d14">&#39;Number of Earthquakes&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Distribution of Earthquake Magnitudes (1965-2016)&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>grid(<span style="color:#000;font-weight:bold">True</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>show()
+</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+<p><em>Bins are the buckets into which data is grouped. Typically, the number of bins is chosen between 5 and 10, but the optimal number can vary depending on the specifics of your dataset.</em></p>
+<hr>
+<p>Let&rsquo;s visualizes the line chart to show the biggest earthquake each year changes over time.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>plot(df2[<span style="color:#d14">&#39;Magnitude&#39;</span>][df2<span style="color:#000;font-weight:bold">.</span>Type <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Earthquake&#39;</span>]<span style="color:#000;font-weight:bold">.</span>resample(<span style="color:#d14">&#39;1Y&#39;</span>)<span style="color:#000;font-weight:bold">.</span>max())
-</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-39-15.png" width="672" />
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>plot(df2[<span style="color:#d14">&#39;Magnitude&#39;</span>][df2<span style="color:#000;font-weight:bold">.</span>Type <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Earthquake&#39;</span>]<span style="color:#000;font-weight:bold">.</span>resample(<span style="color:#d14">&#39;6M&#39;</span>)<span style="color:#000;font-weight:bold">.</span>max())
-</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-40-17.png" width="672" />
-<p>How many earthquakes we have per year?
-For this we have to use unique indexes and here we are using bar plots because we are comparing number year by year.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># plt.bar(df2.index.year.unique(),df2.index.year[df2.Type == &#39;Earthquake&#39;].value_counts().sort_index())</span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># plt.title(&#39;Earthquake per year&#39;)</span>
-</span></span></code></pre></div><p>Let&rsquo;s check the data frame that which data is causing this error.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2<span style="color:#000;font-weight:bold">.</span>index<span style="color:#000;font-weight:bold">.</span>year<span style="color:#000;font-weight:bold">.</span>unique()<span style="color:#000;font-weight:bold">.</span>shape
-</span></span></code></pre></div><pre tabindex="0"><code>## (53,)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>xlabel(<span style="color:#d14">&#39;Year&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>ylabel(<span style="color:#d14">&#39;Maximum Magnitude&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Maximum Earthquake Magnitude Each Year&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>grid(<span style="color:#000;font-weight:bold">True</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>show()
+</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-17-3.png" width="672" />
+<p>To determine how many earthquakes occur per year, we need to use unique indexes. I have used bar plots for this analysis as they allow us to compare the number of earthquakes on a year-by-year basis.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Filter earthquake data</span>
+</span></span><span style="display:flex;"><span>earthquake_data <span style="color:#000;font-weight:bold">=</span> df2[df2[<span style="color:#d14">&#39;Type&#39;</span>] <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Earthquake&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Count the number of earthquakes per year</span>
+</span></span><span style="display:flex;"><span>earthquakes_per_year <span style="color:#000;font-weight:bold">=</span> earthquake_data<span style="color:#000;font-weight:bold">.</span>index<span style="color:#000;font-weight:bold">.</span>year<span style="color:#000;font-weight:bold">.</span>value_counts()<span style="color:#000;font-weight:bold">.</span>sort_index()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create bar plot</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>figure(figsize<span style="color:#000;font-weight:bold">=</span>(<span style="color:#099">10</span>, <span style="color:#099">6</span>))
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>bar(earthquakes_per_year<span style="color:#000;font-weight:bold">.</span>index, earthquakes_per_year<span style="color:#000;font-weight:bold">.</span>values)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>xlabel(<span style="color:#d14">&#39;Year&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>ylabel(<span style="color:#d14">&#39;Number of Earthquakes&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Number of Earthquakes Per Year&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>grid(<span style="color:#000;font-weight:bold">True</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>show()
+</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-18-5.png" width="960" />
+<p>Let&rsquo;s check the dataFrame to identify which data is causing this error.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Check for missing years in the index</span>
+</span></span><span style="display:flex;"><span>missing_years <span style="color:#000;font-weight:bold">=</span> df2<span style="color:#000;font-weight:bold">.</span>index<span style="color:#000;font-weight:bold">.</span>year[df2[<span style="color:#d14">&#39;Type&#39;</span>] <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Earthquake&#39;</span>]<span style="color:#000;font-weight:bold">.</span>value_counts()<span style="color:#000;font-weight:bold">.</span>sort_index()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Check if there are any missing years</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> missing_years<span style="color:#000;font-weight:bold">.</span>empty:
+</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">print</span>(<span style="color:#d14">&#34;There are no missing years in the earthquake data.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">print</span>(<span style="color:#d14">&#34;Years with Missing Data:&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">print</span>(missing_years[missing_years <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span>])
+</span></span></code></pre></div><pre tabindex="0"><code>## Years with Missing Data:
+## Series([], Name: count, dtype: int64)
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2<span style="color:#000;font-weight:bold">.</span>index<span style="color:#000;font-weight:bold">.</span>year[df2<span style="color:#000;font-weight:bold">.</span>Type <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Earthquake&#39;</span>]<span style="color:#000;font-weight:bold">.</span>value_counts()<span style="color:#000;font-weight:bold">.</span>sort_index()<span style="color:#000;font-weight:bold">.</span>shape
 </span></span></code></pre></div><pre tabindex="0"><code>## (52,)
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># f2.index.year.isnull().sum()</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2<span style="color:#000;font-weight:bold">.</span>loc[df2<span style="color:#000;font-weight:bold">.</span>index<span style="color:#000;font-weight:bold">.</span>year<span style="color:#000;font-weight:bold">.</span>isnull()]
 </span></span></code></pre></div><pre tabindex="0"><code>##            Latitude  Longitude        Type  Depth  Magnitude
 ## Date_Time                                                   
-## NaT           8.017    124.075  Earthquake  623.0        5.6
-## NaT         -32.998    -71.766  Earthquake   33.0        5.6
-## NaT          36.344    142.344  Earthquake   10.1        5.8
+## NaT           8.017    124.075  Earthquake    623        5.6
+## NaT         -32.998    -71.766  Earthquake     33        5.6
+## NaT          36.344    142.344  Earthquake     10        5.8
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2<span style="color:#000;font-weight:bold">.</span>loc[df2<span style="color:#000;font-weight:bold">.</span>index<span style="color:#000;font-weight:bold">.</span>year<span style="color:#000;font-weight:bold">.</span>isnull()]
 </span></span></code></pre></div><pre tabindex="0"><code>##            Latitude  Longitude        Type  Depth  Magnitude
 ## Date_Time                                                   
-## NaT           8.017    124.075  Earthquake  623.0        5.6
-## NaT         -32.998    -71.766  Earthquake   33.0        5.6
-## NaT          36.344    142.344  Earthquake   10.1        5.8
-</code></pre><p>These three records are causing an error because we have make date time column as index and these three records have not proper formatted value.
-so, first delete these values and then once again create an index for date_time column.</p>
+## NaT           8.017    124.075  Earthquake    623        5.6
+## NaT         -32.998    -71.766  Earthquake     33        5.6
+## NaT          36.344    142.344  Earthquake     10        5.8
+</code></pre><p>These three records are causing an error because we have set the date_time column as the index, and these records have improperly formatted values. Therefore, we need to delete these records and then recreate the index for the date_time column.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2 <span style="color:#000;font-weight:bold">=</span> df2<span style="color:#000;font-weight:bold">.</span>reset_index()<span style="color:#000;font-weight:bold">.</span>dropna()<span style="color:#000;font-weight:bold">.</span>set_index(<span style="color:#d14">&#39;Date_Time&#39;</span>)
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>bar(df2<span style="color:#000;font-weight:bold">.</span>index<span style="color:#000;font-weight:bold">.</span>year<span style="color:#000;font-weight:bold">.</span>unique(),df2<span style="color:#000;font-weight:bold">.</span>index<span style="color:#000;font-weight:bold">.</span>year[df2<span style="color:#000;font-weight:bold">.</span>Type <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Earthquake&#39;</span>]<span style="color:#000;font-weight:bold">.</span>value_counts()<span style="color:#000;font-weight:bold">.</span>sort_index())
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Earthquake per year&#39;</span>)
-</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-47-19.png" width="672" />
-<p>How many Nuclear Explosions we have per year?</p>
+</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-24-7.png" width="672" />
+<p>Let&rsquo;s check how many Nuclear Explosions we have per year?</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>bar(df2[df2<span style="color:#000;font-weight:bold">.</span>Type <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Nuclear Explosion&#39;</span>]<span style="color:#000;font-weight:bold">.</span>index<span style="color:#000;font-weight:bold">.</span>year<span style="color:#000;font-weight:bold">.</span>unique(),
 </span></span><span style="display:flex;"><span>        df2<span style="color:#000;font-weight:bold">.</span>index<span style="color:#000;font-weight:bold">.</span>year[df2<span style="color:#000;font-weight:bold">.</span>Type <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Nuclear Explosion&#39;</span>]<span style="color:#000;font-weight:bold">.</span>value_counts()<span style="color:#000;font-weight:bold">.</span>sort_index())
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Nukes per Year&#39;</span>)
-</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-48-21.png" width="672" />
+</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-25-9.png" width="672" />
 <p>Scatter Plots - to see relationships and co-relation between different values.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#plt.scatter(df2[df2.Type == &#39;Earthquake&#39;].index.year.unique(),</span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#        df2.index.year[df2.Type == &#39;Earthquake&#39;].value_counts().sort_index())</span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#plt.title(&#39;Earthquake per Year&#39;)</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># plt.scatter(df2[df2.Type == &#39;Earthquake&#39;].index.year.unique(),</span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#         df2.index.year[df2.Type == &#39;Earthquake&#39;].value_counts().sort_index(), df2[&#39;Depth&#39;], &#39;green&#39;, alpha=0.7)</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>scatter(df2[<span style="color:#d14">&#39;Magnitude&#39;</span>],df2[<span style="color:#d14">&#39;Depth&#39;</span>])
-</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-51-23.png" width="672" />
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>figure(figsize<span style="color:#000;font-weight:bold">=</span>(<span style="color:#099">19</span>,<span style="color:#099">10</span>))
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>scatter(df2[<span style="color:#d14">&#39;Longitude&#39;</span>],df2[<span style="color:#d14">&#39;Latitude&#39;</span>],df2[<span style="color:#d14">&#39;Magnitude&#39;</span>]<span style="color:#000;font-weight:bold">*</span><span style="color:#099">10</span>,df2[<span style="color:#d14">&#39;Depth&#39;</span>])
-</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-52-25.png" width="1824" />
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Filter earthquake data and select relevant columns</span>
+</span></span><span style="display:flex;"><span>earthquake_data <span style="color:#000;font-weight:bold">=</span> df2[df2[<span style="color:#d14">&#39;Type&#39;</span>] <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Earthquake&#39;</span>]
+</span></span><span style="display:flex;"><span>earthquake_data <span style="color:#000;font-weight:bold">=</span> earthquake_data[[<span style="color:#d14">&#39;Latitude&#39;</span>, <span style="color:#d14">&#39;Longitude&#39;</span>, <span style="color:#d14">&#39;Depth&#39;</span>, <span style="color:#d14">&#39;Magnitude&#39;</span>]]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create scatter plot</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>figure(figsize<span style="color:#000;font-weight:bold">=</span>(<span style="color:#099">10</span>, <span style="color:#099">6</span>))
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>scatter(earthquake_data[<span style="color:#d14">&#39;Longitude&#39;</span>], earthquake_data[<span style="color:#d14">&#39;Latitude&#39;</span>], c<span style="color:#000;font-weight:bold">=</span>earthquake_data[<span style="color:#d14">&#39;Depth&#39;</span>], cmap<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;viridis&#39;</span>, alpha<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0.7</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>colorbar(label<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Depth&#39;</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## &lt;matplotlib.colorbar.Colorbar object at 0x000001BD46490310&gt;
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>xlabel(<span style="color:#d14">&#39;Longitude&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>ylabel(<span style="color:#d14">&#39;Latitude&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Earthquake Locations and Depths&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>grid(<span style="color:#000;font-weight:bold">True</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>show()
+</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-26-11.png" width="960" />
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Define the size of the figure</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>figure(figsize<span style="color:#000;font-weight:bold">=</span>(<span style="color:#099">12</span>, <span style="color:#099">8</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create the scatter plot</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>scatter(df2[<span style="color:#d14">&#39;Longitude&#39;</span>], df2[<span style="color:#d14">&#39;Latitude&#39;</span>], 
+</span></span><span style="display:flex;"><span>            s<span style="color:#000;font-weight:bold">=</span>df2[<span style="color:#d14">&#39;Magnitude&#39;</span>] <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">50</span>, 
+</span></span><span style="display:flex;"><span>            c<span style="color:#000;font-weight:bold">=</span>df2[<span style="color:#d14">&#39;Depth&#39;</span>], cmap<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;viridis&#39;</span>, alpha<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0.7</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Add color bar to represent depth</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>colorbar(label<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Depth (km)&#39;</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## &lt;matplotlib.colorbar.Colorbar object at 0x000001BD47DF96D0&gt;
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Set labels and title</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>xlabel(<span style="color:#d14">&#39;Longitude&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>ylabel(<span style="color:#d14">&#39;Latitude&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Earthquake Locations&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Show the plot</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>grid(<span style="color:#000;font-weight:bold">True</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>show()
+</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-27-13.png" width="1152" />
 <p>Depth of Each Earthquakes</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># plt.scatter(df2[df2.Type == &#39;Earthquake&#39;].index.year.unique(),</span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#            df2.index.year[df2.Type == &#39;Earthquake&#39;].value_counts().sort_index(),df2[&#39;Depth&#39;],&#39;green&#39;,alpha = 0.7)</span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># area = df2[&#39;Depth&#39;]</span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># for area in [10,50,100]:</span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#     plt.scatter([],[],c=&#39;k&#39;,s=area,label=str(area))</span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># plt.ledgend(scatterpoints=1, title=&#39;I am legend&#39;, loc = &#39;lower center&#39;)</span>
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Filter earthquake data</span>
+</span></span><span style="display:flex;"><span>earthquake_data <span style="color:#000;font-weight:bold">=</span> df2[df2[<span style="color:#d14">&#39;Type&#39;</span>] <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Earthquake&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Define figure size</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>figure(figsize<span style="color:#000;font-weight:bold">=</span>(<span style="color:#099">12</span>, <span style="color:#099">8</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create scatter plot</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>scatter(earthquake_data<span style="color:#000;font-weight:bold">.</span>index<span style="color:#000;font-weight:bold">.</span>year, earthquake_data[<span style="color:#d14">&#39;Depth&#39;</span>], 
+</span></span><span style="display:flex;"><span>            s<span style="color:#000;font-weight:bold">=</span>earthquake_data[<span style="color:#d14">&#39;Magnitude&#39;</span>] <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">10</span>, 
+</span></span><span style="display:flex;"><span>            c<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;green&#39;</span>, alpha<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0.7</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Add labels and title</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>xlabel(<span style="color:#d14">&#39;Year&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>ylabel(<span style="color:#d14">&#39;Depth (km)&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Depth of Earthquakes Over Time&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Add legend for magnitude</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">for</span> area <span style="color:#000;font-weight:bold">in</span> [<span style="color:#099">10</span>, <span style="color:#099">50</span>, <span style="color:#099">100</span>]:
+</span></span><span style="display:flex;"><span>    plt<span style="color:#000;font-weight:bold">.</span>scatter([], [], c<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;green&#39;</span>, s<span style="color:#000;font-weight:bold">=</span>area, label<span style="color:#000;font-weight:bold">=</span><span style="color:#0086b3">str</span>(area))
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>legend(scatterpoints<span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>, title<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Magnitude&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Show plot</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>grid(<span style="color:#000;font-weight:bold">True</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>show()
+</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-28-15.png" width="1152" />
+
         
         <details closed class="f6 fw7 input-reset">
   <dl class="f6 lh-copy">
@@ -560,7 +470,7 @@ so, first delete these values and then once again create an index for date_time 
   </dl>
   <dl class="f6 lh-copy">
     <dt class="fw7">Length:</dt>
-    <dd class="fw5 ml0">10 minute read, 1924 words</dd>
+    <dd class="fw5 ml0">7 minute read, 1479 words</dd>
   </dl>
   
   

@@ -2,7 +2,7 @@
 title: "Earthquake Analysis"
 author: "Prachi Patel"
 date: "2022-09-28"
-excerpt: ""
+excerpt: "This project aims to analyze earthquake data to understand patterns, trends, and characteristics of seismic activity. By examining factors such as location, magnitude, and depth of earthquakes over time, we seek to gain insights into seismic behavior and potential risk areas. Through data visualization and statistical analysis, we aim to contribute to earthquake preparedness and mitigation efforts."
 output:
   html_document:
     df_print: paged
@@ -14,6 +14,8 @@ editor_options:
 ---
 
 ### Introduction
+
+This project aims to analyze earthquake data to understand patterns, trends, and characteristics of seismic activity. By examining factors such as location, magnitude, and depth of earthquakes over time, we seek to gain insights into seismic behavior and potential risk areas. Through data visualization and statistical analysis, we aim to contribute to earthquake preparedness and mitigation efforts.
 
 ### Data Dictionary
 
@@ -28,7 +30,7 @@ data.frame(Variable = c(""),
 
 This section loads and attaches all the necessary libraries for this project.
 
-```{r}
+```{r, warning=FALSE}
 library(reticulate)
 ```
 
@@ -43,6 +45,8 @@ Adding the necessary python libraries for this project.
 ```{python}
 import numpy as np
 import pandas as pd
+import matplotlib as mpl
+import matplotlib.pyplot as plt
 ```
 
 ### Import Dataset
@@ -52,74 +56,28 @@ df1 = pd.read_csv("earthquakes-dataset.csv")
 df1.head()
 ```
 
-if you add errors argument as coerce then it will make sure that invalid parsing will resulting as a null value for that specific record rather than just failing.
+I add the `errors` argument with the value `coerce` to make sure that if there's any problem parsing the data, it will just set that bad value to null instead of stopping everything. 
+
+This way, the process keeps going smoothly even if there are a few mistakes in the data.
 
 ```{python}
 df1['Datetime'] = pd.to_datetime(df1['Date']+' '+df1['Time'],errors='coerce')
 df1.head()
 ```
 
-```{python}
-df1['Datetime'][0]
-```
+Set the `Datetime` field as the index to enable more efficient and meaningful data analysis.
 
-a Weekday as Sun, Mon
-
-%A Weekday as full name as Sunday, Monday
-%w Weekday as decimal no as 0,1,2...
-%d Day of month as 01,02
-%b Months as Jan, Feb
-%B Months as January, February
-%m Months as 01,02
-%y Year without century as 11,12,13
-%Y Year with century 2011,2012
-%H 24 Hours clock from 00 to 23
-%I 12 Hours clock from 01 to 12
-%p AM, PM
-%M Minutes from 00 to 59
-%S Seconds from 00 to 59
-%f Microseconds 6 decimal numbers
-
-```{python}
-df1['Datetime'][0].strftime('%A or %a and in %B')
-```
-
-```{python}
-df1 = df1.set_index(['Datetime'])
+```{python, warning=FALSE}
+df1 = pd.read_csv("earthquakes-dataset.csv",index_col=0, parse_dates=[['Date','Time']])
+df1.index = pd.to_datetime(df1.index, errors='coerce')
 df1.head()
 ```
 
-```{python}
-df1.dtypes
-```
+Data type of the `Depth` field is currently set to float, I have changed it to int.
 
 ```{python}
 df1['Depth'] = df1['Depth'].astype(int)
 df1.dtypes
-```
-
-Read csv function has additional arguments like parse date, make an index.
-Steps we have done above this to merge date and time column and make that column as a index column.
-We can do the same process in the line of code while adding the csv file in to the jupyter notebook.
-
-```{python}
-df1 = pd.read_csv("earthquakes-dataset.csv",index_col=0, parse_dates=[['Date','Time']])
-df1.head()
-```
-
-```{python}
-df1.index
-```
-
-```{python}
-df1.index = pd.to_datetime(df1.index, errors='coerce')
-df1.index
-```
-
-info function to check the null values we have.
-
-```{python}
-df1.info()
 ```
 
 Drop all the columns with the null values.
@@ -129,11 +87,13 @@ df1 = df1.dropna(axis = 1)
 df1.head()
 ```
 
+Verify if any null value is available or not.
+
 ```{python}
-df1.info()
+df1.info() # As we see no null values are available.
 ```
 
-Creaded a new dataset having improtant columns such as latitude, longitude, type, depth and magnitude.
+Created a new dataset having important columns such as latitude, longitude, type, depth and magnitude.
 
 ```{python}
 df2 = df1[['Latitude','Longitude','Type','Depth','Magnitude']]
@@ -145,213 +105,153 @@ Sample is used to get the random records based on provided number of records.
 df2.sample(5)
 ```
 
-Get the unique values for specific columns.
-
-```{python}
-df2.Type.unique()
-```
-
-Biggest Earthquack in the last fifty years.
+Now, let's check biggest earthquake in the last fifty years.
 
 ```{python}
 df2[df2.Type == 'Earthquake'].Magnitude.max()
-```
-
-```{python}
 df2[df2.Type == 'Earthquake'].Depth.max()
-```
-
-```{python}
 df2[df2.Type == 'Earthquake'].Depth.min()
 ```
 
-Value count for each value present in the type column.
-
-```{python}
-df2.Type.value_counts()
-```
-
-Average range of magnitude for the specified period of time.
-
-```{python}
-df2['Magnitude'][df2.Type == 'Earthquacke'].resample('1D').mean()
-```
-
-Check stand deviation.
-
-```{python}
-df2['Magnitude'][df2.Type == 'Earthquacke'].resample('1M').std()
-```
+let's narrow down the dataset to include only the records corresponding to the largest earthquake event.
 
 ```{python}
 df2.loc[df2['Magnitude'] == 9.1]
+df2.loc[df2['Depth'] == 700]
+df2.loc[df2['Depth'] == -1]
 ```
 
-```{python}
-df2.loc[df2['Depth'] == -1.1]
-```
+Added a visualization for the distribution of earthquake magnitudes in the dataset, as it will provides insights into the frequency and range of earthquake magnitudes.
 
 ```{python}
-df2.index.year[df2.Type == 'Nuclear Explosion'].value_counts().sort_index()
-```
-
-To Install packages in Jupyter Notebook you can use conda or pip install.
-Ex.,
-conda install matplotlib
-or
-pip install matplotlib
-or
-!pip install matplotlib
-
-```{python}
-import matplotlib as mpl
-import matplotlib.pyplot as plt
-```
-
-inline is used to enable static images of the plots into the notebook environment.
-
-```{python}
-'%matplotlib inlin'
-```
-
-```{python}
-plt.hist(df2['Magnitude'])
-```
-
-```{python}
-plt.hist(df2['Magnitude'])
+plt.hist(df2['Magnitude'], bins=20, edgecolor='black')
 plt.xlabel('Magnitude')
-plt.ylabel('Number of Earthquackes')
-plt.title('1965-2016 Earthquackes')
+plt.ylabel('Number of Earthquakes')
+plt.title('Distribution of Earthquake Magnitudes (1965-2016)')
+plt.grid(True)
+plt.show()
 ```
 
-bins are the vuckets where the data is relied into.
-Normally choose bins size between 5 to 10. But it also depends upon your database as well.
+*Bins are the buckets into which data is grouped. Typically, the number of bins is chosen between 5 and 10, but the optimal number can vary depending on the specifics of your dataset.*
 
-```{python}
-plt.hist(df2['Magnitude'], bins = 10, edgecolor = 'black')
-plt.xlabel('Magnitude')
-plt.ylabel('Number of Earthquackes')
-plt.title('1965-2016 Earthquackes')
-```
 
-```{python}
-plt.hist(df2['Magnitude'], bins=[6,6.1,6.2,6.3,6.4,6.5,6.6,6.7,6.8,6.9,7], edgecolor = 'black')
-plt.xlabel('Magnitude')
-plt.ylabel('Number of Earthquackes')
-plt.title('1965-2016 Earthquackes')
-```
+Based on the graph we can see that higher magnitudes are not the highest one.
 
-```{python}
-plt.hist(df2['Magnitude'], bins=10, edgecolor = 'black', range = [6,7])
-plt.xlabel('Magnitude')
-plt.ylabel('Number of Earthquackes')
-plt.title('1965-2016 Earthquackes')
-```
-
-If you want the same graph with different bins value then you can create bins function and just change the value of bins using function instead of writing whole line of code again and again.
-
-```{python}
-def myplot(bins):
-    plt.hist(df2['Magnitude'], bins = bins, edgecolor = 'black')
-    plt.xlabel('Magnitude')
-    plt.ylabel('Number of Earthquackes')
-    plt.title('1965-2016 Earthquackes')
-    
-myplot(10)
-```
-
-```{python}
-myplot(20)
-```
-
-Line Chart
-
-```{python}
-plt.plot(df2['Magnitude'][df2.Type == 'Earthquake'].resample('1Y').max())
-```
-
-```{python}
+```{python, warning=FALSE, include=FALSE}
+# Let's visualizes the line chart to show the biggest earthquake each year changes over time.
 plt.plot(df2['Magnitude'][df2.Type == 'Earthquake'].resample('6M').max())
+plt.xlabel('Year')
+plt.ylabel('Maximum Magnitude')
+plt.title('Maximum Earthquake Magnitude Each year')
+plt.grid(True)
+plt.show()
+# And here we see that there is no such fluctuations in the maximum magnitudes.
 ```
 
-How many earthquakes we have per year?
-For this we have to use unique indexes and here we are using bar plots because we are comparing number year by year.
+-------------------------------------------------------------------------------------
+
+To determine how many earthquakes occur per year, we need to use unique indexes. I have used bar plots for this analysis as they allow us to compare the number of earthquakes on a year-by-year basis.
+
+-----------------------------------------------------------------------------------
+
+Let's check the data frame to identify if any data is causing an error or not.
 
 ```{python}
-# plt.bar(df2.index.year.unique(),df2.index.year[df2.Type == 'Earthquake'].value_counts().sort_index())
-# plt.title('Earthquake per year')
+# Check for missing years in the index
+missing_years = df2.index.year[df2['Type'] == 'Earthquake'].value_counts().sort_index()
+
+# Check if there are any missing years
+if missing_years.empty:
+    print("There are no missing years in the earthquake data.")
+else:
+    df2.loc[df2.index.year.isnull()]
+
 ```
 
-Let's check the data frame that which data is causing this error.
-
-```{python}
-df2.index.year.unique().shape
-```
-
-```{python}
-df2.index.year[df2.Type == 'Earthquake'].value_counts().sort_index().shape
-```
-
-```{python}
-# f2.index.year.isnull().sum()
-```
-
-```{python}
-df2.loc[df2.index.year.isnull()]
-```
-
-```{python}
-df2.loc[df2.index.year.isnull()]
-```
-
-These three records are causing an error because we have make date time column as index and these three records have not proper formatted value.
-so, first delete these values and then once again create an index for date_time column.
+These three records are causing an error because we have set the date_time column as the index, and these records have improperly formatted values. Therefore, we need to delete these records and then recreate the index for the date_time column.
 
 ```{python}
 df2 = df2.reset_index().dropna().set_index('Date_Time')
 plt.bar(df2.index.year.unique(),df2.index.year[df2.Type == 'Earthquake'].value_counts().sort_index())
 plt.title('Earthquake per year')
+plt.show()
 ```
 
-How many Nuclear Explosions we have per year?
+Let's check how many Nuclear Explosions we have per year?
 
 ```{python}
 plt.bar(df2[df2.Type == 'Nuclear Explosion'].index.year.unique(),
         df2.index.year[df2.Type == 'Nuclear Explosion'].value_counts().sort_index())
 plt.title('Nukes per Year')
+plt.show()
 ```
 
 Scatter Plots - to see relationships and co-relation between different values.
 
 ```{python}
-#plt.scatter(df2[df2.Type == 'Earthquake'].index.year.unique(),
-#        df2.index.year[df2.Type == 'Earthquake'].value_counts().sort_index())
-#plt.title('Earthquake per Year')
+# Filter earthquake data and select relevant columns
+earthquake_data = df2[df2['Type'] == 'Earthquake']
+earthquake_data = earthquake_data[['Latitude', 'Longitude', 'Depth', 'Magnitude']]
+
+# Create scatter plot
+plt.figure(figsize=(10, 6))
+plt.scatter(earthquake_data['Longitude'], earthquake_data['Latitude'], c=earthquake_data['Depth'], cmap='viridis', alpha=0.7)
+plt.colorbar(label='Depth')
+plt.xlabel('Longitude')
+plt.ylabel('Latitude')
+plt.title('Earthquake Locations and Depths')
+plt.grid(True)
+plt.show()
 ```
 
 ```{python}
-# plt.scatter(df2[df2.Type == 'Earthquake'].index.year.unique(),
-#         df2.index.year[df2.Type == 'Earthquake'].value_counts().sort_index(), df2['Depth'], 'green', alpha=0.7)
-```
+# Define the size of the figure
+plt.figure(figsize=(12, 8))
 
-```{python}
-plt.scatter(df2['Magnitude'],df2['Depth'])
-```
+# Create the scatter plot
+plt.scatter(df2['Longitude'], df2['Latitude'], 
+            s=df2['Magnitude'] * 50, 
+            c=df2['Depth'], cmap='viridis', alpha=0.7)
 
-```{python}
-plt.figure(figsize=(19,10))
-plt.scatter(df2['Longitude'],df2['Latitude'],df2['Magnitude']*10,df2['Depth'])
+# Add color bar to represent depth
+plt.colorbar(label='Depth (km)')
+
+# Set labels and title
+plt.xlabel('Longitude')
+plt.ylabel('Latitude')
+plt.title('Earthquake Locations')
+
+# Show the plot
+plt.grid(True)
+plt.show()
 ```
 
 Depth of Each Earthquakes
 
 ```{python}
-# plt.scatter(df2[df2.Type == 'Earthquake'].index.year.unique(),
-#            df2.index.year[df2.Type == 'Earthquake'].value_counts().sort_index(),df2['Depth'],'green',alpha = 0.7)
-# area = df2['Depth']
-# for area in [10,50,100]:
-#     plt.scatter([],[],c='k',s=area,label=str(area))
-# plt.ledgend(scatterpoints=1, title='I am legend', loc = 'lower center')
+# Filter earthquake data
+earthquake_data = df2[df2['Type'] == 'Earthquake']
+
+# Define figure size
+plt.figure(figsize=(12, 8))
+
+# Create scatter plot
+plt.scatter(earthquake_data.index.year, earthquake_data['Depth'], 
+            s=earthquake_data['Magnitude'] * 10, 
+            c='green', alpha=0.7)
+
+# Add labels and title
+plt.xlabel('Year')
+plt.ylabel('Depth (km)')
+plt.title('Depth of Earthquakes Over Time')
+
+# Add legend for magnitude
+for area in [10, 50, 100]:
+    plt.scatter([], [], c='green', s=area, label=str(area))
+plt.legend(scatterpoints=1, title='Magnitude')
+
+# Show plot
+plt.grid(True)
+plt.show()
 ```
 

@@ -83,7 +83,7 @@
       <link>//localhost:4321/project/salary-data-based-on-country-and-race/</link>
       <pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate>
       <guid>//localhost:4321/project/salary-data-based-on-country-and-race/</guid>
-      <description>Introduction This project analyzes salary data to understand how income varies by country, race, and gender. Using data from Kaggle, we examine patterns and differences in salaries. Our goal is to identify any disparities and provide insights into salary distribution across different demographic groups&#xA;Import Library This section loads and attaches all the necessary libraries for this project.&#xA;Data Set Reference: Kaggle&#xA;Importing Python Library import pandas as pd import seaborn as sns import numpy as np import matplotlib.</description>
+      <description>Introduction This project analyzes salary data to understand how income varies by country, race, and gender. Using data from Kaggle, we examine patterns and differences in salaries. Our goal is to identify any disparities and provide insights into salary distribution across different demographic groups&#xA;Import Library This section loads and attaches all the necessary libraries for this project.&#xA;library(reticulate) Data Set Reference: Kaggle&#xA;Importing Python Library import pandas as pd import seaborn as sns import numpy as np import matplotlib.</description>
     </item>
     <item>
       <title>Contact</title>
@@ -125,7 +125,7 @@
       <link>//localhost:4321/project/earthquakes-analytics/</link>
       <pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate>
       <guid>//localhost:4321/project/earthquakes-analytics/</guid>
-      <description>Introduction Data Dictionary Variable Description Import Library This section loads and attaches all the necessary libraries for this project.&#xA;library(reticulate) ## Warning: package &amp;#39;reticulate&amp;#39; was built under R version 4.2.3 Import python Libraries Adding the necessary python libraries for this project.&#xA;import numpy as np import pandas as pd Import Dataset df1 = pd.read_csv(&amp;#34;earthquakes-dataset.csv&amp;#34;) df1.head() ## Date Time Latitude ... Location Source Magnitude Source Status&#xD;## 0 01/02/1965 13:44:18 19.</description>
+      <description>Introduction This project aims to analyze earthquake data to understand patterns, trends, and characteristics of seismic activity. By examining factors such as location, magnitude, and depth of earthquakes over time, we seek to gain insights into seismic behavior and potential risk areas. Through data visualization and statistical analysis, we aim to contribute to earthquake preparedness and mitigation efforts.&#xA;Data Dictionary Variable Description Import Library This section loads and attaches all the necessary libraries for this project.</description>
     </item>
     <item>
       <title>Movie Data Analysis</title>
