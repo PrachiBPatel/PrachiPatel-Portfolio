@@ -49,7 +49,7 @@
 Data Dictionary Variable Description Import Library This section loads and attaches all the necessary libraries for this project.">
   <meta itemprop="datePublished" content="2022-09-28T00:00:00+00:00">
   <meta itemprop="dateModified" content="2022-09-28T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1479">
+  <meta itemprop="wordCount" content="1280">
   
   
 
@@ -271,11 +271,11 @@ Data Dictionary Variable Description Import Library This section loads and attac
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2<span style="color:#000;font-weight:bold">.</span>sample(<span style="color:#099">5</span>)
 </span></span></code></pre></div><pre tabindex="0"><code>##                      Latitude  Longitude        Type  Depth  Magnitude
 ## Date_Time                                                             
-## 2010-02-27 09:00:17   -33.443    -71.525  Earthquake     35        5.6
-## 1989-12-30 12:38:11   -26.209    -70.507  Earthquake     32        5.5
-## 2010-05-05 16:29:03    -4.054    101.096  Earthquake     27        6.5
-## 1991-04-19 06:39:42    16.865    -60.592  Earthquake     16        5.5
-## 1969-03-15 13:35:36    51.303   -179.068  Earthquake     42        5.7
+## 2005-06-09 14:00:50    51.554   -131.125  Earthquake     10        5.8
+## 1971-10-23 23:01:19   -57.320    -25.523  Earthquake     25        5.7
+## 1971-07-27 07:35:43    -5.813    151.604  Earthquake     40        5.8
+## 1974-02-03 18:45:46    -5.133    133.848  Earthquake     33        5.7
+## 1978-06-03 04:57:13   -57.096   -140.888  Earthquake     33        6.0
 </code></pre><p>Now, let&rsquo;s check biggest earthquake in the last fifty years.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2[df2<span style="color:#000;font-weight:bold">.</span>Type <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Earthquake&#39;</span>]<span style="color:#000;font-weight:bold">.</span>Magnitude<span style="color:#000;font-weight:bold">.</span>max()
 </span></span></code></pre></div><pre tabindex="0"><code>## 9.1
@@ -297,72 +297,20 @@ Data Dictionary Variable Description Import Library This section loads and attac
 </span></span></code></pre></div><pre tabindex="0"><code>##                      Latitude  Longitude        Type  Depth  Magnitude
 ## Date_Time                                                             
 ## 1992-06-28 12:00:45    34.131   -116.408  Earthquake     -1       5.77
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2<span style="color:#000;font-weight:bold">.</span>index<span style="color:#000;font-weight:bold">.</span>year[df2<span style="color:#000;font-weight:bold">.</span>Type <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Nuclear Explosion&#39;</span>]<span style="color:#000;font-weight:bold">.</span>value_counts()<span style="color:#000;font-weight:bold">.</span>sort_index()
-</span></span></code></pre></div><pre tabindex="0"><code>## Date_Time
-## 1966.0     1
-## 1968.0     2
-## 1969.0     1
-## 1970.0     1
-## 1973.0     6
-## 1974.0     6
-## 1975.0     9
-## 1976.0    10
-## 1977.0     8
-## 1978.0    15
-## 1979.0    13
-## 1980.0    13
-## 1981.0     8
-## 1982.0     6
-## 1983.0    10
-## 1984.0    14
-## 1985.0     6
-## 1986.0     1
-## 1987.0    16
-## 1988.0    10
-## 1989.0     7
-## 1990.0     4
-## 1991.0     1
-## 1992.0     1
-## 1993.0     1
-## 1994.0     2
-## 1995.0     2
-## 1996.0     1
-## Name: count, dtype: int64
 </code></pre><p>Added a visualization for the distribution of earthquake magnitudes in the dataset, as it will provides insights into the frequency and range of earthquake magnitudes.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>hist(df2[<span style="color:#d14">&#39;Magnitude&#39;</span>], bins<span style="color:#000;font-weight:bold">=</span><span style="color:#099">10</span>, edgecolor<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;black&#39;</span>, <span style="color:#0086b3">range</span> <span style="color:#000;font-weight:bold">=</span> [<span style="color:#099">6</span>,<span style="color:#099">7</span>])
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>hist(df2[<span style="color:#d14">&#39;Magnitude&#39;</span>], bins<span style="color:#000;font-weight:bold">=</span><span style="color:#099">20</span>, edgecolor<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;black&#39;</span>)
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>xlabel(<span style="color:#d14">&#39;Magnitude&#39;</span>)
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>ylabel(<span style="color:#d14">&#39;Number of Earthquakes&#39;</span>)
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Distribution of Earthquake Magnitudes (1965-2016)&#39;</span>)
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>grid(<span style="color:#000;font-weight:bold">True</span>)
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>show()
-</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-15-1.png" width="672" />
 <p><em>Bins are the buckets into which data is grouped. Typically, the number of bins is chosen between 5 and 10, but the optimal number can vary depending on the specifics of your dataset.</em></p>
+<p>Based on the graph we can see that higher magnitudes are not the highest one.</p>
 <hr>
-<p>Let&rsquo;s visualizes the line chart to show the biggest earthquake each year changes over time.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>plot(df2[<span style="color:#d14">&#39;Magnitude&#39;</span>][df2<span style="color:#000;font-weight:bold">.</span>Type <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Earthquake&#39;</span>]<span style="color:#000;font-weight:bold">.</span>resample(<span style="color:#d14">&#39;1Y&#39;</span>)<span style="color:#000;font-weight:bold">.</span>max())
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>xlabel(<span style="color:#d14">&#39;Year&#39;</span>)
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>ylabel(<span style="color:#d14">&#39;Maximum Magnitude&#39;</span>)
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Maximum Earthquake Magnitude Each Year&#39;</span>)
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>grid(<span style="color:#000;font-weight:bold">True</span>)
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>show()
-</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-17-3.png" width="672" />
 <p>To determine how many earthquakes occur per year, we need to use unique indexes. I have used bar plots for this analysis as they allow us to compare the number of earthquakes on a year-by-year basis.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Filter earthquake data</span>
-</span></span><span style="display:flex;"><span>earthquake_data <span style="color:#000;font-weight:bold">=</span> df2[df2[<span style="color:#d14">&#39;Type&#39;</span>] <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Earthquake&#39;</span>]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Count the number of earthquakes per year</span>
-</span></span><span style="display:flex;"><span>earthquakes_per_year <span style="color:#000;font-weight:bold">=</span> earthquake_data<span style="color:#000;font-weight:bold">.</span>index<span style="color:#000;font-weight:bold">.</span>year<span style="color:#000;font-weight:bold">.</span>value_counts()<span style="color:#000;font-weight:bold">.</span>sort_index()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create bar plot</span>
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>figure(figsize<span style="color:#000;font-weight:bold">=</span>(<span style="color:#099">10</span>, <span style="color:#099">6</span>))
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>bar(earthquakes_per_year<span style="color:#000;font-weight:bold">.</span>index, earthquakes_per_year<span style="color:#000;font-weight:bold">.</span>values)
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>xlabel(<span style="color:#d14">&#39;Year&#39;</span>)
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>ylabel(<span style="color:#d14">&#39;Number of Earthquakes&#39;</span>)
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Number of Earthquakes Per Year&#39;</span>)
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>grid(<span style="color:#000;font-weight:bold">True</span>)
-</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>show()
-</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-18-5.png" width="960" />
-<p>Let&rsquo;s check the dataFrame to identify which data is causing this error.</p>
+<hr>
+<p>Let&rsquo;s check the data frame to identify if any data is causing an error or not.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Check for missing years in the index</span>
 </span></span><span style="display:flex;"><span>missing_years <span style="color:#000;font-weight:bold">=</span> df2<span style="color:#000;font-weight:bold">.</span>index<span style="color:#000;font-weight:bold">.</span>year[df2[<span style="color:#d14">&#39;Type&#39;</span>] <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Earthquake&#39;</span>]<span style="color:#000;font-weight:bold">.</span>value_counts()<span style="color:#000;font-weight:bold">.</span>sort_index()
 </span></span><span style="display:flex;"><span>
@@ -370,20 +318,7 @@ Data Dictionary Variable Description Import Library This section loads and attac
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> missing_years<span style="color:#000;font-weight:bold">.</span>empty:
 </span></span><span style="display:flex;"><span>    <span style="color:#0086b3">print</span>(<span style="color:#d14">&#34;There are no missing years in the earthquake data.&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">else</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">print</span>(<span style="color:#d14">&#34;Years with Missing Data:&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">print</span>(missing_years[missing_years <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span>])
-</span></span></code></pre></div><pre tabindex="0"><code>## Years with Missing Data:
-## Series([], Name: count, dtype: int64)
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2<span style="color:#000;font-weight:bold">.</span>index<span style="color:#000;font-weight:bold">.</span>year[df2<span style="color:#000;font-weight:bold">.</span>Type <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Earthquake&#39;</span>]<span style="color:#000;font-weight:bold">.</span>value_counts()<span style="color:#000;font-weight:bold">.</span>sort_index()<span style="color:#000;font-weight:bold">.</span>shape
-</span></span></code></pre></div><pre tabindex="0"><code>## (52,)
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># f2.index.year.isnull().sum()</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2<span style="color:#000;font-weight:bold">.</span>loc[df2<span style="color:#000;font-weight:bold">.</span>index<span style="color:#000;font-weight:bold">.</span>year<span style="color:#000;font-weight:bold">.</span>isnull()]
-</span></span></code></pre></div><pre tabindex="0"><code>##            Latitude  Longitude        Type  Depth  Magnitude
-## Date_Time                                                   
-## NaT           8.017    124.075  Earthquake    623        5.6
-## NaT         -32.998    -71.766  Earthquake     33        5.6
-## NaT          36.344    142.344  Earthquake     10        5.8
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2<span style="color:#000;font-weight:bold">.</span>loc[df2<span style="color:#000;font-weight:bold">.</span>index<span style="color:#000;font-weight:bold">.</span>year<span style="color:#000;font-weight:bold">.</span>isnull()]
+</span></span><span style="display:flex;"><span>    df2<span style="color:#000;font-weight:bold">.</span>loc[df2<span style="color:#000;font-weight:bold">.</span>index<span style="color:#000;font-weight:bold">.</span>year<span style="color:#000;font-weight:bold">.</span>isnull()]
 </span></span></code></pre></div><pre tabindex="0"><code>##            Latitude  Longitude        Type  Depth  Magnitude
 ## Date_Time                                                   
 ## NaT           8.017    124.075  Earthquake    623        5.6
@@ -393,12 +328,14 @@ Data Dictionary Variable Description Import Library This section loads and attac
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2 <span style="color:#000;font-weight:bold">=</span> df2<span style="color:#000;font-weight:bold">.</span>reset_index()<span style="color:#000;font-weight:bold">.</span>dropna()<span style="color:#000;font-weight:bold">.</span>set_index(<span style="color:#d14">&#39;Date_Time&#39;</span>)
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>bar(df2<span style="color:#000;font-weight:bold">.</span>index<span style="color:#000;font-weight:bold">.</span>year<span style="color:#000;font-weight:bold">.</span>unique(),df2<span style="color:#000;font-weight:bold">.</span>index<span style="color:#000;font-weight:bold">.</span>year[df2<span style="color:#000;font-weight:bold">.</span>Type <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Earthquake&#39;</span>]<span style="color:#000;font-weight:bold">.</span>value_counts()<span style="color:#000;font-weight:bold">.</span>sort_index())
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Earthquake per year&#39;</span>)
-</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-24-7.png" width="672" />
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>show()
+</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-18-5.png" width="672" />
 <p>Let&rsquo;s check how many Nuclear Explosions we have per year?</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>bar(df2[df2<span style="color:#000;font-weight:bold">.</span>Type <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Nuclear Explosion&#39;</span>]<span style="color:#000;font-weight:bold">.</span>index<span style="color:#000;font-weight:bold">.</span>year<span style="color:#000;font-weight:bold">.</span>unique(),
 </span></span><span style="display:flex;"><span>        df2<span style="color:#000;font-weight:bold">.</span>index<span style="color:#000;font-weight:bold">.</span>year[df2<span style="color:#000;font-weight:bold">.</span>Type <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Nuclear Explosion&#39;</span>]<span style="color:#000;font-weight:bold">.</span>value_counts()<span style="color:#000;font-weight:bold">.</span>sort_index())
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Nukes per Year&#39;</span>)
-</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-25-9.png" width="672" />
+</span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>show()
+</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-19-7.png" width="672" />
 <p>Scatter Plots - to see relationships and co-relation between different values.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Filter earthquake data and select relevant columns</span>
 </span></span><span style="display:flex;"><span>earthquake_data <span style="color:#000;font-weight:bold">=</span> df2[df2[<span style="color:#d14">&#39;Type&#39;</span>] <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Earthquake&#39;</span>]
@@ -408,13 +345,13 @@ Data Dictionary Variable Description Import Library This section loads and attac
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>figure(figsize<span style="color:#000;font-weight:bold">=</span>(<span style="color:#099">10</span>, <span style="color:#099">6</span>))
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>scatter(earthquake_data[<span style="color:#d14">&#39;Longitude&#39;</span>], earthquake_data[<span style="color:#d14">&#39;Latitude&#39;</span>], c<span style="color:#000;font-weight:bold">=</span>earthquake_data[<span style="color:#d14">&#39;Depth&#39;</span>], cmap<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;viridis&#39;</span>, alpha<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0.7</span>)
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>colorbar(label<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Depth&#39;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## &lt;matplotlib.colorbar.Colorbar object at 0x000001BD46490310&gt;
+</span></span></code></pre></div><pre tabindex="0"><code>## &lt;matplotlib.colorbar.Colorbar object at 0x0000029988451150&gt;
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>xlabel(<span style="color:#d14">&#39;Longitude&#39;</span>)
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>ylabel(<span style="color:#d14">&#39;Latitude&#39;</span>)
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#39;Earthquake Locations and Depths&#39;</span>)
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>grid(<span style="color:#000;font-weight:bold">True</span>)
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>show()
-</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-26-11.png" width="960" />
+</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-20-9.png" width="960" />
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Define the size of the figure</span>
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>figure(figsize<span style="color:#000;font-weight:bold">=</span>(<span style="color:#099">12</span>, <span style="color:#099">8</span>))
 </span></span><span style="display:flex;"><span>
@@ -425,7 +362,7 @@ Data Dictionary Variable Description Import Library This section loads and attac
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Add color bar to represent depth</span>
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>colorbar(label<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Depth (km)&#39;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code>## &lt;matplotlib.colorbar.Colorbar object at 0x000001BD47DF96D0&gt;
+</span></span></code></pre></div><pre tabindex="0"><code>## &lt;matplotlib.colorbar.Colorbar object at 0x0000029989E7B590&gt;
 </code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Set labels and title</span>
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>xlabel(<span style="color:#d14">&#39;Longitude&#39;</span>)
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>ylabel(<span style="color:#d14">&#39;Latitude&#39;</span>)
@@ -434,7 +371,7 @@ Data Dictionary Variable Description Import Library This section loads and attac
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Show the plot</span>
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>grid(<span style="color:#000;font-weight:bold">True</span>)
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>show()
-</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-27-13.png" width="1152" />
+</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-21-11.png" width="1152" />
 <p>Depth of Each Earthquakes</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Filter earthquake data</span>
 </span></span><span style="display:flex;"><span>earthquake_data <span style="color:#000;font-weight:bold">=</span> df2[df2[<span style="color:#d14">&#39;Type&#39;</span>] <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;Earthquake&#39;</span>]
@@ -460,7 +397,7 @@ Data Dictionary Variable Description Import Library This section loads and attac
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Show plot</span>
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>grid(<span style="color:#000;font-weight:bold">True</span>)
 </span></span><span style="display:flex;"><span>plt<span style="color:#000;font-weight:bold">.</span>show()
-</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-28-15.png" width="1152" />
+</span></span></code></pre></div><img src="/project/earthquakes-analytics/index_files/figure-html/unnamed-chunk-22-13.png" width="1152" />
 
         
         <details closed class="f6 fw7 input-reset">
@@ -470,7 +407,7 @@ Data Dictionary Variable Description Import Library This section loads and attac
   </dl>
   <dl class="f6 lh-copy">
     <dt class="fw7">Length:</dt>
-    <dd class="fw5 ml0">7 minute read, 1479 words</dd>
+    <dd class="fw5 ml0">7 minute read, 1280 words</dd>
   </dl>
   
   
