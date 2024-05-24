@@ -7,11 +7,11 @@
     {{ if .Params.show_header }}
     {{ $header := printf "/%s/%s" .Section "header/index.md" }}
     {{ with site.GetPage $header }}
-      <header class="page-header bb b--black-10 bw1 pb4 mb5 {{ if .Params.text_align_right }}tr{{ end }}">
-      {{ if .Params.show_title_as_headline }}<h1 class="f2 f1-m f-headline-l fw5-ns mv4 lh-solid tracked-tight-ns db">{{ $page.Title | markdownify }}</h1>
+      <header class="page-header bb b--black-10 bw1 pb4 mb5 {{ if .Params.text_align_right }}tr{{ end }}" style="margin-bottom:2%">
+      {{ if .Params.show_title_as_headline }}<h1 class="f2 f1-m f-headline-l fw5-ns mv4 lh-solid tracked-tight-ns db" style="font-size: 60px; margin-bottom:0%">{{ $page.Title | markdownify }}</h1>
       {{ else }}<h1 class="f2 f1-m f-headline-l fw5-ns mv4 lh-solid tracked-tight-ns db">{{ .Params.headline | markdownify }}</h1>{{ end }}
       {{ with .Content}}
-        <div class="pt2 f4 measure-wide lh-copy dib">{{ . | markdownify }}</div>
+        <div class="pt2 f4 measure-wide lh-copy dib" style=" max-width:50em">{{ . | markdownify }}</div>
       {{ end }}
       </header>
     {{ end }}
@@ -24,10 +24,10 @@
         <!--begin main content column: 2/3-->
         {{ $main := printf "/%s/%s" .Section "main/index.md" }}
         {{ with site.GetPage $main }}
-        <div class="order-2 {{ if $page.Params.sidebar_left }}ml5-l order-2-l{{ else }}mr4-l order-1-l{{ end }} w-two-thirds-l w-100-ns pt5">
+        <div class="order-2 {{ if $page.Params.sidebar_left }}ml5-l order-2-l{{ else }}mr4-l order-1-l{{ end }} w-two-thirds-l w-100-ns pt5" style="padding-top:2%">
           {{ if $page.Params.show_header }}
             {{ with .Title}}
-              <h2 class="about-main f2 fw7 tl">{{ . | markdownify }}</h2>
+              <h2 class="about-main f2 fw7 tl" style="margin-top:0%; margin-bottom:0%; font-size: 30px;">{{ . | markdownify }}</h2>
             {{ end }}
           {{ else }}
             {{ with .Title }}
