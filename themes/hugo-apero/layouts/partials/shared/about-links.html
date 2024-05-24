@@ -7,7 +7,7 @@
   {{ else if in (slice "http" "https") $scheme }}
     {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
   {{ end }}
-  <li class="lh-copy pv2 ba bl-0 bt-0 br-0 b--dotted b--black-20">
-    <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }}>{{ .name }}</a>
+  <li class="lh-copy pv2 ba bl-0 bt-0 br-0 bb-0 b--dotted b--black-20">
+    <p style="text-decoration: none; margin-top:0%; margin-bottom:0%;">{{ .name }}</p>
   </li>
 {{ end }}

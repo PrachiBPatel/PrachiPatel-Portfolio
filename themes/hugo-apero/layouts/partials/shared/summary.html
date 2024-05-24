@@ -53,7 +53,7 @@
       {{ end }}
     </header>
       {{ $summary := cond (ne .Params.excerpt nil) .Params.excerpt .Summary }}
-      {{ with $summary }}<p class="lh-copy mb4">{{ . | markdownify | emojify }}</p>{{ end }}
+      {{ with $summary }}<p class="lh-copy mb4" style="font-size:16px;">{{ . | markdownify | emojify }}</p>{{ end }}
     <footer>
       {{ if $root.Params.show_author_byline }}<p class="f7 db mv2">{{ if .Params.author }}By {{ .Params.author }}{{ end }}{{ with .Params.categories }} in{{ range . }} <a href="{{ "categories/" | absURL }}{{ . | urlize }}">{{ . }}</a> {{ end }}{{ end }}</p>{{ end }}
       {{ if $root.Params.show_post_date }}<p class="f7 db mv2">{{ .PublishDate.Format "January 2, 2006" }}</p>{{ end }}

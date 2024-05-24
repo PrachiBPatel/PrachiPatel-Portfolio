@@ -14,10 +14,14 @@ link_list:
 - name: Microsoft SQL
 - name: SSRS
 - name: HTML
-- name: c#
+- name: C#
 - name: MLM
 - name: Python
 - name: R
+- name: Power Automate
+- name: HTML
+- name: CSS
+
 ---
 
 ** index doesn't contain a body, just front matter above.
