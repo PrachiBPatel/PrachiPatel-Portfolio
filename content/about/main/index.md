@@ -26,23 +26,28 @@ intro: |
   <h3> Work Experience </h3>
   <h4 style="margin-bottom:0%"> System Analyst (Allscripts India LLC, India) </h4> 
   <p style="font-size:16px; margin-top:0%"> May 2020 – July 2022 </p>
-  <p style="font-size:16px; margin-top:2%; text-align:justify;"><b>Technical Stack:</b> Microsoft Power BI, SQL Server Reporting Service (SSRS), SQL Server Integration Service (SSIS), Power Automate, Medical Logical Module (MLM), .Net, Tableau.</p>
   <ul style="font-size:17px; text-align:justify;">
-  <li>Performed system analysis, documentation, testing, implementation, and user support for platform transitions.</li>
-  <li>Worked in automation using SQL Jobs, SSIS, and Power Automate.</li>
-  <li>Database development in MS SQL with a stored procedure, functions, and view.</li>
-  <li>Requirement gathering from end users and converting functional tasks into technical stories.</li>
-  <li>Created SSRS, MS Excel, Tableau and Power BI reports with various data.</li>
+  <li>Utilized Microsoft Power BI, SSRS, SSIS, and Power Automate to conduct analysis, documentation, testing, implementation, and user support for healthcare platforms.</li>
+  <li>Developed automation solutions to streamline manual tasks using T-SQL, SQL Jobs, SSIS, and Power Automate.</li>
+  <li>Performed database development in MS SQL, creating stored procedures, functions, and views while adhering to best practices in data modelling and database concepts.</li>
+  <li>Generated comprehensive reports with diverse datasets using SSRS, Excel, Tableau, and Power BI to enhance clients' KPIs.</li>
+  <li>Conducted data transfer activities by identifying and employing methods for data sources not previously encountered, ensuring smooth integration and migration processes.</li>
   </ul>
   
   <h4 style="margin-bottom:0%"> Software Developer (Collabera Technologies, India) </h4>
   <p style="font-size:16px; margin-top:0%"> Sept 2018 – May 2020 </p>
-  <p style="font-size:16px; margin-top:2%; text-align:justify;"><b>Technical Stack:</b> MS SQL, Power BI, SSAS, Excel</p>
   <ul style="font-size:17px; text-align:justify;">
-  <li>Coordinated with project management on database development timelines.</li>
-  <li>Queried databases for information needed for report processing.</li>
-  <li>Analyzed unstructured information to derive key insights.</li>
-  <li>Write complex DAX functions in Power BI.</li>
+  <li>Designed and maintained Power BI reports and dashboards for the executive team by gathering requirements from various departments and delivering actionable insights to inform decision-making.</li>
+  <li>Optimized SQL procedures and jobs for efficient data management and retrieval, leveraging SSAS to transform live SQL data into a presentable format for real-time Power BI reporting.</li>
+  <li>Updated and enhanced the recruiting platform's front end using C# and .NET, improving user experience and platform performance.</li>
+  <li>Communicated project statuses and updates to internal and external clients to ensure the timely and successful delivery of project deliverables.</li>
+  </ul>
+  
+  <h4 style="margin-bottom:0%"> Project Trainee (Larsen & Toubro, India) </h4>
+  <p style="font-size:16px; margin-top:0%"> Nov 2017 – Dec 2017 </p>
+  <ul style="font-size:17px; text-align:justify;">
+  <li>Developed an Android application with the assistance of an internal team with project management and data analysis tasks.</li>
+  <li>Gained hands-on experience in mobile app development, collaborating closely with cross-functional teams to deliver efficient software solutions.</li>
   </ul>
   
   <hr>
@@ -51,6 +56,24 @@ intro: |
   <ul style="font-size:17px; text-align:justify;">
   <li>EXAM 70-778 - Analyzing and Visualizing Data with Power BI - Microsoft Certified</li>
   <li>AZ-900 - Azure Fundamentals - Microsoft Certified</li>
+  </ul>
+  
+  <hr>
+  
+  <h3> Additional Experience </h3>
+  <h4 style="margin-bottom:0%"> Sales Associate-Cashier (Indian Grocery Store, Toronto) </h4>
+  <p style="font-size:16px; margin-top:0%"> Jun 2023 – Current </p>
+  <ul style="font-size:17px; text-align:justify;">
+  <li>Utilized Efficiently processed customer transactions, managed cash registers, and maintained accurate cash balances.</li>
+  <li>Provided excellent customer service by assisting shoppers with inquiries, resolving issues, and ensuring a positive shopping experience.</li>
+  <li> Collaborated with team members to maintain store cleanliness and stock shelves, contributing to a well-organized and welcoming store environment.</li>
+  </ul>
+  
+  <h4 style="margin-bottom:0%"> User Experience Intern (Broadsy Technologies, Remote, CA) </h4>
+  <p style="font-size:16px; margin-top:0%"> Feb 2024 – Mar 2024 </p>
+  <ul style="font-size:17px; text-align:justify;">
+  <li>Collaborated remotely with senior UX designers on user research and usability testing projects, gaining practical experience in UX design principles.</li>
+  <li>Enhanced time management skills and adaptability to different project styles while actively participating in user interviews and usability testing initiatives.</li>
   </ul>
   
 show_outro: false
