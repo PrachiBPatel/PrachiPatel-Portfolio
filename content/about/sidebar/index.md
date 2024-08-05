@@ -7,16 +7,25 @@ show_social_links: true # specify social accounts in site config
 audio_link_label: "" # leave blank to exclude
 link_list_label: "Skills" # bookmarks, elsewhere, etc.
 link_list:
-- name: Power BI
 - name: Tableau
+- name: Power BI
+- name: Microsoft Active directory
+- name: Python
+- name: Github
+- name: Rest API
 - name: Microsoft Excel
+- name: SQL
+- name: HTML
+- name: Oracle Database
+- name: GCP
+- name: Azure AD
 - name: SSAS
 - name: Microsoft SQL
 - name: SSRS
-- name: HTML
+- name: JavaScript
 - name: C#
-- name: MLM
-- name: Python
+- name: Power Shell
+- name: SOAP
 - name: R
 - name: Power Automate
 - name: HTML

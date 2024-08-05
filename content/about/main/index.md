@@ -24,23 +24,37 @@ intro: |
   <hr>
   
   <h3> Work Experience </h3>
+
+  <h4 style="margin-bottom:0%"> Data Analyst (Revamp Technologies - Toronto, Canada) </h4> 
+  <p style="font-size:16px; margin-top:0%"> May 2023 – Present </p>
+  <ul style="font-size:17px; text-align:justify;">
+  <li>Conducted in-depth data analysis and visualization using Power BI, and advanced Excel, transforming complex financial data into actionable insights for key stakeholders </li>
+  <li>Leveraged strong SQL expertise to query, extract, and manipulate data, ensuring data accuracy and providing critical support to various banking function </li>
+  <li>Developed SQL queries and ETL packages using T-SQL and SSIS to ingest data from source systems to integrate with the data warehouse </li>
+  <li>Designed and developed high-quality dashboards and reports using tools Power BI, SSRS, Excel, PowerPivot, and Tableau </li>
+  <li>Created and maintained a data dictionary to ensure new data is properly maintained, categorized, and linked within existing reporting structures </li>
+  <li>Utilized Power Query and DAX within Power BI for sophisticated data modeling, significantly improving the precision of financial forecasting and planning </li>
+  
+  </ul>
+  
   <h4 style="margin-bottom:0%"> System Analyst (Allscripts India LLC, India) </h4> 
   <p style="font-size:16px; margin-top:0%"> May 2020 – July 2022 </p>
   <ul style="font-size:17px; text-align:justify;">
   <li>Utilized Microsoft Power BI, SSRS, SSIS, and Power Automate to conduct analysis, documentation, testing, implementation, and user support for healthcare platforms.</li>
+  <li> Implemented data solutions using Google Cloud Platform (GCP), enhancing data processing and storage capabilities </li>
   <li>Developed automation solutions to streamline manual tasks using T-SQL, SQL Jobs, SSIS, and Power Automate.</li>
   <li>Performed database development in MS SQL, creating stored procedures, functions, and views while adhering to best practices in data modelling and database concepts.</li>
-  <li>Generated comprehensive reports with diverse datasets using SSRS, Excel, Tableau, and Power BI to enhance clients' KPIs.</li>
+  <li>Generated comprehensive reports with diverse data sets using SSRS, Excel, Tableau, and Power BI to enhance clients' KPIs.</li>
   <li>Conducted data transfer activities by identifying and employing methods for data sources not previously encountered, ensuring smooth integration and migration processes.</li>
   </ul>
   
   <h4 style="margin-bottom:0%"> Software Developer (Collabera Technologies, India) </h4>
   <p style="font-size:16px; margin-top:0%"> Sept 2018 – May 2020 </p>
   <ul style="font-size:17px; text-align:justify;">
+  <li> •	Updated and enhanced the recruiting platform's front end using C#, .NET, and JavaScript, improving user experience and platform performance.</li>
   <li>Designed and maintained Power BI reports and dashboards for the executive team by gathering requirements from various departments and delivering actionable insights to inform decision-making.</li>
   <li>Optimized SQL procedures and jobs for efficient data management and retrieval, leveraging SSAS to transform live SQL data into a presentable format for real-time Power BI reporting.</li>
-  <li>Updated and enhanced the recruiting platform's front end using C# and .NET, improving user experience and platform performance.</li>
-  <li>Communicated project statuses and updates to internal and external clients to ensure the timely and successful delivery of project deliverables.</li>
+  <li>Communicated project statuses and updates to internal and external clients to ensure the timely and successful delivery of project deliverable.</li>
   </ul>
   
   <h4 style="margin-bottom:0%"> Project Trainee (Larsen & Toubro, India) </h4>
@@ -54,30 +68,13 @@ intro: |
   
   <h3> Certifications </h3>
   <ul style="font-size:17px; text-align:justify;">
-  <li>EXAM 70-778 - Analyzing and Visualizing Data with Power BI - Microsoft Certified</li>
-  <li>AZ-900 - Azure Fundamentals - Microsoft Certified</li>
+  <li> <a href="https://www.credly.com/badges/d3e435d2-1107-4911-a635-fd5f490e320f"> EXAM 70-778 - Analyzing and Visualizing Data with Power BI - Microsoft Certified </a> </li>
+  <li> <a href="https://www.credly.com/badges/9d970245-82f0-48f6-b812-b8bcdd8daa1f/">AZ-900 - Azure Fundamentals - Microsoft Certified </a> </li>
   </ul>
   
   <hr>
   
-  <h3> Additional Experience </h3>
-  <h4 style="margin-bottom:0%"> Sales Associate-Cashier (Indian Grocery Store, Toronto) </h4>
-  <p style="font-size:16px; margin-top:0%"> Jun 2023 – Current </p>
-  <ul style="font-size:17px; text-align:justify;">
-  <li>Utilized Efficiently processed customer transactions, managed cash registers, and maintained accurate cash balances.</li>
-  <li>Provided excellent customer service by assisting shoppers with inquiries, resolving issues, and ensuring a positive shopping experience.</li>
-  <li> Collaborated with team members to maintain store cleanliness and stock shelves, contributing to a well-organized and welcoming store environment.</li>
-  </ul>
-  
-  <h4 style="margin-bottom:0%"> User Experience Intern (Broadsy Technologies, Remote, CA) </h4>
-  <p style="font-size:16px; margin-top:0%"> Feb 2024 – Mar 2024 </p>
-  <ul style="font-size:17px; text-align:justify;">
-  <li>Collaborated remotely with senior UX designers on user research and usability testing projects, gaining practical experience in UX design principles.</li>
-  <li>Enhanced time management skills and adaptability to different project styles while actively participating in user interviews and usability testing initiatives.</li>
-  </ul>
-  
 show_outro: false
 ---
 
-** index doesn't contain a body, just front matter above.
-See about/list.html in the layouts folder **
+\*\* index doesn't contain a body, just front matter above. See about/list.html in the layouts folder \*\*
