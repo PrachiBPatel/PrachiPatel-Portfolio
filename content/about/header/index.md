@@ -7,4 +7,4 @@ headline: |
 ---
 
 <!-- this is a subheadline -->
-<p style="font-size: 18px"> Experienced IT Professional in healthcare and recruitment IT. Proficient in development, ETL, data warehousing, and report development using SQL Server, SSIS, SSRS, Excel, Power BI, and Tableau. </p>
+<p style="font-size: 18px"> Experienced IT Professional in multiple sectors like healthcare and recruitment IT. Proficient in development, ETL, data warehousing, and report development using Power BI, Tableau, Excel, SQL Server, SSIS and SSRS. </p>

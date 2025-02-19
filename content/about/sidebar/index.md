@@ -17,7 +17,7 @@ link_list:
 - name: SQL
 - name: HTML
 - name: Oracle Database
-- name: GCP
+- name: SSMS
 - name: Azure AD
 - name: SSAS
 - name: Microsoft SQL

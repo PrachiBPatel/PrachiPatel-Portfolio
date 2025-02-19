@@ -13,20 +13,12 @@ intro: |
   
   <hr>
   
-  <h3> Education </h3>
-  <h4 style="margin-bottom:0%"> User Experience(UX) Design </h4> 
-  <p style="font-size:17px; margin-top:1%; margin-bottom:0%">Humber College, Toronto, ON (May'23 - Apr'24)</p>
-  <h4 style="margin-bottom:0%; margin-top:2%"> Big Data Solutions Architecture  </h4> 
-  <p style="font-size:17px; margin-top:1%; margin-bottom:0%"> Conestoga College, Kitchener, ON (Sept'22 – Apr'23) </p> 
-  <h4 style="margin-bottom:0%; margin-top:2%"> Computer Engineering  </h4> 
-  <p style="font-size:17px; margin-top:1%;"> Gujarat Technological University, Vadodara, IN (2014-2018) </p>
-  
-  <hr>
-  
   <h3> Work Experience </h3>
 
   <h4 style="margin-bottom:0%"> Data Analyst (Revamp Technologies - Toronto, Canada) </h4> 
-  <p style="font-size:16px; margin-top:0%"> May 2023 – Present </p>
+  <p style="font-size:16px; margin-top:0%"> January 2024 – February 2025 </p>
+  <h5 style="margin-bottom:0%"> Data Analyst - Intern (Revamp Technologies - Toronto, Canada) </h5> 
+  <p style="font-size:15px; margin-top:0%"> May 2023 – December 2023 </p>
   <ul style="font-size:17px; text-align:justify;">
   <li>Conducted in-depth data analysis and visualization using Power BI, and advanced Excel, transforming complex financial data into actionable insights for key stakeholders </li>
   <li>Leveraged strong SQL expertise to query, extract, and manipulate data, ensuring data accuracy and providing critical support to various banking function </li>
@@ -41,7 +33,6 @@ intro: |
   <p style="font-size:16px; margin-top:0%"> May 2020 – July 2022 </p>
   <ul style="font-size:17px; text-align:justify;">
   <li>Utilized Microsoft Power BI, SSRS, SSIS, and Power Automate to conduct analysis, documentation, testing, implementation, and user support for healthcare platforms.</li>
-  <li>Implemented data solutions using Google Cloud Platform (GCP), enhancing data processing and storage capabilities </li>
   <li>Developed automation solutions to streamline manual tasks using T-SQL, SQL Jobs, SSIS, and Power Automate.</li>
   <li>Performed database development in MS SQL, creating stored procedures, functions, and views while adhering to best practices in data modelling and database concepts.</li>
   <li>Generated comprehensive reports with diverse data sets using SSRS, Excel, Tableau, and Power BI to enhance clients' KPIs.</li>
@@ -63,6 +54,16 @@ intro: |
   <li>Developed an Android application with the assistance of an internal team with project management and data analysis tasks.</li>
   <li>Gained hands-on experience in mobile app development, collaborating closely with cross-functional teams to deliver efficient software solutions.</li>
   </ul>
+  
+  <hr>
+  
+  <h3> Education </h3>
+  <h4 style="margin-bottom:0%"> User Experience(UX) Design </h4> 
+  <p style="font-size:17px; margin-top:1%; margin-bottom:0%">Humber College, Toronto, ON (May'23 - Apr'24)</p>
+  <h4 style="margin-bottom:0%; margin-top:2%"> Big Data Solutions Architecture  </h4> 
+  <p style="font-size:17px; margin-top:1%; margin-bottom:0%"> Conestoga College, Kitchener, ON (Sept'22 – Apr'23) </p> 
+  <h4 style="margin-bottom:0%; margin-top:2%"> Computer Engineering  </h4> 
+  <p style="font-size:17px; margin-top:1%;"> Gujarat Technological University, Vadodara, IN (2014-2018) </p>
   
   <hr>
   

@@ -2,262 +2,262 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Prachi Patel</title>
-    <link>http://localhost:4321/</link>
+    <link>http://localhost:7147/</link>
     <description>Recent content on Prachi Patel</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 28 Mar 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:4321/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:7147/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Netlify</title>
-      <link>http://localhost:4321/collection/day02/01-netlify/</link>
+      <link>http://localhost:7147/collection/day02/01-netlify/</link>
       <pubDate>Sat, 02 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/collection/day02/01-netlify/</guid>
+      <guid>http://localhost:7147/collection/day02/01-netlify/</guid>
       <description>So far, we&amp;rsquo;ve been leveraging GitHub Pages for publishing. This works great, but for blogdown we&amp;rsquo;ll start using Netlify. Let&amp;rsquo;s start RIGHT NOW with a site we&amp;rsquo;ve already built and published.&#xA;Pre-requisites Pick either your postcards site, or your distill site from day 01. Refresh your memory- which repository was it again?</description>
     </item>
     <item>
       <title>A first post</title>
-      <link>http://localhost:4321/blog/spoonful-series/01-spoonful/</link>
+      <link>http://localhost:7147/blog/spoonful-series/01-spoonful/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blog/spoonful-series/01-spoonful/</guid>
+      <guid>http://localhost:7147/blog/spoonful-series/01-spoonful/</guid>
       <description> Hi, I&#39;m the here-bot cat! Use me to find your way in your website.&#xA;Here I am: content/blog\spoonful-series\01-spoonful.md To remove me, delete this line inside that file: {{&amp;lt; here &amp;gt;}}&#xA;My content section is: blog My layout is: single-series does this work? or this? Let&amp;rsquo;s start.&#xA;beginning middle end </description>
     </item>
     <item>
       <title>A GitHub profile</title>
-      <link>http://localhost:4321/collection/day01/01-github/</link>
+      <link>http://localhost:7147/collection/day01/01-github/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/collection/day01/01-github/</guid>
+      <guid>http://localhost:7147/collection/day01/01-github/</guid>
       <description>Profile https://docs.github.com/en/github/setting-up-and-managing-your-github-profile/personalizing-your-profile&#xA;Pin projects to profile https://docs.github.com/en/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile&#xA;Profile README This is new! Let&amp;rsquo;s do it:&#xA;https://docs.github.com/en/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme</description>
     </item>
     <item>
       <title>Prework</title>
-      <link>http://localhost:4321/collection/prework/</link>
+      <link>http://localhost:7147/collection/prework/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/collection/prework/</guid>
+      <guid>http://localhost:7147/collection/prework/</guid>
       <description>Welcome to the Introducing Yourself Online workshop! We look forward to meeting you. Before attending the workshop, please complete the following prework.&#xA;Set up RStudio Cloud Sign up for a free RStudio Cloud account at https://rstudio.cloud/ before the workshop. I recommend logging in with an existing Google or GitHub account, if you have one (rather than creating a new account with another password you have to remember). I want you to be able to work from your own laptop in this workshop, but Cloud is an important back-up plan should you run into troubles.</description>
     </item>
     <item>
       <title>A postcard</title>
-      <link>http://localhost:4321/collection/day01/02-postcards/</link>
+      <link>http://localhost:7147/collection/day01/02-postcards/</link>
       <pubDate>Sat, 02 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/collection/day01/02-postcards/</guid>
+      <guid>http://localhost:7147/collection/day01/02-postcards/</guid>
       <description>Pre-requisites First, make sure you have the latest version of the postcards package installed from CRAN:&#xA;install.packages(&amp;#34;postcards&amp;#34;) Restart your R session. If you use RStudio, use the menu item Session &amp;gt; Restart R or the associated keyboard shortcut:&#xA;Ctrl + Shift + F10 (Windows and Linux) or Command + Shift + F10 (Mac OS). packageVersion(&amp;#34;postcards&amp;#34;) [1] ‘0.2.0’ Create GitHub repo Online.&#xA;Clone GitHub repo usethis::create_from_github(&amp;#34;https://github.com/apreshill/global-postcard.git&amp;#34;) &amp;#x2728; Commit &amp;amp; Push! &amp;#x2728;</description>
     </item>
     <item>
       <title>A second post</title>
-      <link>http://localhost:4321/blog/spoonful-series/02-spoonful/</link>
+      <link>http://localhost:7147/blog/spoonful-series/02-spoonful/</link>
       <pubDate>Sat, 02 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blog/spoonful-series/02-spoonful/</guid>
+      <guid>http://localhost:7147/blog/spoonful-series/02-spoonful/</guid>
       <description> Hi, I&#39;m the here-bot cat! Use me to find your way in your website.&#xA;Here I am: content/blog\spoonful-series\02-spoonful\index.md To remove me, delete this line inside that file: {{&amp;lt; here &amp;gt;}}&#xA;My content section is: blog My layout is: single-series Images in this page bundle: /blog/spoonful-series/02-spoonful/sidebar-inverse.jpg part 2! does this work? now for some very cool things more get ready! </description>
     </item>
     <item>
       <title>Using blogdown</title>
-      <link>http://localhost:4321/collection/day02/02-blogdown/</link>
+      <link>http://localhost:7147/collection/day02/02-blogdown/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/collection/day02/02-blogdown/</guid>
+      <guid>http://localhost:7147/collection/day02/02-blogdown/</guid>
       <description>Pre-requisites First, make sure you have the latest version of the blogdown package installed from CRAN:&#xA;install.packages(&amp;#34;blogdoown&amp;#34;) Restart your R session. If you use RStudio, use the menu item Session &amp;gt; Restart R or the associated keyboard shortcut:&#xA;Ctrl + Shift + F10 (Windows and Linux) or Command + Shift + F10 (Mac OS). packageVersion(&amp;#34;blogdown&amp;#34;) [1] ‘1.0’ Create GitHub repo Online.&#xA;Clone GitHub repo usethis::create_from_github(&amp;#34;https://github.com/apreshill/global-blogdown.git&amp;#34;) &amp;#x2728; Commit &amp;amp; Push! &amp;#x2728;</description>
     </item>
     <item>
       <title>A third post</title>
-      <link>http://localhost:4321/blog/spoonful-series/03-spoonful/</link>
+      <link>http://localhost:7147/blog/spoonful-series/03-spoonful/</link>
       <pubDate>Sun, 03 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blog/spoonful-series/03-spoonful/</guid>
+      <guid>http://localhost:7147/blog/spoonful-series/03-spoonful/</guid>
       <description>Hi, I&#39;m the here-bot cat! Use me to find your way in your website.&#xA;Here I am: content/blog\spoonful-series\03-spoonful\index.markdown Here is my R Markdown source file: blog\spoonful-series\03-spoonful\index.Rmarkdown You&#39;ll want to edit this file, then re-knit to see the changes take effect in your site preview.&#xA;To remove me, delete this line inside that file: {{&amp;lt; here &amp;gt;}}&#xA;My content section is: blog My layout is: single-series Images in this page bundle: /blog/spoonful-series/03-spoonful/featured-photo.</description>
     </item>
     <item>
       <title>A distill site</title>
-      <link>http://localhost:4321/collection/day01/03-distill/</link>
+      <link>http://localhost:7147/collection/day01/03-distill/</link>
       <pubDate>Sat, 02 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/collection/day01/03-distill/</guid>
+      <guid>http://localhost:7147/collection/day01/03-distill/</guid>
       <description>Pre-requisites First, make sure you have the latest version of the distill package installed from CRAN:&#xA;install.packages(&amp;quot;distill&amp;quot;) Restart your R session. If you use RStudio, use the menu item Session &amp;gt; Restart R or the associated keyboard shortcut:&#xA;Ctrl + Shift + F10 (Windows and Linux) or Command + Shift + F10 (Mac OS). packageVersion(&amp;#34;distill&amp;#34;) # [1] ‘1.2’ Create GitHub repo Online.&#xA;Clone GitHub repo usethis::create_from_github(&amp;quot;https://github.com/apreshill/global-distill.git&amp;quot;) &amp;#x2728; Commit &amp;amp; Push!</description>
     </item>
     <item>
       <title>Warm woolen mittens</title>
-      <link>http://localhost:4321/collection/day02/03-blogdown/</link>
+      <link>http://localhost:7147/collection/day02/03-blogdown/</link>
       <pubDate>Sat, 02 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/collection/day02/03-blogdown/</guid>
+      <guid>http://localhost:7147/collection/day02/03-blogdown/</guid>
       <description> Hi, I&#39;m the here-bot cat! Use me to find your way in your website.&#xA;Here I am: content/collection\day02\03-blogdown\index.md To remove me, delete this line inside that file: {{&amp;lt; here &amp;gt;}}&#xA;My content section is: collection My layout is: single-series part 2! does this work? now for some very cool things more get ready! </description>
     </item>
     <item>
       <title>Salary data based on country and race</title>
-      <link>http://localhost:4321/project/salary-data-based-on-country-and-race/</link>
+      <link>http://localhost:7147/project/salary-data-based-on-country-and-race/</link>
       <pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/project/salary-data-based-on-country-and-race/</guid>
+      <guid>http://localhost:7147/project/salary-data-based-on-country-and-race/</guid>
       <description>Introduction This project analyzes salary data to understand how income varies by country, race, and gender. Using data from Kaggle, we examine patterns and differences in salaries. Our goal is to identify any disparities and provide insights into salary distribution across different demographic groups&#xA;Import Library This section loads and attaches all the necessary libraries for this project.&#xA;library(reticulate) Data Set Reference: Kaggle&#xA;Importing Python Library import pandas as pd import seaborn as sns import numpy as np import matplotlib.</description>
     </item>
     <item>
       <title>Contact</title>
-      <link>http://localhost:4321/contact/</link>
+      <link>http://localhost:7147/contact/</link>
       <pubDate>Sun, 25 Feb 2024 13:38:41 -0600</pubDate>
-      <guid>http://localhost:4321/contact/</guid>
+      <guid>http://localhost:7147/contact/</guid>
       <description>** Contact page don&amp;rsquo;t contain a body, just the front matter above. See form.html in the layouts folder.&#xA;Formspree requires a (free) account and new form to be set up. The link is made on the final published url in the field: Restrict to Domain. It is possible to register up to 2 emails free and you can select which one you want the forms to go to within Formspree in the Settings tab.</description>
     </item>
     <item>
       <title>Cancer Diagnosis Prediction Model</title>
-      <link>http://localhost:4321/project/cancer-diagnosis-prediction/</link>
+      <link>http://localhost:7147/project/cancer-diagnosis-prediction/</link>
       <pubDate>Tue, 13 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/project/cancer-diagnosis-prediction/</guid>
+      <guid>http://localhost:7147/project/cancer-diagnosis-prediction/</guid>
       <description>Introduction This project aims to predict cancer diagnosis using patient data. It compares different methods like Logistic Regression, Naive Bayes, and Linear Discriminant Analysis to find the most accurate model. The goal is to identify the best way to predict cancer while minimizing errors.&#xA;Data Dictionary Variable Description Cancer The patient was diagnosed with cancer (0=no, 1=yes) Age Age in years HW A ratio of Height to Weight Hst History of Cancer in Family (0=No, 1=Yes) Exe Time spent exercising each week (in minutes) Smk Patient is smoker (0=No, 1=Yes) Drk Patient drinks alcohol (0=No, 1=Yes) Hlth General health of patient.</description>
     </item>
     <item>
       <title>Order Fulfillment Analysis</title>
-      <link>http://localhost:4321/project/order-fulfillment-analysis/</link>
+      <link>http://localhost:7147/project/order-fulfillment-analysis/</link>
       <pubDate>Sun, 27 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/project/order-fulfillment-analysis/</guid>
+      <guid>http://localhost:7147/project/order-fulfillment-analysis/</guid>
       <description>Introduction This project aims to analyze the factors affecting the on-time delivery of orders for a major mail-order company. By employing logistic regression, Naive-Bayes classification, and Linear Discriminant Analysis, the goal is to identify significant predictors of delivery success and compare the accuracy, processing speed, and false positive rates of these classification techniques. The ultimate objective is to determine the most effective model for ensuring deliveries are made within the company&amp;rsquo;s target timeframe.</description>
     </item>
     <item>
       <title>Delivery Time Analysis</title>
-      <link>http://localhost:4321/project/delivery-time-analysis/</link>
+      <link>http://localhost:7147/project/delivery-time-analysis/</link>
       <pubDate>Sun, 13 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/project/delivery-time-analysis/</guid>
+      <guid>http://localhost:7147/project/delivery-time-analysis/</guid>
       <description>Introduction This project analyzes the factors affecting delivery times using multiple linear regression. It examines various variables like product age, order size, and delivery distance to predict how long deliveries will take. The goal is to find key predictors and compare different carriers to improve delivery efficiency.&#xA;Data Dictionary Variable Description Del Time for delivery (in days, rounded to nearest 10th) Vin Vintage of product (i.e. how long it has been in the warehouse).</description>
     </item>
     <item>
       <title>Drug Trial Analysis</title>
-      <link>http://localhost:4321/project/drug-trial-analysis/</link>
+      <link>http://localhost:7147/project/drug-trial-analysis/</link>
       <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/project/drug-trial-analysis/</guid>
+      <guid>http://localhost:7147/project/drug-trial-analysis/</guid>
       <description>Introduction This project analyzes data from a drug trial with 500 patients to test a new medication that aims to increase white blood cell count. We compare results between a treatment group and a control group to see if the drug works. The study also looks at how other factors like heart rate and blood pressure affect white blood cell counts.&#xA;Data Dictionary Variable Description ID UserID (unique to each respondent) gender Gender of patient HR Heart Rate (Low, Normal, High) BP Blood Pressure (Low, Normal, High) Wgt1 Patient Weight 1 week before test start Wgt2 Patient Weight at test start Exercise Minutes per week patient exercises Hgt Height of patient in inches Smoke Does the patient smoke?</description>
     </item>
     <item>
       <title>Earthquake Analysis</title>
-      <link>http://localhost:4321/project/earthquakes-analytics/</link>
+      <link>http://localhost:7147/project/earthquakes-analytics/</link>
       <pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/project/earthquakes-analytics/</guid>
+      <guid>http://localhost:7147/project/earthquakes-analytics/</guid>
       <description>Introduction This project aims to analyze earthquake data to understand patterns, trends, and characteristics of seismic activity. By examining factors such as location, magnitude, and depth of earthquakes over time, we seek to gain insights into seismic behavior and potential risk areas. Through data visualization and statistical analysis, we aim to contribute to earthquake preparedness and mitigation efforts.&#xA;Data Dictionary Variable Description Import Library This section loads and attaches all the necessary libraries for this project.</description>
     </item>
     <item>
       <title>Movie Data Analysis</title>
-      <link>http://localhost:4321/project/movie/</link>
+      <link>http://localhost:7147/project/movie/</link>
       <pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/project/movie/</guid>
+      <guid>http://localhost:7147/project/movie/</guid>
       <description>Introduction: The dataset given containing data of the movie from year 2014 and 2015 including Movie, Year, Ratings, Genre, Gross, Budget, Screens, Sequel, Sentiment, Views, Likes, Dislikes, Comments, Aggregate Followers. The aim of this project is to analyse the data to dig deep into data and know if there are any patters available or not?&#xA;Data Dictionary Variable Description Movie Movie Title Year Year of Movie Release Ratings Average Rating Genre Genre Code Gross Gross Sales (USD) Budget Budget (USD) Screens Nbr of Screens showing Sequel Sequel (1=Original Movie, 2=Sequel, 3=2nd Sequel, etc.</description>
     </item>
     <item>
       <title>Set up your social</title>
-      <link>http://localhost:4321/blog/social/</link>
+      <link>http://localhost:7147/blog/social/</link>
       <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blog/social/</guid>
+      <guid>http://localhost:7147/blog/social/</guid>
       <description>There are five places where you can choose to show social icons. Here is the tl;dr:&#xA;site header (set in config.toml), site footer (set in config.toml), homepage (set in content/_index.md), about page in the sidebar (set in content/about/sidebar/index.md), and contact page (set in content/form/contact.md). Read on to learn how to set up your social icons, and how to show/hide them.&#xA;Configure social Wherever you end up wanting to show your social icons, you&amp;rsquo;ll need to start by setting up the links in your site config.</description>
     </item>
     <item>
       <title>Style your site colors</title>
-      <link>http://localhost:4321/blog/color-themes/</link>
+      <link>http://localhost:7147/blog/color-themes/</link>
       <pubDate>Wed, 27 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blog/color-themes/</guid>
+      <guid>http://localhost:7147/blog/color-themes/</guid>
       <description>You can totally customize your site&amp;rsquo;s theme colors within minutes of creating a new site. Read on to find out how, and decide which of the three options meets your needs.&#xA;Use a color theme Hugo Apéro includes 8 built-in color themes that work &amp;ldquo;out of the box.&amp;rdquo; This means you can use a color theme to quickly customize the look of your site without needing to write any CSS. You can select the color theme in your config.</description>
     </item>
     <item>
       <title>Style your site typography</title>
-      <link>http://localhost:4321/blog/fonts/</link>
+      <link>http://localhost:7147/blog/fonts/</link>
       <pubDate>Wed, 27 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blog/fonts/</guid>
+      <guid>http://localhost:7147/blog/fonts/</guid>
       <description>As with color themes, you can completely customize your site&amp;rsquo;s fonts within minutes of creating a new site. How you do it depends on how much control and customization you need.&#xA;Embedded fonts Hugo Apéro includes 6 embedded fonts that work &amp;ldquo;out of the box.&amp;rdquo; We selected 3 serif and 3 sans-serif options that we thought looked good with this theme, in our humble opinions. All embedded fonts include real italics so you may emphasize to your heart&amp;rsquo;s content &amp;#x2764;&amp;#xfe0f;!</description>
     </item>
     <item>
       <title>An evergreen post</title>
-      <link>http://localhost:4321/blog/evergreen/</link>
+      <link>http://localhost:7147/blog/evergreen/</link>
       <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blog/evergreen/</guid>
+      <guid>http://localhost:7147/blog/evergreen/</guid>
       <description>Rendering mathematical equations Examples from the mathjax demo. But they work with katex as well.&#xA;Rmarkdown In .Rmarkdown documents, you can use either&#xA;$a \ne 0$ to get inline math: \(a \ne 0\). There is no conflict with using dollar symbols regularly, because knitr automatically escapes freestanding dollar symbols.&#xA;And you can use&#xA;$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$ to get a math paragraph:&#xA;$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.</description>
     </item>
     <item>
       <title>A campfire</title>
-      <link>http://localhost:4321/talk/campfire/</link>
+      <link>http://localhost:7147/talk/campfire/</link>
       <pubDate>Tue, 12 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/talk/campfire/</guid>
+      <guid>http://localhost:7147/talk/campfire/</guid>
       <description>I&amp;rsquo;m really excited to give this talk! Stay tuned for video and slides.</description>
     </item>
     <item>
       <title>Using panelsets</title>
-      <link>http://localhost:4321/blog/seedling/</link>
+      <link>http://localhost:7147/blog/seedling/</link>
       <pubDate>Sat, 02 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blog/seedling/</guid>
+      <guid>http://localhost:7147/blog/seedling/</guid>
       <description>Courtesy of panelset.js by Garrick Aden-Buie, from his xaringanExtra package: https://pkg.garrickadenbuie.com/xaringanExtra/#/panelset&#xA;For example, this panelset:&#xA;Hello! &amp;#x1f44b; hello&#xA;Goodbye &amp;#x1f4a8; goodbye&#xA;Was created by combining this theme&amp;rsquo;s panelset and panel shortcodes:&#xA;{{&amp;lt; panelset class=&amp;#34;greetings&amp;#34; &amp;gt;}} {{&amp;lt; panel name=&amp;#34;Hello! :wave:&amp;#34; &amp;gt;}} hello {{&amp;lt; /panel &amp;gt;}} {{&amp;lt; panel name=&amp;#34;Goodbye :dash:&amp;#34; &amp;gt;}} goodbye {{&amp;lt; /panel &amp;gt;}} {{&amp;lt; /panelset &amp;gt;}} You could also revert to HTML as well. For example, this panelset:&#xA;Question Which came first: the :chicken: or the :egg:?</description>
     </item>
     <item>
       <title>A seedling</title>
-      <link>http://localhost:4321/talk/second-seedling/</link>
+      <link>http://localhost:7147/talk/second-seedling/</link>
       <pubDate>Fri, 01 Jan 2021 14:15:59 -0600</pubDate>
-      <guid>http://localhost:4321/talk/second-seedling/</guid>
+      <guid>http://localhost:7147/talk/second-seedling/</guid>
       <description></description>
     </item>
     <item>
       <title>An Rmarkdown post</title>
-      <link>http://localhost:4321/blog/rmarkdown/</link>
+      <link>http://localhost:7147/blog/rmarkdown/</link>
       <pubDate>Wed, 30 Dec 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blog/rmarkdown/</guid>
+      <guid>http://localhost:7147/blog/rmarkdown/</guid>
       <description> Air quality with(airquality, boxplot(Temp ~ Month)) with(airquality, plot(Ozone ~ Temp)) mlev &amp;lt;- levels(with(airquality, as.factor(Month))) with(airquality, plot(Ozone ~ Temp, pch = as.numeric(mlev), col = mlev)) </description>
     </item>
     <item>
       <title>Hello R Markdown</title>
-      <link>http://localhost:4321/blog/2020-12-01-r-rmarkdown/</link>
+      <link>http://localhost:7147/blog/2020-12-01-r-rmarkdown/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
-      <guid>http://localhost:4321/blog/2020-12-01-r-rmarkdown/</guid>
+      <guid>http://localhost:7147/blog/2020-12-01-r-rmarkdown/</guid>
       <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.&#xA;You can embed an R code chunk like this:&#xA;summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
     </item>
     <item>
       <title>A seedling</title>
-      <link>http://localhost:4321/talk/seedling/</link>
+      <link>http://localhost:7147/talk/seedling/</link>
       <pubDate>Mon, 13 Jan 2020 14:15:59 -0600</pubDate>
-      <guid>http://localhost:4321/talk/seedling/</guid>
+      <guid>http://localhost:7147/talk/seedling/</guid>
       <description></description>
     </item>
     <item>
       <title>CSS Grid Scaffold</title>
-      <link>http://localhost:4321/blog/css-grid-scaffold/</link>
+      <link>http://localhost:7147/blog/css-grid-scaffold/</link>
       <pubDate>Tue, 02 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blog/css-grid-scaffold/</guid>
+      <guid>http://localhost:7147/blog/css-grid-scaffold/</guid>
       <description>“Grid is the very first CSS module created specifically to solve the layout problems we&amp;rsquo;ve all been hacking our way around for as long as we&amp;rsquo;ve been making websites.” — Chris House, A Complete Guide to CSS Grid Layout 1&#xA;Overview Since I began building websites in Y2K, I&amp;rsquo;ve lost count how many times the phrase &amp;ldquo;&amp;hellip;there&amp;rsquo;s got to be a better way to do this&amp;rdquo; has passed my lips.</description>
     </item>
     <item>
       <title>Built-in Contact Form</title>
-      <link>http://localhost:4321/blog/built-in-contact-form/</link>
+      <link>http://localhost:7147/blog/built-in-contact-form/</link>
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blog/built-in-contact-form/</guid>
+      <guid>http://localhost:7147/blog/built-in-contact-form/</guid>
       <description>Formspree makes it easy to receive submissions from HTML forms on your static website. Functional Form This theme has a form-to-email feature built in, thanks to the simple Formspree integration. All you need to activate the form is a valid recipient email address saved in the front matter of the form (/content/forms/contact.md). Of course, the example shown below (your@email.here) must not be used. Please use your actual email address.</description>
     </item>
     <item>
       <title>Typography Styles &amp; Element Examples</title>
-      <link>http://localhost:4321/elements/</link>
+      <link>http://localhost:7147/elements/</link>
       <pubDate>Mon, 18 Feb 2019 12:27:33 -0600</pubDate>
-      <guid>http://localhost:4321/elements/</guid>
+      <guid>http://localhost:7147/elements/</guid>
       <description>Font Sizes A A A A A A A A 6rem&#xA;(96px) 5rem&#xA;(80px) 3rem&#xA;(48px) 2.25rem&#xA;(36px) 1.5rem&#xA;(24px) 1.25rem&#xA;(20px) 1rem&#xA;(16px) .875rem&#xA;(14px) Type Samples Head&amp;shy;line Sub&amp;shy;head&amp;shy;line Level 1 Heading One page to rule them all...well, not really. This page displays sample typography and page elements to illustrate their style. Things like headings and paragraphs showing the beautiful type scale, form elements, tabular data, and image layouts just to name a few.</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:4321/about/header/</link>
+      <link>http://localhost:7147/about/header/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/about/header/</guid>
-      <description>&#xD;Experienced IT Professional in healthcare and recruitment IT. Proficient in development, ETL, data warehousing, and report development using SQL Server, SSIS, SSRS, Excel, Power BI, and Tableau. </description>
+      <guid>http://localhost:7147/about/header/</guid>
+      <description>&#xD;Experienced IT Professional in multiple sectors like healthcare and recruitment IT. Proficient in development, ETL, data warehousing, and report development using Power BI, Tableau, Excel, SQL Server, SSIS and SSRS. </description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:4321/about/sidebar/</link>
+      <link>http://localhost:7147/about/sidebar/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/about/sidebar/</guid>
+      <guid>http://localhost:7147/about/sidebar/</guid>
       <description>** index doesn&amp;rsquo;t contain a body, just front matter above. See about/list.html in the layouts folder **</description>
     </item>
     <item>
       <title>Contributors</title>
-      <link>http://localhost:4321/contributors/</link>
+      <link>http://localhost:7147/contributors/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/contributors/</guid>
+      <guid>http://localhost:7147/contributors/</guid>
       <description>Thank you to all the folks who have contributed both technical and creative skills to this project:&#xA;Desirée De Leon &amp;#x1f992; (designed 5 of the custom color themes, made illustrations for the workshop, and provided general aesthetic feedback along the way)&#xA;Garrick Aden-Buie &amp;#x1f9d9; (debugged headroom.js and lent his panelset.js code to the theme)&#xA;Allison Horst &amp;#x1f415; (awesome illustrations of campfires, seedlings, and evergreens, as well as my R Markdown hedgehog mascot &amp;#x1f994;)</description>
     </item>
     <item>
       <title>License</title>
-      <link>http://localhost:4321/license/</link>
+      <link>http://localhost:7147/license/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/license/</guid>
+      <guid>http://localhost:7147/license/</guid>
       <description>My blog posts are released under a Creative Commons Attribution-ShareAlike 4.0 International License.</description>
     </item>
     <item>
       <title>Why Me?</title>
-      <link>http://localhost:4321/about/main/</link>
+      <link>http://localhost:7147/about/main/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/about/main/</guid>
+      <guid>http://localhost:7147/about/main/</guid>
       <description>** index doesn&amp;rsquo;t contain a body, just front matter above. See about/list.html in the layouts folder **</description>
     </item>
   </channel>

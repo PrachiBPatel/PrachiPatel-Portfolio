@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>About on Prachi Patel</title>
-    <link>http://localhost:4321/about/</link>
+    <link>http://localhost:7147/about/</link>
     <description>Recent content in About on Prachi Patel</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:4321/about/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:7147/about/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>http://localhost:4321/about/header/</link>
+      <link>http://localhost:7147/about/header/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/about/header/</guid>
-      <description>&#xD;Experienced IT Professional in healthcare and recruitment IT. Proficient in development, ETL, data warehousing, and report development using SQL Server, SSIS, SSRS, Excel, Power BI, and Tableau. </description>
+      <guid>http://localhost:7147/about/header/</guid>
+      <description>&#xD;Experienced IT Professional in multiple sectors like healthcare and recruitment IT. Proficient in development, ETL, data warehousing, and report development using Power BI, Tableau, Excel, SQL Server, SSIS and SSRS. </description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:4321/about/sidebar/</link>
+      <link>http://localhost:7147/about/sidebar/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/about/sidebar/</guid>
+      <guid>http://localhost:7147/about/sidebar/</guid>
       <description>** index doesn&amp;rsquo;t contain a body, just front matter above. See about/list.html in the layouts folder **</description>
     </item>
     <item>
       <title>Why Me?</title>
-      <link>http://localhost:4321/about/main/</link>
+      <link>http://localhost:7147/about/main/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/about/main/</guid>
+      <guid>http://localhost:7147/about/main/</guid>
       <description>** index doesn&amp;rsquo;t contain a body, just front matter above. See about/list.html in the layouts folder **</description>
     </item>
   </channel>
