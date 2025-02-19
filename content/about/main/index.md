@@ -32,25 +32,19 @@ providing ongoing data insights to stakeholders, driving continuous improvement.
   <h4 style="margin-bottom:0%"> System Analyst (Allscripts India LLC, India) </h4> 
   <p style="font-size:16px; margin-top:0%"> May 2020 – July 2022 </p>
   <ul style="font-size:17px; text-align:justify;">
-  <li>Utilized Microsoft Power BI, SSRS, SSIS, and Power Automate to conduct analysis, documentation, testing,
-implementation, and user support for healthcare platforms.</li>
+  <li>Utilized Microsoft Power BI, SSRS, SSIS, and Power Automate to conduct analysis, documentation, testing, implementation, and user support for healthcare platforms.</li>
   <li>Developed automation solutions to streamline manual tasks using T-SQL, SQL Jobs, SSIS, and Power Automation.</li>
-  <li>Performed database development in MS SQL, creating stored procedures, functions, and views while adhering to best
-practices in data modelling and database concepts.</li>
+  <li>Performed database development in MS SQL, creating stored procedures, functions, and views while adhering to best practices in data modelling and database concepts.</li>
   <li>Generated comprehensive reports with diverse datasets using SSRS, Excel, and Power BI to enhance clients' KPIs.</li>
-  <li>Conducted data transfer activities by identifying and employing methods for data sources not previously encountered,
-ensuring smooth integration and migration processes.</li>
+  <li>Conducted data transfer activities by identifying and employing methods for data sources not previously encountered, ensuring smooth integration and migration processes.</li>
   </ul>
   
   <h4 style="margin-bottom:0%"> Software Developer (Collabera Technologies, India) </h4>
   <p style="font-size:16px; margin-top:0%"> Sept 2018 – May 2020 </p>
   <ul style="font-size:17px; text-align:justify;">
-  <li>Designed and maintained Power BI reports and dashboards for the executive team by gathering requirements from
-various departments and delivering actionable insights to inform decision-making.</li>
-  <li>Optimized SQL procedures and jobs for efficient data management and retrieval, leveraging SSAS to transform live SQL
-data into a presentable format for real-time Power BI reporting.</li>
-  <li>Updated and enhanced the recruiting platform's front end using C# and .NET, improving user experience and
-platform performance.</li>
+  <li>Designed and maintained Power BI reports and dashboards for the executive team by gathering requirements from various departments and delivering actionable insights to inform decision-making.</li>
+  <li>Optimized SQL procedures and jobs for efficient data management and retrieval, leveraging SSAS to transform live SQL data into a presentable format for real-time Power BI reporting.</li>
+  <li>Updated and enhanced the recruiting platform's front end using C# and .NET, improving user experience and platform performance.</li>
   <li>Communicated project statuses and updates to internal and external clients to ensure the timely and successful delivery of project deliverable.</li>
   </ul>
   
