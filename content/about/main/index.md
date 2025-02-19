@@ -6,7 +6,8 @@ use_featured: true # if false, use most recent by date
 number_categories: 3 # set to zero to exclude
 show_intro: true
 intro: |
-  <p style="font-size:18px; padding-top:0%; margin-top:0%; text-align:justify;">Microsoft-certified BI Developer with 5 years of experience in BI solution development using Microsoft Power BI, Tableau, and other analytical tools. Adept at managing shifting priorities, meeting tight deadlines, developing complex queries and reports, and automating tasks to enhance data accuracy. Proven skills in SQL, database management, and data modelling. I seek to leverage analytical and problem-solving expertise to ensure data quality and successful project delivery for internal and external clients.
+  <p style="font-size:18px; padding-top:0%; margin-top:0%; text-align:justify;">
+  Microsoft-certified BI Developer with 5 years of experience in BI solution development using Microsoft Power BI, Tableau, and other analytical tools. Adept at managing shifting priorities, meeting tight deadlines, developing complex queries and reports, and automating tasks to enhance data accuracy. Proven skills in SQL, database management, and data modelling. I seek to leverage analytical and problem-solving expertise to ensure data quality and successful project delivery for internal and external clients.
   <br/> <br/>
   Familiar with developing data mining applications to pull information quickly and efficiently for needed reports based on clients' requirements with vast amounts of data. I have broad knowledge of multiple applications and languages and top-notch technical abilities. My excellent verbal and written communication skills allow me to write reports and present information clearly and concisely effectively. My experience working with data and creating applications to manage that data makes me an excellent choice for this role. I am detail-oriented. My strong time management skills also help me complete tasks on schedule and self-manage my work.
   </p>
@@ -22,11 +23,9 @@ intro: |
   <ul style="font-size:17px; text-align:justify;">
   <li>Conducted in-depth analysis and visualization of data using Power BI, Tableau, and advanced Excel, transforming complex datasets into actionable insights that supported strategic decision-making and performance monitoring. </li>
   <li>Applied strong SQL expertise to query, extract, and manipulate data, ensuring accuracy and efficiency while supporting various banking segments in a fast-paced, goal-oriented environment.</li>
-  <li>Designed and developed ETL processes and dashboards with Power BI, SSRS, and Tableau, aligning with key metrics and
-providing ongoing data insights to stakeholders, driving continuous improvement.</li>
-  <li>Utilized Microsoft Power Query (M code) to refine existing data pipelines, ensuring the smooth flow of clean, actionable data into reporting structures without extensive data engineering involvement.</li>
-  <li>Enhanced reporting capabilities by maintaining data dictionaries and ensuring proper categorization, which improved problem-solving and analytical capabilities while supporting business intelligence functions.</li>
-  
+   <li>Designed and developed ETL processes and dashboards with Power BI, SSRS, and Tableau, aligning with key metrics and providing ongoing data insights to stakeholders, driving continuous improvement.</li>
+     <li>Utilized Microsoft Power Query (M code) to refine existing data pipelines, ensuring the smooth flow of clean, actionable data into reporting structures without extensive data engineering involvement.</li>
+     <li>Enhanced reporting capabilities by maintaining data dictionaries and ensuring proper categorization, which improved problem-solving and analytical capabilities while supporting business intelligence functions.</li>
   </ul>
   
   <h4 style="margin-bottom:0%"> System Analyst (Allscripts India LLC, India) </h4> 
@@ -73,7 +72,6 @@ providing ongoing data insights to stakeholders, driving continuous improvement.
   <li> <a href="https://www.credly.com/badges/9d970245-82f0-48f6-b812-b8bcdd8daa1f/">AZ-900 - Azure Fundamentals - Microsoft Certified </a> </li>
   </ul>
   
-  <hr>
   
 show_outro: false
 ---

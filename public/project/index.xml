@@ -2,59 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects Portfolio on Prachi Patel</title>
-    <link>http://localhost:7147/project/</link>
+    <link>http://localhost:4321/project/</link>
     <description>Recent content in Projects Portfolio on Prachi Patel</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 28 Mar 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:7147/project/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:4321/project/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Salary data based on country and race</title>
-      <link>http://localhost:7147/project/salary-data-based-on-country-and-race/</link>
+      <link>http://localhost:4321/project/salary-data-based-on-country-and-race/</link>
       <pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:7147/project/salary-data-based-on-country-and-race/</guid>
+      <guid>http://localhost:4321/project/salary-data-based-on-country-and-race/</guid>
       <description>Introduction This project analyzes salary data to understand how income varies by country, race, and gender. Using data from Kaggle, we examine patterns and differences in salaries. Our goal is to identify any disparities and provide insights into salary distribution across different demographic groups&#xA;Import Library This section loads and attaches all the necessary libraries for this project.&#xA;library(reticulate) Data Set Reference: Kaggle&#xA;Importing Python Library import pandas as pd import seaborn as sns import numpy as np import matplotlib.</description>
     </item>
     <item>
       <title>Cancer Diagnosis Prediction Model</title>
-      <link>http://localhost:7147/project/cancer-diagnosis-prediction/</link>
+      <link>http://localhost:4321/project/cancer-diagnosis-prediction/</link>
       <pubDate>Tue, 13 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:7147/project/cancer-diagnosis-prediction/</guid>
+      <guid>http://localhost:4321/project/cancer-diagnosis-prediction/</guid>
       <description>Introduction This project aims to predict cancer diagnosis using patient data. It compares different methods like Logistic Regression, Naive Bayes, and Linear Discriminant Analysis to find the most accurate model. The goal is to identify the best way to predict cancer while minimizing errors.&#xA;Data Dictionary Variable Description Cancer The patient was diagnosed with cancer (0=no, 1=yes) Age Age in years HW A ratio of Height to Weight Hst History of Cancer in Family (0=No, 1=Yes) Exe Time spent exercising each week (in minutes) Smk Patient is smoker (0=No, 1=Yes) Drk Patient drinks alcohol (0=No, 1=Yes) Hlth General health of patient.</description>
     </item>
     <item>
       <title>Order Fulfillment Analysis</title>
-      <link>http://localhost:7147/project/order-fulfillment-analysis/</link>
+      <link>http://localhost:4321/project/order-fulfillment-analysis/</link>
       <pubDate>Sun, 27 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:7147/project/order-fulfillment-analysis/</guid>
+      <guid>http://localhost:4321/project/order-fulfillment-analysis/</guid>
       <description>Introduction This project aims to analyze the factors affecting the on-time delivery of orders for a major mail-order company. By employing logistic regression, Naive-Bayes classification, and Linear Discriminant Analysis, the goal is to identify significant predictors of delivery success and compare the accuracy, processing speed, and false positive rates of these classification techniques. The ultimate objective is to determine the most effective model for ensuring deliveries are made within the company&amp;rsquo;s target timeframe.</description>
     </item>
     <item>
       <title>Delivery Time Analysis</title>
-      <link>http://localhost:7147/project/delivery-time-analysis/</link>
+      <link>http://localhost:4321/project/delivery-time-analysis/</link>
       <pubDate>Sun, 13 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:7147/project/delivery-time-analysis/</guid>
+      <guid>http://localhost:4321/project/delivery-time-analysis/</guid>
       <description>Introduction This project analyzes the factors affecting delivery times using multiple linear regression. It examines various variables like product age, order size, and delivery distance to predict how long deliveries will take. The goal is to find key predictors and compare different carriers to improve delivery efficiency.&#xA;Data Dictionary Variable Description Del Time for delivery (in days, rounded to nearest 10th) Vin Vintage of product (i.e. how long it has been in the warehouse).</description>
     </item>
     <item>
       <title>Drug Trial Analysis</title>
-      <link>http://localhost:7147/project/drug-trial-analysis/</link>
+      <link>http://localhost:4321/project/drug-trial-analysis/</link>
       <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:7147/project/drug-trial-analysis/</guid>
+      <guid>http://localhost:4321/project/drug-trial-analysis/</guid>
       <description>Introduction This project analyzes data from a drug trial with 500 patients to test a new medication that aims to increase white blood cell count. We compare results between a treatment group and a control group to see if the drug works. The study also looks at how other factors like heart rate and blood pressure affect white blood cell counts.&#xA;Data Dictionary Variable Description ID UserID (unique to each respondent) gender Gender of patient HR Heart Rate (Low, Normal, High) BP Blood Pressure (Low, Normal, High) Wgt1 Patient Weight 1 week before test start Wgt2 Patient Weight at test start Exercise Minutes per week patient exercises Hgt Height of patient in inches Smoke Does the patient smoke?</description>
     </item>
     <item>
       <title>Earthquake Analysis</title>
-      <link>http://localhost:7147/project/earthquakes-analytics/</link>
+      <link>http://localhost:4321/project/earthquakes-analytics/</link>
       <pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:7147/project/earthquakes-analytics/</guid>
+      <guid>http://localhost:4321/project/earthquakes-analytics/</guid>
       <description>Introduction This project aims to analyze earthquake data to understand patterns, trends, and characteristics of seismic activity. By examining factors such as location, magnitude, and depth of earthquakes over time, we seek to gain insights into seismic behavior and potential risk areas. Through data visualization and statistical analysis, we aim to contribute to earthquake preparedness and mitigation efforts.&#xA;Data Dictionary Variable Description Import Library This section loads and attaches all the necessary libraries for this project.</description>
     </item>
     <item>
       <title>Movie Data Analysis</title>
-      <link>http://localhost:7147/project/movie/</link>
+      <link>http://localhost:4321/project/movie/</link>
       <pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:7147/project/movie/</guid>
+      <guid>http://localhost:4321/project/movie/</guid>
       <description>Introduction: The dataset given containing data of the movie from year 2014 and 2015 including Movie, Year, Ratings, Genre, Gross, Budget, Screens, Sequel, Sentiment, Views, Likes, Dislikes, Comments, Aggregate Followers. The aim of this project is to analyse the data to dig deep into data and know if there are any patters available or not?&#xA;Data Dictionary Variable Description Movie Movie Title Year Year of Movie Release Ratings Average Rating Genre Genre Code Gross Gross Sales (USD) Budget Budget (USD) Screens Nbr of Screens showing Sequel Sequel (1=Original Movie, 2=Sequel, 3=2nd Sequel, etc.</description>
     </item>
   </channel>
