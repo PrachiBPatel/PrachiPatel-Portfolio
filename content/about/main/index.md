@@ -25,8 +25,7 @@ intro: |
   <li>Designed and developed ETL processes and dashboards with Power BI, SSRS, and Tableau, aligning with key metrics and
 providing ongoing data insights to stakeholders, driving continuous improvement.</li>
   <li>Utilized Microsoft Power Query (M code) to refine existing data pipelines, ensuring the smooth flow of clean, actionable data into reporting structures without extensive data engineering involvement.</li>
-  <li>Enhanced reporting capabilities by maintaining data dictionaries and ensuring proper categorization, which improved
-problem-solving and analytical capabilities while supporting business intelligence functions.</li>
+  <li>Enhanced reporting capabilities by maintaining data dictionaries and ensuring proper categorization, which improved problem-solving and analytical capabilities while supporting business intelligence functions.</li>
   
   </ul>
   
