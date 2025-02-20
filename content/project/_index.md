@@ -1,5 +1,5 @@
 ---
-title: Projects Portfolio
+title: Projects List
 description: "Business Intelligence(BI) & Data Analysis Projects"
 author: "Prachi Patel"
 show_post_thumbnail: false
