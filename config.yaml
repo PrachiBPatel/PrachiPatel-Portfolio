@@ -52,6 +52,7 @@ params:
     - icon: linkedin
       icon_pack: fab
       url: https://www.linkedin.com/in/prachi-b-patel/
+      
   socialInFooter: yes
   socialInHeader: no
   textFontFamily: sans-serif
