@@ -9,6 +9,7 @@ link_list_label: "Skills" # bookmarks, elsewhere, etc.
 link_list:
 - name: Tableau
 - name: Power BI
+- name: Alteryx
 - name: Microsoft Active directory
 - name: Python
 - name: Github

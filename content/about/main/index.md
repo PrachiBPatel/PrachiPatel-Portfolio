@@ -7,9 +7,9 @@ number_categories: 3 # set to zero to exclude
 show_intro: true
 intro: |
   <p style="font-size:18px; padding-top:0%; margin-top:0%; text-align:justify;">
-  Microsoft-certified BI Analyst with 5 years of experience in business intelligence, data visualization, and analytics using Power BI, Tableau, and SQL. Skilled in data modeling, dashboard development, and automation to enhance data accuracy and drive insights. Adept at managing shifting priorities, meeting tight deadlines, and developing complex reports that support data-driven decision-making.
+  Microsoft-certified BI Analyst with 4 years of experience in business intelligence, data visualization, and analytics using Power BI, Tableau, Alteryx and SQL. Skilled in data modeling, dashboard development, and automation to enhance data accuracy and drive insights. Adept at managing shifting priorities, meeting tight deadlines, and developing complex reports that support data-driven decision-making.
   <br/> <br/>
-  Proficient in data mining and ETL processes, extracting actionable insights from vast datasets based on business needs. My strong analytical mindset and problem-solving abilities enable me to optimize data workflows and improve reporting efficiency. With broad knowledge of multiple applications and programming languages, I excel at designing scalable BI solutions.
+  Proficient in data mining and ETL processes, extracting actionable insights from vast dataset based on business needs. My strong analytical mindset and problem-solving abilities enable me to optimize data workflows and improve reporting efficiency. With broad knowledge of multiple applications and programming languages, I excel at designing scalable BI solutions.
   <br/><br/>
   I also bring excellent verbal and written communication skills, allowing me to translate complex data into clear, actionable insights for stakeholders. My attention to detail and time management skills ensure efficient project execution, making me a strong asset in delivering impactful business intelligence solutions.
   </p>
@@ -18,16 +18,16 @@ intro: |
   
   <h3> Work Experience </h3>
 
-  <h4 style="margin-bottom:0%"> Data Analyst (Revamp Technologies - Toronto, Canada) </h4> 
-  <p style="font-size:16px; margin-top:0%"> January 2024 – February 2025 </p>
-  <h4 style="margin-bottom:0%"> Data Analyst - Intern (Revamp Technologies - Toronto, Canada) </h4> 
-  <p style="font-size:16px; margin-top:0%"> May 2023 – December 2023 </p>
+  <h4 style="margin-bottom:0%"> Cashier (Petro Canada - Toronto, Canada) </h4> 
+  <p style="font-size:16px; margin-top:0%"> May 2025 – Current </p>
+
   <ul style="font-size:17px; text-align:justify;">
-  <li>Conducted in-depth analysis and visualization of data using Power BI, Tableau, and advanced Excel, transforming complex datasets into actionable insights that supported strategic decision-making and performance monitoring. </li>
-  <li>Applied strong SQL expertise to query, extract, and manipulate data, ensuring accuracy and efficiency while supporting various banking segments in a fast-paced, goal-oriented environment.</li>
+  <li>Provide excellent customer service by handling transactions efficiently and addressing customer inquiries with a friendly attitude. </li>
+  <li>Operate POS systems for cash, debit, and credit transactions, ensuring accuracy and speed.</li>
    <li>Designed and developed ETL processes and dashboards with Power BI, SSRS, and Tableau, aligning with key metrics and providing ongoing data insights to stakeholders, driving continuous improvement.</li>
-     <li>Utilized Microsoft Power Query (M code) to refine existing data pipelines, ensuring the smooth flow of clean, actionable data into reporting structures without extensive data engineering involvement.</li>
-     <li>Enhanced reporting capabilities by maintaining data dictionaries and ensuring proper categorization, which improved problem-solving and analytical capabilities while supporting business intelligence functions.</li>
+     <li>Maintain cleanliness and organization of the front counter and store area.</li>
+     <li>Monitor inventory levels and restock shelves to ensure product availability.</li>
+     <li>Follow safety and compliance procedures, including handling fuel payments and verifying age for restricted products.</li>
   </ul>
   
   <h4 style="margin-bottom:0%"> System Analyst (Allscripts India LLC, India) </h4> 
@@ -43,7 +43,7 @@ intro: |
   <h4 style="margin-bottom:0%"> Software Developer (Collabera Technologies, India) </h4>
   <p style="font-size:16px; margin-top:0%"> Sept 2018 – May 2020 </p>
   <ul style="font-size:17px; text-align:justify;">
-  <li>Designed and maintained Power BI reports and dashboards for the executive team by gathering requirements from various departments and delivering actionable insights to inform decision-making.</li>
+  <li>Designed and maintained Power BI and Alteryx reports and dashboards for the executive team by gathering requirements from various departments and delivering actionable insights to inform decision-making.</li>
   <li>Optimized SQL procedures and jobs for efficient data management and retrieval, leveraging SSAS to transform live SQL data into a presentable format for real-time Power BI reporting.</li>
   <li>Updated and enhanced the recruiting platform's front end using C# and .NET, improving user experience and platform performance.</li>
   <li>Communicated project statuses and updates to internal and external clients to ensure the timely and successful delivery of project deliverable.</li>
